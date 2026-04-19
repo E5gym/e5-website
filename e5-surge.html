@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surge | Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black:    #100B07;
+    --char:     #1F1710;
+    --ember:    #C46E2E;
+    --flame:    #E89445;
+    --gold:     #C9B07A;
+    --ash:      #8F7D65;
+    --fog:      #D6C8B2;
+    --snow:     #F3EDE4;
+    --panel:    #191414;
+    --white:    #FFFFFF;
+    --shadow:   rgba(0,0,0,0.18);
+  }
+  html, body { width:100%; min-height:100%; background:#0D0A08; color:var(--snow); font-family:'Nunito Sans', sans-serif; }
+  body { overflow-x:hidden; }
+  a { color: inherit; text-decoration:none; }
+  .page-wrap { display:flex; flex-direction:column; gap:72px; }
+  .hero { position:relative; min-height:84vh; background:linear-gradient(180deg, rgba(16,11,7,1) 0%, rgba(16,11,7,0.92) 55%, rgba(28,17,10,1) 100%); overflow:hidden; }
+  .hero::before { content:''; position:absolute; inset:0; background-image: radial-gradient(circle at 80% 15%, rgba(228,148,69,0.16), transparent 26%), repeating-linear-gradient(-45deg, transparent 0 72px, rgba(196,110,46,0.04) 72px 74px); pointer-events:none; }
+  .hero-content { position:relative; z-index:1; display:grid; grid-template-columns:1.1fr 0.9fr; min-height:84vh; padding:88px 72px; gap:48px; }
+  .hero-copy { display:flex; flex-direction:column; justify-content:center; gap:28px; max-width:680px; }
+  .eyebrow { font-family:'Montserrat', sans-serif; font-size:11px; letter-spacing:0.32em; text-transform:uppercase; color:var(--ember); opacity:0.9; }
+  .hero-title { font-family:'Montserrat', sans-serif; font-size:clamp(44px,6vw,84px); line-height:0.92; font-weight:900; text-transform:uppercase; letter-spacing:-0.04em; color:var(--snow); }
+  .hero-title em { display:block; font-style:normal; color:var(--ember); }
+  .hero-text { max-width:600px; font-size:17px; line-height:1.9; color:rgba(243,237,228,0.82); }
+  .hero-text strong { color:var(--snow); }
+  .hero-actions { display:flex; flex-wrap:wrap; gap:16px; }
+  .btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:10px; background:var(--ember); color:var(--snow); font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; text-transform:uppercase; padding:16px 28px; border-radius:4px; border:none; cursor:pointer; transition:transform .2s ease, background .2s ease; }
+  .btn-primary:hover { background:var(--flame); transform:translateY(-1px); }
+  .btn-secondary { display:inline-flex; align-items:center; gap:8px; color:var(--ash); font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; }
+  .hero-visual { position:relative; display:flex; align-items:flex-end; justify-content:flex-end; padding:44px; background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.06); border-radius:20px; backdrop-filter:blur(8px); }
+  .hero-visual::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at top left, rgba(228,148,69,0.14), transparent 22%); border-radius:20px; }
+  .hero-card { position:relative; z-index:1; width:100%; max-width:520px; padding:38px 34px; background:rgba(25,20,16,0.92); border:1px solid rgba(255,255,255,0.08); border-radius:18px; box-shadow:0 24px 60px rgba(0,0,0,0.35); }
+  .hero-card h3 { font-family:'Montserrat',sans-serif; font-size:22px; font-weight:800; letter-spacing:0.04em; margin-bottom:18px; color:var(--snow); }
+  .hero-card p { font-size:15px; line-height:1.75; color:rgba(243,237,228,0.78); }
+  .hero-card .pulse { margin-top:24px; display:inline-flex; align-items:center; gap:10px; padding:12px 16px; background:rgba(196,110,46,0.08); border:1px solid rgba(196,110,46,0.18); border-radius:999px; color:var(--ember); font-weight:700; letter-spacing:0.09em; }
+  .section { padding:72px 72px 84px; }
+  .section + .section { border-top:1px solid rgba(255,255,255,0.06); }
+  .section-header { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:22px; margin-bottom:38px; }
+  .section-label { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.32em; text-transform:uppercase; color:rgba(243,237,228,0.42); }
+  .section-headline { font-family:'Montserrat',sans-serif; font-size:clamp(34px,4.5vw,58px); line-height:1.02; font-weight:900; text-transform:uppercase; color:var(--snow); max-width:760px; }
+  .section-headline em { display:block; font-style:normal; color:var(--ember); }
+  .section-copy { max-width:760px; font-size:16px; line-height:1.85; color:rgba(243,237,228,0.78); }
+  .split-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .card-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:22px; }
+  .panel { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:28px; box-shadow:0 18px 40px rgba(0,0,0,0.18); }
+  .panel strong { color:var(--snow); }
+  .panel h4 { font-family:'Montserrat',sans-serif; font-size:18px; font-weight:800; letter-spacing:0.04em; margin-bottom:16px; color:var(--snow); }
+  .panel p { font-size:14px; line-height:1.8; color:rgba(243,237,228,0.78); }
+  .feature-list { display:grid; gap:20px; }
+  .feature-item { display:flex; gap:16px; align-items:flex-start; }
+  .feature-icon { width:14px; height:14px; margin-top:6px; border-radius:999px; background:var(--ember); flex-shrink:0; box-shadow:0 0 0 6px rgba(196,110,46,0.08); }
+  .feature-text { font-size:15px; line-height:1.85; color:rgba(243,237,228,0.82); }
+  .apply-panel { display:grid; grid-template-columns:1fr 1fr; gap:24px; background:linear-gradient(135deg, rgba(196,110,46,0.08), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.08); border-radius:24px; padding:40px; }
+  .apply-panel h3 { font-family:'Montserrat',sans-serif; font-size:24px; font-weight:900; margin-bottom:16px; color:var(--snow); }
+  .steps { display:grid; gap:18px; }
+  .step { display:grid; grid-template-columns:40px 1fr; gap:16px; }
+  .step-num { width:40px; height:40px; border-radius:50%; background:rgba(228,148,69,0.15); border:1px solid rgba(228,148,69,0.28); display:flex; align-items:center; justify-content:center; color:var(--ember); font-family:'Montserrat',sans-serif; font-size:14px; font-weight:900; }
+  .step-detail h4 { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:800; color:var(--snow); margin-bottom:6px; }
+  .step-detail p { font-size:14px; line-height:1.75; color:rgba(243,237,228,0.78); }
+  .cta-footer { margin-top:24px; display:flex; flex-wrap:wrap; gap:16px; align-items:center; }
+  .highlight { display:inline-flex; align-items:center; gap:10px; color:var(--gold); font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; }
+  @media (max-width: 960px) { .hero-content, .apply-panel, .split-grid, .card-grid { grid-template-columns:1fr; } .hero { min-height:auto; padding-bottom:50px; } .hero-content { padding:60px 32px 48px; } .section { padding:60px 32px 72px; } }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-copy">
+        <span class="eyebrow">Competitive Pathway</span>
+        <h1 class="hero-title">Surge <em>Advanced Competitive Parkour</em></h1>
+        <p class="hero-text">Surge is the elite development pipeline for athletes who are committed to taking their parkour to the next level. Designed for serious competitors targeting local meets and Colorado-level events, Surge blends explosive skill work, run-through intensity, and competition-ready strategy.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="e5-contact.html">Apply to Surge</a>
+          <a class="btn-secondary" href="#training">See the training</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <h3>Surge at a glance</h3>
+          <p>Train with a focused curriculum built for athletes who move beyond freestyle and into structure. Surge refines efficiency, maximizes power, and prepares competitors to perform under pressure.</p>
+          <div class="pulse">Local & Colorado competition focus</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="what-surges">
+    <div class="section-header">
+      <div>
+        <span class="section-label">What Surge Is</span>
+        <h2 class="section-headline">A high-performance pipeline for competition-ready athletes</h2>
+      </div>
+    </div>
+    <p class="section-copy">Surge is the advanced track within Elemental 5 for parkour athletes who are ready to move beyond general training. It teaches purposeful movement, polished runs, and mental resilience so athletes can compete confidently in local contests and regional Colorado events.</p>
+    <div class="split-grid" style="margin-top:32px;">
+      <div class="panel">
+        <h4>Structured progression</h4>
+        <p>Each cycle is built around measurable gains — from technical precision and vault efficiency to performance pacing and recovery. Surge athletes follow a clear, coach-led path rather than improvising on training day.</p>
+      </div>
+      <div class="panel">
+        <h4>Competition-first focus</h4>
+        <p>Every session includes drills that replicate competitive demands: tight transitions, dynamic linking, judges’ expectations, and run-through pressure. The goal is not only to train harder, but to perform smarter.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="who-it-is-for">
+    <div class="section-header">
+      <div>
+        <span class="section-label">Who It's For</span>
+        <h2 class="section-headline">Athletes with experience, ambition, and a competition mindset</h2>
+      </div>
+    </div>
+    <div class="card-grid">
+      <div class="panel">
+        <h4>Experienced movers</h4>
+        <p>Best suited for athletes who already have strong fundamentals in vaults, landings, and movement flow. Surge builds on that base with refined speed, control, and run execution.</p>
+      </div>
+      <div class="panel">
+        <h4>Committed competitors</h4>
+        <p>This track is for athletes who want to train intentionally, follow a coach-led plan, and prepare for the demands of competition weekends in Colorado and nearby communities.</p>
+      </div>
+      <div class="panel">
+        <h4>Goal-driven performers</h4>
+        <p>Surge is perfect for athletes who want to improve ranking, sharpen run routines, and show up ready to challenge themselves against local or regional competition fields.</p>
+      </div>
+      <div class="panel">
+        <h4>Strong recovery habits</h4>
+        <p>Training at this level requires smart recovery. Surge athletes understand the value of mobility, rest, and consistency between sessions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="training">
+    <div class="section-header">
+      <div>
+        <span class="section-label">What Training Looks Like</span>
+        <h2 class="section-headline">Precision, power, and performance preparation</h2>
+      </div>
+    </div>
+    <p class="section-copy">Surge training is organized around the three pillars of competitive development: technical mastery, run refinement, and performance mindset. Athletes train with purpose every session so that skill, strength, and strategy come together on the day of competition.</p>
+    <div class="card-grid" style="margin-top:32px;">
+      <div class="panel">
+        <h4>Technical intensity</h4>
+        <p>Focus on exact vault mechanics, landing control, grip transitions, and clean movement language. This phase reduces wasted motion and improves how athletes connect obstacles under speed.</p>
+      </div>
+      <div class="panel">
+        <h4>Run integration</h4>
+        <p>Practice full competitive run sequences, link obstacles with intent, and build endurance for multiple rounds. Coaches design run work to mirror local competition formats and scoring expectations.</p>
+      </div>
+      <div class="panel">
+        <h4>Strength & resilience</h4>
+        <p>Conditioning supports stronger takeoffs, safer landings, and dependable stamina. Surge blends bodyweight power, jump prep, and recovery mobility for athletes who train hard across the week.</p>
+      </div>
+      <div class="panel">
+        <h4>Competition preparation</h4>
+        <p>Includes mock judging, mental rehearsal, and strategy talks so athletes feel calm and confident under stress. Surge makes competition day feel familiar rather than overwhelming.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="apply">
+    <div class="section-header">
+      <div>
+        <span class="section-label">How to Apply</span>
+        <h2 class="section-headline">Join Surge in four decisive steps</h2>
+      </div>
+    </div>
+    <div class="apply-panel">
+      <div>
+        <p class="section-copy">Ready athletes apply through our athlete intake process, then begin with a performance review to place them in the correct Surge cohort. The goal is to match training intensity, refine goals, and build a plan that leads to competition readiness.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <div class="step-detail">
+            <h4>Reach out</h4>
+            <p>Contact Elemental 5 via the application form or email to express interest in Surge.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <div class="step-detail">
+            <h4>Share your goals</h4>
+            <p>Tell us about your parkour experience, past competitions, and the events you want to pursue.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <div class="step-detail">
+            <h4>Attend the review</h4>
+            <p>Complete an evaluation session so coaches can assess your current level and place you in the right Surge group.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">4</span>
+          <div class="step-detail">
+            <h4>Start training</h4>
+            <p>Begin the Surge program, focus on weekly progress, and prepare for local and Colorado competition opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-footer">
+      <span class="highlight">Surge is limited to athletes ready to compete.</span>
+      <a class="btn-primary" href="e5-contact.html">Apply to Surge</a>
+    </div>
+  </section>
+</div>
+</body>
+</html>
