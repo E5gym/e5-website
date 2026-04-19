@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Gym | Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --fire:    #CC3A0A;
+  --flame:   #E8621A;
+  --gold:    #C4922A;
+  --amber:   #E8A830;
+  --ember:   #F0C060;
+  --dark:    #0E0804;
+  --char:    #1A1008;
+  --ash:     #2A1C0C;
+  --cream:   #D6CCBE;
+  --fog:     #C8B89A;
+  --white:   #FFFFFF;
+  --muted:   rgba(240,210,160,0.45);
+  --body:    rgba(240,210,160,0.75);
+}
+
+html, body {
+  width: 100%;
+  margin: 0; padding: 0;
+  background: var(--dark);
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.section-divider {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--fire) 50%, var(--gold) 80%, transparent);
+  opacity: 0.7;
+}
+
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.section-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.section-headline em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+/* ── HERO ── */
+.gym-hero {
+  width: 100%;
+  background: var(--dark);
+  padding: 80px 72px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.gym-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 100%;
+  background: radial-gradient(ellipse at 80% 30%, rgba(200,80,10,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.gym-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 40%; height: 60%;
+  background: radial-gradient(ellipse at 20% 80%, rgba(196,146,42,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-left {
+  background: var(--fire);
+  border-radius: 4px 0 0 4px;
+  padding: 72px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Diagonal texture on fire card */
+.hero-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 40px,
+    rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px
+  );
+  pointer-events: none;
+}
+
+.hero-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(48px, 6vw, 96px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-headline em {
+  font-style: normal;
+  color: var(--ember);
+  display: block;
+}
+
+.hero-subhead {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.82);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-subhead strong { color: var(--white); font-weight: 600; }
+
+.hero-right {
+  background: var(--char);
+  border-radius: 0 4px 4px 0;
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid rgba(196,146,42,0.12);
+  border-left: none;
+}
+
+.stat-row {
+  background: var(--ash);
+  border-radius: 4px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid rgba(196,146,42,0.1);
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.stat-row:hover { border-color: rgba(196,146,42,0.3); transform: translateX(4px); }
+
+.stat-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--gold);
+  min-width: 72px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.stat-num span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(196,146,42,0.6);
+  display: block;
+  margin-top: 2px;
+}
+
+.stat-divider {
+  width: 1px; height: 32px;
+  background: rgba(196,146,42,0.15);
+  flex-shrink: 0;
+}
+
+.stat-text h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cream);
+  margin-bottom: 3px;
+}
+
+.stat-text p { font-size: 12px; color: var(--fog); line-height: 1.5; }
+
+/* ── VISION SECTION ── */
+.vision-section {
+  width: 100%;
+  background: var(--char);
+  padding: 80px 72px;
+}
+
+.vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 40px;
+}
+
+.vision-statement {
+  background: var(--gold);
+  border-radius: 4px;
+  padding: 52px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.vision-quote {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.15;
+  color: var(--dark);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.vision-sub {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(14,8,4,0.7);
+}
+
+.vision-sub strong { color: var(--dark); font-weight: 600; }
+
+.vision-points {
+  background: var(--ash);
+  border-radius: 4px;
+  padding: 52px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+  border: 1px solid rgba(196,146,42,0.1);
+}
+
+.vision-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.vpoint-bar {
+  width: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  flex-shrink: 0;
+  align-self: stretch;
+  min-height: 100%;
+}
+
+.vpoint-content h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.vpoint-content p { font-size: 13px; color: var(--fog); line-height: 1.65; }
+
+/* ── EXPANDED TIER TABLES ── */
+.tier-tables {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.tier-table-card {
+  background: var(--ash);
+  border-radius: 4px;
+  padding: 36px 32px;
+  border: 1px solid rgba(196,146,42,0.1);
+}
+
+.tier-table-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.tier-entry {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(196,146,42,0.1);
+}
+
+.tier-entry:last-child { border-bottom: none; }
+
+.tier-entry-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.tier-entry-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.tier-entry-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--gold);
+}
+
+.tier-entry-benefits {
+  font-size: 12px;
+  color: var(--fog);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.tier-earth-name  { color: #C4922A; }
+.tier-water-name  { color: #4A9FD4; }
+.tier-fire-name   { color: #CC3322; }
+.tier-air-name    { color: #9AABAA; }
+
+/* ── EXPANDED TIER TABLES ── */
+
+/* ── TIER PAYMENT BUTTONS ── */
+.tier-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 13px 18px;
+  border-radius: 3px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: filter 0.2s, transform 0.15s;
+}
+
+.tier-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+.tier-btn-earth  { background: #C4922A; color: var(--dark); }
+.tier-btn-water  { background: #4A9FD4; color: var(--white); }
+.tier-btn-fire   { background: #CC3322; color: var(--white); }
+.tier-btn-air    { background: #9AABAA; color: var(--dark); }
+
+.tier-btn-amount {
+  font-size: 13px;
+  font-weight: 900;
+  opacity: 0.8;
+}
+
+/* Mid-page conversion trigger */
+.conversion-trigger {
+  background: var(--fire);
+  border-radius: 4px;
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.conversion-trigger::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 40px,
+    rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px
+  );
+  pointer-events: none;
+}
+
+.conversion-trigger-text h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.conversion-trigger-text p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  position: relative;
+  z-index: 1;
+}
+
+.conversion-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  color: var(--fire);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: 3px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition: background 0.2s;
+}
+
+.conversion-trigger-btn:hover { background: var(--ember); }
+
+/* Custom contribution */
+.custom-contrib {
+  background: var(--ash);
+  border-radius: 4px;
+  padding: 28px 32px;
+  border: 1px solid rgba(196,146,42,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.custom-contrib p {
+  font-size: 13px;
+  color: var(--fog);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.custom-contrib strong { color: var(--cream); font-weight: 600; }
+
+.custom-contrib-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border: 1px solid rgba(196,146,42,0.4);
+  padding: 11px 20px;
+  border-radius: 3px;
+  white-space: nowrap;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.custom-contrib-btn:hover { border-color: var(--gold); color: var(--amber); }
+
+/* ── TIER PAYMENT BUTTONS ── */
+
+/* ── FOUNDING MEMBERSHIP ── */
+.founding-section {
+  width: 100%;
+  background: var(--dark);
+  padding: 80px 72px;
+}
+
+.founding-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 40px;
+}
+
+.founding-cta {
+  background: var(--fire);
+  border-radius: 4px;
+  padding: 52px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.founding-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 40px,
+    rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px
+  );
+  pointer-events: none;
+}
+
+.founding-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ember);
+  opacity: 0.85;
+  position: relative; z-index: 1;
+}
+
+.founding-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(22px, 2.8vw, 38px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  position: relative; z-index: 1;
+}
+
+.founding-desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.8);
+  position: relative; z-index: 1;
+}
+
+.founding-desc strong { color: var(--white); font-weight: 600; }
+
+.founding-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  color: var(--fire);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 16px 28px;
+  border-radius: 3px;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.2s;
+  position: relative; z-index: 1;
+}
+
+.founding-btn:hover { background: var(--cream); }
+
+/* Tiers card */
+.tiers-card {
+  background: var(--ash);
+  border-radius: 4px;
+  padding: 52px 48px;
+  border: 1px solid rgba(196,146,42,0.12);
+}
+
+.tiers-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  opacity: 0.8;
+}
+
+.tier-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(196,146,42,0.1);
+}
+
+.tier-row:last-of-type { border-bottom: none; }
+
+.tier-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cream);
+}
+
+.tier-desc { font-size: 11px; color: var(--fog); margin-top: 2px; }
+
+.tier-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tier-dot.earth { background: #C4922A; }
+.tier-dot.water { background: #4A9FD4; }
+.tier-dot.fire  { background: #CC3322; }
+.tier-dot.air   { background: #9AABAA; }
+.tier-dot.void  { background: #666; }
+
+.tier-info { display: flex; align-items: center; gap: 12px; }
+
+.pdf-link-row {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(196,146,42,0.12);
+}
+
+.pdf-link-row p {
+  font-size: 12px;
+  color: var(--fog);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pdf-link:hover { color: var(--amber); }
+
+/* ── DONATE / SUPPORT ── */
+.support-section {
+  width: 100%;
+  background: var(--char);
+  padding: 80px 72px;
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+  margin-top: 40px;
+}
+
+.support-card {
+  background: var(--ash);
+  border-radius: 4px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border: 1px solid rgba(196,146,42,0.08);
+  transition: border-color 0.2s;
+}
+
+.support-card:hover { border-color: rgba(196,146,42,0.25); }
+
+.support-card h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--cream);
+  letter-spacing: 0.03em;
+}
+
+.support-card p {
+  font-size: 13px;
+  color: var(--fog);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.support-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  margin-top: auto;
+  transition: gap 0.2s, color 0.2s;
+}
+
+.support-link:hover { gap: 12px; color: var(--amber); }
+
+.support-link.paypal {
+  background: var(--gold);
+  color: var(--dark);
+  padding: 12px 20px;
+  border-radius: 3px;
+  width: fit-content;
+  transition: background 0.2s;
+}
+
+.support-link.paypal:hover { background: var(--amber); gap: 12px; }
+
+/* ── FUNDING TRACKER ── */
+.tracker-section {
+  width: 100%;
+  background: var(--ash);
+  padding: 72px 72px;
+  border-top: 1px solid rgba(196,146,42,0.1);
+  border-bottom: 1px solid rgba(196,146,42,0.1);
+}
+
+.tracker-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.tracker-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+.tracker-headline em { font-style: normal; color: var(--gold); }
+
+.tracker-stats {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tracker-stat {
+  background: var(--char);
+  border: 1px solid rgba(196,146,42,0.15);
+  border-radius: 4px;
+  padding: 14px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 120px;
+}
+
+.tracker-stat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tracker-stat-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+}
+
+.tracker-stat-value.raised { color: var(--gold); }
+
+/* Big percentage */
+.tracker-pct-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.tracker-pct-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(64px, 8vw, 100px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+}
+
+.tracker-pct-sym {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.tracker-pct-label {
+  font-size: 13px;
+  color: var(--fog);
+  line-height: 1.4;
+}
+
+/* Progress bar */
+.tracker-bar-wrap {
+  width: 100%;
+  height: 12px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.tracker-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--fire), var(--gold), var(--amber));
+  transition: width 1.2s ease;
+  position: relative;
+}
+
+/* Glow on fill end */
+.tracker-bar-fill::after {
+  content: '';
+  position: absolute;
+  right: -2px; top: -2px; bottom: -2px;
+  width: 16px;
+  background: var(--amber);
+  filter: blur(4px);
+  opacity: 0.8;
+  border-radius: 50%;
+}
+
+.tracker-bar-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tracker-source {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--fog);
+}
+
+.tracker-source-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.tracker-goal-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+/* ── FUNDING TRACKER ── */
+@media (max-width: 900px) {
+  .gym-hero, .vision-section, .founding-section, .support-section, .tracker-section {
+    padding-left: 28px; padding-right: 28px;
+  }
+  .gym-hero { padding-bottom: 0; }
+  .hero-grid, .vision-grid, .founding-grid { grid-template-columns: 1fr; }
+  .hero-left { border-radius: 4px; }
+  .hero-right { border-radius: 4px; border-left: 1px solid rgba(196,146,42,0.12); }
+  .support-grid { grid-template-columns: 1fr; }
+  .vision-statement, .vision-points, .founding-cta, .tiers-card { padding: 40px 28px; }
+  .tier-tables { grid-template-columns: 1fr; }
+  .tracker-top { flex-direction: column; align-items: flex-start; }
+  .tracker-stats { flex-direction: row; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="gym-hero">
+  <div class="hero-grid">
+
+    <div class="hero-left">
+      <h1 class="hero-headline">
+        Building<br>
+        <em>what's</em><br>
+        next.
+      </h1>
+      <p class="hero-subhead">
+        Elemental 5 is expanding. A brand new 6,000 sq ft facility is being built
+        directly behind our current location in Salida, Colorado.
+        <strong>Opening Fall 2026. The same E5. More room to grow.</strong>
+      </p>
+    </div>
+
+    <div class="hero-right">
+
+      <div class="stat-row">
+        <div class="stat-num">6,000<span>Sq Ft</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-text">
+          <h4>Total Space</h4>
+          <p>Room to grow every program and launch new ones.</p>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-num">42x42<span>Ft</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-text">
+          <h4>Spring Floor</h4>
+          <p>Competition-grade spring floor for tumbling and acrobatics.</p>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-num">25<span>Ft</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-text">
+          <h4>Rig Points</h4>
+          <p>High ceiling rig for aerial silks, lyra, and rope work.</p>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-num">+<span>New</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-text">
+          <h4>Tramp Wall and Hot Bed</h4>
+          <p>Dedicated trampoline zone for NinFit and Tx3 progressions.</p>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-num">+<span>New</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-text">
+          <h4>Parkour and EMA Zone</h4>
+          <p>Calisthenics corner and dedicated martial arts dojo space.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── FUNDING TRACKER ── -->
+<section class="tracker-section">
+
+  <div class="tracker-top">
+    <div>
+      <p class="section-label">New Facility Fund &nbsp;·&nbsp; Fall 2026</p>
+      <h2 class="tracker-headline">Building something<br><em>that lasts.</em></h2>
+    </div>
+    <div class="tracker-stats">
+      <div class="tracker-stat">
+        <span class="tracker-stat-label">Raised So Far</span>
+        <span class="tracker-stat-value raised">$25,000</span>
+      </div>
+      <div class="tracker-stat">
+        <span class="tracker-stat-label">Total Goal</span>
+        <span class="tracker-stat-value">$86,739</span>
+      </div>
+      <div class="tracker-stat">
+        <span class="tracker-stat-label">Still Needed</span>
+        <span class="tracker-stat-value">$61,739</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tracker-pct-row">
+    <span class="tracker-pct-num">29</span>
+    <span class="tracker-pct-sym">%</span>
+    <span class="tracker-pct-label">of total<br>project funded</span>
+  </div>
+
+  <div class="tracker-bar-wrap">
+    <div class="tracker-bar-fill" style="width: 29%;"></div>
+  </div>
+
+  <div class="tracker-bar-meta">
+    <div class="tracker-source">
+      <div class="tracker-source-dot"></div>
+      <span>CCCF Enterprise Fund Grant &nbsp;·&nbsp; $25,000</span>
+    </div>
+    <span class="tracker-goal-label">Goal: $86,739</span>
+  </div>
+
+  <!-- MID-PAGE CONVERSION TRIGGER -->
+  <div class="conversion-trigger">
+    <div class="conversion-trigger-text">
+      <h3>Help us reach 50% funded.</h3>
+      <p>Founding members are how we get there. Spots are limited and this offer closes before we open.</p>
+    </div>
+    <a href="#founding" class="conversion-trigger-btn">Become a Founding Member →</a>
+  </div>
+
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── VISION ── -->
+<section class="vision-section">
+  <p class="section-label">Why We're Building</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,56px);">This is for<br><em>Chaffee County.</em></h2>
+
+  <div class="vision-grid">
+
+    <div class="vision-statement">
+      <p class="vision-quote">Help us build the next generation of youth development.</p>
+      <p class="vision-sub">
+        E5 is not building a franchise. We are building something deep in this community.
+        <strong>The long-term vision is simple:</strong> every local child eventually benefits from what we do here.
+      </p>
+    </div>
+
+    <div class="vision-points">
+
+      <div class="vision-point">
+        <div class="vpoint-bar"></div>
+        <div class="vpoint-content">
+          <h4>More programs. More kids.</h4>
+          <p>The new facility allows us to expand every program and add new ones, including Elemental Martial Arts and advanced training tracks.</p>
+        </div>
+      </div>
+
+      <div class="vision-point">
+        <div class="vpoint-bar"></div>
+        <div class="vpoint-content">
+          <h4>Right here in our backyard.</h4>
+          <p>The building process takes place directly behind the current E5 gym space. Same location. Same team. Bigger mission.</p>
+        </div>
+      </div>
+
+      <div class="vision-point">
+        <div class="vpoint-bar"></div>
+        <div class="vpoint-content">
+          <h4>Built to last for years.</h4>
+          <p>This facility is designed for Chaffee County families for generations. A permanent home for movement, character, and community.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── FOUNDING MEMBERSHIP ── -->
+<section class="founding-section" id="founding">
+  <p class="section-label">Founding Membership · Limited Spots Available</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,56px);">Join what<br><em>Salida builds.</em></h2>
+
+  <div class="founding-grid">
+
+    <div class="founding-cta">
+      <p class="founding-eyebrow">This is a limited opportunity</p>
+      <h3 class="founding-headline">Become part of it — permanently.</h3>
+      <p class="founding-desc">
+        E5 is not a gym. It is a development system — one that uses movement as the vehicle and character as the destination. The new facility is where that system runs at full scale.
+        <strong>Founding members don't just support this. They become part of it — permanently.</strong>
+      </p>
+      <p class="founding-desc" style="margin-top:8px;">
+        Pricing increases in June 2026. Founding members lock in today's rates for two full years. Their names stay in this building.
+        <strong>Founding spots close before we open.</strong>
+      </p>
+    </div>
+
+    <div class="tiers-card">
+      <p class="tiers-eyebrow">Why it matters</p>
+      <p style="font-size:13px;color:var(--fog);line-height:1.75;margin-bottom:20px;">
+        E5 was built on a simple belief: movement training is one of the most powerful environments we have for developing young people — not just physically, but in character, discipline, and the ability to face something hard and stay in it.
+      </p>
+      <p style="font-size:13px;color:var(--fog);line-height:1.75;margin-bottom:20px;">
+        <em style="color:var(--cream);">"Stronger bodies. Sharper minds. Better people."</em>
+      </p>
+      <p style="font-size:13px;color:var(--fog);line-height:1.75;margin-bottom:20px;">
+        No facility like this exists within driving distance of Salida. When it opens, it becomes a regional asset — the kind of infrastructure families consider when deciding where to plant roots.
+      </p>
+      <div class="pdf-link-row">
+        <p>Full tier details, naming rights, and the complete case for this facility are in our overview document.</p>
+        <a href="https://67b7281f-1abe-4e28-913a-475047794dcc.usrfiles.com/ugd/221b20_8e6ef64e825649d79928980b3a37257b.pdf"
+           target="_blank" class="pdf-link">Download Facility Overview PDF →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TIER TABLES -->
+  <div class="tier-tables">
+
+    <!-- FAMILY TIERS -->
+    <div class="tier-table-card">
+      <p class="tier-table-label">Family Founding Membership</p>
+
+      <div class="tier-entry">
+        <div class="tier-entry-header">
+          <span class="tier-entry-name tier-earth-name">Earth</span>
+          <span class="tier-entry-price">$500</span>
+        </div>
+        <p class="tier-entry-benefits">Name on Founding Member plaque · Current rate locked 2 years ($79/mo)</p>
+        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-29ab21a210e0480eb72f5566f576d66baaf019746bce49ec8f29439e4419b7839ff9b234097a486a9172af8dde2ef440?locale=EN_US" target="_blank" class="tier-btn tier-btn-earth">
+          <span>Join as Earth · Family</span>
+          <span class="tier-btn-amount">$500</span>
+        </a>
+      </div>
+
+      <div class="tier-entry">
+        <div class="tier-entry-header">
+          <span class="tier-entry-name tier-water-name">Water</span>
+          <span class="tier-entry-price">$1,000</span>
+        </div>
+        <p class="tier-entry-benefits">Earth benefits + 1 free birthday party · Priority summer camp booking · 10% off for 5 years · 1 Special Founders T-shirt</p>
+        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-75551c5791594299a2e77444d9fe7ce922f9fbc101f44027ae6713cd859aa4a5febe52cda3d44defb81c141320370685?locale=EN_US" target="_blank" class="tier-btn tier-btn-water">
+          <span>Join as Water · Family</span>
+          <span class="tier-btn-amount">$1,000</span>
+        </a>
+      </div>
+
+      <div class="tier-entry">
+        <div class="tier-entry-header">
+          <span class="tier-entry-name tier-fire-name">Fire</span>
+          <span class="tier-entry-price">$2,500</span>
+        </div>
+        <p class="tier-entry-benefits">Water benefits + Unlimited open gym 2 years (1 athlete) · 1 Classic E5 Hoodie</p>
+        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-1019ca3b9874433787c286909575e51cccf2a37cd3a34dfca592d1fac7a097ed079f8151f2a24ebcaa58685e4bd63f9d?locale=EN_US" target="_blank" class="tier-btn tier-btn-fire">
+          <span>Join as Fire · Family</span>
+          <span class="tier-btn-amount">$2,500</span>
+        </a>
+      </div>
+
+      <div class="tier-entry">
+        <div class="tier-entry-header">
+          <span class="tier-entry-name tier-air-name">Air</span>
+          <span class="tier-entry-price">$5,000</span>
+        </div>
+        <p class="tier-entry-benefits">Fire benefits + Unlimited open gym 2 years (2 athletes) · Special Founders T-shirts for the whole family</p>
+        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-3546d132a73e44fd9951af51ac7d318bde5e21a3fe7542549ebf327e49118418a3815e6829d94e17ad20413efeb95a16?locale=EN_US" target="_blank" class="tier-btn tier-btn-air">
+          <span>Join as Air · Family</span>
+          <span class="tier-btn-amount">$5,000</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- BUSINESS TIERS -->
+    <div class="tier-table-card">
+      <p class="tier-table-label">Business Founding Membership · Put Your Name on What Salida Builds</p>
+
+      <div class="tier-entry">
+        <div class="tier-entry-header">
+          <span class="tier-entry-name tier-earth-name">Earth</span>
+          <span class="tier-entry-price">$1,000</span>
+        </div>
+        <p class="tier-entry-benefits">Name on Founding Wall · 1 Special Founders T-shirt with your business listed on the back</p>
+        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-31700014db9d47cda081428fd7da18f4a3e739f027cb4657a31410933892d5fa93c0ba3d346b4f21b151f5685b00e056?locale=EN_US" target="_blank" class="tier-btn tier-btn-earth">
+          <span>Join as Earth · Business</span>
+          <span class="tier-btn-amount">$1,000</span>
+        </a>
+      </div>
+
+      <div class="tier-entry">
+        <div class="tier-entry-header">
+          <span class="tier-entry-name tier-water-name">Water</span>
+          <span class="tier-entry-price">$2,500</span>
+        </div>
+        <p class="tier-entry-benefits">Earth benefits + Featured lobby placement · Social media and website recognition</p>
+        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-ee09265ba27543ff91981fb4980b83d043379c28053c4b75915bbe38d3fa620dbf0ad6e23c5c46a19ce5a1a01d91c643?locale=EN_US" target="_blank" class="tier-btn tier-btn-water">
+          <span>Join as Water · Business</span>
+          <span class="tier-btn-amount">$2,500</span>
+        </a>
+      </div>
+
+      <div class="tier-entry">
+        <div class="tier-entry-header">
+          <span class="tier-entry-name tier-fire-name">Fire</span>
+          <span class="tier-entry-price">$5,000</span>
+        </div>
+        <p class="tier-entry-benefits">Water benefits + Logo on Founding Wall · 1 sponsored E5 event · 5 total T-shirts</p>
+        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-6b8dac17021b4b84a300ce9865dee0e883a16e745daf4693a012c12e521dd63a5435fb5bf20841a0bb5f66987fa7b3f3?locale=EN_US" target="_blank" class="tier-btn tier-btn-fire">
+          <span>Join as Fire · Business</span>
+          <span class="tier-btn-amount">$5,000</span>
+        </a>
+      </div>
+
+      <div class="tier-entry">
+        <div class="tier-entry-header">
+          <span class="tier-entry-name tier-air-name">Air</span>
+          <span class="tier-entry-price">$10,000</span>
+        </div>
+        <p class="tier-entry-benefits">Fire benefits + Logo on Echo materials · Named in all major announcements for 2 years · Employees receive 10% off all programs for 2 years</p>
+        <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Business%20Air%20Founding%20Membership%20%E2%80%94%20%2410%2C000" target="_blank" class="tier-btn tier-btn-air">
+          <span>Join as Air · Let's Talk</span>
+          <span class="tier-btn-amount">$10,000</span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CUSTOM CONTRIBUTION -->
+  <div class="custom-contrib">
+    <div>
+      <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Not sure which tier is right?</p>
+      <p><strong>Make a custom contribution.</strong> Any amount moves this forward. Reach out and we'll find the right fit together.</p>
+    </div>
+    <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Custom%20Contribution%20%E2%80%94%20E5%20New%20Facility" target="_blank" class="custom-contrib-btn">Contribute Any Amount →</a>
+  </div>
+
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── GET INVOLVED ── -->
+<section class="support-section">
+  <p class="section-label">Get Involved</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,56px);">More ways to<br><em>be part of this.</em></h2>
+
+  <div class="support-grid">
+
+    <div class="support-card">
+      <h4>Make a custom contribution</h4>
+      <p>Not ready to commit to a tier? Any contribution directly supports the new facility build. Reach out and we'll make it work.</p>
+      <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Custom%20Contribution%20%E2%80%94%20E5%20New%20Facility" target="_blank" class="support-link">Get in touch →</a>
+    </div>
+
+    <div class="support-card">
+      <h4>Sponsor a space</h4>
+      <p>Businesses can sponsor naming rights, equipment, or program spaces in the new facility. Custom packages available beyond the founding tiers.</p>
+      <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Sponsorship%20Inquiry" target="_blank" class="support-link">Start the conversation →</a>
+    </div>
+
+    <div class="support-card">
+      <h4>Spread the word</h4>
+      <p>Share what E5 is building with your community. Every family who hears about this is a potential founding member.</p>
+      <div style="display:flex;gap:12px;margin-top:4px;">
+        <a href="https://www.facebook.com/elemental5.ninfit" target="_blank" class="support-link">Facebook →</a>
+        <a href="https://www.instagram.com/elemental5_ninja/#" target="_blank" class="support-link">Instagram →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

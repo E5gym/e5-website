@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building Character | Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg1:   #E8E4DC;
+  --bg2:   #DEDAD2;
+  --bg3:   #D4D0C8;
+  --cream: #C8C0B0;
+  --dark:  #1A1A18;
+  --mid:   #4A4640;
+  --soft:  rgba(26,26,24,0.45);
+  --body:  rgba(26,26,24,0.72);
+  --red:   #CC1F1F;
+  --white: #ffffff;
+
+  /* Element colors */
+  --earth: #8B6B3A;
+  --water: #2A7AB8;
+  --fire:  #CC3A0A;
+  --air:   #6A8A88;
+  --void:  #4A4248;
+}
+
+html, body {
+  width: 100%;
+  margin: 0; padding: 0;
+  background: var(--bg1);
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  width: 100%;
+  background: var(--dark);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  align-items: stretch;
+}
+
+.hero-photo-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://lh3.googleusercontent.com/d/1rDDLig9sQWATGE33wqH_zj7Kl698Hydy');
+  background-size: cover;
+  background-position: center 25%;
+  opacity: 0.25;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 96px 72px 88px;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+}
+
+.hero-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.hero-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(36px, 5vw, 68px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.hero-headline em {
+  font-style: normal;
+  color: rgba(255,255,255,0.35);
+  display: block;
+}
+
+.hero-body {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.7);
+  max-width: 560px;
+}
+
+.hero-body strong { color: var(--white); font-weight: 600; }
+
+/* ── OPENING STATEMENT ── */
+.opening-section {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px;
+}
+
+.opening-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.opening-card {
+  background: var(--red);
+  border-radius: 4px;
+  padding: 56px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.opening-quote {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.15;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.opening-sub {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.8);
+}
+
+.opening-sub strong { color: var(--white); font-weight: 600; }
+
+.opening-right {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 56px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.opening-right p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--body);
+}
+
+.opening-right p strong { color: var(--dark); font-weight: 600; }
+
+/* ── THE SEED IDEA ── */
+.seed-section {
+  width: 100%;
+  background: var(--bg2);
+  padding: 80px 72px;
+}
+
+.seed-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 14px;
+}
+
+.seed-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--dark);
+  margin-bottom: 48px;
+}
+
+.seed-headline em { font-style: normal; color: var(--red); }
+
+.seed-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+}
+
+.seed-card {
+  background: var(--dark);
+  border-radius: 4px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.seed-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.15em;
+}
+
+.seed-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.seed-body {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.6);
+  flex: 1;
+}
+
+.seed-body strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+/* ── ELEMENTS AS CHARACTER LANGUAGE ── */
+.elements-section {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px;
+}
+
+.elements-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.elements-intro-left {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+.elements-intro-left p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--body);
+}
+
+.elements-intro-left p strong { color: var(--dark); font-weight: 600; }
+
+.elements-intro-right {
+  background: var(--dark);
+  border-radius: 4px;
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.elements-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 6px;
+}
+
+.elements-intro-right blockquote {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.25;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  border-left: 3px solid var(--red);
+  padding-left: 20px;
+}
+
+.elements-intro-right .quote-attr {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  padding-left: 23px;
+  margin-top: 4px;
+}
+
+/* Five element cards */
+.elements-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.element-card {
+  border-radius: 4px;
+  padding: 28px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.element-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 40px,
+    rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px
+  );
+  pointer-events: none;
+}
+
+.ec-earth { background: var(--earth); }
+.ec-water { background: var(--water); }
+.ec-fire  { background: var(--fire);  }
+.ec-air   { background: var(--air);   }
+.ec-void  { background: var(--void);  }
+
+.element-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+.element-theme {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  font-style: italic;
+  position: relative;
+}
+
+.element-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  position: relative;
+}
+
+.element-words {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.element-word {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.9);
+  padding: 6px 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+}
+
+.element-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  position: relative;
+  flex: 1;
+}
+
+/* ── MAT CHAT IN PRACTICE ── */
+.matchat-section {
+  width: 100%;
+  background: var(--bg2);
+  padding: 80px 72px;
+}
+
+.matchat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 40px;
+}
+
+.matchat-photo {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.matchat-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.matchat-content {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 52px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.matchat-content p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--body);
+}
+
+.matchat-content p strong { color: var(--dark); font-weight: 600; }
+
+.matchat-note {
+  background: var(--dark);
+  border-radius: 4px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.matchat-note-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.matchat-note p {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.65);
+}
+
+.matchat-note strong { color: rgba(255,255,255,0.85) !important; }
+
+/* ── TESTIMONIAL ── */
+.testimonial-section {
+  width: 100%;
+  background: var(--dark);
+  padding: 80px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 60px,
+    rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px
+  );
+  pointer-events: none;
+}
+
+.testimonial-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.testimonial-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.testimonial-quote {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+  font-style: italic;
+}
+
+.testimonial-quote strong {
+  color: var(--white);
+  font-weight: 700;
+  font-style: normal;
+}
+
+.testimonial-attr {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.testimonial-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--red);
+  border-radius: 1px;
+}
+
+/* ── CTA ── */
+.cta-section {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.cta-left {
+  background: var(--red);
+  border-radius: 4px;
+  padding: 56px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 40px,
+    rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px
+  );
+  pointer-events: none;
+}
+
+.cta-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.cta-sub {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.8);
+  position: relative;
+  z-index: 1;
+}
+
+.cta-sub strong { color: var(--white); font-weight: 600; }
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  color: var(--red);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 15px 28px;
+  border-radius: 3px;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-btn:hover { background: var(--bg1); }
+
+.cta-right {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 56px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cta-right h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.cta-right p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--body);
+}
+
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+
+.cta-link:hover { gap: 12px; }
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  .hero-content, .opening-section, .seed-section,
+  .elements-section, .matchat-section,
+  .testimonial-section, .cta-section {
+    padding-left: 28px; padding-right: 28px;
+  }
+  .opening-grid, .elements-intro, .matchat-grid, .cta-grid { grid-template-columns: 1fr; }
+  .seed-grid { grid-template-columns: 1fr; }
+  .elements-grid { grid-template-columns: 1fr 1fr; }
+  .matchat-photo { min-height: 280px; }
+}
+
+@media (max-width: 560px) {
+  .elements-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-photo-bg"></div>
+  <div class="hero-content">
+    <p class="hero-label">Building Character</p>
+    <h1 class="hero-headline">
+      We spend a lot of time thinking about<br>
+      <em>who your kid is becoming.</em>
+    </h1>
+    <p class="hero-body">
+      Every class at E5 ends the same way. The kids sit down, catch their breath, and
+      someone asks a question. Not about a skill. Not about a level.
+      <strong>About who they are and how they move through the world.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ── OPENING STATEMENT ── -->
+<section class="opening-section">
+  <div class="opening-grid">
+
+    <div class="opening-card">
+      <p class="opening-quote">Movement is our medium.<br>Character is what we're building.</p>
+      <p class="opening-sub">
+        We have always believed that a gym should develop more than athletes.
+        The physical work is real and it matters —
+        <strong>but what we are really after is who they become through the process.</strong>
+      </p>
+    </div>
+
+    <div class="opening-right">
+      <p>
+        Most kids who come to E5 get stronger, learn new skills, and earn their levels.
+        That is the visible part. But something else happens alongside it — something
+        quieter and harder to measure.
+      </p>
+      <p>
+        They start to have a language for things like courage, persistence, and showing up
+        even when it is hard. Not because we gave them a lecture. Because we asked them
+        questions, week after week, about what those things actually feel like.
+        <strong>That is the mat chat.</strong>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── THE SEED IDEA ── -->
+<section class="seed-section">
+  <p class="seed-label">The Philosophy</p>
+  <h2 class="seed-headline">Planting seeds.<br><em>Every single class.</em></h2>
+
+  <div class="seed-grid">
+
+    <div class="seed-card">
+      <p class="seed-num">01</p>
+      <h3 class="seed-title">No single conversation changes a kid.</h3>
+      <p class="seed-body">
+        We know that. A five-minute reflection at the end of class is not going to transform
+        anyone. <strong>But that is not the goal.</strong> The goal is consistency. A small moment,
+        every class, every week. Questions about integrity when no one is watching.
+        About what courage actually felt like today. Those moments compound.
+      </p>
+    </div>
+
+    <div class="seed-card">
+      <p class="seed-num">02</p>
+      <h3 class="seed-title">Perspective lands differently after hard work.</h3>
+      <p class="seed-body">
+        There is something intentional about doing the mat chat after training, not before.
+        A kid who just pushed through something difficult is more open to a conversation
+        about <strong>what it means to not give up.</strong> The body and the mind are in the same
+        moment. The lesson has somewhere to land.
+      </p>
+    </div>
+
+    <div class="seed-card">
+      <p class="seed-num">03</p>
+      <h3 class="seed-title">The language comes home.</h3>
+      <p class="seed-body">
+        Parents tell us this more than almost anything else. Their kid came home talking about
+        what humility means, or why accountability matters, or asking whether something they did
+        was really courageous or just reckless. <strong>That is the whole point.</strong>
+        E5 is not trying to replace what happens at home — it is trying to reinforce it.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ELEMENTS AS CHARACTER LANGUAGE ── -->
+<section class="elements-section">
+  <p class="seed-label">The Framework</p>
+  <h2 class="seed-headline">The Five Elements<br><em>as a character language.</em></h2>
+
+  <div class="elements-intro">
+
+    <div class="elements-intro-left">
+      <p>
+        The Five Elements are not just a training progression. They are a shared vocabulary
+        that runs through everything at E5 — the physical skills, the coaching language,
+        and the character conversation.
+      </p>
+      <p>
+        When a coach says a student is working in their <strong>Earth phase</strong>, it means more than
+        a skill level. It means they are in the season of building foundations —
+        in movement and in themselves. The elements give us a consistent way to
+        talk about growth that kids actually remember and use.
+      </p>
+    </div>
+
+    <div class="elements-intro-right">
+      <p class="elements-eyebrow">Why it works</p>
+      <blockquote>
+        "When you give kids a word for something they already feel, it becomes a tool they can use."
+      </blockquote>
+      <p class="quote-attr">— Joe Lobeck, Founder</p>
+    </div>
+
+  </div>
+
+  <div class="elements-grid">
+
+    <div class="element-card ec-earth">
+      <p class="element-name">Earth</p>
+      <p class="element-theme">Strength, stability, showing up</p>
+      <div class="element-divider"></div>
+      <div class="element-words">
+        <span class="element-word">Discipline</span>
+        <span class="element-word">Humility</span>
+        <span class="element-word">Steadiness</span>
+      </div>
+      <p class="element-desc">Earth is the foundation. We talk about what it means to show up consistently — not just on the good days — and to do the work even when no one is watching.</p>
+    </div>
+
+    <div class="element-card ec-water">
+      <p class="element-name">Water</p>
+      <p class="element-theme">Adaptability, flow, resilience</p>
+      <div class="element-divider"></div>
+      <div class="element-words">
+        <span class="element-word">Flexibility</span>
+        <span class="element-word">Persistence</span>
+        <span class="element-word">Recovery</span>
+      </div>
+      <p class="element-desc">Water is about bouncing back. We talk about what it feels like to fail, to try again, and to find another way when the first one does not work.</p>
+    </div>
+
+    <div class="element-card ec-fire">
+      <p class="element-name">Fire</p>
+      <p class="element-theme">Intensity, courage, full effort</p>
+      <div class="element-divider"></div>
+      <div class="element-words">
+        <span class="element-word">Courage</span>
+        <span class="element-word">Passion</span>
+        <span class="element-word">Commitment</span>
+      </div>
+      <p class="element-desc">Fire is about giving everything. We talk about what real effort looks like, and the difference between being brave and being reckless.</p>
+    </div>
+
+    <div class="element-card ec-air">
+      <p class="element-name">Air</p>
+      <p class="element-theme">Creativity, lightness, expression</p>
+      <div class="element-divider"></div>
+      <div class="element-words">
+        <span class="element-word">Creativity</span>
+        <span class="element-word">Joy</span>
+        <span class="element-word">Expression</span>
+      </div>
+      <p class="element-desc">Air is about finding your own voice. We talk about what it means to move in a way that is genuinely yours — and to bring that same authenticity to who you are.</p>
+    </div>
+
+    <div class="element-card ec-void">
+      <p class="element-name">Void</p>
+      <p class="element-theme">Presence, awareness, the unknown</p>
+      <div class="element-divider"></div>
+      <div class="element-words">
+        <span class="element-word">Presence</span>
+        <span class="element-word">Awareness</span>
+        <span class="element-word">Openness</span>
+      </div>
+      <p class="element-desc">Void is about being fully here. We talk about what it means to be present — in training, with teammates, and in the quiet moments that matter most.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── MAT CHAT IN PRACTICE ── -->
+<section class="matchat-section">
+  <p class="seed-label">The Mat Chat</p>
+  <h2 class="seed-headline" style="font-size:clamp(28px,3.5vw,48px);">What it actually<br><em>looks like.</em></h2>
+
+  <div class="matchat-grid">
+
+    <div class="matchat-photo">
+      <img src="https://lh3.googleusercontent.com/d/155o1BEs3LapebHNoTRi36Gy9b83IJTIa"
+           alt="Coach with students at E5">
+    </div>
+
+    <div class="matchat-content">
+      <p>
+        At the end of every class, kids sit on the mat. The coach does not lecture.
+        They ask a question. Sometimes it is a scenario — <em>what would you do if a friend
+        wanted you to skip practice to hang out?</em> Sometimes it is direct —
+        <em>what does integrity mean to you?</em>
+      </p>
+      <p>
+        Kids answer. Sometimes they go deep, sometimes they are still catching their breath
+        and give a short answer. <strong>Both are fine.</strong> The point is not the perfect response —
+        it is the habit of reflection. The practice of pausing and actually thinking about
+        who you want to be.
+      </p>
+      <p>
+        The questions rotate through the Five Elements throughout the year. Over time,
+        a student who trains at E5 has thought carefully about courage, humility, creativity,
+        and presence — dozens of times, from dozens of angles, in dozens of different
+        contexts.
+      </p>
+      <div class="matchat-note">
+        <div class="matchat-note-dot"></div>
+        <p>The mat chat runs on a 24-week cycle, aligned to the Five Elements. Each character word gets its own dedicated conversation — <strong>not a mention, but a real discussion.</strong></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── TESTIMONIAL ── -->
+<section class="testimonial-section">
+  <div class="testimonial-inner">
+    <p class="testimonial-eyebrow">What parents notice</p>
+    <div class="testimonial-divider"></div>
+    <p class="testimonial-quote">
+      "Parents regularly tell us the mat chat is one of the things that makes E5 feel different.
+      Not because we told them it would be —
+      <strong>but because their kids started bringing the language home.</strong>"
+    </p>
+    <!-- SWAP THIS for a real Google review when you find one.
+         Format: Replace the paragraph above with the parent's actual quote,
+         and update the attribution below with their name and program. -->
+    <p class="testimonial-attr">Heard from E5 families, Salida Colorado</p>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="cta-grid">
+
+    <div class="cta-left">
+      <h3 class="cta-headline">Come see it for yourself.</h3>
+      <p class="cta-sub">
+        The best way to understand what we are building here is to watch a class.
+        <strong>You are welcome any time.</strong>
+      </p>
+      <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="cta-btn">Book a trial class →</a>
+    </div>
+
+    <div class="cta-right">
+      <div>
+        <h4>Questions about the program?</h4>
+        <p>We are happy to walk you through how the mat chat works and what your kid can expect from their first class.</p>
+      </div>
+      <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Character%20Development%20Question" target="_blank" class="cta-link">Get in touch →</a>
+
+      <div style="margin-top:8px;">
+        <h4>See all programs</h4>
+        <p>Character development is built into every E5 program. Find the right path for your kid.</p>
+      </div>
+      <a href="https://www.elementalfive.com/services-3" onclick="window.top.location.href='https://www.elementalfive.com/services-3'; return false;" class="cta-link">View programs →</a>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

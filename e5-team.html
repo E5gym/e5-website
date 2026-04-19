@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Team | Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg1:   #E8E4DC;
+  --bg2:   #DEDAD2;
+  --bg3:   #D4D0C8;
+  --cream: #C8C0B0;
+  --dark:  #1A1A18;
+  --mid:   #4A4640;
+  --soft:  rgba(26,26,24,0.5);
+  --body:  rgba(26,26,24,0.72);
+  --red:   #CC1F1F;
+  --white: #ffffff;
+}
+
+html, body {
+  width: 100%;
+  margin: 0; padding: 0;
+  background: var(--bg1);
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 14px;
+}
+
+.section-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+
+.section-headline em { font-style: normal; color: var(--red); }
+
+/* ── HERO ── */
+.hero {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px 72px;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.hero-left {
+  background: var(--red);
+  border-radius: 4px 0 0 4px;
+  padding: 64px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.hero-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(42px, 5.5vw, 80px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.hero-subhead {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.82);
+}
+
+.hero-subhead strong { color: var(--white); font-weight: 600; }
+
+.hero-right {
+  background: var(--cream);
+  border-radius: 0 4px 4px 0;
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hero-right-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--mid);
+  opacity: 0.7;
+}
+
+.team-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.summary-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 4px;
+}
+
+.summary-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+}
+
+.summary-role {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--dark);
+  width: 110px;
+  flex-shrink: 0;
+}
+
+.summary-name {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--mid);
+}
+
+/* ── LEADERSHIP SECTION ── */
+.owners-section {
+  width: 100%;
+  background: var(--bg2);
+  padding: 80px 72px;
+}
+
+.owners-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 40px;
+}
+
+/* ── HEAD COACH ── */
+.head-section {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px;
+}
+
+.head-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 6px;
+  margin-top: 40px;
+}
+
+/* ── COACHES SECTION ── */
+.coaches-section {
+  width: 100%;
+  background: var(--bg2);
+  padding: 80px 72px;
+}
+
+.coaches-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 40px;
+}
+
+/* ── TEAM CARD ── */
+.team-card {
+  background: var(--bg3);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.team-card:hover { transform: translateY(-4px); }
+
+.team-card.featured {
+  background: var(--dark);
+}
+
+.card-bar {
+  height: 4px;
+  width: 100%;
+  background: var(--red);
+  flex-shrink: 0;
+  order: 2;
+}
+
+.card-photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(15%);
+  order: 1;
+}
+
+.team-card.featured .card-photo { filter: grayscale(20%) brightness(0.9); }
+
+.card-content {
+  padding: 24px 24px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  order: 3;
+}
+
+.card-role {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+
+.card-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--dark);
+  margin-bottom: 14px;
+  line-height: 1.05;
+}
+
+.team-card.featured .card-name { color: var(--white); }
+
+.card-bio {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--mid);
+  flex: 1;
+}
+
+.team-card.featured .card-bio { color: rgba(255,255,255,0.65); }
+
+/* Wide card for head coach */
+.head-card {
+  background: var(--dark);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.2s;
+}
+
+.head-card:hover { transform: translateY(-3px); }
+
+.head-photo {
+  width: 320px;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(20%) brightness(0.9);
+}
+
+.head-content {
+  padding: 48px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  border-left: 4px solid var(--red);
+}
+
+.head-role {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+
+/* ── CTA STRIP ── */
+
+.head-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1.0;
+}
+
+.head-bio {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+}
+
+.head-role {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+
+.cta-section {
+  width: 100%;
+  background: var(--bg1);
+  padding: 72px 72px;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.cta-card {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  transition: background 0.2s;
+}
+
+.cta-card:hover { background: var(--cream); }
+
+.cta-card.dark {
+  background: var(--dark);
+}
+
+.cta-card.dark:hover { background: #252522; }
+
+.cta-text h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 5px;
+  letter-spacing: 0.02em;
+}
+
+.cta-card.dark .cta-text h4 { color: var(--white); }
+
+.cta-text p { font-size: 13px; color: var(--body); line-height: 1.5; }
+.cta-card.dark .cta-text p { color: rgba(255,255,255,0.5); }
+
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: gap 0.2s;
+}
+
+.cta-link:hover { gap: 12px; }
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  .hero, .owners-section, .head-section, .coaches-section, .cta-section {
+    padding-left: 28px; padding-right: 28px;
+  }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-left { border-radius: 4px; }
+  .hero-right { border-radius: 4px; }
+  .owners-grid { grid-template-columns: 1fr; }
+  .head-card { flex-direction: column; }
+  .head-photo { width: 100%; height: 260px; }
+  .head-content { border-left: none; border-top: 4px solid var(--red); padding: 32px 28px; }
+  .coaches-grid { grid-template-columns: 1fr 1fr; }
+  .cta-grid { grid-template-columns: 1fr; }
+  .cta-card { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 560px) {
+  .coaches-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-left">
+      <h1 class="hero-headline">Coaches who<br>live the<br>practice.</h1>
+      <p class="hero-subhead">
+        Elemental 5 is guided by coaches who are athletes, performers, and mentors.
+        <strong>Committed to their own growth as much as their students.</strong>
+      </p>
+    </div>
+
+    <div class="hero-right">
+      <p class="hero-right-label">The Team</p>
+      <div class="team-summary">
+        <div class="summary-row">
+          <div class="summary-dot"></div>
+          <span class="summary-role">Owner</span>
+          <span class="summary-name">Joe Lobeck</span>
+        </div>
+        <div class="summary-row">
+          <div class="summary-dot"></div>
+          <span class="summary-role">Owner</span>
+          <span class="summary-name">Lexee Lobeck</span>
+        </div>
+        <div class="summary-row">
+          <div class="summary-dot"></div>
+          <span class="summary-role">Head Coach</span>
+          <span class="summary-name">Josh Lobeck</span>
+        </div>
+        <div class="summary-row">
+          <div class="summary-dot"></div>
+          <span class="summary-role">Asst. Coach</span>
+          <span class="summary-name">Emily Cuiksa</span>
+        </div>
+        <div class="summary-row">
+          <div class="summary-dot"></div>
+          <span class="summary-role">Asst. Coach</span>
+          <span class="summary-name">George Mossman</span>
+        </div>
+        <div class="summary-row">
+          <div class="summary-dot"></div>
+          <span class="summary-role">Asst. Coach</span>
+          <span class="summary-name">Norah Kliewer</span>
+        </div>
+        <div class="summary-row">
+          <div class="summary-dot"></div>
+          <span class="summary-role">Asst. Coach</span>
+          <span class="summary-name">Cadence Sewolt</span>
+        </div>
+        <div class="summary-row">
+          <div class="summary-dot"></div>
+          <span class="summary-role">Asst. Coach</span>
+          <span class="summary-name">Roan Jarvis</span>
+        </div>
+        <div class="summary-row">
+          <div class="summary-dot"></div>
+          <span class="summary-role">Asst. Coach</span>
+          <span class="summary-name">Ryan Good</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── LEADERSHIP ── -->
+<section class="owners-section">
+  <p class="section-label">Leadership</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,56px);">Built by<br><em>practitioners.</em></h2>
+
+  <div class="owners-grid">
+
+    <div class="team-card featured">
+      <img class="card-photo"
+        src="https://static.wixstatic.com/media/67b728_0d2134a0c7f44d75af6c3dbac9293e65~mv2.jpg/v1/crop/x_0,y_243,w_1885,h_1562/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/joelobeckselfie.jpg"
+        alt="Joe Lobeck">
+      <div class="card-bar"></div>
+      <div class="card-content">
+        <p class="card-role">Owner and Founder</p>
+        <h3 class="card-name">Joe Lobeck</h3>
+        <p class="card-bio">Joe studied martial arts from a young age, building the foundations of discipline, humility, and a lifelong love for training. His background spans parkour, Ninja Warrior competition, founding Jumpfest in Colorado Springs, and nearly a decade as a professional circus artist performing internationally. He started Elemental 5 because he knows the inherent value when mentorship meets the physical arts.</p>
+      </div>
+    </div>
+
+    <div class="team-card featured">
+      <img class="card-photo"
+        src="https://static.wixstatic.com/media/67b728_62a4ca7c8b6c42d2817dff7016b58077~mv2.jpg/v1/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/lexeelobeckselfie.jpg"
+        alt="Lexee Lobeck">
+      <div class="card-bar"></div>
+      <div class="card-content">
+        <p class="card-role">Owner and Head of Echo</p>
+        <h3 class="card-name">Lexee Lobeck</h3>
+        <p class="card-bio">Lexee began her acrobatic journey in competitive gymnastics before earning a BFA from Wayne State University and training at the Moscow Arts Theatre School. She later joined Aloft's Full-Time Training Program in Chicago, specializing in handbalancing, trapeze, and flexibility. She leads E5 Echo and brings world-class performance training to the next generation of E5 athletes.</p>
+      </div>
+    </div>
+
+    <div class="team-card featured">
+      <img class="card-photo"
+        src="https://static.wixstatic.com/media/67b728_caa9704539e1431f99c1a30a8a37497e~mv2.jpg/v1/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/joshlobeck%20selfie.jpg"
+        alt="Josh Lobeck">
+      <div class="card-bar"></div>
+      <div class="card-content">
+        <p class="card-role">Head Coach</p>
+        <h3 class="card-name">Josh Lobeck</h3>
+        <p class="card-bio">Josh has pursued the path of becoming a ninja since childhood, exploring parkour, martial arts, and acrobatics. He earned multiple black belts through a decade of training in Karate and Ninpo Taijutsu, competed on Ninja Warrior in 2011 and 2012, and served in the Marine Corps as a Martial Arts Instructor. He continues to train and coach at E5 while actively practicing jiu-jitsu, kickboxing, and Krav Maga.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ASSISTANT COACHES ── -->
+<section class="coaches-section">
+  <p class="section-label">Assistant Coaches</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,56px);">The next<br><em>generation.</em></h2>
+
+  <div class="coaches-grid">
+
+    <div class="team-card">
+      <img class="card-photo"
+        src="https://static.wixstatic.com/media/67b728_9e45380eccf44a2bad7c5399c935ba9d~mv2.jpg/v1/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_9137.jpg"
+        alt="Emily Cuiksa">
+      <div class="card-bar"></div>
+      <div class="card-content">
+        <p class="card-role">Assistant Coach</p>
+        <h3 class="card-name">Emily Cuiksa</h3>
+        <p class="card-bio">Emily fell in love with aerial silks at age 9 and trained consistently at E5 before becoming a coach at 14. She loves mentoring younger students as they build strength, confidence, and excitement for new skills, and treasures the bonds she forms with them along the way.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img class="card-photo"
+        src="https://static.wixstatic.com/media/221b20_271d9f83e6bf43b7912ba865bfe6ce58~mv2.jpg/v1/crop/x_0,y_385,w_1542,h_1278/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/george%20mossman.jpg"
+        alt="George Mossman">
+      <div class="card-bar"></div>
+      <div class="card-content">
+        <p class="card-role">Assistant Coach</p>
+        <h3 class="card-name">George Mossman</h3>
+        <p class="card-bio">George started flipping around age six through a parkour class with Joe. A video of a standing backflip lit a fire in him, and he never stopped progressing. Through gymnastics, garden trampolining, and parkour, he has pushed into increasingly bigger skills. Elemental 5 gave him a place built for how he moves, competes, and grows.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img class="card-photo"
+        src="https://static.wixstatic.com/media/221b20_2824a79849ac437897be3889ee607b5f~mv2.jpg/v1/crop/x_0,y_387,w_1536,h_1273/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Norah%20Kliewer.jpg"
+        alt="Norah Kliewer">
+      <div class="card-bar"></div>
+      <div class="card-content">
+        <p class="card-role">Assistant Coach</p>
+        <h3 class="card-name">Norah Kliewer</h3>
+        <p class="card-bio">Norah fell in love with tumbling early and competed in Xcel gymnastics before moving to Salida. After leaving competitive gymnastics she kept doing what she loves. Norah is excited to share her passion for tumbling and movement at E5.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img class="card-photo"
+        src="https://static.wixstatic.com/media/221b20_ba8df578d12046b0a682226ca63d3afe~mv2.jpeg/v1/crop/x_0,y_231,w_902,h_748/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Cadence%20Sewolt.jpeg"
+        alt="Cadence Sewolt">
+      <div class="card-bar"></div>
+      <div class="card-content">
+        <p class="card-role">Assistant Coach</p>
+        <h3 class="card-name">Cadence Sewolt</h3>
+        <p class="card-bio">Cadence always wanted to explore dance and acrobatics but never had the chance growing up. E5 gave her that opportunity alongside a path to build adaptability and leadership she can take anywhere. Currently invested in STEM, she brings curiosity and a growth mindset to every class she coaches.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img class="card-photo"
+        src="https://static.wixstatic.com/media/221b20_5f7c9fd38cc644978225707c151e146a~mv2.png/v1/crop/x_0,y_303,w_1200,h_995/fill/w_403,h_334,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Roan%20Jarvis.png"
+        alt="Roan Jarvis">
+      <div class="card-bar"></div>
+      <div class="card-content">
+        <p class="card-role">Assistant Coach</p>
+        <h3 class="card-name">Roan Jarvis</h3>
+        <p class="card-bio">Roan is a homeschooled sophomore with a strong interest in MMA, combat sports, welding, and building things. Through work ranging from landscaping to construction, he has developed commitment, problem-solving, and perseverance. He is now growing those same qualities through leadership and coaching at E5.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img class="card-photo"
+        src="https://static.wixstatic.com/media/221b20_e1bcbaf041574a5a8e936570d41faa16~mv2.png/v1/crop/x_0,y_54,w_183,h_152/fill/w_403,h_334,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202026-02-25%20092836.png"
+        alt="Ryan Good">
+      <div class="card-bar"></div>
+      <div class="card-content">
+        <p class="card-role">Assistant Coach</p>
+        <h3 class="card-name">Ryan Good</h3>
+        <p class="card-bio">Ryan has been a fan of E5 since its grand opening and becoming a teen coach means a lot to him. A Salida High School freshman active in cross country and track, he is passionate about parkour, acrobatics, and being a ninja. He loves being part of E5's culture of helping kids grow in confidence and skills.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="cta-grid">
+
+    <div class="cta-card">
+      <div class="cta-text">
+        <h4>Want to join the team?</h4>
+        <p>We are always looking for passionate movers and mentors. Reach out and start a conversation.</p>
+      </div>
+      <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Coaching%20Inquiry" target="_blank" class="cta-link">Get in touch →</a>
+    </div>
+
+    <div class="cta-card dark">
+      <div class="cta-text">
+        <h4>See our programs</h4>
+        <p>Meet the coaches in action. View all E5 programs and class times.</p>
+      </div>
+      <a href="https://www.elementalfive.com/services-3" onclick="window.top.location.href='https://www.elementalfive.com/services-3'; return false;" class="cta-link">View programs →</a>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

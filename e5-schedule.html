@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schedule | Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg1:     #D8E4DC;
+  --bg2:     #CCDAD2;
+  --bg3:     #C0D0C8;
+  --cream:   #C8C0B0;
+  --dark:    #141C18;
+  --mid:     #3A4840;
+  --soft:    rgba(20,28,24,0.5);
+  --body:    rgba(20,28,24,0.72);
+  --red:     #CC1F1F;
+  --white:   #ffffff;
+
+  /* Program colors */
+  --c-tots:       #8B7355;
+  --c-tots-bg:    #EDE4D8;
+  --c-minis:      #5A8A6A;
+  --c-minis-bg:   #DCF0E4;
+  --c-ninfit:     #CC3322;
+  --c-ninfit-bg:  #FADDDA;
+  --c-ninfit4:    #A82A1A;
+  --c-ninfit4-bg: #F5CECA;
+  --c-tx3:        #2A7AB8;
+  --c-tx3-bg:     #D4E8F8;
+  --c-silks:      #7A4A9A;
+  --c-silks-bg:   #EAD8F8;
+  --c-opengym:    #3A7A5A;
+  --c-opengym-bg: #D4EDDF;
+  --c-teens:      #6A6A6A;
+  --c-teens-bg:   #E8E8E8;
+  --c-echo:       #C4922A;
+  --c-echo-bg:    #FAF0D8;
+  --c-camps:      #2A6A8A;
+  --c-camps-bg:   #D4ECF5;
+  --c-party:      #CC1F1F;
+  --c-party-bg:   #FADDDA;
+}
+
+html, body {
+  width: 100%;
+  margin: 0; padding: 0;
+  background: var(--bg1);
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px 72px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.hero-left {
+  background: var(--dark);
+  border-radius: 4px 0 0 4px;
+  padding: 64px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 60px,
+    rgba(255,255,255,0.02) 60px, rgba(255,255,255,0.02) 61px
+  );
+  pointer-events: none;
+}
+
+.hero-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(48px, 5.5vw, 84px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-headline em {
+  font-style: normal;
+  color: #7AB89A;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 3px;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover { background: #A51818; }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.75);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 3px;
+  text-decoration: none;
+  width: fit-content;
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover { background: rgba(255,255,255,0.14); color: var(--white); }
+
+/* Hero right: legend */
+.hero-right {
+  background: var(--cream);
+  border-radius: 0 4px 4px 0;
+  padding: 44px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.legend-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--mid);
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+
+.legend-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 3px;
+}
+
+.legend-dot {
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legend-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--dark);
+  line-height: 1.3;
+}
+
+/* ── SCHEDULE GRID ── */
+.schedule-section {
+  width: 100%;
+  background: var(--bg2);
+  padding: 72px 72px 80px;
+  overflow-x: auto;
+}
+
+.schedule-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 28px;
+}
+
+.schedule-table {
+  width: 100%;
+  min-width: 860px;
+  border-collapse: separate;
+  border-spacing: 4px;
+}
+
+/* Header row */
+.schedule-table thead th {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  background: var(--dark);
+  padding: 14px 16px;
+  text-align: left;
+  border-radius: 3px;
+}
+
+.schedule-table thead th.day-col {
+  text-align: center;
+}
+
+.schedule-table thead th:first-child {
+  width: 170px;
+}
+
+.schedule-table thead th:nth-child(2) {
+  width: 72px;
+  text-align: center;
+}
+
+/* Body rows */
+.schedule-table tbody tr:hover td { filter: brightness(0.96); }
+
+.schedule-table tbody td {
+  padding: 0;
+  vertical-align: top;
+  border-radius: 3px;
+}
+
+/* Class name cell */
+.class-info {
+  background: var(--bg3);
+  padding: 14px 16px;
+  height: 100%;
+  border-left: 3px solid var(--row-color, var(--mid));
+  border-radius: 3px;
+}
+
+.class-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.class-age {
+  font-size: 11px;
+  color: var(--mid);
+  opacity: 0.75;
+}
+
+/* Duration cell */
+.duration-cell {
+  background: var(--bg3);
+  padding: 14px 10px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.duration-cell span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--mid);
+  letter-spacing: 0.05em;
+}
+
+/* Time slot cells */
+.time-slot {
+  padding: 12px 14px;
+  border-radius: 3px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+}
+
+.time-slot.empty {
+  background: rgba(0,0,0,0.04);
+  min-height: 60px;
+}
+
+.slot-time {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--slot-text, var(--dark));
+  line-height: 1.2;
+}
+
+.slot-note {
+  font-size: 10px;
+  color: var(--slot-text, var(--mid));
+  opacity: 0.75;
+  line-height: 1.3;
+}
+
+/* ── BOTTOM STRIP ── */
+.bottom-section {
+  width: 100%;
+  background: var(--bg1);
+  padding: 64px 72px;
+}
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.bottom-card {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background 0.2s;
+}
+
+.bottom-card:hover { background: var(--cream); }
+
+.bottom-card.dark {
+  background: var(--dark);
+}
+
+.bottom-card.dark:hover { background: #1E2A22; }
+
+.bottom-card h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--dark);
+  letter-spacing: 0.02em;
+}
+
+.bottom-card.dark h4 { color: var(--white); }
+
+.bottom-card p {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.bottom-card.dark p { color: rgba(255,255,255,0.55); }
+
+.bottom-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  transition: gap 0.2s;
+  margin-top: auto;
+}
+
+.bottom-link:hover { gap: 12px; }
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  .hero, .schedule-section, .bottom-section {
+    padding-left: 28px; padding-right: 28px;
+  }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-left { border-radius: 4px; }
+  .hero-right { border-radius: 4px; }
+  .bottom-grid { grid-template-columns: 1fr; }
+  .legend-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-grid">
+
+    <div class="hero-left">
+      <h1 class="hero-headline">Weekly<br><em>schedule.</em></h1>
+      <div class="hero-actions">
+        <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="btn-primary">Book a Class →</a>
+        <a href="https://www.elementalfive.com/_files/ugd/221b20_0dcab78de3b143aca6481c0581b2cec7.pdf" target="_blank" class="btn-secondary">Download Printable PDF →</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <p class="legend-label">Program Key</p>
+      <div class="legend-grid">
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--c-tots);"></div>
+          <span class="legend-name">Ninja Tots</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--c-minis);"></div>
+          <span class="legend-name">Mini Ninjas</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--c-ninfit);"></div>
+          <span class="legend-name">NinFit Lvl 1-3</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--c-ninfit4);"></div>
+          <span class="legend-name">NinFit Lvl 4+</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--c-tx3);"></div>
+          <span class="legend-name">Tx3 Youth</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--c-silks);"></div>
+          <span class="legend-name">Aerial Silks</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--c-opengym);"></div>
+          <span class="legend-name">Open Gym</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--c-teens);"></div>
+          <span class="legend-name">Teens and Adults</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--c-echo);"></div>
+          <span class="legend-name">Performance Crew</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--c-camps);"></div>
+          <span class="legend-name">Friday Camps</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--c-party);"></div>
+          <span class="legend-name">Birthday Parties</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SCHEDULE TABLE ── -->
+<section class="schedule-section">
+  <p class="schedule-label">Current Schedule · Subject to change · Check iClassPro for live availability</p>
+
+  <table class="schedule-table">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th style="text-align:center;">Duration</th>
+        <th class="day-col">Monday</th>
+        <th class="day-col">Tuesday</th>
+        <th class="day-col">Wednesday</th>
+        <th class="day-col">Thursday</th>
+        <th class="day-col">Friday</th>
+        <th class="day-col">Saturday</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- Ninja Tots -->
+      <tr>
+        <td>
+          <div class="class-info" style="--row-color: var(--c-tots);">
+            <p class="class-name">Ninja Tots</p>
+            <p class="class-age">Ages walking to 5 · Parent participation</p>
+          </div>
+        </td>
+        <td><div class="duration-cell"><span>2 hr</span></div></td>
+        <td>
+          <div class="time-slot" style="background:var(--c-tots-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-tots);">9:00 – 11:00 AM</span>
+          </div>
+        </td>
+        <td><div class="time-slot empty"></div></td>
+        <td>
+          <div class="time-slot" style="background:var(--c-tots-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-tots);">9:00 – 11:00 AM</span>
+          </div>
+        </td>
+        <td><div class="time-slot empty"></div></td>
+        <td>
+          <div class="time-slot" style="background:var(--c-tots-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-tots);">10:00 – 11:30 AM</span>
+          </div>
+        </td>
+        <td><div class="time-slot empty"></div></td>
+      </tr>
+
+      <!-- Mini Ninjas -->
+      <tr>
+        <td>
+          <div class="class-info" style="--row-color: var(--c-minis);">
+            <p class="class-name">Mini Ninjas</p>
+            <p class="class-age">Ages 3 – 5</p>
+          </div>
+        </td>
+        <td><div class="duration-cell"><span>1 hr</span></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td>
+          <div class="time-slot" style="background:var(--c-minis-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-minis);">9:15 – 10:00 AM</span>
+            <span class="slot-note" style="--slot-text:var(--c-minis);">Floor opens at 9 AM</span>
+          </div>
+        </td>
+        <td><div class="time-slot empty"></div></td>
+      </tr>
+
+      <!-- NinFit 1-3 -->
+      <tr>
+        <td>
+          <div class="class-info" style="--row-color: var(--c-ninfit);">
+            <p class="class-name">NinFit Youth · Levels 1-3</p>
+            <p class="class-age">Ages 5 – 12</p>
+          </div>
+        </td>
+        <td><div class="duration-cell"><span>1 hr</span></div></td>
+        <td>
+          <div class="time-slot" style="background:var(--c-ninfit-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-ninfit);">4:30 PM</span>
+          </div>
+        </td>
+        <td>
+          <div class="time-slot" style="background:var(--c-ninfit-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-ninfit);">4:30 PM</span>
+          </div>
+        </td>
+        <td>
+          <div class="time-slot" style="background:var(--c-ninfit-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-ninfit);">4:30 PM</span>
+          </div>
+        </td>
+        <td>
+          <div class="time-slot" style="background:var(--c-ninfit-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-ninfit);">4:30 PM</span>
+          </div>
+        </td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+      </tr>
+
+      <!-- NinFit 4+ -->
+      <tr>
+        <td>
+          <div class="class-info" style="--row-color: var(--c-ninfit4);">
+            <p class="class-name">NinFit Youth · Levels 4+</p>
+            <p class="class-age">Ages 5 – 12</p>
+          </div>
+        </td>
+        <td><div class="duration-cell"><span>1.5 hr</span></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td>
+          <div class="time-slot" style="background:var(--c-ninfit4-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-ninfit4);">5:30 – 7:00 PM</span>
+          </div>
+        </td>
+        <td>
+          <div class="time-slot" style="background:var(--c-ninfit4-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-ninfit4);">5:30 – 7:00 PM</span>
+          </div>
+        </td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+      </tr>
+
+      <!-- Tx3 -->
+      <tr>
+        <td>
+          <div class="class-info" style="--row-color: var(--c-tx3);">
+            <p class="class-name">Tx3 Youth</p>
+            <p class="class-age">Ages 5 – 12</p>
+          </div>
+        </td>
+        <td><div class="duration-cell"><span>1 hr</span></div></td>
+        <td>
+          <div class="time-slot" style="background:var(--c-tx3-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-tx3);">5:30 PM</span>
+          </div>
+        </td>
+        <td>
+          <div class="time-slot" style="background:var(--c-tx3-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-tx3);">5:30 PM</span>
+          </div>
+        </td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+      </tr>
+
+      <!-- Aerial Silks -->
+      <tr>
+        <td>
+          <div class="class-info" style="--row-color: var(--c-silks);">
+            <p class="class-name">Aerial Silks Youth</p>
+            <p class="class-age">Ages 8+</p>
+          </div>
+        </td>
+        <td><div class="duration-cell"><span>Varies</span></div></td>
+        <td>
+          <div class="time-slot" style="background:var(--c-silks-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-silks);">5:30 – 7:00 PM</span>
+            <span class="slot-note" style="--slot-text:var(--c-silks);">Intermediate</span>
+          </div>
+        </td>
+        <td>
+          <div class="time-slot" style="background:var(--c-silks-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-silks);">5:30 – 6:30 PM</span>
+            <span class="slot-note" style="--slot-text:var(--c-silks);">Beginner</span>
+          </div>
+        </td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+      </tr>
+
+      <!-- Open Gym -->
+      <tr>
+        <td>
+          <div class="class-info" style="--row-color: var(--c-opengym);">
+            <p class="class-name">Open Gym</p>
+            <p class="class-age">Youth and Teen</p>
+          </div>
+        </td>
+        <td><div class="duration-cell"><span>1–2 hr</span></div></td>
+        <td>
+          <div class="time-slot" style="background:var(--c-opengym-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-opengym);">6:30 – 7:30 PM</span>
+          </div>
+        </td>
+        <td>
+          <div class="time-slot" style="background:var(--c-opengym-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-opengym);">6:30 – 7:30 PM</span>
+          </div>
+        </td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td>
+          <div class="time-slot" style="background:var(--c-opengym-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-opengym);">5:30 – 7:00 PM</span>
+          </div>
+        </td>
+        <td>
+          <div class="time-slot" style="background:var(--c-opengym-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-opengym);">5:30 – 7:30 PM</span>
+          </div>
+        </td>
+      </tr>
+
+      <!-- Teens and Adults -->
+      <tr>
+        <td>
+          <div class="class-info" style="--row-color: var(--c-teens);">
+            <p class="class-name">Teens and Adults</p>
+            <p class="class-age">Ages 13+</p>
+          </div>
+        </td>
+        <td><div class="duration-cell"><span>1 hr</span></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td>
+          <div class="time-slot" style="background:var(--c-teens-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-teens);">7:30 PM</span>
+          </div>
+        </td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+      </tr>
+
+      <!-- Performance Crew -->
+      <tr>
+        <td>
+          <div class="class-info" style="--row-color: var(--c-echo);">
+            <p class="class-name">Performance Crew</p>
+            <p class="class-age">By invitation only</p>
+          </div>
+        </td>
+        <td><div class="duration-cell"><span>Varies</span></div></td>
+        <td>
+          <div class="time-slot" style="background:var(--c-echo-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-echo);">6:30 – 8:00 PM</span>
+          </div>
+        </td>
+        <td>
+          <div class="time-slot" style="background:var(--c-echo-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-echo);">6:30 – 8:00 PM</span>
+          </div>
+        </td>
+        <td>
+          <div class="time-slot" style="background:var(--c-echo-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-echo);">5:30 – 7:30 PM</span>
+          </div>
+        </td>
+        <td>
+          <div class="time-slot" style="background:var(--c-echo-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-echo);">5:30 – 7:30 PM</span>
+          </div>
+        </td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+      </tr>
+
+      <!-- Friday Camps -->
+      <tr>
+        <td>
+          <div class="class-info" style="--row-color: var(--c-camps);">
+            <p class="class-name">Friday Day Camps</p>
+            <p class="class-age">Until end of school year</p>
+          </div>
+        </td>
+        <td><div class="duration-cell"><span>3 hr</span></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td>
+          <div class="time-slot" style="background:var(--c-camps-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-camps);">1:00 – 4:00 PM</span>
+          </div>
+        </td>
+        <td><div class="time-slot empty"></div></td>
+      </tr>
+
+      <!-- Birthday Parties -->
+      <tr>
+        <td>
+          <div class="class-info" style="--row-color: var(--c-party);">
+            <p class="class-name">Birthday Parties</p>
+            <p class="class-age">By appointment · Email or book online</p>
+          </div>
+        </td>
+        <td><div class="duration-cell"><span>Varies</span></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td><div class="time-slot empty"></div></td>
+        <td>
+          <div class="time-slot" style="background:var(--c-party-bg);">
+            <span class="slot-time" style="--slot-text:var(--c-party);">10:00 AM</span>
+            <span class="slot-note" style="--slot-text:var(--c-party);">12:30 PM · 3:00 PM</span>
+            <span class="slot-note" style="--slot-text:var(--c-party);">Sundays by inquiry</span>
+          </div>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</section>
+
+<!-- ── BOTTOM ── -->
+<section class="bottom-section">
+  <div class="bottom-grid">
+
+    <div class="bottom-card dark">
+      <h4>Book a class</h4>
+      <p>Enroll, check availability, and manage your account through our student portal.</p>
+      <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="bottom-link">Go to iClassPro →</a>
+    </div>
+
+    <div class="bottom-card">
+      <h4>Download printable schedule</h4>
+      <p>Save or print the current weekly schedule as a PDF for easy reference.</p>
+      <a href="https://www.elementalfive.com/_files/ugd/221b20_0dcab78de3b143aca6481c0581b2cec7.pdf" target="_blank" class="bottom-link">Download PDF →</a>
+    </div>
+
+    <div class="bottom-card">
+      <h4>Learn about our programs</h4>
+      <p>Not sure which class is right for your kid? See full program descriptions and age ranges.</p>
+      <a href="https://www.elementalfive.com/services-3" onclick="window.top.location.href='https://www.elementalfive.com/services-3'; return false;" class="bottom-link">View programs →</a>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
