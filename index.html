@@ -1716,7 +1716,7 @@ html, body {
 
 
 <!-- ── REVIEWS ── -->
-<section style="width:100%;background:#181008;padding:80px 72px;background-image:repeating-linear-gradient(-55deg,transparent,transparent 3px,rgba(196,98,45,0.04) 3px,rgba(196,98,45,0.04) 4px),radial-gradient(ellipse at 10% 50%,rgba(196,98,45,0.10) 0%,transparent 55%);">
+<section class="reviews-section" style="width:100%;background:#181008;padding:80px 72px;background-image:repeating-linear-gradient(-55deg,transparent,transparent 3px,rgba(196,98,45,0.04) 3px,rgba(196,98,45,0.04) 4px),radial-gradient(ellipse at 10% 50%,rgba(196,98,45,0.10) 0%,transparent 55%);">
 
   <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;gap:40px;flex-wrap:wrap;">
     <div>
@@ -1733,9 +1733,9 @@ html, body {
   </div>
 
   <!-- Reviews grid -->
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px;">
+  <div class="reviews-top-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px;">
 
-    <div style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #CC1F1F;">
+    <div class="review-card" style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #CC1F1F;">
       <div style="display:flex;gap:4px;">
         <span style="color:#C4922A;font-size:13px;">★★★★★</span>
       </div>
@@ -1743,7 +1743,7 @@ html, body {
       <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);">Melissa Deemer</p>
     </div>
 
-    <div style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #C4922A;">
+    <div class="review-card" style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #C4922A;">
       <div style="display:flex;gap:4px;">
         <span style="color:#C4922A;font-size:13px;">★★★★★</span>
       </div>
@@ -1751,7 +1751,7 @@ html, body {
       <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);">Sue Granger</p>
     </div>
 
-    <div style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #CC1F1F;">
+    <div class="review-card" style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #CC1F1F;">
       <div style="display:flex;gap:4px;">
         <span style="color:#C4922A;font-size:13px;">★★★★★</span>
       </div>
@@ -1761,9 +1761,9 @@ html, body {
 
   </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+  <div class="reviews-bottom-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
 
-    <div style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #C4922A;">
+    <div class="review-card" style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #C4922A;">
       <div style="display:flex;gap:4px;">
         <span style="color:#C4922A;font-size:13px;">★★★★★</span>
       </div>
@@ -1771,7 +1771,7 @@ html, body {
       <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);">Raimi Kaan</p>
     </div>
 
-    <div style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #CC1F1F;">
+    <div class="review-card" style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #CC1F1F;">
       <div style="display:flex;gap:4px;">
         <span style="color:#C4922A;font-size:13px;">★★★★★</span>
       </div>
@@ -1784,26 +1784,23 @@ html, body {
   <!-- Mobile responsive -->
   <style>
     @media (max-width: 768px) {
-      /* Reviews section: collapse grids to single column and improve card spacing */
-      section:has(> div[style*="border-top:3px solid #CC1F1F"]) > div[style*="display:grid"] {
+      .reviews-top-grid,
+      .reviews-bottom-grid {
         grid-template-columns: 1fr !important;
         gap: 12px !important;
       }
-      
-      /* Review cards: ensure proper spacing and auto height */
-      section:has(> div[style*="border-top:3px solid #CC1F1F"]) div[style*="background:#1A1208"][style*="border-top"] {
+
+      .review-card {
         min-height: auto !important;
         padding: 24px !important;
       }
-      
-      /* Improve text breathing room in review cards */
-      section:has(> div[style*="border-top:3px solid #CC1F1F"]) p[style*="font-size:13px"][style*="flex:1"] {
+
+      .review-card p {
         line-height: 1.9 !important;
         margin-bottom: 16px !important;
       }
-      
-      /* Adjust review section padding */
-      section:has(> div[style*="border-top:3px solid #CC1F1F"]) {
+
+      .reviews-section {
         padding-left: 20px !important;
         padding-right: 20px !important;
       }
