@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E5 Echo | Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg1:   #E8E4DC;
+  --bg2:   #DEDAD2;
+  --bg3:   #D4D0C8;
+  --cream: #C8C0B0;
+  --dark:  #1A1A18;
+  --mid:   #4A4640;
+  --soft:  rgba(26,26,24,0.5);
+  --body:  rgba(26,26,24,0.72);
+  --red:   #CC1F1F;
+  --white: #ffffff;
+}
+
+html, body {
+  width: 100%;
+  margin: 0; padding: 0;
+  background: var(--bg1);
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 14px;
+}
+
+.section-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+
+.section-headline em { font-style: normal; color: var(--red); }
+
+/* ─── HERO ─── */
+.hero {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px 6px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.hero-left {
+  background: var(--red);
+  border-radius: 4px 0 0 4px;
+  padding: 72px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 60px,
+    rgba(255,255,255,0.03) 60px, rgba(255,255,255,0.03) 61px
+  );
+  pointer-events: none;
+}
+
+.hero-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(48px, 6vw, 92px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-subhead {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.82);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-subhead strong { color: var(--white); font-weight: 600; }
+
+.hero-right {
+  background: var(--dark);
+  border-radius: 0 4px 4px 0;
+  padding: 56px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Photo placeholder — swap src for real image URL */
+.hero-photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0 4px 4px 0;
+  display: block;
+  background: var(--dark);
+}
+
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--dark);
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  border: 2px dashed rgba(255,255,255,0.1);
+}
+
+.photo-placeholder p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+/* Stat bars in dark panel */
+.echo-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 52px;
+}
+
+.echo-stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.06);
+  gap: 12px;
+}
+
+.echo-stat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.echo-stat-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--white);
+  text-align: right;
+}
+
+/* ─── WHAT IS ECHO ─── */
+.what-section {
+  width: 100%;
+  background: var(--bg2);
+  padding: 80px 72px;
+}
+
+.what-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 40px;
+}
+
+.what-card {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 48px 44px;
+}
+
+.what-card.dark { background: var(--dark); }
+
+.what-card-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+.what-card.dark .what-card-eyebrow { opacity: 0.8; }
+
+.what-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--dark);
+  margin-bottom: 18px;
+}
+
+.what-card.dark .what-card-title { color: var(--white); }
+
+.what-card-body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--body);
+}
+
+.what-card.dark .what-card-body { color: rgba(255,255,255,0.65); }
+.what-card-body strong { color: var(--dark); font-weight: 600; }
+.what-card.dark .what-card-body strong { color: var(--white); }
+
+/* ─── PHOTO ROW ─── */
+.photo-row {
+  width: 100%;
+  background: var(--bg1);
+  padding: 6px 72px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.photo-cell {
+  aspect-ratio: 4/3;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg3);
+}
+
+.photo-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-cell-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg3);
+  border: 2px dashed rgba(26,26,24,0.15);
+  border-radius: 4px;
+}
+
+.photo-cell-placeholder p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.25);
+}
+
+/* ─── AUDITION SECTION ─── */
+.audition-section {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px;
+}
+
+.audition-parts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 40px;
+}
+
+/* Each audition part */
+.audition-part {
+  background: var(--bg3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.part-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 32px;
+  background: var(--dark);
+}
+
+.part-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--red);
+  background: rgba(204,31,31,0.15);
+  border-radius: 2px;
+  padding: 4px 10px;
+  flex-shrink: 0;
+}
+
+.part-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  flex: 1;
+}
+
+.part-duration {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  flex-shrink: 0;
+}
+
+.part-body {
+  padding: 32px 32px 36px;
+}
+
+.part-desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--body);
+  margin-bottom: 24px;
+}
+
+.part-desc strong { color: var(--dark); font-weight: 600; }
+
+/* Three criteria cards for performance routine */
+.criteria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.criteria-card {
+  background: var(--dark);
+  border-radius: 4px;
+  padding: 22px 22px;
+}
+
+.criteria-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--red);
+  margin-bottom: 10px;
+}
+
+.criteria-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.65;
+}
+
+/* Skills gate grid */
+.skills-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.skills-group {
+  background: var(--bg2);
+  border-radius: 4px;
+  padding: 22px 24px;
+}
+
+.skills-group-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 14px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(26,26,24,0.08);
+}
+
+.skill-item:last-child { border-bottom: none; }
+
+.skill-name {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--mid);
+  flex: 1;
+  line-height: 1.4;
+}
+
+.gate-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--red);
+  background: rgba(204,31,31,0.1);
+  border: 1px solid rgba(204,31,31,0.2);
+  border-radius: 2px;
+  padding: 3px 7px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.gate-warning {
+  background: rgba(204,31,31,0.08);
+  border-left: 3px solid var(--red);
+  border-radius: 3px;
+  padding: 12px 16px;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--mid);
+  font-style: italic;
+}
+
+/* Character qualities for interview */
+.character-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.character-card {
+  background: var(--cream);
+  border-radius: 4px;
+  padding: 22px 22px;
+  border-left: 3px solid var(--red);
+}
+
+.character-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.character-desc {
+  font-size: 12px;
+  color: var(--mid);
+  line-height: 1.65;
+}
+
+/* ─── OUTCOMES ─── */
+.outcomes-section {
+  width: 100%;
+  background: var(--bg2);
+  padding: 80px 72px;
+}
+
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 40px;
+}
+
+.outcome-card {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.outcome-card.accepted { background: var(--dark); }
+.outcome-card.notyet { background: var(--bg3); }
+
+.outcome-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 2px;
+  width: fit-content;
+}
+
+.badge-accepted { background: rgba(204,31,31,0.12); color: var(--red); }
+.outcome-card.accepted .badge-accepted { background: rgba(204,31,31,0.25); }
+
+.badge-physical { background: rgba(42,74,94,0.12); color: var(--mid); }
+.badge-readiness { background: rgba(42,74,94,0.12); color: var(--mid); }
+
+.outcome-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--dark);
+  line-height: 1.1;
+}
+
+.outcome-card.accepted .outcome-title { color: var(--white); }
+
+.outcome-desc {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.outcome-card.accepted .outcome-desc { color: rgba(255,255,255,0.6); }
+
+.outcome-note {
+  font-size: 11px;
+  color: var(--soft);
+  line-height: 1.6;
+  padding-top: 12px;
+  border-top: 1px solid rgba(26,26,24,0.08);
+}
+
+.outcome-card.accepted .outcome-note { color: rgba(255,255,255,0.3); border-top-color: rgba(255,255,255,0.08); }
+
+/* ─── SECOND PHOTO ROW ─── */
+.photo-row-2 {
+  width: 100%;
+  background: var(--bg2);
+  padding: 0 72px 6px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 6px;
+}
+
+/* ─── CTA ─── */
+.cta-section {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.cta-card {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 44px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background 0.2s;
+}
+
+.cta-card:hover { background: var(--cream); }
+
+.cta-card.dark {
+  background: var(--red);
+}
+
+.cta-card.dark:hover { background: #A51818; }
+
+.cta-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--dark);
+  line-height: 1.1;
+}
+
+.cta-card.dark .cta-title { color: var(--white); }
+
+.cta-desc {
+  font-size: 14px;
+  color: var(--body);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.cta-card.dark .cta-desc { color: rgba(255,255,255,0.8); }
+
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  transition: gap 0.2s;
+  margin-top: auto;
+}
+
+.cta-link:hover { gap: 12px; }
+.cta-card.dark .cta-link { color: rgba(255,255,255,0.9); }
+
+/* ─── MOBILE ─── */
+@media (max-width: 900px) {
+  .hero, .what-section, .audition-section,
+  .outcomes-section, .cta-section { padding-left: 28px; padding-right: 28px; }
+  .photo-row, .photo-row-2 { padding-left: 28px; padding-right: 28px; }
+  .hero-grid, .what-grid, .cta-grid { grid-template-columns: 1fr; }
+  .hero-left { border-radius: 4px; }
+  .photo-placeholder, .echo-stats { border-radius: 4px; }
+  .criteria-grid { grid-template-columns: 1fr; }
+  .skills-cols { grid-template-columns: 1fr; }
+  .character-grid { grid-template-columns: 1fr; }
+  .outcomes-grid { grid-template-columns: 1fr; }
+  .photo-row { grid-template-columns: 1fr; }
+  .photo-row-2 { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<!-- ── E5 NAVIGATION ── -->
+<style>
+.e5-nav{width:100%;background:#0E0804;border-bottom:1px solid rgba(196,146,42,0.15);position:sticky;top:0;z-index:1000;font-family:'Montserrat',sans-serif;}
+.e5-nav-inner{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.e5-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;}
+.e5-logo img{height:40px;width:auto;}
+.e5-nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
+.e5-nav-links a{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;padding:8px 14px;border-radius:3px;transition:color 0.2s,background 0.2s;white-space:nowrap;}
+.e5-nav-links a:hover{color:#fff;background:rgba(255,255,255,0.06);}
+.e5-nav-links a.e5-active{color:#C4922A;}
+.e5-nav-btn{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#fff;background:#CC1F1F;text-decoration:none;padding:10px 20px;border-radius:3px;white-space:nowrap;transition:background 0.2s;flex-shrink:0;}
+.e5-nav-btn:hover{background:#A51818;}
+.e5-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.e5-hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.8);border-radius:2px;}
+.e5-mobile-menu{display:none;flex-direction:column;background:#1A1208;border-top:1px solid rgba(196,146,42,0.1);padding:16px 24px 24px;gap:4px;}
+.e5-mobile-menu a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05);transition:color 0.2s;}
+.e5-mobile-menu a:hover{color:#fff;}
+.e5-mobile-menu a:last-child{border-bottom:none;}
+.e5-mobile-menu .e5-nav-btn{margin-top:12px;text-align:center;display:block;}
+.e5-mobile-menu.e5-open{display:flex;}
+@media(max-width:900px){.e5-nav-links,.e5-nav-btn{display:none;}.e5-hamburger{display:flex;}.e5-nav-inner{padding:0 20px;}}
+</style>
+<nav class="e5-nav">
+  <div class="e5-nav-inner">
+    <a href="/" class="e5-logo">
+      <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6807dcf85b762cd87fae47c6_E5_Logo.avif" alt="Elemental 5">
+    </a>
+    <ul class="e5-nav-links">
+      <li><a href="/programs.html">Programs</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/new-gym.html">New Gym</a></li>
+      <li><a href="/schedule.html">Schedule</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Book Now</a>
+    <button class="e5-hamburger" onclick="document.getElementById('e5mob').classList.toggle('e5-open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="e5-mobile-menu" id="e5mob">
+    <a href="/programs.html">Programs</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/about.html">About</a>
+    <a href="/new-gym.html">New Gym</a>
+    <a href="/schedule.html">Schedule</a>
+    <a href="/contact.html">Contact</a>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Book Now</a>
+  </div>
+</nav>
+<!-- ── END NAV ── -->
+
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-grid">
+
+    <div class="hero-left">
+      <h1 class="hero-headline">E5<br>Echo.</h1>
+      <p class="hero-subhead">
+        E5 Echo is a year-round performance troupe for dedicated young movement artists.
+        <strong>This is not a recreational program. It is a developmental environment that demands physical readiness, personal accountability, and genuine team orientation.</strong>
+      </p>
+    </div>
+
+    <!-- Winter Showcase 2025 -->
+    <img class="hero-photo"
+      src="https://lh3.googleusercontent.com/d/1qeJ5hT4TWWp_5SLfF9cYo4tvpVhBWBYx"
+      alt="E5 Echo Winter Showcase 2025 - group bow">
+
+  </div>
+</section>
+
+<!-- ─── WHAT IS ECHO ─── -->
+<section class="what-section">
+  <p class="section-label">The Program</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,56px);">What Echo<br><em>actually is.</em></h2>
+
+  <div class="what-grid">
+
+    <div class="what-card">
+      <p class="what-card-eyebrow">The Commitment</p>
+      <h3 class="what-card-title">Eight hours a week. Year-round.</h3>
+      <p class="what-card-body">Echo athletes train approximately <strong>8 hours per week</strong> across four days. They perform publicly and travel as a group. This is a serious developmental environment — not a drop-in experience. Families who join Echo commit to the full cycle, and Echo commits back to them with structured coaching, performance opportunities, and genuine growth.</p>
+    </div>
+
+    <div class="what-card dark">
+      <p class="what-card-eyebrow">What We Build</p>
+      <h3 class="what-card-title">Performers who can hold the room.</h3>
+      <p class="what-card-body">Echo develops three things in every athlete: <strong>physical excellence</strong> across aerial, tumbling, and movement disciplines — <strong>artistic expression</strong> that is genuinely personal, not performed for the panel — and <strong>team character</strong> that puts group success before individual recognition. The audition is designed to assess all three equally.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="photo-row">
+  <div class="photo-cell">
+    <img src="https://lh3.googleusercontent.com/d/1D7h14459-QONMxciUOI2wC-TdAELBDKT" alt="E5 Echo group joy split">
+  </div>
+  <div class="photo-cell">
+    <img src="https://lh3.googleusercontent.com/d/1t03EpSYzF-FAiOf3_Bp_8uRpKrnuciZb" alt="E5 Echo Allie performance">
+  </div>
+  <div class="photo-cell">
+    <img src="https://lh3.googleusercontent.com/d/1u9kiyXHxuBq_urmYF-CdMhUHtQ_3Vz5R" alt="E5 Echo Mav and Emily">
+  </div>
+</div>
+
+<!-- ─── AUDITION ─── -->
+<section class="audition-section">
+  <p class="section-label">Annual Audition</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,56px);">What to<br><em>expect.</em></h2>
+
+  <div style="margin-top:16px; margin-bottom:40px; display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
+    <div style="background:var(--bg3);border-radius:4px;padding:18px 20px;">
+      <p style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--soft);margin-bottom:6px;">Minimum Age</p>
+      <p style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:900;color:var(--dark);">9 years old</p>
+    </div>
+    <div style="background:var(--bg3);border-radius:4px;padding:18px 20px;">
+      <p style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--soft);margin-bottom:6px;">Format</p>
+      <p style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:900;color:var(--dark);">Live, single day</p>
+    </div>
+    <div style="background:var(--bg3);border-radius:4px;padding:18px 20px;">
+      <p style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--soft);margin-bottom:6px;">Frequency</p>
+      <p style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:900;color:var(--dark);">Once per year</p>
+    </div>
+    <div style="background:var(--bg3);border-radius:4px;padding:18px 20px;">
+      <p style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--soft);margin-bottom:6px;">Results delivered by</p>
+      <p style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:900;color:var(--dark);">Lexee, Head Coach</p>
+    </div>
+  </div>
+
+  <div class="audition-parts">
+
+    <!-- Part 01 -->
+    <div class="audition-part">
+      <div class="part-header">
+        <span class="part-num">01</span>
+        <span class="part-title">Performance Routine</span>
+        <span class="part-duration">Up to 2 min routine, 5 min feedback</span>
+      </div>
+      <div class="part-body">
+        <p class="part-desc">Prepare and perform an original routine of up to 2 minutes. Your routine can feature any movement discipline — aerial, tumbling, parkour, dance, martial arts, or any combination. It does not need to be aerial-based. <strong>The panel is not looking for the most technically difficult routine.</strong> They are looking for three things:</p>
+        <div class="criteria-grid">
+          <div class="criteria-card">
+            <p class="criteria-name">Skill</p>
+            <p class="criteria-desc">Are the movements you choose performed with intention, control, and clean technique? Are your legs straight? Are your toes pointed?</p>
+          </div>
+          <div class="criteria-card">
+            <p class="criteria-name">Creativity</p>
+            <p class="criteria-desc">Does your routine reflect a personal point of view? Is there shape and flow? Does it feel like yours?</p>
+          </div>
+          <div class="criteria-card">
+            <p class="criteria-name">Performance Confidence</p>
+            <p class="criteria-desc">Can you hold the space? A confident 45 seconds will always outperform a nervous 2 minutes. Echo athletes perform for audiences.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part 02 -->
+    <div class="audition-part">
+      <div class="part-header">
+        <span class="part-num">02</span>
+        <span class="part-title">Skills Demonstration</span>
+        <span class="part-duration">15 minutes</span>
+      </div>
+      <div class="part-body">
+        <p class="part-desc">All nine skills below are required of every auditionee — regardless of primary discipline. Echo athletes train aerial conditioning as a group, and these benchmarks ensure no one enters the program at a deficit that puts them or their teammates at risk. Each is a hard gate — <strong>there are no partial passes.</strong></p>
+        <div class="skills-cols">
+          <div class="skills-group">
+            <p class="skills-group-label">Aerial and Strength</p>
+            <div class="skill-item">
+              <span class="skill-name">3 strict pull-ups, unassisted</span>
+              <span class="gate-badge">Hard Gate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">10-second clean straddle inversion hold</span>
+              <span class="gate-badge">Hard Gate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Full silk climb to the top, unassisted</span>
+              <span class="gate-badge">Hard Gate</span>
+            </div>
+          </div>
+          <div class="skills-group">
+            <p class="skills-group-label">Tumbling and Ground</p>
+            <div class="skill-item">
+              <span class="skill-name">Strict cartwheel</span>
+              <span class="gate-badge">Hard Gate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Power hurdle — round-off</span>
+              <span class="gate-badge">Hard Gate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Straight arm back roll</span>
+              <span class="gate-badge">Hard Gate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Nose and toes handstand, 1 minute</span>
+              <span class="gate-badge">Hard Gate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Bridge kick-over, elevated</span>
+              <span class="gate-badge">Hard Gate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Back handspring on trampoline</span>
+              <span class="gate-badge">Hard Gate</span>
+            </div>
+          </div>
+        </div>
+        <div class="gate-warning">Any failed hard gate ends the skills demonstration for that section.</div>
+      </div>
+    </div>
+
+    <!-- Part 03 -->
+    <div class="audition-part">
+      <div class="part-header">
+        <span class="part-num">03</span>
+        <span class="part-title">Panel Interview</span>
+        <span class="part-duration">15 minutes</span>
+      </div>
+      <div class="part-body">
+        <p class="part-desc">The panel will have a short conversation with you. There are no trick questions. They are looking for genuine evidence that you are ready for a team environment — not perfection in any of these qualities, but honest demonstration of all four:</p>
+        <div class="character-grid">
+          <div class="character-card">
+            <p class="character-name">Coachability</p>
+            <p class="character-desc">Can you receive corrections and act on them, even when it is hard to hear?</p>
+          </div>
+          <div class="character-card">
+            <p class="character-name">Commitment</p>
+            <p class="character-desc">Do you show up consistently and follow through on what you say you will do?</p>
+          </div>
+          <div class="character-card">
+            <p class="character-name">Team Orientation</p>
+            <p class="character-desc">Can you put the group's success before your individual recognition?</p>
+          </div>
+          <div class="character-card">
+            <p class="character-name">Performance Courage</p>
+            <p class="character-desc">Can you step into discomfort and stay present — on stage and in training?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="photo-row-2">
+  <div class="photo-cell" style="aspect-ratio:16/9;">
+    <img src="https://lh3.googleusercontent.com/d/1teOjLbicvDi6_RT8-gAQuoc_-0LoCCxN" alt="E5 Echo group Allie landing">
+  </div>
+  <div class="photo-cell" style="aspect-ratio:unset;min-height:200px;">
+    <img src="https://lh3.googleusercontent.com/d/1ReHYEU7ITLBL6rePC1k4zMId2JyVlNdC" alt="E5 Echo Evelyn performance" style="width:100%;height:100%;object-fit:cover;display:block;">
+  </div>
+</div>
+
+<!-- ─── OUTCOMES ─── -->
+<section class="outcomes-section">
+  <p class="section-label">Audition Results</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,56px);">Every outcome<br><em>has a path.</em></h2>
+
+  <div class="outcomes-grid">
+
+    <div class="outcome-card accepted">
+      <span class="outcome-badge badge-accepted">Accepted</span>
+      <h3 class="outcome-title">Ready for Echo.</h3>
+      <p class="outcome-desc">Meets all nine hard gates and demonstrates readiness across all four character criteria. Welcome to the troupe.</p>
+      <p class="outcome-note">Results delivered by Lexee directly following audition day.</p>
+    </div>
+
+    <div class="outcome-card notyet">
+      <span class="outcome-badge badge-physical">Not Yet — Physical</span>
+      <h3 class="outcome-title">Character is there. Skills need work.</h3>
+      <p class="outcome-desc">Character fit is evident but one or more hard gate skills were not met. Specific physical targets are identified and a development path is assigned.</p>
+      <p class="outcome-note">A re-audition window is set. A coach is assigned to track progress toward the specific gaps identified.</p>
+    </div>
+
+    <div class="outcome-card notyet">
+      <span class="outcome-badge badge-readiness">Not Yet — Readiness</span>
+      <h3 class="outcome-title">Physical capability may be present. Team readiness is not.</h3>
+      <p class="outcome-desc">Physical skills may be sufficient but the candidate is not yet ready for the team environment Echo requires. A clear development path is provided.</p>
+      <p class="outcome-note">This is not a permanent outcome. It is an honest assessment with a concrete way forward.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section">
+  <div class="cta-grid">
+
+    <div class="cta-card dark">
+      <h3 class="cta-title">Interested in Echo?</h3>
+      <p class="cta-desc">Auditions are held once per year. Reach out to learn when the next audition cycle opens and what your student should be working toward to prepare.</p>
+      <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=E5%20Echo%20Audition%20Inquiry" target="_blank" class="cta-link">Ask about the next audition →</a>
+    </div>
+
+    <div class="cta-card">
+      <h3 class="cta-title">Build the foundations first.</h3>
+      <p class="cta-desc">Not ready for Echo yet? NinFit, Tx3, and Aerial Silks are where every Echo athlete started. The skills gate is achievable — it just takes consistent training.</p>
+      <a href="https://www.elementalfive.com/services-3" onclick="window.top.location.href='https://www.elementalfive.com/services-3'; return false;" class="cta-link">View all programs →</a>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

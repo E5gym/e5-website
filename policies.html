@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Policies | Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg1:   #E8E4DC;
+  --bg2:   #DEDAD2;
+  --bg3:   #D4D0C8;
+  --cream: #C8C0B0;
+  --dark:  #1A1A18;
+  --mid:   #4A4640;
+  --soft:  rgba(26,26,24,0.5);
+  --body:  rgba(26,26,24,0.72);
+  --red:   #CC1F1F;
+  --white: #ffffff;
+}
+
+html, body {
+  width: 100%;
+  margin: 0; padding: 0;
+  background: var(--bg1);
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 14px;
+}
+
+/* ── HERO ── */
+.hero {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px 72px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.hero-left {
+  background: var(--red);
+  border-radius: 4px 0 0 4px;
+  padding: 64px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.hero-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(42px, 5.5vw, 80px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.hero-subhead {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.82);
+}
+
+.hero-subhead strong { color: var(--white); font-weight: 600; }
+
+.hero-right {
+  background: var(--cream);
+  border-radius: 0 4px 4px 0;
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nav-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--mid);
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+
+.policy-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.nav-item:hover { background: rgba(255,255,255,0.85); }
+
+.nav-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--red);
+  width: 18px;
+  flex-shrink: 0;
+}
+
+.nav-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--dark);
+}
+
+/* ── POLICY SECTIONS ── */
+.policy-section {
+  width: 100%;
+  padding: 72px 72px;
+}
+
+.policy-section:nth-child(odd)  { background: var(--bg2); }
+.policy-section:nth-child(even) { background: var(--bg1); }
+
+.policy-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--red);
+}
+
+.policy-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--red);
+  opacity: 0.25;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.policy-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--dark);
+  line-height: 1.05;
+}
+
+/* Card grid within each policy */
+.policy-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.policy-cards.single { grid-template-columns: 1fr; }
+.policy-cards.three  { grid-template-columns: repeat(3, 1fr); }
+
+.policy-card {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.policy-card.full { background: var(--dark); }
+.policy-card.accent { background: var(--cream); }
+
+.card-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--red);
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(204,31,31,0.2);
+}
+
+.policy-card.full .card-heading { color: rgba(204,31,31,0.7); border-bottom-color: rgba(204,31,31,0.15); }
+
+.card-body {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--body);
+}
+
+.policy-card.full .card-body { color: rgba(255,255,255,0.65); }
+.policy-card.accent .card-body { color: var(--mid); }
+
+.card-body strong {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.policy-card.full .card-body strong { color: var(--white); }
+
+/* Highlight callout */
+.callout {
+  background: var(--red);
+  border-radius: 4px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.callout-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.7);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.callout p {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.92);
+  line-height: 1.65;
+}
+
+/* Policy list */
+.policy-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.policy-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.7;
+}
+
+.policy-list li::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.policy-card.full .policy-list li { color: rgba(255,255,255,0.65); }
+.policy-card.full .policy-list li::before { background: rgba(204,31,31,0.6); }
+
+/* Numbered list */
+.numbered-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.numbered-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--body);
+}
+
+.list-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--red);
+  background: rgba(204,31,31,0.1);
+  border-radius: 2px;
+  padding: 3px 7px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.policy-card.full .numbered-list li { color: rgba(255,255,255,0.65); }
+
+/* ── CONTACT STRIP ── */
+.contact-strip {
+  width: 100%;
+  background: var(--dark);
+  padding: 56px 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.contact-text h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 5px;
+  letter-spacing: 0.02em;
+}
+
+.contact-text p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 3px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.contact-link:hover { background: #A51818; }
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  .hero, .policy-section, .contact-strip { padding-left: 28px; padding-right: 28px; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-left { border-radius: 4px; }
+  .hero-right { border-radius: 4px; }
+  .policy-cards, .policy-cards.three { grid-template-columns: 1fr; }
+  .contact-strip { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+<!-- ── E5 NAVIGATION ── -->
+<style>
+.e5-nav{width:100%;background:#0E0804;border-bottom:1px solid rgba(196,146,42,0.15);position:sticky;top:0;z-index:1000;font-family:'Montserrat',sans-serif;}
+.e5-nav-inner{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.e5-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;}
+.e5-logo img{height:40px;width:auto;}
+.e5-nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
+.e5-nav-links a{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;padding:8px 14px;border-radius:3px;transition:color 0.2s,background 0.2s;white-space:nowrap;}
+.e5-nav-links a:hover{color:#fff;background:rgba(255,255,255,0.06);}
+.e5-nav-links a.e5-active{color:#C4922A;}
+.e5-nav-btn{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#fff;background:#CC1F1F;text-decoration:none;padding:10px 20px;border-radius:3px;white-space:nowrap;transition:background 0.2s;flex-shrink:0;}
+.e5-nav-btn:hover{background:#A51818;}
+.e5-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.e5-hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.8);border-radius:2px;}
+.e5-mobile-menu{display:none;flex-direction:column;background:#1A1208;border-top:1px solid rgba(196,146,42,0.1);padding:16px 24px 24px;gap:4px;}
+.e5-mobile-menu a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05);transition:color 0.2s;}
+.e5-mobile-menu a:hover{color:#fff;}
+.e5-mobile-menu a:last-child{border-bottom:none;}
+.e5-mobile-menu .e5-nav-btn{margin-top:12px;text-align:center;display:block;}
+.e5-mobile-menu.e5-open{display:flex;}
+@media(max-width:900px){.e5-nav-links,.e5-nav-btn{display:none;}.e5-hamburger{display:flex;}.e5-nav-inner{padding:0 20px;}}
+</style>
+<nav class="e5-nav">
+  <div class="e5-nav-inner">
+    <a href="/" class="e5-logo">
+      <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6807dcf85b762cd87fae47c6_E5_Logo.avif" alt="Elemental 5">
+    </a>
+    <ul class="e5-nav-links">
+      <li><a href="/programs.html">Programs</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/new-gym.html">New Gym</a></li>
+      <li><a href="/schedule.html">Schedule</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Book Now</a>
+    <button class="e5-hamburger" onclick="document.getElementById('e5mob').classList.toggle('e5-open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="e5-mobile-menu" id="e5mob">
+    <a href="/programs.html">Programs</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/about.html">About</a>
+    <a href="/new-gym.html">New Gym</a>
+    <a href="/schedule.html">Schedule</a>
+    <a href="/contact.html">Contact</a>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Book Now</a>
+  </div>
+</nav>
+<!-- ── END NAV ── -->
+
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-grid">
+
+    <div class="hero-left">
+      <h1 class="hero-headline">Policies<br>and<br>terms.</h1>
+      <p class="hero-subhead">
+        Below is a copy of all policies you agree to when registering for any E5 program.
+        <strong>Please review at your leisure before your first class.</strong>
+      </p>
+    </div>
+
+    <div class="hero-right">
+      <p class="nav-label">Jump to a section</p>
+      <nav class="policy-nav">
+        <a href="#billing" class="nav-item">
+          <span class="nav-num">01</span>
+          <span class="nav-title">Billing Authorization</span>
+        </a>
+        <a href="#private" class="nav-item">
+          <span class="nav-num">02</span>
+          <span class="nav-title">Private Lessons</span>
+        </a>
+        <a href="#rules" class="nav-item">
+          <span class="nav-num">03</span>
+          <span class="nav-title">Rules, Terms and Conditions</span>
+        </a>
+        <a href="#waiver" class="nav-item">
+          <span class="nav-num">04</span>
+          <span class="nav-title">Waiver of Liability</span>
+        </a>
+        <a href="#media" class="nav-item">
+          <span class="nav-num">05</span>
+          <span class="nav-title">Media and Camera Policies</span>
+        </a>
+        <a href="#payments" class="nav-item">
+          <span class="nav-num">06</span>
+          <span class="nav-title">Payments and Refunds</span>
+        </a>
+        <a href="#other" class="nav-item">
+          <span class="nav-num">07</span>
+          <span class="nav-title">Other Policies</span>
+        </a>
+      </nav>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── 01 BILLING ── -->
+<section class="policy-section" id="billing">
+  <div class="policy-header">
+    <span class="policy-num">01</span>
+    <h2 class="policy-title">Billing Authorization</h2>
+  </div>
+
+  <div class="policy-cards">
+    <div class="policy-card">
+      <p class="card-heading">Payment Authorization</p>
+      <p class="card-body">By enrolling, you represent and warrant that any credit card or bank account information you provide is true and complete, that charges will be honored by your financial institution, and that you will pay all charges at posted prices including applicable taxes and fees.</p>
+      <p class="card-body">You hereby authorize E5 to charge your ACH or credit card account. A <strong>30-day written notice</strong> is required to terminate billing. You are responsible for payment whether or not your student attends class until written notice is received.</p>
+    </div>
+    <div class="policy-card accent">
+      <p class="card-heading">Disputes and Chargebacks</p>
+      <p class="card-body">Should you dispute a charge through your financial institution, this constitutes a breach of contract. This may result in penalties, additional fees, collection action, legal action, and termination of any current and future services.</p>
+      <div class="callout" style="margin-top:8px;">
+        <div class="callout-dot"></div>
+        <p>All billing concerns should be directed to us directly at <strong>gym@elementalfive.com</strong> before initiating a dispute.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 02 PRIVATE LESSONS ── -->
+<section class="policy-section" id="private">
+  <div class="policy-header">
+    <span class="policy-num">02</span>
+    <h2 class="policy-title">Private Lessons</h2>
+  </div>
+
+  <div class="policy-cards three">
+
+    <div class="policy-card">
+      <p class="card-heading">Cancellation and Rescheduling</p>
+      <ul class="policy-list">
+        <li>Appointments may be canceled or rescheduled with no penalty up to <strong>48 hours before</strong> the scheduled time.</li>
+        <li>Canceling or rescheduling after that window may result in a cancellation fee for the original booking.</li>
+      </ul>
+    </div>
+
+    <div class="policy-card">
+      <p class="card-heading">Group Appointment Policy</p>
+      <ul class="policy-list">
+        <li>Only a single student may book a private lesson timeslot.</li>
+        <li>Fees are the sole responsibility of the student who booked.</li>
+        <li>Staff will not split appointment fees among multiple accounts. Fee-sharing arrangements must be handled externally.</li>
+      </ul>
+    </div>
+
+    <div class="policy-card">
+      <p class="card-heading">Arrival and Attire</p>
+      <ul class="policy-list">
+        <li>Arrive <strong>5 to 15 minutes early</strong>. Not earlier please.</li>
+        <li>Tucked-in shirts and shorts or leotards for girls. No gum, no dangling jewelry.</li>
+        <li>Hair pulled neatly back. Activity-appropriate footwear required.</li>
+        <li>Personal items in cubbies. E5 is not responsible for lost or stolen items.</li>
+        <li>Please pick up your student on time and escort them to your vehicle.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── 03 RULES ── -->
+<section class="policy-section" id="rules">
+  <div class="policy-header">
+    <span class="policy-num">03</span>
+    <h2 class="policy-title">Rules, Terms and Conditions</h2>
+  </div>
+
+  <div class="policy-cards">
+
+    <div class="policy-card">
+      <p class="card-heading">Makeup Policy</p>
+      <ul class="policy-list">
+        <li>Missed classes do not result in prorated tuition or refunds due to our student-to-teacher ratio.</li>
+        <li>When a student is marked absent, a <strong>makeup token</strong> is automatically issued to their account.</li>
+        <li>Tokens do not expire. Makeup classes may be scheduled across different programs.</li>
+        <li>Tokens are only valid while the student is currently enrolled or scheduled to start.</li>
+        <li>Tokens are eligible for classes at the same skill level or lower, and equal or shorter duration.</li>
+      </ul>
+    </div>
+
+    <div class="policy-card">
+      <p class="card-heading">Drop Procedure</p>
+      <div class="callout" style="margin-bottom:14px;">
+        <div class="callout-dot"></div>
+        <p>To drop a student from class you MUST notify E5 in writing via email. Do not rely on your student to communicate this verbally.</p>
+      </div>
+      <ul class="policy-list">
+        <li>You are responsible for payment whether or not your student attends until written notice is received.</li>
+        <li>Students who stop attending without notification will be charged for an additional 30 days to hold their class spot.</li>
+      </ul>
+    </div>
+
+    <div class="policy-card">
+      <p class="card-heading">What to Wear</p>
+      <ul class="policy-list">
+        <li>Tucked-in T-shirts and shorts, or leotards for girls.</li>
+        <li>No chewing gum or dangling jewelry.</li>
+        <li>Hair pulled neatly and securely away from the face.</li>
+        <li>Activity-appropriate footwear for all classes.</li>
+        <li>Personal items in cubbies. E5 is not responsible for lost or stolen items.</li>
+      </ul>
+    </div>
+
+    <div class="policy-card">
+      <p class="card-heading">Arrival and Pickup</p>
+      <ul class="policy-list">
+        <li>Arrive <strong>5 minutes before</strong> scheduled class time. Not earlier please.</li>
+        <li>Please pick up your student on time.</li>
+        <li>Notify us if you will be late for pickup.</li>
+        <li>Instruct your student to wait inside and escort them to your vehicle.</li>
+        <li>Drive slowly and carefully in the parking lot. Young children may be present.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── 04 WAIVER ── -->
+<section class="policy-section" id="waiver">
+  <div class="policy-header">
+    <span class="policy-num">04</span>
+    <h2 class="policy-title">Waiver of Liability</h2>
+  </div>
+
+  <div class="policy-cards">
+
+    <div class="policy-card full">
+      <p class="card-heading">As legal guardian, you acknowledge and agree to the following</p>
+      <ol class="numbered-list">
+        <li>
+          <span class="list-num">01</span>
+          <span><strong style="color:#fff;">Participation Consent.</strong> You consent to your student participating in tumbling, trampoline, acrobatics, ninja-style training, parkour, aerial arts, martial arts, fitness instruction, stunt work, dance, juggling, tricking, inflatable structures, and physical conditioning.</span>
+        </li>
+        <li>
+          <span class="list-num">02</span>
+          <span><strong style="color:#fff;">Acknowledgement of Risk.</strong> Participation involves inherent risks including serious injury such as fractures, sprains, paralysis, or death, despite safety measures in place.</span>
+        </li>
+        <li>
+          <span class="list-num">03</span>
+          <span><strong style="color:#fff;">Assumption of Risk.</strong> You voluntarily assume all risks associated with participation, including physical injury, death, property damage, or emotional distress.</span>
+        </li>
+        <li>
+          <span class="list-num">04</span>
+          <span><strong style="color:#fff;">Release of Liability.</strong> You fully and forever release, discharge, and hold harmless Elemental 5 LLC, its owners, officers, employees, contractors, sponsors, landlords, and agents from any and all claims arising out of participation, including claims of negligence.</span>
+        </li>
+        <li>
+          <span class="list-num">05</span>
+          <span><strong style="color:#fff;">Medical Authorization.</strong> You authorize E5 staff to seek emergency medical treatment for your student if necessary and agree to be financially responsible for any resulting costs.</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="policy-card accent">
+      <p class="card-heading">Certification</p>
+      <p class="card-body">By enrolling your student, you certify that you have read this waiver carefully, understand its contents, and agree to its terms voluntarily.</p>
+      <p class="card-body" style="margin-top:12px;">This waiver covers participation at Elemental 5 in Salida, Colorado and applies to all programs, open gyms, special events, and activities offered by Elemental 5 LLC.</p>
+      <div class="callout" style="margin-top:16px;">
+        <div class="callout-dot"></div>
+        <p>Questions about the waiver? Email us at <strong>gym@elementalfive.com</strong> before your first class.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── 05 MEDIA ── -->
+<section class="policy-section" id="media">
+  <div class="policy-header">
+    <span class="policy-num">05</span>
+    <h2 class="policy-title">Media and Camera Policies</h2>
+  </div>
+
+  <div class="policy-cards three">
+
+    <div class="policy-card">
+      <p class="card-heading">Media Waiver</p>
+      <p class="card-body">As legal guardian you grant E5 permission to photograph, video record, and capture images of your student during participation at the facility, at E5-sanctioned events, or community events where the student participates as an E5 member.</p>
+      <p class="card-body" style="margin-top:10px;">Such media may be used for promotional purposes including social media, websites, brochures, posters, advertisements, and internal educational material.</p>
+    </div>
+
+    <div class="policy-card">
+      <p class="card-heading">Security Cameras</p>
+      <p class="card-body">Elemental 5 utilizes security cameras throughout the facility for the purpose of maintaining a safe and secure environment.</p>
+      <p class="card-body" style="margin-top:10px;">Footage from these cameras is primarily for security purposes and is not distributed publicly.</p>
+    </div>
+
+    <div class="policy-card accent">
+      <p class="card-heading">Your Consent</p>
+      <p class="card-body">By enrolling, you release Elemental 5 from any claims related to the use of media or security cameras as described. You certify that you have read these policies carefully, understand their contents, and agree voluntarily.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── 06 PAYMENTS ── -->
+<section class="policy-section" id="payments">
+  <div class="policy-header">
+    <span class="policy-num">06</span>
+    <h2 class="policy-title">Payments and Refunds</h2>
+  </div>
+
+  <div class="policy-cards three">
+
+    <div class="policy-card">
+      <p class="card-heading">One-Time Payments</p>
+      <p class="card-body">By providing payment information you authorize E5 to charge your account for the agreed purchases and services. If E5 is unable to secure funds for any reason, further collection action may be undertaken.</p>
+    </div>
+
+    <div class="policy-card">
+      <p class="card-heading">Recurring Payments</p>
+      <p class="card-body">By opting in to recurring payments you authorize E5 to electronically charge your payment method on a recurring basis on or after the due date.</p>
+      <p class="card-body" style="margin-top:10px;">Your authorization remains in effect until you notify us to revoke it. You may opt out through your account at <strong>elementalfive.com</strong> or via the iClassPro app.</p>
+    </div>
+
+    <div class="policy-card full">
+      <p class="card-heading">Returns, Refunds and Cancellations</p>
+      <ul class="policy-list">
+        <li>All sales are final. No refunds for missed classes.</li>
+        <li>Cancelation requests must be submitted in writing via email or through the customer portal <strong>7 days before</strong> the new billing period.</li>
+        <li>Billing runs on the <strong>1st business day of each month.</strong></li>
+        <li>Funds may be transferable to other E5 services based on circumstances.</li>
+        <li>Tuition is prorated for planned gym closures and mid-month enrollments. It is not prorated for missed classes.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── 07 OTHER ── -->
+<section class="policy-section" id="other">
+  <div class="policy-header">
+    <span class="policy-num">07</span>
+    <h2 class="policy-title">Other Policies</h2>
+  </div>
+
+  <div class="policy-cards">
+
+    <div class="policy-card">
+      <p class="card-heading">Camp Friday Registration</p>
+      <ul class="policy-list">
+        <li>A minimum of <strong>6 students</strong> must be registered for Camp Friday to run.</li>
+        <li>Sign-ups must be submitted by <strong>9pm the Thursday before</strong> to allow the coach to prepare.</li>
+        <li>If fewer than 6 students are registered by Thursday at 9pm, the session will be canceled for that day.</li>
+        <li>No notification means the session is still running.</li>
+        <li>Payments for a canceled session will be reissued as account credit for future E5 services.</li>
+        <li>Day-of drop-ins are welcome but the session is only guaranteed with 6 pre-registered students.</li>
+      </ul>
+    </div>
+
+    <div class="policy-card">
+      <p class="card-heading">Birthday Parties</p>
+      <ul class="policy-list">
+        <li>Booking may be done entirely through the online customer portal. No advance call required.</li>
+        <li>Specific time slots are available to choose from, with an option to add an extra half hour.</li>
+        <li>Sunday bookings require contacting the front desk for availability.</li>
+        <li>Extra half-hour fee is paid at the time of booking. Extra guest fees are collected the day of the event.</li>
+        <li>Parties may be booked <strong>no earlier than 2 weeks in advance.</strong></li>
+        <li>Less than 2 weeks in advance requires contacting the front desk directly.</li>
+      </ul>
+    </div>
+
+    <div class="policy-card">
+      <p class="card-heading">Punch Passes</p>
+      <ul class="policy-list">
+        <li>Punch passes may be shared among family members.</li>
+        <li>Passes may no longer be extended to friends or members outside of the registered family unit.</li>
+      </ul>
+    </div>
+
+    <div class="policy-card accent">
+      <p class="card-heading">Enrollment Cancellation</p>
+      <ul class="policy-list">
+        <li>Cancelation requests must be submitted in writing via email or through the customer portal.</li>
+        <li>Requests must be received <strong>7 days prior</strong> to the new billing period to be processed before billing runs.</li>
+        <li>There are no refunds for failure to cancel prior to billing day. All funds are transferable to other E5 services.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CONTACT STRIP ── -->
+<div class="contact-strip">
+  <div class="contact-text">
+    <h4>Questions about our policies?</h4>
+    <p>We are happy to clarify anything before you enroll. Reach out any time.</p>
+  </div>
+  <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Policy%20Question" target="_blank" class="contact-link">Email us →</a>
+</div>
+
+</body>
+</html>

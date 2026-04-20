@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing | Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg1:   #D6E8F2;
+  --bg2:   #C8DCF0;
+  --bg3:   #BDD4E8;
+  --cream: #C8C0B0;
+  --dark:  #0E1A24;
+  --mid:   #2A4A5E;
+  --soft:  rgba(14,26,36,0.5);
+  --body:  rgba(14,26,36,0.72);
+  --red:   #CC1F1F;
+  --blue:  #2A7AB8;
+  --white: #ffffff;
+}
+
+html, body {
+  width: 100%;
+  margin: 0; padding: 0;
+  background: var(--bg1);
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 14px;
+}
+
+.section-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+
+.section-headline em { font-style: normal; color: var(--red); }
+
+/* ── HERO ── */
+.hero {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px 72px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.hero-left {
+  background: var(--blue);
+  border-radius: 4px 0 0 4px;
+  padding: 72px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(48px, 5.5vw, 84px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.hero-headline em {
+  font-style: normal;
+  color: rgba(255,255,255,0.4);
+  display: block;
+}
+
+.hero-subhead {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.8);
+}
+
+.hero-subhead strong { color: var(--white); font-weight: 600; }
+
+.enroll-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  color: var(--blue);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 15px 28px;
+  border-radius: 3px;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.2s;
+}
+
+.enroll-btn:hover { background: var(--bg1); }
+
+.hero-right {
+  background: var(--cream);
+  border-radius: 0 4px 4px 0;
+  padding: 52px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.quick-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--mid);
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+.quick-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 3px;
+  gap: 12px;
+}
+
+.quick-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--dark);
+}
+
+.quick-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+/* ── MONTHLY TUITION ── */
+.tuition-section {
+  width: 100%;
+  background: var(--bg2);
+  padding: 80px 72px;
+}
+
+.tuition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 40px;
+}
+
+.price-card {
+  background: var(--bg3);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.price-card:hover { transform: translateY(-4px); }
+
+.price-card.featured {
+  background: var(--dark);
+}
+
+.price-card.blue-card {
+  background: var(--blue);
+}
+
+.card-top-bar {
+  height: 4px;
+  background: var(--blue);
+}
+
+.price-card.featured .card-top-bar { background: var(--red); }
+.price-card.blue-card .card-top-bar { background: rgba(255,255,255,0.3); }
+
+.price-card-body {
+  padding: 28px 28px 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.price-card-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--dark);
+}
+
+.price-card.featured .price-card-name { color: var(--white); }
+.price-card.blue-card .price-card-name { color: rgba(255,255,255,0.8); }
+
+.price-amount {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--blue);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.price-card.featured .price-amount { color: var(--red); }
+.price-card.blue-card .price-amount { color: var(--white); }
+
+.price-period {
+  font-size: 12px;
+  color: var(--mid);
+  opacity: 0.7;
+}
+
+.price-card.featured .price-period { color: rgba(255,255,255,0.5); }
+.price-card.blue-card .price-period { color: rgba(255,255,255,0.6); }
+
+.price-includes {
+  font-size: 12px;
+  color: var(--body);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.price-card.featured .price-includes { color: rgba(255,255,255,0.6); }
+.price-card.blue-card .price-includes { color: rgba(255,255,255,0.75); }
+
+/* ── MEMBERSHIP FEE ── */
+.membership-section {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px;
+}
+
+.membership-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 40px;
+}
+
+.membership-intro {
+  background: var(--dark);
+  border-radius: 4px;
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.mem-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--blue);
+  opacity: 0.8;
+}
+
+.mem-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.mem-desc {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.6);
+}
+
+.mem-rates {
+  display: flex;
+  gap: 6px;
+}
+
+.mem-rate {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.mem-rate-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 6px;
+}
+
+.mem-rate-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+}
+
+.mem-rate-note {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 3px;
+}
+
+.membership-details {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 40px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mem-detail-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+
+.mem-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(14,26,36,0.08);
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.65;
+}
+
+.mem-detail-item:last-child { border-bottom: none; }
+
+.mem-detail-item::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  margin-top: 7px;
+  opacity: 0.6;
+}
+
+.mem-detail-item strong { color: var(--dark); font-weight: 600; }
+
+.waived-banner {
+  background: var(--blue);
+  border-radius: 3px;
+  padding: 14px 18px;
+  margin-top: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.waived-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.7);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.waived-banner p {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.65;
+}
+
+.waived-banner strong { color: var(--white); font-weight: 600; }
+
+/* ── DISCOUNTS ── */
+.discounts-section {
+  width: 100%;
+  background: var(--bg2);
+  padding: 80px 72px;
+}
+
+.discounts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 40px;
+}
+
+.discount-card {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 36px 36px;
+}
+
+.discount-card.dark { background: var(--dark); }
+
+.discount-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dark);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--blue);
+}
+
+.discount-card.dark .discount-title {
+  color: var(--white);
+  border-bottom-color: rgba(42,122,184,0.4);
+}
+
+.discount-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.discount-table th {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soft);
+  padding: 0 0 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(14,26,36,0.1);
+}
+
+.discount-card.dark .discount-table th { color: rgba(255,255,255,0.3); border-bottom-color: rgba(255,255,255,0.08); }
+
+.discount-table td {
+  font-size: 12px;
+  color: var(--body);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(14,26,36,0.06);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.discount-card.dark .discount-table td { color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.06); }
+
+.discount-table td:last-child {
+  text-align: right;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--blue);
+  white-space: nowrap;
+  padding-left: 12px;
+}
+
+.discount-card.dark .discount-table td:last-child { color: rgba(42,122,184,0.9); }
+
+.discount-table tr:last-child td { border-bottom: none; }
+
+/* ── DROP-INS AND PASSES ── */
+.extras-section {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px;
+}
+
+.extras-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 40px;
+}
+
+.extra-card {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 32px 28px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background 0.2s;
+}
+
+.extra-card:hover { background: var(--cream); }
+
+.extra-card.dark {
+  background: var(--dark);
+}
+
+.extra-card.dark:hover { background: #152030; }
+
+.extra-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--dark);
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--blue);
+}
+
+.extra-card.dark .extra-title { color: var(--white); border-bottom-color: rgba(42,122,184,0.35); }
+
+.extra-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.extra-label {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.4;
+}
+
+.extra-card.dark .extra-label { color: rgba(255,255,255,0.6); }
+
+.extra-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+.extra-card.dark .extra-price { color: rgba(42,122,184,0.9); }
+
+.extra-note {
+  font-size: 11px;
+  color: var(--soft);
+  line-height: 1.6;
+  padding-top: 8px;
+  border-top: 1px solid rgba(14,26,36,0.08);
+  margin-top: auto;
+}
+
+.extra-card.dark .extra-note { color: rgba(255,255,255,0.3); border-top-color: rgba(255,255,255,0.06); }
+
+/* ── CTA ── */
+.cta-section {
+  width: 100%;
+  background: var(--dark);
+  padding: 64px 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.cta-text h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.cta-text h3 em { font-style: normal; color: var(--red); }
+
+.cta-text p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+.cta-buttons { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
+
+.cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.cta-btn-primary:hover { background: #A51818; }
+
+.cta-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.7);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 3px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.cta-btn-ghost:hover { background: rgba(255,255,255,0.12); color: var(--white); }
+
+/* ── MOBILE ── */
+.founding-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 900px) {
+  .hero, .tuition-section, .membership-section,
+  .discounts-section, .extras-section, .cta-section,
+  .founding-section {
+    padding-left: 28px; padding-right: 28px;
+  }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-left { border-radius: 4px; }
+  .hero-right { border-radius: 4px; }
+  .tuition-grid { grid-template-columns: 1fr 1fr; }
+  .membership-grid { grid-template-columns: 1fr; }
+  .discounts-grid { grid-template-columns: 1fr; }
+  .extras-grid { grid-template-columns: 1fr; }
+  .cta-section { flex-direction: column; align-items: flex-start; }
+  .mem-rates { flex-direction: column; }
+  .founding-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .tuition-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<!-- ── E5 NAVIGATION ── -->
+<style>
+.e5-nav{width:100%;background:#0E0804;border-bottom:1px solid rgba(196,146,42,0.15);position:sticky;top:0;z-index:1000;font-family:'Montserrat',sans-serif;}
+.e5-nav-inner{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.e5-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;}
+.e5-logo img{height:40px;width:auto;}
+.e5-nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
+.e5-nav-links a{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;padding:8px 14px;border-radius:3px;transition:color 0.2s,background 0.2s;white-space:nowrap;}
+.e5-nav-links a:hover{color:#fff;background:rgba(255,255,255,0.06);}
+.e5-nav-links a.e5-active{color:#C4922A;}
+.e5-nav-btn{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#fff;background:#CC1F1F;text-decoration:none;padding:10px 20px;border-radius:3px;white-space:nowrap;transition:background 0.2s;flex-shrink:0;}
+.e5-nav-btn:hover{background:#A51818;}
+.e5-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.e5-hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.8);border-radius:2px;}
+.e5-mobile-menu{display:none;flex-direction:column;background:#1A1208;border-top:1px solid rgba(196,146,42,0.1);padding:16px 24px 24px;gap:4px;}
+.e5-mobile-menu a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05);transition:color 0.2s;}
+.e5-mobile-menu a:hover{color:#fff;}
+.e5-mobile-menu a:last-child{border-bottom:none;}
+.e5-mobile-menu .e5-nav-btn{margin-top:12px;text-align:center;display:block;}
+.e5-mobile-menu.e5-open{display:flex;}
+@media(max-width:900px){.e5-nav-links,.e5-nav-btn{display:none;}.e5-hamburger{display:flex;}.e5-nav-inner{padding:0 20px;}}
+</style>
+<nav class="e5-nav">
+  <div class="e5-nav-inner">
+    <a href="/" class="e5-logo">
+      <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6807dcf85b762cd87fae47c6_E5_Logo.avif" alt="Elemental 5">
+    </a>
+    <ul class="e5-nav-links">
+      <li><a href="/programs.html">Programs</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/new-gym.html">New Gym</a></li>
+      <li><a href="/schedule.html">Schedule</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Book Now</a>
+    <button class="e5-hamburger" onclick="document.getElementById('e5mob').classList.toggle('e5-open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="e5-mobile-menu" id="e5mob">
+    <a href="/programs.html">Programs</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/about.html">About</a>
+    <a href="/new-gym.html">New Gym</a>
+    <a href="/schedule.html">Schedule</a>
+    <a href="/contact.html">Contact</a>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Book Now</a>
+  </div>
+</nav>
+<!-- ── END NAV ── -->
+
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-grid">
+
+    <div class="hero-left">
+      <h1 class="hero-headline">
+        Pricing<br>
+        <em>and tuition.</em>
+      </h1>
+      <div>
+        <p class="hero-subhead">
+          Transparent pricing, sibling discounts, and flexible options.
+          <strong>Updated rates take effect June 1, 2026.</strong>
+        </p>
+      </div>
+      <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="enroll-btn">Enroll Today →</a>
+    </div>
+
+    <div class="hero-right">
+      <p class="quick-label">Quick Reference · Effective June 1, 2026</p>
+
+      <div class="quick-row">
+        <span class="quick-name">1-hr class / week</span>
+        <span class="quick-price">$97/mo</span>
+      </div>
+      <div class="quick-row">
+        <span class="quick-name">Mini Ninjas (1-hr)</span>
+        <span class="quick-price">$79/mo</span>
+      </div>
+      <div class="quick-row">
+        <span class="quick-name">1.5-hr class / week</span>
+        <span class="quick-price">$141/mo</span>
+      </div>
+      <div class="quick-row">
+        <span class="quick-name">Performance Crew</span>
+        <span class="quick-price">$250/mo</span>
+      </div>
+      <div class="quick-row">
+        <span class="quick-name">Open Gym (summer)</span>
+        <span class="quick-price">$40/mo</span>
+      </div>
+      <div class="quick-row">
+        <span class="quick-name">Open Gym add-on (enrolled)</span>
+        <span class="quick-price">$30/mo</span>
+      </div>
+      <div class="quick-row">
+        <span class="quick-name">Open Gym Drop-In</span>
+        <span class="quick-price">$20–25</span>
+      </div>
+      <div class="quick-row">
+        <span class="quick-name">Class Drop-In</span>
+        <span class="quick-price">$30–35</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── MONTHLY TUITION ── -->
+<section class="tuition-section">
+  <p class="section-label">Monthly Tuition</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,54px);">Class<br><em>rates.</em></h2>
+
+  <!-- June 1 notice banner -->
+  <div style="margin-top:28px;margin-bottom:0;background:var(--dark);border-radius:4px;padding:20px 28px;display:flex;align-items:flex-start;gap:16px;border-left:4px solid var(--red);">
+    <div>
+      <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);margin-bottom:5px;">Effective June 1, 2026</p>
+      <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;">Tuition rates have been updated to help support the new facility and continued investment in coaching and programming. <strong style="color:rgba(255,255,255,0.85);">Mini Ninjas rates are unchanged at $79/month.</strong> To lock in current pricing for two years, ask us about Founding Membership.</p>
+    </div>
+  </div>
+
+  <div class="tuition-grid">
+
+    <div class="price-card">
+      <div class="card-top-bar"></div>
+      <div class="price-card-body">
+        <p class="price-card-name">1-Hour Class</p>
+        <p class="price-amount">$97</p>
+        <p class="price-period">per month · effective June 1</p>
+        <p class="price-includes">One class per week, 1-hour duration. Covers NinFit Levels 1-3, Tx3, Aerial Silks Beginner. Previously $79/month.</p>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <div class="card-top-bar"></div>
+      <div class="price-card-body">
+        <p class="price-card-name">Mini Ninjas</p>
+        <p class="price-amount">$79</p>
+        <p class="price-period">per month · rate unchanged</p>
+        <p class="price-includes">One class per week, 1-hour duration. Ages 3–5. Mini Ninjas tuition is not affected by the June 1 adjustment.</p>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <div class="card-top-bar"></div>
+      <div class="price-card-body">
+        <p class="price-card-name">1.5-Hour Class</p>
+        <p class="price-amount">$141</p>
+        <p class="price-period">per month · effective June 1</p>
+        <p class="price-includes">One class per week, 1.5-hour duration. Covers NinFit Levels 4+ and Aerial Silks Intermediate. Previously $118/month.</p>
+      </div>
+    </div>
+
+    <div class="price-card featured">
+      <div class="card-top-bar"></div>
+      <div class="price-card-body">
+        <p class="price-card-name">Performance Crew</p>
+        <p class="price-amount">$250</p>
+        <p class="price-period">per month</p>
+        <p class="price-includes">4 days per week plus unlimited open gym access. E5 Echo and advanced training. By invitation only.</p>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <div class="card-top-bar"></div>
+      <div class="price-card-body">
+        <p class="price-card-name">Ninja Tot Unlimited</p>
+        <p class="price-amount">$80</p>
+        <p class="price-period">per month</p>
+        <p class="price-includes">Unlimited Ninja Tot sessions. Parent-participation open gym for ages walking to 5. Mon, Wed and Fri.</p>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <div class="card-top-bar"></div>
+      <div class="price-card-body">
+        <p class="price-card-name">Camp Fridays</p>
+        <p class="price-amount">$50</p>
+        <p class="price-period">per session</p>
+        <p class="price-includes">Single session rate. Sibling discount included. Multi-session packages available — see the Camp Friday pricing breakdown PDF for full details.</p>
+        <a href="https://www.elementalfive.com/_files/ugd/221b20_cbde5c0f9b8141908ca809cc823a4dfa.pdf" target="_blank"
+           style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);text-decoration:none;">
+          Full pricing PDF →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ANNUAL MEMBERSHIP FEE ── -->
+<section class="membership-section">
+  <p class="section-label">Annual Membership Fee</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,54px);">One fee.<br><em>All year.</em></h2>
+
+  <div class="membership-grid">
+
+    <div class="membership-intro">
+      <p class="mem-eyebrow">What it covers</p>
+      <h3 class="mem-headline">Industry-standard annual fee</h3>
+      <p class="mem-desc">Annual membership fees help cover unexpected facility and equipment costs, seasonal attendance fluctuations, insurance, staff background checks, student records, and our iClassPro system. It is a necessary component of E5's stability as we continue to grow.</p>
+      <div class="mem-rates">
+        <div class="mem-rate">
+          <p class="mem-rate-label">Single student</p>
+          <p class="mem-rate-price">$30</p>
+          <p class="mem-rate-note">per year</p>
+        </div>
+        <div class="mem-rate">
+          <p class="mem-rate-label">Multi-student family</p>
+          <p class="mem-rate-price">$50</p>
+          <p class="mem-rate-note">per year</p>
+        </div>
+      </div>
+      <div class="waived-banner">
+        <div class="waived-dot"></div>
+        <p><strong>Fee waived</strong> for active and retired military, firefighters, police, first responders, and teachers. Email us to confirm your eligibility before enrollment.</p>
+      </div>
+    </div>
+
+    <div class="membership-details">
+      <p class="mem-detail-heading">How it works</p>
+
+      <div class="mem-detail-item">
+        <strong>Active families</strong> are any account with one or more students currently enrolled in a program, class, or camp. Holding only a punch pass does not qualify.
+      </div>
+      <div class="mem-detail-item">
+        <strong>Multi-student rate</strong> applies when multiple student profiles exist under a single family account, even if only one is enrolled.
+      </div>
+      <div class="mem-detail-item">
+        <strong>12-month cycle:</strong> once charged, you will not be billed again for 12 months. Temporary un-enrollment and re-enrollment within that window does not restart the cycle.
+      </div>
+      <div class="mem-detail-item">
+        <strong>Camp enrollment</strong> triggers the fee. If a camp is booked in February for June, the fee is billed in June when the camp runs.
+      </div>
+      <div class="mem-detail-item">
+        <strong>Mid-month enrollment:</strong> if you join after billing runs, the membership fee is charged on the following billing period.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SIBLING DISCOUNTS ── -->
+<section class="discounts-section">
+  <p class="section-label">Family Discounts</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,54px);">The more<br><em>the merrier.</em></h2>
+
+  <div class="discounts-grid">
+
+    <div class="discount-card">
+      <p class="discount-title">Same Student — Multiple Classes</p>
+      <table class="discount-table">
+        <thead>
+          <tr>
+            <th>Class</th>
+            <th style="text-align:right;">Discount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>First class</td>
+            <td>Full price ($79/mo)</td>
+          </tr>
+          <tr>
+            <td>Second class</td>
+            <td>25% off</td>
+          </tr>
+          <tr>
+            <td>Third class</td>
+            <td>50% off</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="discount-card dark">
+      <p class="discount-title">Multiple Kids in the Family</p>
+      <table class="discount-table">
+        <thead>
+          <tr>
+            <th>Child and Class</th>
+            <th style="text-align:right;">Discount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2nd child, 1st class</td>
+            <td>10% off</td>
+          </tr>
+          <tr>
+            <td>2nd child, 2nd class</td>
+            <td>50% off</td>
+          </tr>
+          <tr>
+            <td>2nd child, 3rd class</td>
+            <td>75% off</td>
+          </tr>
+          <tr>
+            <td>3rd child, 1st class</td>
+            <td>15% off</td>
+          </tr>
+          <tr>
+            <td>3rd child, 2nd class</td>
+            <td>75% off</td>
+          </tr>
+          <tr>
+            <td>3rd child, 3rd class</td>
+            <td>Free</td>
+          </tr>
+          <tr>
+            <td>4th child</td>
+            <td>Free</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── DROP-INS AND PASSES ── -->
+<section class="extras-section">
+  <p class="section-label">Drop-Ins and Passes</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,54px);">Flexible<br><em>options.</em></h2>
+
+  <div class="extras-grid">
+
+    <div class="extra-card">
+      <p class="extra-title">Drop-In Rates</p>
+      <div class="extra-row">
+        <span class="extra-label">First-time class drop-in</span>
+        <span class="extra-price">$20</span>
+      </div>
+      <div class="extra-row">
+        <span class="extra-label">Single class drop-in (Card)</span>
+        <span class="extra-price">$35</span>
+      </div>
+      <div class="extra-row">
+        <span class="extra-label">Single class drop-in (Cash)</span>
+        <span class="extra-price">$30</span>
+      </div>
+      <div class="extra-row">
+        <span class="extra-label">Open gym drop-in (Card)</span>
+        <span class="extra-price">$25</span>
+      </div>
+      <div class="extra-row">
+        <span class="extra-label">Open gym drop-in (Cash)</span>
+        <span class="extra-price">$20</span>
+      </div>
+      <p class="extra-note">Drop-in rates effective June 1, 2026.</p>
+    </div>
+
+    <div class="extra-card blue-card" style="background:var(--dark);">
+      <p class="extra-title" style="color:var(--white);border-bottom-color:rgba(42,122,184,0.35);">Open Gym Membership</p>
+      <div class="extra-row">
+        <span class="extra-label" style="color:rgba(255,255,255,0.6);">Summer 2026 (June – Aug)</span>
+        <span class="extra-price" style="color:rgba(42,122,184,0.9);">$40/mo</span>
+      </div>
+      <div class="extra-row">
+        <span class="extra-label" style="color:rgba(255,255,255,0.6);">Add-on for enrolled students</span>
+        <span class="extra-price" style="color:rgba(42,122,184,0.9);">$30/mo</span>
+      </div>
+      <div class="extra-row">
+        <span class="extra-label" style="color:rgba(255,255,255,0.6);">10-Punch Pass</span>
+        <span class="extra-price" style="color:rgba(42,122,184,0.9);">$180</span>
+      </div>
+      <p class="extra-note" style="color:rgba(255,255,255,0.35);border-top-color:rgba(255,255,255,0.06);">
+        Summer open gym runs <strong style="color:rgba(255,255,255,0.55);">Fridays only</strong> starting June 2026.
+        Youth (ages 5–18): 5:30–7:30 PM · Mini (ages 1–5): 10–11:30 AM.
+        Students enrolled in at least one weekly class can add unlimited open gym for $30/month year-round regardless of seasonal rate.
+        Unlimited open gym rates outside summer will vary — check with us for current pricing.
+      </p>
+    </div>
+
+    <div class="extra-card">
+      <p class="extra-title">Birthday Parties</p>
+      <div class="extra-row">
+        <span class="extra-label">Base package (1.5 hr, 15 guests)</span>
+        <span class="extra-price">$200</span>
+      </div>
+      <div class="extra-row">
+        <span class="extra-label">Extra 30 minutes</span>
+        <span class="extra-price">+$50</span>
+      </div>
+      <div class="extra-row">
+        <span class="extra-label">Extra guest (max 25 total)</span>
+        <span class="extra-price">+$10</span>
+      </div>
+      <p class="extra-note">Saturday slots at 10 AM, 12:30 PM, and 3 PM. Sundays by inquiry. Book through the portal or contact us directly.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOUNDING MEMBERSHIP ── -->
+<section class="founding-section" style="width:100%;background:var(--bg1);padding:80px 72px;">
+  <p class="section-label">Lock In Current Pricing</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,54px);margin-bottom:40px;">Founding<br><em>membership.</em></h2>
+
+  <div class="founding-grid" style="display:grid;gap:6px;">
+
+    <div style="background:var(--dark);border-radius:4px;padding:52px 48px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(255,255,255,0.02) 40px,rgba(255,255,255,0.02) 41px);pointer-events:none;"></div>
+      <div style="position:relative;z-index:1;">
+        <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--red);opacity:0.8;margin-bottom:16px;">The only way to keep today's rates</p>
+        <h3 style="font-family:'Montserrat',sans-serif;font-size:clamp(22px,2.8vw,34px);font-weight:900;text-transform:uppercase;line-height:1.1;letter-spacing:-0.01em;color:var(--white);margin-bottom:18px;">Two years. Today's pricing. Permanently part of the story.</h3>
+        <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.65);">Founding members lock in current tuition rates for two full years and become a permanent part of the new facility and E5's next chapter. Spots are limited and this offer closes before we open.</p>
+      </div>
+      <div style="position:relative;z-index:1;">
+        <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;">Family tiers start at</p>
+        <p style="font-family:'Montserrat',sans-serif;font-size:48px;font-weight:900;color:var(--white);line-height:1;">$500</p>
+      </div>
+      <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Founding%20Membership%20Inquiry" target="_blank"
+         style="display:inline-flex;align-items:center;gap:10px;background:var(--red);color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:15px 28px;border-radius:3px;text-decoration:none;width:fit-content;position:relative;z-index:1;transition:background 0.2s;">
+        Ask us about founding membership →
+      </a>
+    </div>
+
+    <div style="background:var(--bg3);border-radius:4px;padding:52px 48px;display:flex;flex-direction:column;justify-content:center;gap:0;">
+      <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--soft);margin-bottom:20px;">Founding Tiers</p>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(26,26,24,0.08);">
+        <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Earth</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">Individual founding support</p></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(26,26,24,0.08);">
+        <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Water</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">Family founding support</p></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(26,26,24,0.08);">
+        <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Fire</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">Community champion</p></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(26,26,24,0.08);">
+        <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Air</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">Lead sponsor recognition</p></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;">
+        <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Void</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">By conversation only</p></div>
+      </div>
+
+      <div style="margin-top:20px;padding-top:18px;border-top:1px solid rgba(26,26,24,0.08);">
+        <p style="font-size:13px;color:var(--body);line-height:1.7;margin-bottom:12px;">Full tier investment levels, naming rights, and benefits are in our facility expansion overview.</p>
+        <a href="https://67b7281f-1abe-4e28-913a-475047794dcc.usrfiles.com/ugd/221b20_8e6ef64e825649d79928980b3a37257b.pdf" target="_blank"
+           style="display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);text-decoration:none;">
+          Download facility overview PDF →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="cta-text">
+    <h3>Ready to<br><em>get started?</em></h3>
+    <p>Enroll online, check class availability, and manage your account through iClassPro.</p>
+  </div>
+  <div class="cta-buttons">
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="cta-btn-primary">Enroll Now →</a>
+    <a href="https://www.elementalfive.com/services-3" onclick="window.top.location.href='https://www.elementalfive.com/services-3'; return false;" class="cta-btn-ghost">View Programs →</a>
+  </div>
+</section>
+
+</body>
+</html>

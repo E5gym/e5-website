@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programs | Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg1:   #D6E8F2;
+    --bg2:   #C8DCF0;
+    --bg3:   #BDD4E8;
+    --cream: #C8C0B0;
+    --dark:  #0E1A24;
+    --mid:   #2A4A5E;
+    --soft:  rgba(14,26,36,0.5);
+    --body:  rgba(14,26,36,0.72);
+    --red:   #CC1F1F;
+    --blue:  #2A7AB8;
+    --white: #ffffff;
+  }
+
+  html, body {
+    width: 100%;
+    margin: 0; padding: 0;
+    background: var(--bg1);
+    font-family: 'Nunito Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: 14px;
+  }
+
+  .section-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--dark);
+  }
+
+  .section-headline em {
+    font-style: normal;
+    color: var(--red);
+  }
+
+  /* ── 1. HERO ── */
+  .hero {
+    background: var(--bg1);
+    padding: 80px 72px 6px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .hero-left {
+    background: var(--blue);
+    border-radius: 4px 0 0 4px;
+    padding: 64px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .hero-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(40px, 5.2vw, 76px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .hero-headline em {
+    font-style: normal;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .hero-subhead {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .hero-subhead strong { color: var(--white); font-weight: 600; }
+
+  .hero-right {
+    border-radius: 0 4px 4px 0;
+    padding: 52px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background-image: url('https://lh3.googleusercontent.com/d/1rDDLig9sQWATGE33wqH_zj7Kl698Hydy');
+    background-size: cover;
+    background-position: center 20%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(200,192,176,0.92) 0%, rgba(200,192,176,0.75) 60%, rgba(200,192,176,0.55) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-right > * { position: relative; z-index: 1; }
+
+  .pathway-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid);
+    opacity: 0.7;
+    margin-bottom: 16px;
+  }
+
+  .pathway-card {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 20px 24px;
+    border-left: 4px solid var(--blue);
+    margin-bottom: 6px;
+  }
+
+  .pathway-card.perf { border-left-color: var(--red); }
+
+  .pathway-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .pathway-card p {
+    font-size: 12px;
+    color: var(--mid);
+    line-height: 1.6;
+  }
+
+  /* ── 2. CORE PROGRAMS ── */
+  .core-section {
+    background: var(--bg2);
+    padding: 80px 72px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    gap: 40px;
+  }
+
+  .header-note {
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.7;
+    max-width: 320px;
+    text-align: right;
+  }
+
+  .header-note strong { color: var(--dark); font-weight: 600; }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .program-card {
+    background: var(--cream);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+  }
+
+  .program-card:hover { transform: translateY(-4px); }
+
+  .card-bar {
+    height: 5px;
+  }
+
+  .card-photo {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-body {
+    padding: 26px 24px 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .badge {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 100px;
+    padding: 4px 11px;
+  }
+
+  .badge-age {
+    color: var(--mid);
+    background: rgba(42,74,94,0.1);
+  }
+
+  .badge-pop {
+    color: var(--white);
+    background: var(--red);
+  }
+
+  .badge-new {
+    color: var(--blue);
+    background: rgba(42,122,184,0.12);
+    border: 1px solid rgba(42,122,184,0.25);
+  }
+
+  .badge-schedule {
+    color: var(--mid);
+    background: rgba(42,74,94,0.08);
+    border: 1px solid rgba(42,74,94,0.15);
+  }
+
+  .card-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .card-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    opacity: 0.7;
+    margin-bottom: 14px;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 16px;
+  }
+
+  .card-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 0;
+  }
+
+  .card-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12px;
+    color: #4A4640;
+    line-height: 1.5;
+  }
+
+  .card-points li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  /* ── 3. ADVANCED TRACKS ── */
+  .advanced-section {
+    background: var(--bg1);
+    padding: 80px 72px;
+  }
+
+  .advanced-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 40px;
+  }
+
+  .advanced-card {
+    background: var(--dark);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+    position: relative;
+  }
+
+  .advanced-card:hover { transform: translateY(-4px); }
+
+  .advanced-card .card-bar { height: 5px; }
+
+  .advanced-body {
+    padding: 28px 26px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .advanced-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 12px;
+  }
+
+  .advanced-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+
+  .advanced-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 20px;
+  }
+
+  .coming-soon-tag {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 100px;
+    padding: 4px 12px;
+    width: fit-content;
+  }
+
+  /* ── 4. SUPPLEMENTAL ── */
+  .supplemental-section {
+    background: var(--bg2);
+    padding: 80px 72px;
+  }
+
+  .supp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 40px;
+  }
+
+  .supp-card {
+    background: var(--bg3);
+    border-radius: 4px;
+    padding: 28px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background 0.2s;
+  }
+
+  .supp-card:hover { background: var(--cream); }
+
+  .supp-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--dark);
+    letter-spacing: 0.02em;
+  }
+
+  .supp-desc {
+    font-size: 13px;
+    color: var(--body);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  /* Birthday party pricing table */
+  .party-pricing {
+    margin-top: 10px;
+    border-top: 1px solid rgba(14,26,36,0.1);
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .pricing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 12px;
+  }
+
+  .pricing-label {
+    color: var(--mid);
+  }
+
+  .pricing-val {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--red);
+    font-size: 13px;
+  }
+
+  .party-note {
+    font-size: 11px;
+    color: var(--soft);
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+
+  .supp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    margin-top: 8px;
+    transition: gap 0.2s;
+  }
+
+  .supp-link:hover { gap: 10px; }
+
+  /* ── 5. CTA ── */
+  .cta-section {
+    background: var(--dark);
+    padding: 64px 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .cta-text h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(22px, 2.8vw, 36px);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+
+  .cta-text h3 em {
+    font-style: normal;
+    color: var(--red);
+  }
+
+  .cta-text p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border-radius: 3px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+
+  .cta-btn:hover { background: #A51818; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 960px) {
+    .hero, .core-section, .advanced-section,
+    .supplemental-section, .cta-section {
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+    .hero { padding-bottom: 6px; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-left { border-radius: 4px; }
+    .hero-right { border-radius: 4px; }
+    .programs-grid { grid-template-columns: 1fr; }
+    .advanced-grid { grid-template-columns: 1fr; }
+    .supp-grid { grid-template-columns: 1fr; }
+    .section-header { flex-direction: column; align-items: flex-start; }
+    .header-note { text-align: left; max-width: 100%; }
+    .cta-section { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<!-- ── E5 NAVIGATION ── -->
+<style>
+.e5-nav{width:100%;background:#0E0804;border-bottom:1px solid rgba(196,146,42,0.15);position:sticky;top:0;z-index:1000;font-family:'Montserrat',sans-serif;}
+.e5-nav-inner{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.e5-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;}
+.e5-logo img{height:40px;width:auto;}
+.e5-nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
+.e5-nav-links a{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;padding:8px 14px;border-radius:3px;transition:color 0.2s,background 0.2s;white-space:nowrap;}
+.e5-nav-links a:hover{color:#fff;background:rgba(255,255,255,0.06);}
+.e5-nav-links a.e5-active{color:#C4922A;}
+.e5-nav-btn{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#fff;background:#CC1F1F;text-decoration:none;padding:10px 20px;border-radius:3px;white-space:nowrap;transition:background 0.2s;flex-shrink:0;}
+.e5-nav-btn:hover{background:#A51818;}
+.e5-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.e5-hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.8);border-radius:2px;}
+.e5-mobile-menu{display:none;flex-direction:column;background:#1A1208;border-top:1px solid rgba(196,146,42,0.1);padding:16px 24px 24px;gap:4px;}
+.e5-mobile-menu a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05);transition:color 0.2s;}
+.e5-mobile-menu a:hover{color:#fff;}
+.e5-mobile-menu a:last-child{border-bottom:none;}
+.e5-mobile-menu .e5-nav-btn{margin-top:12px;text-align:center;display:block;}
+.e5-mobile-menu.e5-open{display:flex;}
+@media(max-width:900px){.e5-nav-links,.e5-nav-btn{display:none;}.e5-hamburger{display:flex;}.e5-nav-inner{padding:0 20px;}}
+</style>
+<nav class="e5-nav">
+  <div class="e5-nav-inner">
+    <a href="/" class="e5-logo">
+      <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6807dcf85b762cd87fae47c6_E5_Logo.avif" alt="Elemental 5">
+    </a>
+    <ul class="e5-nav-links">
+      <li><a href="/programs.html">Programs</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/new-gym.html">New Gym</a></li>
+      <li><a href="/schedule.html">Schedule</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Book Now</a>
+    <button class="e5-hamburger" onclick="document.getElementById('e5mob').classList.toggle('e5-open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="e5-mobile-menu" id="e5mob">
+    <a href="/programs.html">Programs</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/about.html">About</a>
+    <a href="/new-gym.html">New Gym</a>
+    <a href="/schedule.html">Schedule</a>
+    <a href="/contact.html">Contact</a>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Book Now</a>
+  </div>
+</nav>
+<!-- ── END NAV ── -->
+
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="hero-grid">
+
+    <div class="hero-left">
+      <h1 class="hero-headline">All paths.<br><em>One</em><br>system.</h1>
+      <p class="hero-subhead">
+        Every E5 program shares a common foundation: strength, coordination, awareness, and respect for movement.
+        <strong>From there, students find their path.</strong>
+      </p>
+    </div>
+
+    <div class="hero-right">
+      <p class="pathway-label">Training Pathways</p>
+
+      <div class="pathway-card">
+        <h4>Competition Track</h4>
+        <p>Agile, resilient athletes training toward local and Colorado parkour and ninja competitions, with advanced athletes supported for national-level events as skill and commitment grow.</p>
+      </div>
+
+      <div class="pathway-card perf">
+        <h4>Performance Track</h4>
+        <p>Expressive, disciplined performers developing through acrobatics, aerial arts, and movement. Students train toward showcases and performances, with advanced opportunities at regional and national levels.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 2. CORE PROGRAMS -->
+<section class="core-section">
+  <div class="section-header">
+    <div>
+      <p class="section-label">Earth &nbsp;·&nbsp; Core Programs</p>
+      <h2 class="section-headline" style="font-size: clamp(32px, 4vw, 54px);">Find your<br><em>program.</em></h2>
+    </div>
+    <p class="header-note">Ages 3 to 18. <strong>Every program is built on the Five Elements framework</strong> and designed to develop the whole athlete, not just the skill set.</p>
+  </div>
+
+  <div class="programs-grid">
+
+    <!-- NinFit -->
+    <div class="program-card">
+      <div class="card-bar" style="background:#CC1F1F;"></div>
+      <img class="card-photo" src="https://lh3.googleusercontent.com/d/1paQ2cYnXnMuIVDRqWhSVbutBhfVpVxBj"
+           alt="NinFit student backflipping against the mural" style="object-position:center 30%;">
+      <div class="card-body">
+        <div class="card-badges">
+          <span class="badge badge-age">Ages 5–12</span>
+          <span class="badge badge-pop">Most Popular</span>
+        </div>
+        <h3 class="card-name">NinFit</h3>
+        <p class="card-sub">Parkour · Tumbling · Ninja Training</p>
+        <p class="card-desc">Our flagship program. NinFit fuses parkour, tumbling, trampoline, and ninja training into a structured 9-level progression system. Kids earn levels, not just stickers.</p>
+        <ul class="card-points">
+          <li>Parkour vaults, jumps, and precision movement</li>
+          <li>Tumbling and acrobatic foundations</li>
+          <li>Trampoline and aerial awareness</li>
+          <li>Character development woven into every class</li>
+          <li><strong>Beginner: Mon–Thurs 4:30–5:30 PM</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tx3 -->
+    <div class="program-card">
+      <div class="card-bar" style="background:#4A9FD4;"></div>
+      <img class="card-photo" src="https://lh3.googleusercontent.com/d/1LF_lpIV8cLFmMivBW7YAE-Nx4BS1BY4V"
+           alt="Student mid-backflip on trampoline" style="object-position:center 15%;">
+      <div class="card-body">
+        <div class="card-badges">
+          <span class="badge badge-age">Ages 5–12</span>
+        </div>
+        <h3 class="card-name">Tx3</h3>
+        <p class="card-sub">Tumbling · Trampoline · Tricking</p>
+        <p class="card-desc">For kids who cannot get enough flips. Tx3 spends the full hour on ground acrobatics, trampoline mechanics, and tricking — combining skill with style and creativity.</p>
+        <ul class="card-points">
+          <li>Tumbling from foundations to advanced</li>
+          <li>Trampoline mechanics and air awareness</li>
+          <li>Tricking: kicks, flips, and combos</li>
+          <li>5-level progression system</li>
+          <li><strong>Mon and Tues 5:30–6:30 PM</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Aerial Silks -->
+    <div class="program-card">
+      <div class="card-bar" style="background:#9B6BB5;"></div>
+      <img class="card-photo" src="https://lh3.googleusercontent.com/d/1o_d3CO4jhfPFYtD_fAj_dCNXv-7TTUMs"
+           alt="Coach spotting a student on the air track" style="object-position:center 25%;">
+      <div class="card-body">
+        <div class="card-badges">
+          <span class="badge badge-age">Ages 8+</span>
+        </div>
+        <h3 class="card-name">Aerial Silks</h3>
+        <p class="card-sub">Grace · Strength · Expression</p>
+        <p class="card-desc">Students develop upper body strength, spatial awareness, and artistic expression through structured aerial training. Beginner classes are open to all. Intermediate is by invitation only.</p>
+        <ul class="card-points">
+          <li>Climbs, inversions, and hangs</li>
+          <li>Knots, locks, wraps, and drops</li>
+          <li>Choreography and performance readiness</li>
+          <li>Strength conditioning built into every class</li>
+          <li><strong>Beginner: Tues 5:30 PM &nbsp;·&nbsp; Intermediate: Mon 5:30 PM</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mini Ninjas -->
+    <div class="program-card">
+      <div class="card-bar" style="background:#C4922A;"></div>
+      <img class="card-photo" src="https://lh3.googleusercontent.com/d/1FhgsAk26KtPTugHuVgljQk4L3aBMcXBD"
+           alt="Mini Ninja running and jumping" style="object-position:center 20%;">
+      <div class="card-body">
+        <div class="card-badges">
+          <span class="badge badge-age">Ages 3–5</span>
+        </div>
+        <h3 class="card-name">Mini Ninjas</h3>
+        <p class="card-sub">Movement · Play · Foundation</p>
+        <p class="card-desc">Where it all begins. Mini Ninjas builds fundamental movement, courage, and confidence through play-based obstacle courses and guided acrobatics. Big development in small bodies.</p>
+        <ul class="card-points">
+          <li>Gross motor and body awareness foundations</li>
+          <li>Introductory tumbling and jumping skills</li>
+          <li>Social skills: turns, directions, and peer respect</li>
+          <li>Character seeds planted from day one</li>
+          <li><strong>Friday 9:00–10:00 AM</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Ninja Tots -->
+    <div class="program-card">
+      <div class="card-bar" style="background:#6B9E6A;"></div>
+      <img class="card-photo" src="https://lh3.googleusercontent.com/d/1AGUbRBmrJqSxsfe3OYvKy8s3g_IA4spf"
+           alt="Kids jumping the pool noodle with coach" style="object-position:center 25%;">
+      <div class="card-body">
+        <div class="card-badges">
+          <span class="badge badge-age">Ages 0–3</span>
+          <span class="badge badge-schedule">Parent Participation</span>
+        </div>
+        <h3 class="card-name">Ninja Tots</h3>
+        <p class="card-sub">Parent and Child · Open Gym</p>
+        <p class="card-desc">Bond with your little one in a safe, structured open gym environment. A coach guides families through obstacles, shares spotting techniques, and encourages early curiosity and courage.</p>
+        <ul class="card-points">
+          <li>Mon and Wed 9:00 to 11:00 AM</li>
+          <li>Friday 10:00 to 11:30 AM</li>
+          <li>Big squishy mats and a colorful environment</li>
+          <li>No experience needed. Just show up.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Teens and Adults -->
+    <div class="program-card">
+      <div class="card-bar" style="background:#2A7AB8;"></div>
+      <img class="card-photo" src="https://lh3.googleusercontent.com/d/1tM9uRmCx0pcSrX0wNCnkKJrWDC66Ii98"
+           alt="Teen coach helping a younger student" style="object-position:center 20%;">
+      <div class="card-body">
+        <div class="card-badges">
+          <span class="badge badge-age">Ages 13+</span>
+        </div>
+        <h3 class="card-name">Teens and Adults</h3>
+        <p class="card-sub">Parkour · Acrobatics · Calisthenics</p>
+        <p class="card-desc">Tap into your inner athlete. This class is built for older movers who want to explore movement, build real strength, and expand their physical capabilities through acrobatics.</p>
+        <ul class="card-points">
+          <li>Parkour and movement fundamentals</li>
+          <li>Calisthenics and strength training</li>
+          <li>Acrobatic skill development</li>
+          <li>Open to all levels and experience</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHOTO BREAK -->
+<div style="padding: 0 72px; background: var(--bg2);">
+  <div style="border-radius:4px;overflow:hidden;aspect-ratio:21/6;width:100%;">
+    <img src="https://lh3.googleusercontent.com/d/12xOdchrEo_Trn8xT-MKt767Eiw1CX-Jm"
+         alt="E5 student smiling arms up"
+         style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;">
+  </div>
+</div>
+
+<!-- 3. ADVANCED TRACKS -->
+<section class="advanced-section">
+  <p class="section-label">Advanced Tracks</p>
+  <h2 class="section-headline" style="font-size: clamp(32px, 4vw, 54px);">For athletes<br><em>ready for more.</em></h2>
+  <p style="font-size:14px; color:var(--body); line-height:1.7; max-width:560px; margin-top:14px; margin-bottom:40px;">Three tracks. Each aligned to an element. Each representing a different direction an E5 athlete can grow.</p>
+
+  <div class="advanced-grid">
+
+    <!-- Echo = Air -->
+    <div class="advanced-card">
+      <div class="card-bar" style="background:#9AABAA;"></div>
+      <div class="advanced-body">
+        <p class="advanced-eyebrow" style="color:rgba(154,171,170,0.7);">Air &nbsp;·&nbsp; Performance Track</p>
+        <h3 class="advanced-name" style="color:#fff;">E5 Echo</h3>
+        <p class="advanced-desc">E5's elite performance troupe. Echo is aligned with Air — creativity, expression, and lightness in movement. Athletes train year-round with live performances and travel. Auditions include a panel interview and skill gate.</p>
+        <div class="card-badges" style="margin-bottom:0;">
+          <span class="badge" style="background:rgba(154,171,170,0.15);color:#9AABAA;border:1px solid rgba(154,171,170,0.3);">Audition Required</span>
+          <span class="badge" style="background:rgba(154,171,170,0.15);color:#9AABAA;border:1px solid rgba(154,171,170,0.3);">Year-Round</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Surge = Water -->
+    <div class="advanced-card">
+      <div class="card-bar" style="background:#4A9FD4;"></div>
+      <div class="advanced-body">
+        <p class="advanced-eyebrow" style="color:rgba(74,159,212,0.7);">Water &nbsp;·&nbsp; Competition Track</p>
+        <h3 class="advanced-name">Surge</h3>
+        <p class="advanced-desc">Surge is aligned with Water — adaptability, flow, and resilience under pressure. The competition development track for athletes preparing for parkour and ninja-style events at local, state, and national levels.</p>
+        <span class="coming-soon-tag" style="border-color:rgba(74,159,212,0.3);color:rgba(74,159,212,0.5);">Coming Soon</span>
+      </div>
+    </div>
+
+    <!-- Forge = Fire -->
+    <div class="advanced-card">
+      <div class="card-bar" style="background:#CC3322;"></div>
+      <div class="advanced-body">
+        <p class="advanced-eyebrow" style="color:rgba(204,51,34,0.7);">Fire &nbsp;·&nbsp; Martial Arts Pathway</p>
+        <h3 class="advanced-name">Forge</h3>
+        <p class="advanced-desc">Forge is aligned with Fire — intensity, courage, and full commitment. The martial arts development pathway at E5, built for athletes who are ready to bring that same fire into disciplined combat training.</p>
+        <span class="coming-soon-tag" style="border-color:rgba(204,51,34,0.3);color:rgba(204,51,34,0.5);">Coming Soon</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 4. SUPPLEMENTAL -->
+<section class="supplemental-section">
+  <p class="section-label">More Ways to Train</p>
+  <h2 class="section-headline" style="font-size: clamp(28px, 3.5vw, 48px);">Open gym, camps,<br><em>and events.</em></h2>
+
+  <div class="supp-grid">
+
+    <div class="supp-card">
+      <h4 class="supp-name">Open Gym</h4>
+      <p class="supp-desc">Open training time throughout the week for students of all ages. Practice what you learned in class, work on personal goals, or just burn some energy with friends.</p>
+    </div>
+
+    <div class="supp-card">
+      <h4 class="supp-name">Homeschool and Specialty</h4>
+      <p class="supp-desc">Specialized group programs tailored for homeschool co-ops and other groups based on interest and availability. Contact us to learn more about scheduling and options.</p>
+      <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com" target="_blank" class="supp-link">Contact us →</a>
+    </div>
+
+    <div class="supp-card">
+      <h4 class="supp-name">Camps and Workshops</h4>
+      <p class="supp-desc">Week-long day camps and one-day clinics throughout the year. Subscribe to the newsletter to stay updated on upcoming camp dates and workshop announcements.</p>
+    </div>
+
+    <div class="supp-card" style="grid-column: span 2;">
+      <h4 class="supp-name">Birthday Parties and Special Events</h4>
+      <p class="supp-desc">Let us help you celebrate. Our basic party package includes gym rental, equipment access, and a coached experience your guests will not forget.</p>
+      <div class="party-pricing">
+        <div class="pricing-row">
+          <span class="pricing-label">Base package (1.5 hrs, up to 15 guests)</span>
+          <span class="pricing-val">$200</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-label">Additional time (per extra half hour)</span>
+          <span class="pricing-val">$50</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-label">Additional guests (per person, max 25 total)</span>
+          <span class="pricing-val">$10</span>
+        </div>
+        <p class="party-note">Tables and chairs included. Special requests considered. Parents assisting or observing are not counted as guests.</p>
+      </div>
+      <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="supp-link">Book your party →</a>
+    </div>
+
+    <div class="supp-card">
+      <h4 class="supp-name">E5 Echo Showcase</h4>
+      <p class="supp-desc">Join us June 13 and 14 to watch our performance troupe take the floor. Two nights of movement, artistry, and everything E5 has been building toward.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- 5. CTA -->
+<section class="cta-section">
+  <div class="cta-text">
+    <h3>Ready to get<br><em>started?</em></h3>
+    <p>View the schedule, browse class times, and enroll directly through our student portal.</p>
+  </div>
+  <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="cta-btn">Enroll Now →</a>
+</section>
+
+</body>
+</html>
