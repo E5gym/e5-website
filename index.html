@@ -1783,10 +1783,30 @@ html, body {
 
   <!-- Mobile responsive -->
   <style>
-    @media (max-width: 900px) {
-      .reviews-top-grid { grid-template-columns: 1fr !important; }
-      .reviews-bottom-grid { grid-template-columns: 1fr !important; }
-      .reviews-section { padding-left: 28px !important; padding-right: 28px !important; }
+    @media (max-width: 768px) {
+      /* Reviews section: collapse grids to single column and improve card spacing */
+      section:has(> div[style*="border-top:3px solid #CC1F1F"]) > div[style*="display:grid"] {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      
+      /* Review cards: ensure proper spacing and auto height */
+      section:has(> div[style*="border-top:3px solid #CC1F1F"]) div[style*="background:#1A1208"][style*="border-top"] {
+        min-height: auto !important;
+        padding: 24px !important;
+      }
+      
+      /* Improve text breathing room in review cards */
+      section:has(> div[style*="border-top:3px solid #CC1F1F"]) p[style*="font-size:13px"][style*="flex:1"] {
+        line-height: 1.9 !important;
+        margin-bottom: 16px !important;
+      }
+      
+      /* Adjust review section padding */
+      section:has(> div[style*="border-top:3px solid #CC1F1F"]) {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
     }
   </style>
 
