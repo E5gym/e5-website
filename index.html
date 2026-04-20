@@ -1179,6 +1179,43 @@ html, body {
 
 .newsletter-link:hover { background: #A51818; }
 
+.video-hero-section {
+  width: 100%;
+  background: #14100c;
+  padding: 80px 72px;
+}
+
+.video-hero-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.video-hero-content .section-label {
+  margin-bottom: 16px;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
 /* ────────────────────────────────────────────
    MOBILE
 ──────────────────────────────────────────── */
@@ -1189,7 +1226,7 @@ html, body {
   .hero-right::before { display: none; }
   .element-spine, .location-tag { display: none; }
 
-  .elements-section, .programs-section, .facility-section, .announcements-section {
+  .elements-section, .programs-section, .facility-section, .announcements-section, .video-hero-section {
     padding-left: 28px; padding-right: 28px;
   }
 
@@ -1199,6 +1236,8 @@ html, body {
   .elements-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
   .elements-statement { grid-template-columns: 1fr; }
   .statement-left, .statement-right { padding: 36px 28px; }
+  .video-hero-section { padding: 56px 28px; }
+  .video-hero-content { grid-template-columns: 1fr; }
 
   .programs-grid-top, .programs-grid-bottom { grid-template-columns: 1fr; }
   .bottom-strip { grid-template-columns: 1fr; }
@@ -1223,7 +1262,7 @@ html, body {
 .e5-nav{width:100%;background:#ffffff;border-bottom:1px solid rgba(14,8,4,0.12);position:sticky;top:0;z-index:1000;font-family:'Montserrat',sans-serif;}
 .e5-nav-inner{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:68px;}
 .e5-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;}
-.e5-logo img{height:40px;width:auto;}
+.e5-logo img{height:52px;width:auto;}
 .e5-nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
 .e5-nav-links > li{position:relative;}
 .e5-nav-links a{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(14,8,4,0.7);text-decoration:none;padding:8px 14px;border-radius:3px;transition:color 0.2s,background 0.2s;white-space:nowrap;}
@@ -1262,7 +1301,7 @@ html, body {
       <li><a href="/schedule.html">Schedule</a></li>
       <li><a href="/contact.html">Contact</a></li>
     </ul>
-    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Book Now</a>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
     <button class="e5-hamburger" onclick="document.getElementById('e5mob').classList.toggle('e5-open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -1275,10 +1314,29 @@ html, body {
     <a href="/new-gym.html">New Gym</a>
     <a href="/schedule.html">Schedule</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Book Now</a>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
   </div>
 </nav>
 <!-- ── END NAV ── -->
+
+<!-- ══════════════════════════════════════════
+     LAYER 1.5 — VIDEO HERO
+══════════════════════════════════════════ -->
+<section class="video-hero-section">
+  <div class="video-hero-content">
+    <div>
+      <p class="section-label">Experience E5</p>
+      <h2 class="section-headline">A quick look inside<br><em>Elemental 5.</em></h2>
+      <p class="section-intro">Watch the community, coaching, and energy that make every class a place kids grow stronger, smarter, and more confident.</p>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://drive.google.com/file/d/1nZmaiaazHe1m-3ATwJ_zF94Sk86fkiwA/preview" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Elemental 5 Preview"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- RED DIVIDER -->
+<div class="section-divider"></div>
 
 
 <!-- ══════════════════════════════════════════
@@ -1667,15 +1725,15 @@ html, body {
 
   <div class="events-grid">
 
-    <div class="event-card" style="--card-bar: #CC1F1F;">
+    <div class="event-card" style="--card-bar: #4A9FD4;">
       <div class="event-top-bar"></div>
       <div class="event-body">
-        <p class="event-type">Special Event</p>
-        <h3 class="event-name">Parents Night Out</h3>
-        <p class="event-date">April 17 &nbsp;·&nbsp; 5:30 to 8:30 PM</p>
-        <p class="event-desc">Drop the kids with us for a supervised evening of movement, games, and fun. Parents get a night off. Kids get the gym to themselves.</p>
-        <a href="https://portal.iclasspro.com/elemental5/booking/wizard-question-01?typeId=9&next=camps&nextTitle=Parents%20Night%20Out&pluralTitle=Parents%20Night%20Out&sortBy=name"
-           target="_blank" class="event-link">Sign up →</a>
+        <p class="event-type">Camp</p>
+        <h3 class="event-name">Camp Friday</h3>
+        <p class="event-date">Fridays in Spring &nbsp;·&nbsp; 1 to 4 PM</p>
+        <p class="event-desc">Structured training, games, and skill-building for kids out of school on Fridays. High-energy, supervised environment where kids develop strength, coordination, and friendships. Last Camp Friday is May 15th.</p>
+        <a href="https://portal.iclasspro.com/elemental5/dashboard"
+           target="_blank" class="event-link">Book Friday Session →</a>
       </div>
     </div>
 
@@ -1716,7 +1774,7 @@ html, body {
 
 
 <!-- ── REVIEWS ── -->
-<section style="width:100%;background:#181008;padding:80px 72px;background-image:repeating-linear-gradient(-55deg,transparent,transparent 3px,rgba(196,98,45,0.04) 3px,rgba(196,98,45,0.04) 4px),radial-gradient(ellipse at 10% 50%,rgba(196,98,45,0.10) 0%,transparent 55%);">
+<section class="reviews-section" style="width:100%;background:#181008;padding:80px 72px;background-image:repeating-linear-gradient(-55deg,transparent,transparent 3px,rgba(196,98,45,0.04) 3px,rgba(196,98,45,0.04) 4px),radial-gradient(ellipse at 10% 50%,rgba(196,98,45,0.10) 0%,transparent 55%);">
 
   <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;gap:40px;flex-wrap:wrap;">
     <div>
@@ -1733,9 +1791,9 @@ html, body {
   </div>
 
   <!-- Reviews grid -->
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px;">
+  <div class="reviews-top-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px;">
 
-    <div style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #CC1F1F;">
+    <div class="review-card" style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #CC1F1F;">
       <div style="display:flex;gap:4px;">
         <span style="color:#C4922A;font-size:13px;">★★★★★</span>
       </div>
@@ -1743,7 +1801,7 @@ html, body {
       <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);">Melissa Deemer</p>
     </div>
 
-    <div style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #C4922A;">
+    <div class="review-card" style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #C4922A;">
       <div style="display:flex;gap:4px;">
         <span style="color:#C4922A;font-size:13px;">★★★★★</span>
       </div>
@@ -1751,7 +1809,7 @@ html, body {
       <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);">Sue Granger</p>
     </div>
 
-    <div style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #CC1F1F;">
+    <div class="review-card" style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #CC1F1F;">
       <div style="display:flex;gap:4px;">
         <span style="color:#C4922A;font-size:13px;">★★★★★</span>
       </div>
@@ -1761,9 +1819,9 @@ html, body {
 
   </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+  <div class="reviews-bottom-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
 
-    <div style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #C4922A;">
+    <div class="review-card" style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #C4922A;">
       <div style="display:flex;gap:4px;">
         <span style="color:#C4922A;font-size:13px;">★★★★★</span>
       </div>
@@ -1771,7 +1829,7 @@ html, body {
       <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);">Raimi Kaan</p>
     </div>
 
-    <div style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #CC1F1F;">
+    <div class="review-card" style="background:#1A1208;border-radius:4px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:3px solid #CC1F1F;">
       <div style="display:flex;gap:4px;">
         <span style="color:#C4922A;font-size:13px;">★★★★★</span>
       </div>
@@ -1783,10 +1841,27 @@ html, body {
 
   <!-- Mobile responsive -->
   <style>
-    @media (max-width: 900px) {
-      .reviews-top-grid { grid-template-columns: 1fr !important; }
-      .reviews-bottom-grid { grid-template-columns: 1fr !important; }
-      .reviews-section { padding-left: 28px !important; padding-right: 28px !important; }
+    @media (max-width: 768px) {
+      .reviews-top-grid,
+      .reviews-bottom-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+
+      .review-card {
+        min-height: auto !important;
+        padding: 24px !important;
+      }
+
+      .review-card p {
+        line-height: 1.9 !important;
+        margin-bottom: 16px !important;
+      }
+
+      .reviews-section {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
     }
   </style>
 

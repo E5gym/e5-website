@@ -941,7 +941,7 @@ html, body {
 .e5-nav-btn{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#fff;background:#CC1F1F;text-decoration:none;padding:10px 20px;border-radius:3px;white-space:nowrap;transition:background 0.2s;flex-shrink:0;}
 .e5-nav-btn:hover{background:#A51818;}
 .e5-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
-.e5-hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.8);border-radius:2px;}
+.e5-hamburger span{display:block;width:24px;height:2px;background:rgba(0,0,0,0.8);border-radius:2px;}
 .e5-mobile-menu{display:none;flex-direction:column;background:#1A1208;border-top:1px solid rgba(196,146,42,0.1);padding:16px 24px 24px;gap:4px;}
 .e5-mobile-menu a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05);transition:color 0.2s;}
 .e5-mobile-menu a:hover{color:#fff;}
@@ -968,7 +968,7 @@ html, body {
       <li><a href="/schedule.html">Schedule</a></li>
       <li><a href="/contact.html">Contact</a></li>
     </ul>
-    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Book Now</a>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
     <button class="e5-hamburger" onclick="document.getElementById('e5mob').classList.toggle('e5-open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -981,7 +981,7 @@ html, body {
     <a href="/new-gym.html">New Gym</a>
     <a href="/schedule.html">Schedule</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Book Now</a>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
   </div>
 </nav>
 <!-- ── END NAV ── -->
@@ -1210,25 +1210,13 @@ html, body {
 
       <div class="tier-entry">
         <div class="tier-entry-header">
-          <span class="tier-entry-name tier-earth-name">Earth</span>
-          <span class="tier-entry-price">$500</span>
+          <span class="tier-entry-name tier-air-name">Air</span>
+          <span class="tier-entry-price">$5,000</span>
         </div>
-        <p class="tier-entry-benefits">Name on Founding Member plaque · Current rate locked 2 years ($79/mo)</p>
-        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-29ab21a210e0480eb72f5566f576d66baaf019746bce49ec8f29439e4419b7839ff9b234097a486a9172af8dde2ef440?locale=EN_US" target="_blank" class="tier-btn tier-btn-earth">
-          <span>Join as Earth · Family</span>
-          <span class="tier-btn-amount">$500</span>
-        </a>
-      </div>
-
-      <div class="tier-entry">
-        <div class="tier-entry-header">
-          <span class="tier-entry-name tier-water-name">Water</span>
-          <span class="tier-entry-price">$1,000</span>
-        </div>
-        <p class="tier-entry-benefits">Earth benefits + 1 free birthday party · Priority summer camp booking · 10% off for 5 years · 1 Special Founders T-shirt</p>
-        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-75551c5791594299a2e77444d9fe7ce922f9fbc101f44027ae6713cd859aa4a5febe52cda3d44defb81c141320370685?locale=EN_US" target="_blank" class="tier-btn tier-btn-water">
-          <span>Join as Water · Family</span>
-          <span class="tier-btn-amount">$1,000</span>
+        <p class="tier-entry-benefits">Fire benefits + Unlimited open gym 2 years (2 athletes) · Special Founders T-shirts for the whole family</p>
+        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-3546d132a73e44fd9951af51ac7d318bde5e21a3fe7542549ebf327e49118418a3815e6829d94e17ad20413efeb95a16?locale=EN_US" target="_blank" class="tier-btn tier-btn-air">
+          <span>Join as Air · Family</span>
+          <span class="tier-btn-amount">$5,000</span>
         </a>
       </div>
 
@@ -1246,13 +1234,25 @@ html, body {
 
       <div class="tier-entry">
         <div class="tier-entry-header">
-          <span class="tier-entry-name tier-air-name">Air</span>
-          <span class="tier-entry-price">$5,000</span>
+          <span class="tier-entry-name tier-water-name">Water</span>
+          <span class="tier-entry-price">$1,000</span>
         </div>
-        <p class="tier-entry-benefits">Fire benefits + Unlimited open gym 2 years (2 athletes) · Special Founders T-shirts for the whole family</p>
-        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-3546d132a73e44fd9951af51ac7d318bde5e21a3fe7542549ebf327e49118418a3815e6829d94e17ad20413efeb95a16?locale=EN_US" target="_blank" class="tier-btn tier-btn-air">
-          <span>Join as Air · Family</span>
-          <span class="tier-btn-amount">$5,000</span>
+        <p class="tier-entry-benefits">Earth benefits + 1 free birthday party · Priority summer camp booking · 10% off for 5 years · 1 Special Founders T-shirt</p>
+        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-75551c5791594299a2e77444d9fe7ce922f9fbc101f44027ae6713cd859aa4a5febe52cda3d44defb81c141320370685?locale=EN_US" target="_blank" class="tier-btn tier-btn-water">
+          <span>Join as Water · Family</span>
+          <span class="tier-btn-amount">$1,000</span>
+        </a>
+      </div>
+
+      <div class="tier-entry">
+        <div class="tier-entry-header">
+          <span class="tier-entry-name tier-earth-name">Earth</span>
+          <span class="tier-entry-price">$500</span>
+        </div>
+        <p class="tier-entry-benefits">Name on Founding Member plaque · Current rate locked 2 years ($79/mo)</p>
+        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-29ab21a210e0480eb72f5566f576d66baaf019746bce49ec8f29439e4419b7839ff9b234097a486a9172af8dde2ef440?locale=EN_US" target="_blank" class="tier-btn tier-btn-earth">
+          <span>Join as Earth · Family</span>
+          <span class="tier-btn-amount">$500</span>
         </a>
       </div>
 
@@ -1264,25 +1264,13 @@ html, body {
 
       <div class="tier-entry">
         <div class="tier-entry-header">
-          <span class="tier-entry-name tier-earth-name">Earth</span>
-          <span class="tier-entry-price">$1,000</span>
+          <span class="tier-entry-name tier-air-name">Air</span>
+          <span class="tier-entry-price">$10,000</span>
         </div>
-        <p class="tier-entry-benefits">Name on Founding Wall · 1 Special Founders T-shirt with your business listed on the back</p>
-        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-31700014db9d47cda081428fd7da18f4a3e739f027cb4657a31410933892d5fa93c0ba3d346b4f21b151f5685b00e056?locale=EN_US" target="_blank" class="tier-btn tier-btn-earth">
-          <span>Join as Earth · Business</span>
-          <span class="tier-btn-amount">$1,000</span>
-        </a>
-      </div>
-
-      <div class="tier-entry">
-        <div class="tier-entry-header">
-          <span class="tier-entry-name tier-water-name">Water</span>
-          <span class="tier-entry-price">$2,500</span>
-        </div>
-        <p class="tier-entry-benefits">Earth benefits + Featured lobby placement · Social media and website recognition</p>
-        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-ee09265ba27543ff91981fb4980b83d043379c28053c4b75915bbe38d3fa620dbf0ad6e23c5c46a19ce5a1a01d91c643?locale=EN_US" target="_blank" class="tier-btn tier-btn-water">
-          <span>Join as Water · Business</span>
-          <span class="tier-btn-amount">$2,500</span>
+        <p class="tier-entry-benefits">Fire benefits + Logo on Echo materials · Named in all major announcements for 2 years · Employees receive 10% off all programs for 2 years</p>
+        <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Business%20Air%20Founding%20Membership%20%E2%80%94%20%2410%2C000" target="_blank" class="tier-btn tier-btn-air">
+          <span>Join as Air · Let's Talk</span>
+          <span class="tier-btn-amount">$10,000</span>
         </a>
       </div>
 
@@ -1300,13 +1288,25 @@ html, body {
 
       <div class="tier-entry">
         <div class="tier-entry-header">
-          <span class="tier-entry-name tier-air-name">Air</span>
-          <span class="tier-entry-price">$10,000</span>
+          <span class="tier-entry-name tier-water-name">Water</span>
+          <span class="tier-entry-price">$2,500</span>
         </div>
-        <p class="tier-entry-benefits">Fire benefits + Logo on Echo materials · Named in all major announcements for 2 years · Employees receive 10% off all programs for 2 years</p>
-        <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Business%20Air%20Founding%20Membership%20%E2%80%94%20%2410%2C000" target="_blank" class="tier-btn tier-btn-air">
-          <span>Join as Air · Let's Talk</span>
-          <span class="tier-btn-amount">$10,000</span>
+        <p class="tier-entry-benefits">Earth benefits + Featured lobby placement · Social media and website recognition</p>
+        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-ee09265ba27543ff91981fb4980b83d043379c28053c4b75915bbe38d3fa620dbf0ad6e23c5c46a19ce5a1a01d91c643?locale=EN_US" target="_blank" class="tier-btn tier-btn-water">
+          <span>Join as Water · Business</span>
+          <span class="tier-btn-amount">$2,500</span>
+        </a>
+      </div>
+
+      <div class="tier-entry">
+        <div class="tier-entry-header">
+          <span class="tier-entry-name tier-earth-name">Earth</span>
+          <span class="tier-entry-price">$1,000</span>
+        </div>
+        <p class="tier-entry-benefits">Name on Founding Wall · 1 Special Founders T-shirt with your business listed on the back</p>
+        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-31700014db9d47cda081428fd7da18f4a3e739f027cb4657a31410933892d5fa93c0ba3d346b4f21b151f5685b00e056?locale=EN_US" target="_blank" class="tier-btn tier-btn-earth">
+          <span>Join as Earth · Business</span>
+          <span class="tier-btn-amount">$1,000</span>
         </a>
       </div>
 

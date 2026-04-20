@@ -511,6 +511,11 @@
 </style>
 </head>
 <body>
+<!-- HERO SECTION -->
+<section class="hero-section" style="width: 100vw; min-height: 100vh; background-color: #0B1F3A; display: flex; align-items: center; justify-content: center; margin: 0; padding: 0;">
+  <img src="E5_ElementalAthlete_White.png" alt="Elemental 5 Logo" style="max-width: 600px; width: 80vw; height: auto;">
+</section>
+
 <!-- ── E5 NAVIGATION ── -->
 <style>
 .e5-nav{width:100%;background:#ffffff;border-bottom:1px solid rgba(196,146,42,0.15);position:sticky;top:0;z-index:1000;font-family:'Montserrat',sans-serif;}
@@ -528,7 +533,7 @@
 .e5-nav-btn{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#fff;background:#CC1F1F;text-decoration:none;padding:10px 20px;border-radius:3px;white-space:nowrap;transition:background 0.2s;flex-shrink:0;}
 .e5-nav-btn:hover{background:#A51818;}
 .e5-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
-.e5-hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,0.8);border-radius:2px;}
+.e5-hamburger span{display:block;width:24px;height:2px;background:rgba(0,0,0,0.8);border-radius:2px;}
 .e5-mobile-menu{display:none;flex-direction:column;background:#1A1208;border-top:1px solid rgba(196,146,42,0.1);padding:16px 24px 24px;gap:4px;}
 .e5-mobile-menu a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05);transition:color 0.2s;}
 .e5-mobile-menu a:hover{color:#fff;}
@@ -555,7 +560,7 @@
       <li><a href="/schedule.html">Schedule</a></li>
       <li><a href="/contact.html">Contact</a></li>
     </ul>
-    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Book Now</a>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
     <button class="e5-hamburger" onclick="document.getElementById('e5mob').classList.toggle('e5-open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -568,7 +573,7 @@
     <a href="/new-gym.html">New Gym</a>
     <a href="/schedule.html">Schedule</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Book Now</a>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
   </div>
 </nav>
 <!-- ── END NAV ── -->
@@ -759,7 +764,7 @@
         <h4>See our programs</h4>
         <p>NinFit, Tx3, Aerial Silks, Mini Ninjas, and E5 Echo. Ages 3 to 18.</p>
       </div>
-      <a href="https://www.elementalfive.com/services-3" onclick="window.top.location.href='https://www.elementalfive.com/services-3'; return false;" class="cta-link">View programs →</a>
+      <a href="/programs.html" onclick="window.top.location.href='/programs.html'; return false;" class="cta-link">View programs →</a>
     </div>
 
     <div class="cta-card">
