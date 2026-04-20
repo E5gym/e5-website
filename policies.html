@@ -377,9 +377,13 @@ html, body {
 .e5-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;}
 .e5-logo img{height:40px;width:auto;}
 .e5-nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
+.e5-nav-links > li{position:relative;}
 .e5-nav-links a{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(14,8,4,0.7);text-decoration:none;padding:8px 14px;border-radius:3px;transition:color 0.2s,background 0.2s;white-space:nowrap;}
 .e5-nav-links a:hover{color:#fff;background:rgba(255,255,255,0.06);}
 .e5-nav-links a.e5-active{color:#C4922A;}
+.e5-nav-links .dropdown{position:absolute;top:100%;left:0;background:#fff;min-width:160px;box-shadow:0 4px 12px rgba(0,0,0,0.15);border-radius:3px;display:none;flex-direction:column;padding:4px 0;z-index:100;}
+.e5-nav-links .dropdown a{font-size:11px;padding:10px 16px;border-radius:0;}
+.e5-nav-links li:hover > .dropdown{display:flex;}
 .e5-nav-btn{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#fff;background:#CC1F1F;text-decoration:none;padding:10px 20px;border-radius:3px;white-space:nowrap;transition:background 0.2s;flex-shrink:0;}
 .e5-nav-btn:hover{background:#A51818;}
 .e5-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
@@ -400,7 +404,12 @@ html, body {
     <ul class="e5-nav-links">
       <li><a href="/programs.html">Programs</a></li>
       <li><a href="/pricing.html">Pricing</a></li>
-      <li><a href="/about.html">About</a></li>
+      <li><a href="/about.html">About</a>
+        <div class="dropdown">
+          <a href="/about.html">About Us</a>
+          <a href="/policies.html">Policies</a>
+        </div>
+      </li>
       <li><a href="/new-gym.html">New Gym</a></li>
       <li><a href="/schedule.html">Schedule</a></li>
       <li><a href="/contact.html">Contact</a></li>
@@ -413,7 +422,8 @@ html, body {
   <div class="e5-mobile-menu" id="e5mob">
     <a href="/programs.html">Programs</a>
     <a href="/pricing.html">Pricing</a>
-    <a href="/about.html">About</a>
+    <a href="/about.html">About Us</a>
+    <a href="/policies.html">Policies</a>
     <a href="/new-gym.html">New Gym</a>
     <a href="/schedule.html">Schedule</a>
     <a href="/contact.html">Contact</a>
