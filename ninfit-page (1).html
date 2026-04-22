@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NinFit — Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #1A5FAB;
+    --blue-dark: #0D3D72;
+    --blue-mid: #2472C8;
+    --blue-light: #E6F1FB;
+    --earth-bg: #1C0F00;
+    --water-bg: #00142A;
+    --void: #1A1A2E;
+    --black: #0F0F14;
+    --white: #FAFAF7;
+    --gray-100: #F4F3EF;
+    --gray-200: #E8E7E0;
+    --gray-500: #888880;
+    --gray-700: #444440;
+    --text: #1C1C1A;
+    --earth: #8B6A3A;
+    --earth-light: #C8955A;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+  .eyebrow { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; display: block; margin-bottom: 0.85rem; }
+  .eyebrow.on-dark { color: var(--blue-mid); }
+  .eyebrow.on-light { color: var(--blue-dark); }
+
+  /* ── HERO ── */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 0 6rem; position: relative; background: var(--black); overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(26,95,171,0.14) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 15% 55%, rgba(26,95,171,0.06) 0%, transparent 60%); }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 60px 60px; }
+  .hero-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(4rem, 13vw, 11rem); line-height: 0.9; letter-spacing: -0.02em; color: var(--white); text-transform: uppercase; }
+  .hero-title span { color: var(--blue-mid); }
+  .hero-sub { font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: clamp(1rem, 1.8vw, 1.2rem); color: rgba(250,250,247,0.6); max-width: 520px; line-height: 1.7; margin-top: 1.5rem; }
+  .hero-cta-row { display: flex; align-items: center; gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap; }
+  .btn-primary { display: inline-block; background: var(--blue); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2.25rem; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: var(--blue-mid); transform: translateY(-2px); }
+  .btn-ghost { display: inline-block; color: rgba(255,255,255,0.55); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+  .btn-ghost:hover { color: var(--white); border-color: var(--blue-mid); }
+  .hero-accent-line { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--blue) 0%, var(--blue-mid) 50%, rgba(26,95,171,0.15) 100%); }
+
+  /* ── WHAT ── */
+  .what-section { background: var(--white); color: var(--text); padding: 6rem 0; }
+  .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .what-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--black); margin-bottom: 1.5rem; }
+  .what-headline em { font-style: normal; color: var(--blue-dark); }
+  .what-body p { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 1rem; }
+  .what-body p:last-child { margin-bottom: 0; }
+  .pillar-list { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
+  .pillar-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .pillar-icon { width: 44px; height: 44px; flex-shrink: 0; background: var(--blue-light); display: flex; align-items: center; justify-content: center; }
+  .pillar-icon svg { width: 20px; height: 20px; fill: none; stroke: var(--blue-dark); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .pillar-text strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--black); margin-bottom: 0.3rem; }
+  .pillar-text span { font-family: 'Nunito Sans', sans-serif; font-size: 0.875rem; color: var(--gray-500); line-height: 1.6; }
+
+  /* ── ELEMENTS BAR ── */
+  .elements-bar { background: #1C1C1C; padding: 2.5rem 0; border-top: 3px solid var(--blue); border-bottom: 3px solid var(--blue); }
+  .elements-row { display: flex; justify-content: center; }
+  .element-badge { flex: 1; max-width: 200px; text-align: center; padding: 1.5rem 1rem; border-right: 1px solid rgba(255,255,255,0.08); }
+  .element-badge:last-child { border-right: none; }
+  .element-emblem { width: 60px; height: 60px; margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; }
+  .element-emblem img { width: 100%; height: 100%; object-fit: contain; }
+  .element-name { font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
+  .element-badge.active .element-name { color: rgba(255,255,255,0.85); }
+  .element-badge.inactive .element-name { color: rgba(255,255,255,0.2); }
+  .element-badge.inactive .element-emblem { opacity: 0.25; }
+
+  /* ── PHILOSOPHY ── */
+  .philosophy-section { background: var(--black); padding: 7rem 0; }
+  .philosophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .philosophy-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 1rem; }
+  .philosophy-headline em { font-style: normal; color: var(--blue-mid); }
+  .philosophy-body p { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
+  .philosophy-body p:last-child { margin-bottom: 0; }
+  .principles-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  .principle-item { padding: 1.1rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; gap: 1rem; align-items: baseline; }
+  .principle-item:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+  .principle-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 0.6rem; color: var(--blue-mid); letter-spacing: 0.1em; flex-shrink: 0; width: 20px; }
+  .principle-text { font-family: 'Nunito Sans', sans-serif; font-size: 0.95rem; font-weight: 400; color: rgba(255,255,255,0.7); line-height: 1.5; font-style: italic; }
+
+  /* ── HOW IT WORKS ── */
+  .how-section { background: var(--void); padding: 7rem 0; }
+  .how-header { margin-bottom: 4rem; }
+  .how-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 0.75rem; }
+  .how-sub { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.4); max-width: 560px; line-height: 1.75; }
+  .how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.06); }
+  .how-card { background: var(--void); padding: 2.5rem 2rem; }
+  .how-card-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 3.5rem; color: rgba(255,255,255,0.04); line-height: 1; margin-bottom: 0.75rem; letter-spacing: -0.03em; }
+  .how-card-title { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--blue-mid); margin-bottom: 0.75rem; }
+  .how-card-desc { font-family: 'Nunito Sans', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.4); line-height: 1.75; }
+  .how-card-note { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--earth-light); margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); }
+
+  /* ── LEVELS ── */
+  .levels-section { background: var(--gray-100); color: var(--text); padding: 7rem 0; }
+  .levels-header { margin-bottom: 4rem; }
+  .levels-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--black); margin-bottom: 0.75rem; }
+  .levels-sub { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: var(--gray-500); max-width: 600px; line-height: 1.75; }
+  .levels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+  .level-card { overflow: hidden; }
+  .level-card-header { padding: 2rem 1.75rem 1.5rem; }
+  .earth-header { background: var(--earth-bg); }
+  .water-header { background: var(--water-bg); }
+  .level-badge { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.25rem 0.65rem; margin-bottom: 0.85rem; }
+  .earth-badge { background: var(--earth); color: var(--white); }
+  .water-badge { background: var(--blue); color: var(--white); }
+  .level-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 3rem; letter-spacing: -0.03em; color: var(--white); line-height: 1; margin-bottom: 0.25rem; }
+  .level-title { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.85rem; }
+  .level-motto { font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-style: italic; font-size: 0.875rem; color: rgba(255,255,255,0.35); line-height: 1.55; }
+  .level-card-body { background: var(--white); padding: 1.5rem 1.75rem; border-top: 3px solid; }
+  .earth-body { border-color: var(--earth); }
+  .water-body { border-color: var(--blue); }
+  .disc-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+  .disc-tag { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.2rem 0.55rem; background: var(--gray-100); color: var(--gray-700); }
+  .level-desc { font-family: 'Nunito Sans', sans-serif; font-size: 0.875rem; color: var(--gray-500); line-height: 1.7; }
+
+  /* GATE CALLOUT */
+  .gate-callout { background: var(--black); border: 1px solid rgba(139,106,58,0.3); padding: 2rem 2.5rem; display: flex; gap: 2rem; align-items: flex-start; margin-top: 1.5rem; }
+  .gate-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .gate-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--earth-light); margin-bottom: 0.5rem; }
+  .gate-desc { font-family: 'Nunito Sans', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+  /* PDF CTA */
+  .pdf-cta { background: var(--black); border: 1px solid rgba(26,95,171,0.3); padding: 2.5rem 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; margin-top: 3rem; }
+  .pdf-cta-left h3 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.4rem; letter-spacing: -0.01em; text-transform: uppercase; color: var(--white); margin-bottom: 0.6rem; }
+  .pdf-cta-left p { font-family: 'Nunito Sans', sans-serif; font-size: 0.875rem; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 460px; }
+  .btn-pdf { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--blue); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2rem; text-decoration: none; white-space: nowrap; transition: background 0.2s, transform 0.15s; flex-shrink: 0; }
+  .btn-pdf:hover { background: var(--blue-mid); transform: translateY(-2px); }
+  .pdf-icon { width: 18px; height: 18px; fill: none; stroke: var(--white); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+  /* ── JUNIOR ── */
+  .junior-section { background: var(--void); padding: 7rem 0; position: relative; overflow: hidden; }
+  .junior-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 80% 50%, rgba(26,95,171,0.1) 0%, transparent 60%); pointer-events: none; }
+  .junior-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .junior-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 0.75rem; }
+  .junior-headline em { font-style: normal; color: var(--blue-mid); }
+  .junior-body p { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 1rem; }
+  .age-track { display: flex; flex-direction: column; gap: 1px; margin-top: 2rem; }
+  .age-row { display: flex; align-items: stretch; }
+  .age-range { background: rgba(255,255,255,0.04); font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: rgba(255,255,255,0.28); padding: 1rem 1.25rem; min-width: 80px; display: flex; align-items: center; }
+  .age-name { flex: 1; padding: 1rem 1.25rem; display: flex; align-items: center; }
+  .age-row.curr .age-name { background: rgba(26,95,171,0.15); border-left: 3px solid var(--blue); }
+  .age-row:not(.curr) .age-name { background: rgba(255,255,255,0.02); border-left: 3px solid rgba(255,255,255,0.08); }
+  .age-row.curr .age-range { background: rgba(26,95,171,0.1); color: var(--blue-mid); }
+  .age-track-name { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; display: block; }
+  .age-row.curr .age-track-name { color: var(--white); }
+  .age-row:not(.curr) .age-track-name { color: rgba(255,255,255,0.22); }
+  .age-note { font-family: 'Nunito Sans', sans-serif; font-size: 0.78rem; color: rgba(255,255,255,0.25); font-style: italic; display: block; margin-top: 0.15rem; }
+  .age-row.curr .age-note { color: rgba(255,255,255,0.4); }
+
+  /* PASSPORT */
+  .passport-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); padding: 2rem; }
+  .passport-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .passport-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.25rem; letter-spacing: -0.01em; text-transform: uppercase; color: var(--blue-mid); }
+  .passport-sub { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-top: 0.2rem; }
+  .passport-held { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.18); }
+  .passport-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .passport-skill { display: flex; align-items: center; gap: 0.6rem; padding: 0.6rem 0.75rem; background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.05); font-family: 'Nunito Sans', sans-serif; font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+  .stamp { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.12); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .stamp.done { background: var(--blue); border-color: var(--blue); }
+  .stamp.done::after { content: '✓'; font-size: 10px; color: var(--white); font-weight: 700; }
+  .passport-unlock { background: rgba(26,95,171,0.08); border: 1px solid rgba(26,95,171,0.2); padding: 1rem 1.25rem; display: flex; align-items: flex-start; gap: 0.75rem; }
+  .unlock-text { font-family: 'Nunito Sans', sans-serif; font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+  .unlock-text strong { color: var(--blue-mid); font-weight: 700; }
+
+  /* ── ENROLL ── */
+  .enroll-section { background: var(--blue); padding: 7rem 0; position: relative; overflow: hidden; }
+  .enroll-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px); background-size: 40px 40px; }
+  .enroll-content { position: relative; text-align: center; }
+  .enroll-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 0.95; letter-spacing: -0.03em; text-transform: uppercase; color: var(--white); margin-bottom: 1.25rem; }
+  .enroll-sub { font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: 1.05rem; color: rgba(255,255,255,0.65); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.75; }
+  .enroll-cta-row { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .btn-white { display: inline-block; background: var(--white); color: var(--blue-dark); font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2.25rem; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-white:hover { background: var(--gray-100); transform: translateY(-2px); }
+  .btn-outline-white { display: inline-block; background: transparent; color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2.25rem; border: 2px solid rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+  .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+  .enroll-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat-value { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2.25rem; letter-spacing: -0.02em; color: var(--white); display: block; margin-bottom: 0.2rem; }
+  .stat-label { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+
+  /* ── FAQ ── */
+  .faq-section { background: var(--white); color: var(--text); padding: 7rem 0; }
+  .faq-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(1.75rem, 3.5vw, 2.5rem); letter-spacing: -0.02em; text-transform: uppercase; color: var(--black); margin-bottom: 3rem; }
+  .faq-list { display: flex; flex-direction: column; max-width: 720px; }
+  .faq-item { border-bottom: 1px solid var(--gray-200); padding: 1.5rem 0; }
+  .faq-q { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: var(--black); margin-bottom: 0.7rem; }
+  .faq-a { font-family: 'Nunito Sans', sans-serif; font-size: 0.95rem; color: var(--gray-500); line-height: 1.75; }
+
+  /* ── FOOTER ── */
+  .page-footer { background: var(--black); border-top: 3px solid var(--blue); padding: 2.5rem 0; text-align: center; }
+  .footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.25rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue-mid); margin-bottom: 0.5rem; }
+  .footer-sub { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.22); }
+
+  @media (max-width: 900px) {
+    .what-grid, .philosophy-grid, .junior-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .levels-grid { grid-template-columns: 1fr; }
+    .how-grid { grid-template-columns: 1fr; }
+    .passport-skills { grid-template-columns: 1fr; }
+    .pdf-cta { flex-direction: column; }
+    .gate-callout { flex-direction: column; }
+  }
+  @media (max-width: 600px) {
+    .elements-row { flex-wrap: wrap; }
+    .element-badge { max-width: 50%; }
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero .eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero-title { animation: fadeUp 0.7s 0.1s ease both; }
+  .hero-sub { animation: fadeUp 0.7s 0.2s ease both; }
+  .hero-cta-row { animation: fadeUp 0.7s 0.3s ease both; }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="eyebrow on-dark">Elemental 5 · Salida, Colorado</span>
+    <h1 class="hero-title">Nin<span>Fit</span></h1>
+    <p class="hero-sub">Parkour. Tumbling. Trampoline. A structured movement arts program where skills are earned, levels are real, and every athlete always knows exactly what they're working toward.</p>
+    <div class="hero-cta-row">
+      <a href="#enroll" class="btn-primary">Enroll Now</a>
+      <a href="#how" class="btn-ghost">How it works ↓</a>
+    </div>
+  </div>
+  <div class="hero-accent-line"></div>
+</section>
+
+<!-- ══ WHAT IS NINFIT ══ -->
+<section class="what-section">
+  <div class="container">
+    <div class="what-grid">
+      <div>
+        <span class="eyebrow on-light">What is NinFit</span>
+        <h2 class="what-headline">Not a gym class.<br><em>A progression system.</em></h2>
+        <div class="what-body">
+          <p>NinFit is Elemental 5's core program — the foundation of everything we build. It trains parkour, tumbling, and trampoline together inside a structured level system, grounded in character development through the Five Elements framework.</p>
+          <p>Athletes work through 9 levels across five elemental phases. There's no rushing and no shortcutting — skills are signed off by coaches when they see consistent mastery in class. The progression is real because the standard is real.</p>
+        </div>
+      </div>
+      <ul class="pillar-list">
+        <li class="pillar-item">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="pillar-text"><strong>Three disciplines, one program</strong><span>Parkour, tumbling, and trampoline are trained and assessed together at every level. You develop across all three simultaneously.</span></div>
+        </li>
+        <li class="pillar-item">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
+          <div class="pillar-text"><strong>Skills earned in class, not on test day</strong><span>Coaches observe and sign off when they see mastery happening naturally. There's no pressure performance — just consistent training.</span></div>
+        </li>
+        <li class="pillar-item">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div>
+          <div class="pillar-text"><strong>Character is part of the curriculum</strong><span>Every class closes with a mat chat — intentional conversation built around the Five Elements character framework. Movement is the vehicle. Development is the destination.</span></div>
+        </li>
+        <li class="pillar-item">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg></div>
+          <div class="pillar-text"><strong>9 levels. Years of real growth.</strong><span>NinFit goes from foundational movement all the way through elite performance. There's always a next level worth working toward.</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ELEMENTS BAR ══ -->
+<div class="elements-bar">
+  <div class="container">
+    <div class="elements-row">
+      <div class="element-badge active">
+        <div class="element-emblem"><img src="element-earth.png" alt="Earth" /></div>
+        <div class="element-name">Earth</div>
+      </div>
+      <div class="element-badge active">
+        <div class="element-emblem"><img src="element-water.png" alt="Water" /></div>
+        <div class="element-name">Water</div>
+      </div>
+      <div class="element-badge inactive">
+        <div class="element-emblem"><img src="element-fire.png" alt="Fire" /></div>
+        <div class="element-name">Fire</div>
+      </div>
+      <div class="element-badge inactive">
+        <div class="element-emblem"><img src="element-air.png" alt="Air" /></div>
+        <div class="element-name">Air</div>
+      </div>
+      <div class="element-badge inactive">
+        <div class="element-emblem"><img src="element-void.png" alt="Void" /></div>
+        <div class="element-name">Void</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PHILOSOPHY ══ -->
+<section class="philosophy-section">
+  <div class="container">
+    <div class="philosophy-grid">
+      <div>
+        <span class="eyebrow on-dark">The Level 1 Standard</span>
+        <h2 class="philosophy-headline">What we tell<br><em>every athlete</em><br>on day one.</h2>
+        <div class="philosophy-body">
+          <p>Before we talk skills, we talk about how to train. These five principles live in every Level 1 booklet. They're not motivational posters — they're the actual operating system for getting better at anything.</p>
+          <p>A kid who internalizes these doesn't just become a better athlete. They become someone who knows how to work.</p>
+        </div>
+      </div>
+      <ul class="principles-list">
+        <li class="principle-item">
+          <span class="principle-num">01</span>
+          <span class="principle-text">Consistency beats talent every time.</span>
+        </li>
+        <li class="principle-item">
+          <span class="principle-num">02</span>
+          <span class="principle-text">Don't do it until you get it right. Do it until you can't get it wrong.</span>
+        </li>
+        <li class="principle-item">
+          <span class="principle-num">03</span>
+          <span class="principle-text">Enjoy the process.</span>
+        </li>
+        <li class="principle-item">
+          <span class="principle-num">04</span>
+          <span class="principle-text">Run your own race. Everyone in this gym was a Level 1 once.</span>
+        </li>
+        <li class="principle-item">
+          <span class="principle-num">05</span>
+          <span class="principle-text">Take your time. Skills come slowly.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ══ -->
+<section class="how-section" id="how">
+  <div class="container">
+    <div class="how-header">
+      <span class="eyebrow on-dark">How Progression Works</span>
+      <h2 class="how-headline">The 8-Week Training Cycle</h2>
+      <p class="how-sub">NinFit runs on a structured 8-week training arc. It's a curriculum rhythm — not a test countdown. Every week has a defined focus. Every session builds on the last. Any athlete can enter at any point and get a complete experience.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-card-num">01</div>
+        <div class="how-card-title">Train consistently</div>
+        <p class="how-card-desc">Every class follows the same structure — a focused 5-minute skill block, then rotation through all training zones. Coaches know what they're running. Athletes know what to expect. Consistency is the whole point.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-card-num">02</div>
+        <div class="how-card-title">Get skills signed off</div>
+        <p class="how-card-desc">Athletes carry a personal booklet with the anchor skills for their current level. Coaches sign off when they observe consistent mastery in class — not when an athlete performs on demand. There's no test day for Levels 1 through 3.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-card-num">03</div>
+        <div class="how-card-title">Level up naturally</div>
+        <p class="how-card-desc">When a coach sees everything signed off, the conversation happens. Leveling up isn't an event — it's a recognition. The booklet proves the work was done. The skills prove the athlete is ready.</p>
+        <div class="how-card-note">Levels 1 → 2 → 3: milestone checkpoints, not formal tests</div>
+      </div>
+      <div class="how-card">
+        <div class="how-card-num">04</div>
+        <div class="how-card-title">The one real gate</div>
+        <p class="how-card-desc">Level 3 to Level 4 is the only formal assessment in the program. It's a different class hour, a significantly higher skill threshold, and a genuine commitment shift. This one is scheduled, announced, and earned in full.</p>
+        <div class="how-card-note">Level 3 → 4: formal assessment · the only real gate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LEVELS ══ -->
+<section class="levels-section" id="levels">
+  <div class="container">
+    <div class="levels-header">
+      <span class="eyebrow on-light">The Path</span>
+      <h2 class="levels-headline">Every level is earned.</h2>
+      <p class="levels-sub">NinFit runs across 9 levels and five elemental phases. Levels 1–3 are the foundation — developmental, consistent, and coach-observed. The skills build in the background while athletes train. When everything's ready, the coach says so.</p>
+    </div>
+    <div class="levels-grid">
+      <div class="level-card">
+        <div class="level-card-header earth-header">
+          <span class="level-badge earth-badge">Earth Phase</span>
+          <div class="level-num">1</div>
+          <div class="level-title">Level One</div>
+          <div class="level-motto">"Consistency beats talent every time."</div>
+        </div>
+        <div class="level-card-body earth-body">
+          <div class="disc-tags"><span class="disc-tag">Parkour</span><span class="disc-tag">Tumbling</span><span class="disc-tag">Trampoline</span></div>
+          <p class="level-desc">Foundational body control — landing safely, rolling correctly, moving with intent. Every skill is built from the ground up. No shortcuts. No rushing. The habits formed here carry through every level that follows.</p>
+        </div>
+      </div>
+      <div class="level-card">
+        <div class="level-card-header earth-header">
+          <span class="level-badge earth-badge">Earth Phase</span>
+          <div class="level-num">2</div>
+          <div class="level-title">Level Two</div>
+          <div class="level-motto">"Slow is right. Right is fast."</div>
+        </div>
+        <div class="level-card-body earth-body">
+          <div class="disc-tags"><span class="disc-tag">Parkour</span><span class="disc-tag">Tumbling</span><span class="disc-tag">Trampoline</span></div>
+          <p class="level-desc">The foundation deepens. Movements grow more dynamic and demanding. Athletes begin linking skills across disciplines and developing the body awareness that makes harder things feel possible.</p>
+        </div>
+      </div>
+      <div class="level-card">
+        <div class="level-card-header water-header">
+          <span class="level-badge water-badge">Water Phase</span>
+          <div class="level-num">3</div>
+          <div class="level-title">Level Three</div>
+          <div class="level-motto">"Run your own race."</div>
+        </div>
+        <div class="level-card-body water-body">
+          <div class="disc-tags"><span class="disc-tag">Parkour</span><span class="disc-tag">Tumbling</span><span class="disc-tag">Trampoline</span></div>
+          <p class="level-desc">Flow enters the picture. Skills begin to link naturally. Precision gives way to rhythm, and competence becomes confidence. Level 3 is the culmination of the developmental phase — and the preparation for everything beyond it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="gate-callout">
+      <div class="gate-icon">🔒</div>
+      <div>
+        <div class="gate-title">Level 3 → 4 is the only formal test in the program</div>
+        <p class="gate-desc">Moving from Level 3 to Level 4 means a new class hour, a significantly higher skill standard, and a real commitment to competitive or performance training. When a Level 3 athlete has everything signed off, the formal assessment is scheduled. Until then, the training continues — and the cycle window at Week 8 is always open for those who are ready.</p>
+      </div>
+    </div>
+
+    <div class="pdf-cta">
+      <div class="pdf-cta-left">
+        <h3>Want the full skill breakdown?</h3>
+        <p>The NinFit Curriculum Guide covers the anchor skills for Levels 1–3 across all three disciplines. Download it to see exactly what your athlete is working toward — and what getting signed off actually looks like.</p>
+      </div>
+      <a href="/ninfit-curriculum-guide.pdf" class="btn-pdf">
+        <svg class="pdf-icon" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h4a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        Download Curriculum Guide
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ JUNIOR NINJAS ══ -->
+<section class="junior-section">
+  <div class="junior-bg"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="junior-grid">
+      <div>
+        <span class="eyebrow on-dark">Ages 5–7</span>
+        <h2 class="junior-headline">Junior<br><em>Ninjas</em></h2>
+        <div class="junior-body">
+          <p>Younger athletes (ages 5–7) train alongside NinFit students in the same class — same energy, same coaching, same environment. Their progression experience is intentionally different.</p>
+          <p>Junior Ninjas don't carry a booklet. They earn stamps. Their <strong style="color:rgba(255,255,255,0.8);">Ninja Passport</strong> lives with the coach and gets stamped when mastery is observed naturally in class — no test, no pressure, no performance on demand.</p>
+          <p>When every stamp is filled, the athlete earns their NinFit booklet and enters the full level system. The transition is earned, not given — and it's genuinely meaningful when it happens.</p>
+        </div>
+        <div class="age-track">
+          <div class="age-row"><div class="age-range">3–5</div><div class="age-name"><div><span class="age-track-name">Mini Ninjas</span><span class="age-note">Gross motor fundamentals</span></div></div></div>
+          <div class="age-row curr"><div class="age-range">5–7</div><div class="age-name"><div><span class="age-track-name">Junior Ninjas</span><span class="age-note">Ninja Passport → NinFit booklet</span></div></div></div>
+          <div class="age-row"><div class="age-range">7–12</div><div class="age-name"><div><span class="age-track-name">NinFit</span><span class="age-note">Personal booklet · milestone progression</span></div></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="passport-card">
+          <div class="passport-header">
+            <div>
+              <div class="passport-title">Ninja Passport</div>
+              <div class="passport-sub">Junior Ninja Foundation Card</div>
+            </div>
+            <div class="passport-held">Coach Held</div>
+          </div>
+          <div class="passport-skills">
+            <div class="passport-skill"><div class="stamp done"></div>Standing Precision</div>
+            <div class="passport-skill"><div class="stamp done"></div>Shoulder Roll</div>
+            <div class="passport-skill"><div class="stamp done"></div>Forward Somersault</div>
+            <div class="passport-skill"><div class="stamp"></div>Speed Vault</div>
+            <div class="passport-skill"><div class="stamp"></div>Four Shape Jumps</div>
+            <div class="passport-skill"><div class="stamp"></div>Wall Run</div>
+            <div class="passport-skill"><div class="stamp"></div>Bar Re-grabs ×5</div>
+            <div class="passport-skill"><div class="stamp"></div>Bridge</div>
+          </div>
+          <div class="passport-unlock">
+            <div style="font-size:1.1rem;flex-shrink:0;margin-top:2px;">🔓</div>
+            <p class="unlock-text"><strong>Fill all stamps → earn your NinFit booklet.</strong> Stamps are awarded by coaches when they observe consistent mastery in class. No test. No performance. Just training.</p>
+          </div>
+        </div>
+        <p style="font-family:'Nunito Sans',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.18);margin-top:0.75rem;font-style:italic;text-align:center;">Passport skills finalized by coaching staff. Shown here for illustration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ENROLL ══ -->
+<section class="enroll-section" id="enroll">
+  <div class="enroll-bg"></div>
+  <div class="container">
+    <div class="enroll-content">
+      <h2 class="enroll-headline">Ready to<br>Level Up?</h2>
+      <p class="enroll-sub">NinFit is open to athletes ages 5–12. Classes run weekly in an 8-week training cycle. Spots are limited in the new facility — enroll now to secure your athlete's place.</p>
+      <div class="enroll-cta-row">
+        <a href="/enroll" class="btn-white">Enroll Now</a>
+        <a href="/contact" class="btn-outline-white">Ask a Question</a>
+      </div>
+      <div class="enroll-stats">
+        <div class="stat"><span class="stat-value">9</span><span class="stat-label">Levels to earn</span></div>
+        <div class="stat"><span class="stat-value">3</span><span class="stat-label">Disciplines trained</span></div>
+        <div class="stat"><span class="stat-value">8</span><span class="stat-label">Week training cycle</span></div>
+        <div class="stat"><span class="stat-value">5–12</span><span class="stat-label">Ages welcome</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq-section">
+  <div class="container">
+    <span class="eyebrow on-light">Common Questions</span>
+    <h2 class="faq-headline">What parents ask</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <p class="faq-q">How does my child level up?</p>
+        <p class="faq-a">Coaches observe athletes in class every week and sign off on anchor skills when they see consistent mastery — not a single good rep on a good day, but the skill showing up naturally and reliably. When everything in the booklet is signed off, the conversation happens. No test, no countdown, no pressure performance.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What happens at Level 3 to 4?</p>
+        <p class="faq-a">Level 3 to Level 4 is the only formal assessment in the program. It involves a new class hour, a significantly higher skill standard, and a genuine commitment to the next level of training. When a Level 3 athlete has everything signed off, a formal assessment is scheduled. It's earned — and it means something.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">My child is 6. Will they be behind the older kids?</p>
+        <p class="faq-a">Younger athletes (ages 5–7) start in Junior Ninjas and train alongside older NinFit students. They work through a foundation passport at their own pace — and when they've mastered those skills, they earn their NinFit booklet and enter the level system. It's not about age. It's about readiness.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What does a typical class look like?</p>
+        <p class="faq-a">Classes run in two blocks — parkour and tumbling/trampoline — each about 20 minutes. Every block starts with a structured 5-minute focus drill, then opens into rotation through training zones. The curriculum has a defined 8-week rhythm so athletes always know what to expect. Every class closes with a mat chat built around the Five Elements character framework.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Does my child need prior experience?</p>
+        <p class="faq-a">Level 1 is built for beginners. The skills start from the ground up — literally. If your child can follow directions and wants to move, they're ready for NinFit.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">How long does it take to reach Level 4?</p>
+        <p class="faq-a">For a student training once per week, the realistic timeline is about a year of consistent training through Levels 1–3. The 8-week training cycle creates the rhythm — athletes who show up every week and engage fully will progress naturally. There's no rush and no shortcut. That's by design.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="page-footer">
+  <div class="container">
+    <div class="footer-logo">Elemental 5</div>
+    <p class="footer-sub">Acrobatics · Parkour · Ninja · Salida, Colorado</p>
+  </div>
+</footer>
+
+</body>
+</html>
