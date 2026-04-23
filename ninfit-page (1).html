@@ -306,20 +306,21 @@
     .passport-skills { grid-template-columns: 1fr; }
     .pdf-cta { flex-direction: column; }
     .gate-callout { flex-direction: column; }
-    .george-grid { grid-template-columns: 1fr; }
-    .pipeline-step { grid-template-columns: 1fr; }
-    .pipeline-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
   }
   @media (max-width: 600px) {
     .elements-row { flex-wrap: wrap; }
     .element-badge { max-width: 50%; }
+    
+    /* Vimeo hero mobile styles */
+    .vimeo-hero { height: 85vh; }
+    .vimeo-hero .content { padding: 20px 20px; }
   }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-  .hero .eyebrow { animation: fadeUp 0.6s ease both; }
-  .hero-title { animation: fadeUp 0.7s 0.1s ease both; }
-  .hero-sub { animation: fadeUp 0.7s 0.2s ease both; }
-  .hero-cta-row { animation: fadeUp 0.7s 0.3s ease both; }
+  .vimeo-hero span { animation: fadeUp 0.6s ease both; }
+  .vimeo-hero h1 { animation: fadeUp 0.7s 0.1s ease both; }
+  .vimeo-hero p { animation: fadeUp 0.7s 0.2s ease both; }
+  .vimeo-hero div:last-child { animation: fadeUp 0.7s 0.3s ease both; }
 </style>
 </head>
 <body>
@@ -400,19 +401,25 @@
 <!-- ── END NAV ── -->
 
 <!-- ══ HERO ══ -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="container" style="position:relative;z-index:1;">
-    <span class="eyebrow on-dark">Elemental 5 · Salida, Colorado</span>
-    <h1 class="hero-title">Nin<span>Fit</span></h1>
-    <p class="hero-sub">Parkour. Tumbling. Trampoline. A structured movement arts program where skills are earned, levels are real, and every athlete always knows exactly what they're working toward.</p>
-    <div class="hero-cta-row">
-      <a href="#enroll" class="btn-primary">Enroll Now</a>
-      <a href="#how" class="btn-ghost">How it works ↓</a>
+<section class="vimeo-hero" style="position: relative; width: 100vw; height: 100vh; overflow: hidden; margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; background: var(--black);">
+  <!-- Vimeo Background -->
+  <iframe src="https://player.vimeo.com/video/1185758614?h=79acd76977&autoplay=1&muted=1&loop=1&background=1"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; object-fit: cover;"
+          frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+  <!-- Dark Overlay -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 10;"></div>
+
+  <!-- Content -->
+  <div style="position: relative; z-index: 20; text-align: center; max-width: 700px; padding: 40px 72px; color: white;">
+    <span style="font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; display: block; margin-bottom: 24px; color: rgba(26,95,171,0.8);">Elemental 5 · Salida, Colorado</span>
+    <h1 style="font-family: 'Montserrat', sans-serif; font-size: clamp(40px, 6vw, 72px); font-weight: 900; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 24px; color: white; text-transform: uppercase;">Nin<span style="color: #1A5FAB; font-style: normal;">Fit</span></h1>
+    <p style="font-family: 'Nunito Sans', sans-serif; font-size: clamp(16px, 2.5vw, 24px); font-weight: 400; line-height: 1.6; margin-bottom: 48px; color: rgba(255, 255, 255, 0.85);">Parkour. Tumbling. Trampoline. A structured movement arts program where skills are earned, levels are real, and every athlete always knows exactly what they're working toward.</p>
+    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+      <a href="#enroll" style="display: inline-block; background: #1A5FAB; color: white; padding: 14px 40px; border-radius: 3px; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s; border: 2px solid #1A5FAB;">Enroll Now</a>
+      <a href="#how" style="display: inline-block; background: transparent; color: white; padding: 12px 38px; border-radius: 3px; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s; border: 2px solid white;">How it works ↓</a>
     </div>
   </div>
-  <div class="hero-accent-line"></div>
 </section>
 
 <!-- ══ WHAT IS NINFIT ══ -->
@@ -448,34 +455,6 @@
     </div>
   </div>
 </section>
-
-<!-- ══ ELEMENTS BAR ══ -->
-<div class="elements-bar">
-  <div class="container">
-    <div class="elements-row">
-      <div class="element-badge active">
-        <div class="element-emblem"><img src="element-earth.png" alt="Earth" /></div>
-        <div class="element-name">Earth</div>
-      </div>
-      <div class="element-badge active">
-        <div class="element-emblem"><img src="element-water.png" alt="Water" /></div>
-        <div class="element-name">Water</div>
-      </div>
-      <div class="element-badge inactive">
-        <div class="element-emblem"><img src="element-fire.png" alt="Fire" /></div>
-        <div class="element-name">Fire</div>
-      </div>
-      <div class="element-badge inactive">
-        <div class="element-emblem"><img src="element-air.png" alt="Air" /></div>
-        <div class="element-name">Air</div>
-      </div>
-      <div class="element-badge inactive">
-        <div class="element-emblem"><img src="element-void.png" alt="Void" /></div>
-        <div class="element-name">Void</div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- ══ PHILOSOPHY ══ -->
 <section class="philosophy-section">
