@@ -13,6 +13,8 @@
     --blue-dark: #0D3D72;
     --blue-mid: #2472C8;
     --blue-light: #E6F1FB;
+    --blue-deep: #00142A;
+    --blue-muted: #0A2540;
     --earth-bg: #1C0F00;
     --water-bg: #00142A;
     --void: #1A1A2E;
@@ -195,18 +197,118 @@
   .faq-q { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: var(--black); margin-bottom: 0.7rem; }
   .faq-a { font-family: 'Nunito Sans', sans-serif; font-size: 0.95rem; color: var(--gray-500); line-height: 1.75; }
 
+  /* ── SHIFT SECTION ── */
+  .shift-section { background: var(--white); color: var(--text); padding: 6rem 0; }
+  .shift-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .shift-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--black); margin-bottom: 1.5rem; }
+  .shift-headline em { font-style: normal; color: var(--blue-dark); }
+  .shift-body p { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 1rem; }
+  .shift-body p:last-child { margin-bottom: 0; }
+  .shift-list { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
+  .shift-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .shift-icon { width: 44px; height: 44px; flex-shrink: 0; background: var(--blue-light); display: flex; align-items: center; justify-content: center; }
+  .shift-icon svg { width: 20px; height: 20px; fill: none; stroke: var(--blue-dark); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .shift-text strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--black); margin-bottom: 0.3rem; }
+  .shift-text span { font-family: 'Nunito Sans', sans-serif; font-size: 0.875rem; color: var(--gray-500); line-height: 1.6; }
+
+  /* ── COMPETITION PIPELINE ── */
+  .pipeline-section { background: var(--blue-muted); padding: 7rem 0; }
+  .pipeline-header { margin-bottom: 4rem; }
+  .pipeline-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 0.75rem; }
+  .pipeline-sub { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.45); max-width: 600px; line-height: 1.75; }
+  .pipeline-track { display: flex; flex-direction: column; gap: 1px; }
+  .pipeline-step { display: grid; grid-template-columns: 200px 1fr; gap: 0; }
+  .pipeline-left { background: rgba(255,255,255,0.04); padding: 1.75rem 2rem; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255,255,255,0.08); }
+  .pipeline-right { background: rgba(255,255,255,0.02); padding: 1.75rem 2rem; }
+  .pipeline-step.active .pipeline-left { background: rgba(36,114,200,0.15); border-right-color: var(--blue); }
+  .pipeline-step.active .pipeline-right { background: rgba(36,114,200,0.06); }
+  .pipeline-org { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: -0.01em; text-transform: uppercase; }
+  .pipeline-step.active .pipeline-org { color: rgba(93,184,245,0.9); }
+  .pipeline-step:not(.active) .pipeline-org { color: rgba(255,255,255,0.35); }
+  .pipeline-location { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 0.2rem; }
+  .pipeline-step.active .pipeline-location { color: rgba(93,184,245,0.5); }
+  .pipeline-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .pipeline-step.active .pipeline-name { color: var(--white); }
+  .pipeline-step:not(.active) .pipeline-name { color: rgba(255,255,255,0.4); }
+  .pipeline-desc { font-family: 'Nunito Sans', sans-serif; font-size: 0.875rem; line-height: 1.65; }
+  .pipeline-step.active .pipeline-desc { color: rgba(255,255,255,0.55); }
+  .pipeline-step:not(.active) .pipeline-desc { color: rgba(255,255,255,0.22); }
+  .pipeline-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.2rem 0.5rem; margin-top: 0.5rem; }
+  .tag-active { background: rgba(36,114,200,0.2); color: rgba(93,184,245,0.9); border: 1px solid rgba(36,114,200,0.3); }
+  .tag-future { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.08); }
+
+  /* FREESTYLE SCORING */
+  .scoring-section { background: var(--black); padding: 7rem 0; }
+  .scoring-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .scoring-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 1rem; }
+  .scoring-headline em { font-style: normal; color: rgba(93,184,245,0.9); }
+  .scoring-body p { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 1rem; }
+  .scoring-cards { display: flex; flex-direction: column; gap: 1px; }
+  .score-card { padding: 1.25rem 1.5rem; display: grid; grid-template-columns: 60px 1fr 40px; gap: 1rem; align-items: center; }
+  .score-card:nth-child(1) { background: rgba(36,114,200,0.12); border-left: 3px solid var(--blue); }
+  .score-card:nth-child(2) { background: rgba(36,114,200,0.08); border-left: 3px solid rgba(36,114,200,0.5); }
+  .score-card:nth-child(3) { background: rgba(36,114,200,0.06); border-left: 3px solid rgba(36,114,200,0.3); }
+  .score-card:nth-child(4) { background: rgba(36,114,200,0.04); border-left: 3px solid rgba(36,114,200,0.15); }
+  .score-category { font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(93,184,245,0.9); }
+  .score-desc { font-family: 'Nunito Sans', sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+  .score-points { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.25rem; color: rgba(255,255,255,0.2); text-align: right; }
+  .score-total { margin-top: 0.75rem; padding: 0.75rem 1.5rem; background: rgba(36,114,200,0.1); border: 1px solid rgba(36,114,200,0.2); display: flex; align-items: center; justify-content: space-between; }
+  .score-total-label { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .score-total-value { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.5rem; color: rgba(93,184,245,0.9); }
+  .e5-connection { margin-top: 1.5rem; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); }
+  .e5-connection-label { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(93,184,245,0.9); margin-bottom: 0.5rem; }
+  .e5-connection-text { font-family: 'Nunito Sans', sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.6; }
+
+  /* ── GEORGE ── */
+  .george-section { background: var(--blue-deep); padding: 7rem 0; border-top: 3px solid var(--blue); border-bottom: 3px solid var(--blue); }
+  .george-grid { display: grid; grid-template-columns: 320px 1fr; gap: 4rem; align-items: start; }
+  .george-photo { position: relative; overflow: hidden; }
+  .george-photo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+  .george-photo-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem 1.25rem; background: linear-gradient(transparent, rgba(0,0,0,0.7)); }
+  .george-photo-name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: -0.01em; text-transform: uppercase; color: var(--white); }
+  .george-photo-title { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(93,184,245,0.9); margin-top: 0.15rem; }
+  .george-content { padding-top: 0.5rem; }
+  .george-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(36,114,200,0.15); border: 1px solid rgba(36,114,200,0.3); padding: 0.4rem 0.85rem; margin-bottom: 1.25rem; }
+  .george-badge span { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(93,184,245,0.9); }
+  .george-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.1; letter-spacing: -0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 1rem; }
+  .george-headline em { font-style: normal; color: rgba(93,184,245,0.9); }
+  .george-body p { font-family: 'Nunito Sans', sans-serif; font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 0.85rem; }
+  .george-body p:last-child { margin-bottom: 0; }
+  .george-stat-row { display: flex; gap: 2rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.07); flex-wrap: wrap; }
+  .george-stat-value { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.5rem; letter-spacing: -0.02em; color: var(--white); display: block; }
+  .george-stat-label { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+
+  /* ── SURGE ── */
+  .surge-section { background: var(--black); padding: 7rem 0; }
+  .surge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .surge-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 1rem; }
+  .surge-headline em { font-style: normal; color: rgba(93,184,245,0.9); }
+  .surge-body p { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 1rem; }
+  .surge-body p:last-child { margin-bottom: 0; }
+  .surge-card { background: rgba(36,114,200,0.06); border: 1px solid rgba(36,114,200,0.2); padding: 2.5rem; }
+  .surge-card-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(93,184,245,0.9); margin-bottom: 0.6rem; }
+  .surge-card-name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2.5rem; letter-spacing: -0.03em; text-transform: uppercase; color: var(--white); margin-bottom: 0.5rem; line-height: 1; }
+  .surge-card-tagline { font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-style: italic; font-size: 0.95rem; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; line-height: 1.5; }
+  .surge-criteria { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.5rem; }
+  .surge-criteria li { display: flex; align-items: flex-start; gap: 0.6rem; font-family: 'Nunito Sans', sans-serif; font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+  .surge-criteria li::before { content: '—'; color: rgba(93,184,245,0.9); flex-shrink: 0; font-size: 0.7rem; margin-top: 0.2em; }
+  .surge-coming { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.2); padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.07); }
+
   /* ── FOOTER ── */
   .page-footer { background: var(--black); border-top: 3px solid var(--blue); padding: 2.5rem 0; text-align: center; }
   .footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.25rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue-mid); margin-bottom: 0.5rem; }
   .footer-sub { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.22); }
 
   @media (max-width: 900px) {
-    .what-grid, .philosophy-grid, .junior-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .what-grid, .philosophy-grid, .junior-grid, .shift-grid, .scoring-grid, .surge-grid { grid-template-columns: 1fr; gap: 3rem; }
     .levels-grid { grid-template-columns: 1fr; }
     .how-grid { grid-template-columns: 1fr; }
     .passport-skills { grid-template-columns: 1fr; }
     .pdf-cta { flex-direction: column; }
     .gate-callout { flex-direction: column; }
+    .george-grid { grid-template-columns: 1fr; }
+    .pipeline-step { grid-template-columns: 1fr; }
+    .pipeline-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
   }
   @media (max-width: 600px) {
     .elements-row { flex-wrap: wrap; }
@@ -262,7 +364,6 @@
           <a href="/programs.html">All Programs</a>
           <a href="/ninfit-page%20(1).html">NinFit</a>
           <a href="/tx3-page.html">TX3</a>
-          <a href="/ninfit-intermediate-page.html">NinFit Lvl 4-6</a>
         </div>
       </li>
       <li><a href="/pricing.html">Pricing</a></li>
@@ -285,6 +386,7 @@
   <div class="e5-mobile-menu" id="e5mob">
     <a href="/programs.html">Programs</a>
     <a href="/ninfit-page%20(1).html">NinFit</a>
+    <a href="/tx3-page.html">TX3</a>
     <a href="/pricing.html">Pricing</a>
     <a href="/about.html">About Us</a>
     <a href="/policies.html">Policies</a>
@@ -493,6 +595,42 @@
           <p class="level-desc">Flow enters the picture. Skills begin to link naturally. Precision gives way to rhythm, and competence becomes confidence. Level 3 is the culmination of the developmental phase — and the preparation for everything beyond it.</p>
         </div>
       </div>
+      <div class="level-card">
+        <div class="level-card-header water-header">
+          <span class="level-badge water-badge">Water Phase</span>
+          <div class="level-num">4</div>
+          <div class="level-title">Level Four</div>
+          <div class="level-motto">"Competition is possible."</div>
+        </div>
+        <div class="level-card-body water-body">
+          <div class="disc-tags"><span class="disc-tag">Parkour</span><span class="disc-tag">Tumbling</span><span class="disc-tag">Trampoline</span></div>
+          <p class="level-desc">Everything changes here. Skills become intentional. Competition becomes possible. Training shifts to a competition-oriented focus, with coaching built around execution, flow, versatility, and difficulty. This is where athletes stop learning how to move and start learning how to compete.</p>
+        </div>
+      </div>
+      <div class="level-card">
+        <div class="level-card-header water-header">
+          <span class="level-badge water-badge">Water Phase</span>
+          <div class="level-num">5</div>
+          <div class="level-title">Level Five</div>
+          <div class="level-motto">"Your movement identity emerges."</div>
+        </div>
+        <div class="level-card-body water-body">
+          <div class="disc-tags"><span class="disc-tag">Parkour</span><span class="disc-tag">Tumbling</span><span class="disc-tag">Trampoline</span></div>
+          <p class="level-desc">The curriculum becomes a menu rather than a checklist. Athletes develop their own movement identity — pursuing the skills that match their style and ambitions. Training becomes aspirational, building toward personal and competitive goals.</p>
+        </div>
+      </div>
+      <div class="level-card">
+        <div class="level-card-header water-header">
+          <span class="level-badge water-badge">Water Phase</span>
+          <div class="level-num">6</div>
+          <div class="level-title">Level Six</div>
+          <div class="level-motto">"The path to Surge."</div>
+        </div>
+        <div class="level-card-body water-body">
+          <div class="disc-tags"><span class="disc-tag">Parkour</span><span class="disc-tag">Tumbling</span><span class="disc-tag">Trampoline</span></div>
+          <p class="level-desc">Elite performance begins here. Advanced competition-ready skills. Athletes who reach Level 6 are ready for E5's Surge team — a focused group built explicitly for RMPC and national competition. This is the threshold between intermediate and elite.</p>
+        </div>
+      </div>
     </div>
 
     <div class="gate-callout">
@@ -512,6 +650,199 @@
         <svg class="pdf-icon" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h4a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
         Download Curriculum Guide
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THE SHIFT ══ -->
+<section class="shift-section">
+  <div class="container">
+    <div class="shift-grid">
+      <div>
+        <span class="eyebrow on-light">Levels 4 – 6</span>
+        <h2 class="shift-headline">Everything changes<br><em>at Level 4.</em></h2>
+        <div class="shift-body">
+          <p>Levels 1–3 are about building a body that can move. Level 4 is where that body starts being used with intention. The skills are harder, the coaching is sharper, and for the first time — competition is on the table.</p>
+          <p>The Level 3 to Level 4 gate is the only formal assessment in the NinFit program. Athletes who pass it don't just move to a new level — they move to a new class hour, a new standard, and a new identity as a competitive athlete.</p>
+          <p>Levels 4–6 are the pipeline to RMPC, the Rocky Mountain Parkour Championships — Colorado's premier youth parkour competition league — and beyond that, the US Parkour National Championships.</p>
+        </div>
+      </div>
+      <ul class="shift-list">
+        <li class="shift-item">
+          <div class="shift-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
+          <div class="shift-text"><strong>One gate. No exceptions.</strong><span>Athletes must pass a formal Level 3→4 assessment to enter this class. The standard is real, and so is the recognition when it's met.</span></div>
+        </li>
+        <li class="shift-item">
+          <div class="shift-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+          <div class="shift-text"><strong>Competition-oriented training</strong><span>The four parkour zones — wall, floor, vault, bar — are trained with competition scoring in mind. Execution, flow, versatility, and difficulty become coaching targets.</span></div>
+        </li>
+        <li class="shift-item">
+          <div class="shift-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <div class="shift-text"><strong>Aspirational skill development</strong><span>At Level 4+, the curriculum becomes a menu rather than a checklist. Athletes develop their own movement identity — pursuing the skills that match their style and ambitions.</span></div>
+        </li>
+        <li class="shift-item">
+          <div class="shift-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="shift-text"><strong>The path to Surge</strong><span>The most dedicated Intermediate athletes will form E5's Surge competitive team — a focused group built explicitly for RMPC and national competition.</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPETITION PIPELINE ══ -->
+<section class="pipeline-section" id="pipeline">
+  <div class="container">
+    <div class="pipeline-header">
+      <span class="eyebrow on-dark">The Competition Path</span>
+      <h2 class="pipeline-headline">Where this leads.</h2>
+      <p class="pipeline-sub">E5's Intermediate program is built around a clear competitive pathway — from local Colorado competitions all the way to the national stage and beyond.</p>
+    </div>
+    <div class="pipeline-track">
+
+      <div class="pipeline-step active">
+        <div class="pipeline-left">
+          <div class="pipeline-org">RMPC</div>
+          <div class="pipeline-location">Colorado Springs, CO</div>
+        </div>
+        <div class="pipeline-right">
+          <div class="pipeline-name">Rocky Mountain Parkour Championships</div>
+          <p class="pipeline-desc">Colorado's first and largest youth parkour league. Athletes compete in Speed, Freestyle, and Tag across three age brackets — U9, U12, and U16. Freestyle is scored on Execution, Flow, Versatility, and Difficulty out of 40 points. This is E5's primary competitive target for Level 4–6 athletes.</p>
+          <span class="pipeline-tag tag-active">Primary Target</span>
+        </div>
+      </div>
+
+      <div class="pipeline-step active">
+        <div class="pipeline-left">
+          <div class="pipeline-org">USPK</div>
+          <div class="pipeline-location">Regional Circuit</div>
+        </div>
+        <div class="pipeline-right">
+          <div class="pipeline-name">US Parkour National Championships</div>
+          <p class="pipeline-desc">The national governing body for parkour in the USA. Athletes compete in a regional qualifier circuit — Speed, Skill, and Style — with top finishers advancing to the USPK National Championships. E5's own coach George Mossman competed at the 2025 USPK Nationals at Tumble Tech in Texas.</p>
+          <span class="pipeline-tag tag-active">Advanced Athletes</span>
+        </div>
+      </div>
+
+      <div class="pipeline-step">
+        <div class="pipeline-left">
+          <div class="pipeline-org">SPL</div>
+          <div class="pipeline-location">Vancouver, BC</div>
+        </div>
+        <div class="pipeline-right">
+          <div class="pipeline-name">Sport Parkour League — World Championships</div>
+          <p class="pipeline-desc">The 2026 USPK Nationals serves as a direct qualifier for the Sport Parkour League World Championships in Vancouver. The top pathway in North American competitive parkour — and the long-term horizon for E5's most dedicated athletes.</p>
+          <span class="pipeline-tag tag-future">Long-Term Horizon</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FREESTYLE SCORING ══ -->
+<section class="scoring-section">
+  <div class="container">
+    <div class="scoring-grid">
+      <div>
+        <span class="eyebrow on-dark">How Competition Works</span>
+        <h2 class="scoring-headline">Training for<br><em>a real standard.</em></h2>
+        <div class="scoring-body">
+          <p>RMPC Freestyle is scored across four categories out of 40 points. Every category maps directly onto how E5 trains parkour — which means athletes who have been training in NinFit since Level 1 are already building the right habits for competition.</p>
+          <p>At Levels 4–6 the coaching becomes deliberate about these categories. It's no longer just "did you land it" — it's how cleanly, how fluidly, how varied, and how ambitious.</p>
+        </div>
+        <div class="e5-connection">
+          <div class="e5-connection-label">How E5 trains for this</div>
+          <p class="e5-connection-text">Wall, floor, vault, and bar — E5's four parkour zones — map directly onto RMPC's Versatility scoring categories. Athletes who rotate through all four zones every class are naturally building the variety judges reward.</p>
+        </div>
+      </div>
+      <div>
+        <div class="scoring-cards">
+          <div class="score-card">
+            <div class="score-category">Execution</div>
+            <div class="score-desc">How cleanly each skill is landed. Low impact landings earn no deductions. Sloppy landings cost points.</div>
+            <div class="score-points">10</div>
+          </div>
+          <div class="score-card">
+            <div class="score-category">Flow</div>
+            <div class="score-desc">Transitions between skills. Direct, continuous movement earns no deductions. Pauses and hesitations cost points.</div>
+            <div class="score-points">10</div>
+          </div>
+          <div class="score-card">
+            <div class="score-category">Versatility</div>
+            <div class="score-desc">Variety of skills shown across floor, wall, vault, drop, and bar. Points gained for each category demonstrated.</div>
+            <div class="score-points">10</div>
+          </div>
+          <div class="score-card">
+            <div class="score-category">Difficulty</div>
+            <div class="score-desc">Points gained for flipping rotations, twisting, precision landings, and skills involving height and distance.</div>
+            <div class="score-points">10</div>
+          </div>
+        </div>
+        <div class="score-total">
+          <span class="score-total-label">Total possible score</span>
+          <span class="score-total-value">40 pts</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GEORGE ══ -->
+<section class="george-section">
+  <div class="container">
+    <div class="george-grid">
+      <div class="george-photo">
+        <img src="https://static.wixstatic.com/media/221b20_271d9f83e6bf43b7912ba865bfe6ce58~mv2.jpg/v1/crop/x_0,y_385,w_1542,h_1278/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/george%20mossman.jpg" alt="George Mossman — E5 Coach" onerror="this.style.background='rgba(36,114,200,0.1)';this.style.minHeight='260px'" />
+        <div class="george-photo-overlay">
+          <div class="george-photo-name">George Mossman</div>
+          <div class="george-photo-title">Assistant Coach · E5</div>
+        </div>
+      </div>
+      <div class="george-content">
+        <div class="george-badge"><span>🏆 USPK National Competitor</span></div>
+        <h2 class="george-headline">Coached by someone<br>who <em>competes.</em></h2>
+        <div class="george-body">
+          <p>George Mossman started flipping at age six — in a parkour class with Joe. A video of a standing backflip lit a fire in him that never went out. Through gymnastics, garden trampolining, and years of progressive training, he pushed deeper into the sport than most athletes ever go.</p>
+          <p>In 2025, George competed at the USPK National Championships at Tumble Tech in Texas — one of the highest-level parkour competitions in the country. He brought that experience back to E5, and now he coaches it into the next generation of athletes.</p>
+          <p>When your coach has stood on a national competition floor, the training means something different.</p>
+        </div>
+        <div class="george-stat-row">
+          <div><span class="george-stat-value">2025</span><span class="george-stat-label">USPK Nationals competitor</span></div>
+          <div><span class="george-stat-value">E5</span><span class="george-stat-label">Trained since age 6</span></div>
+          <div><span class="george-stat-value">Surge</span><span class="george-stat-label">Future team coach</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SURGE ══ -->
+<section class="surge-section">
+  <div class="container">
+    <div class="surge-grid">
+      <div>
+        <span class="eyebrow on-dark">Coming Soon</span>
+        <h2 class="surge-headline">Introducing<br><em>Surge.</em></h2>
+        <div class="surge-body">
+          <p>Surge is E5's dedicated competitive team — a small group of Intermediate athletes who are committed to training specifically for RMPC and national-level competition. It's not a class. It's a team.</p>
+          <p>Surge athletes will train with competition scoring as the explicit goal — drilling execution, building flow, developing versatile lines, and pushing difficulty within safe, coached progression.</p>
+          <p>Surge launches with the new facility. The pipeline starts now — in the Intermediate class, with athletes who are building the foundation that Surge will demand.</p>
+        </div>
+      </div>
+      <div class="surge-card">
+        <div class="surge-card-eyebrow">E5 Competitive Team</div>
+        <div class="surge-card-name">Surge</div>
+        <div class="surge-card-tagline">"Built for competition. Trained for character."</div>
+        <ul class="surge-criteria">
+          <li>NinFit Level 4 minimum to be considered</li>
+          <li>Commitment to regular training and competition attendance</li>
+          <li>Coach selection — not open enrollment</li>
+          <li>RMPC Speed, Freestyle, and Tag competition</li>
+          <li>USPK regional and national circuit for advanced athletes</li>
+          <li>Guided by coaches who compete themselves</li>
+        </ul>
+        <div class="surge-coming">Launching with the new E5 facility · Fall 2026</div>
+      </div>
     </div>
   </div>
 </section>
@@ -571,7 +902,7 @@
   <div class="container">
     <div class="enroll-content">
       <h2 class="enroll-headline">Ready to<br>Level Up?</h2>
-      <p class="enroll-sub">NinFit is open to athletes ages 5–12. Classes run weekly in an 8-week training cycle. Spots are limited in the new facility — enroll now to secure your athlete's place.</p>
+      <p class="enroll-sub">NinFit is open to athletes ages 5–16, from complete beginners through competitive athletes. Levels 1–3 are the foundation for everyone. Levels 4–6 are for athletes ready for competition training. Explore where you fit in the journey.</p>
       <div class="enroll-cta-row">
         <a href="/enroll" class="btn-white">Enroll Now</a>
         <a href="/contact" class="btn-outline-white">Ask a Question</a>
@@ -580,7 +911,7 @@
         <div class="stat"><span class="stat-value">9</span><span class="stat-label">Levels to earn</span></div>
         <div class="stat"><span class="stat-value">3</span><span class="stat-label">Disciplines trained</span></div>
         <div class="stat"><span class="stat-value">8</span><span class="stat-label">Week training cycle</span></div>
-        <div class="stat"><span class="stat-value">5–12</span><span class="stat-label">Ages welcome</span></div>
+        <div class="stat"><span class="stat-value">5–16</span><span class="stat-label">Ages welcome</span></div>
       </div>
     </div>
   </div>
@@ -615,6 +946,18 @@
       <div class="faq-item">
         <p class="faq-q">How long does it take to reach Level 4?</p>
         <p class="faq-a">For a student training once per week, the realistic timeline is about a year of consistent training through Levels 1–3. The 8-week training cycle creates the rhythm — athletes who show up every week and engage fully will progress naturally. There's no rush and no shortcut. That's by design.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What's the difference between Levels 1–3 and Levels 4–6?</p>
+        <p class="faq-a">Levels 1–3 are developmental and foundation-focused. The Level 3→4 gate is the only formal assessment in the program. Starting at Level 4, training becomes competition-oriented. Execution, flow, versatility, and difficulty are deliberately coached. It's a real shift in focus and class hour.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What is Surge?</p>
+        <p class="faq-a">Surge is E5's dedicated competitive team for athletes who want to compete at RMPC (Rocky Mountain Parkour Championships) and national-level competitions. It's a small, coach-selected group that launches with the new facility. To be considered, athletes must be at Level 4 minimum and show serious commitment to competition training.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Can my child compete after Level 3?</p>
+        <p class="faq-a">Level 4 is where competitive training officially begins. That said, competitive readiness isn't just about level — it's about maturity, engagement, and desire. Athletes at Level 4+ who want to compete can pursue RMPC and regional competitions. Surge is the next step for those with serious competitive ambitions.</p>
       </div>
     </div>
   </div>
