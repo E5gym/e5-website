@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NinFit Intermediate — Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #1A5FAB;
+    --blue-dark: #0D3D72;
+    --blue-mid: #2472C8;
+    --blue-light: #E6F1FB;
+    --blue-deep: #00142A;
+    --blue-muted: #0A2540;
+    --black: #0F0F14;
+    --white: #FAFAF7;
+    --gray-100: #F4F3EF;
+    --gray-200: #E8E7E0;
+    --gray-500: #888880;
+    --gray-700: #444440;
+    --text: #1C1C1A;
+    --water: #2472C8;
+    --water-light: #5DB8F5;
+    --water-pale: #B8DDF5;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  .e5-nav { width: 100%; background: #ffffff; border-bottom: 1px solid rgba(14,8,4,0.12); position: sticky; top: 0; z-index: 1000; font-family: 'Montserrat', sans-serif; }
+  .e5-nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .e5-logo img { height: 42px; width: auto; }
+  .e5-nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+  .e5-nav-links > li { position: relative; }
+  .e5-nav-links a { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(14,8,4,0.7); text-decoration: none; padding: 8px 14px; border-radius: 3px; transition: color 0.2s, background 0.2s; white-space: nowrap; }
+  .e5-nav-links a:hover { color: #0E0804; background: rgba(14,8,4,0.06); }
+  .e5-nav-links a.e5-active { color: #C4922A; }
+  .e5-nav-links .dropdown { position: absolute; top: 100%; left: 0; background: #fff; min-width: 160px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-radius: 3px; display: none; flex-direction: column; padding: 4px 0; z-index: 100; }
+  .e5-nav-links .dropdown a { font-size: 11px; padding: 10px 16px; border-radius: 0; }
+  .e5-nav-links li:hover > .dropdown { display: flex; }
+  .e5-nav-btn { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: #CC1F1F; text-decoration: none; padding: 10px 20px; border-radius: 3px; white-space: nowrap; transition: background 0.2s; flex-shrink: 0; }
+  .e5-nav-btn:hover { background: #A51818; }
+  .e5-hamburger { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 8px; }
+  .e5-hamburger span { width: 20px; height: 2px; background: #0E0804; transition: 0.3s; }
+  .e5-mobile-menu { position: fixed; top: 68px; left: 0; width: 100%; background: #fff; border-top: 1px solid rgba(14,8,4,0.12); display: none; flex-direction: column; padding: 20px; z-index: 999; }
+  .e5-mobile-menu.e5-open { display: flex; }
+  .e5-mobile-menu a { display: block; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #0E0804; text-decoration: none; padding: 12px 0; border-bottom: 1px solid rgba(14,8,4,0.06); }
+  .e5-mobile-menu .e5-nav-btn { margin-top: 12px; text-align: center; display: block; }
+  @media(max-width:900px) { .e5-nav-links, .e5-nav-btn { display: none; } .e5-hamburger { display: flex; } .e5-nav-inner { padding: 0 20px; } }
+
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+  .eyebrow { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; display: block; margin-bottom: 0.85rem; }
+  .eyebrow.on-dark { color: var(--water-light); }
+  .eyebrow.on-light { color: var(--blue-dark); }
+
+  /* ── HERO ── */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 0 6rem; position: relative; background: var(--black); overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 65% 55% at 70% 35%, rgba(26,95,171,0.2) 0%, transparent 65%), radial-gradient(ellipse 40% 60% at 10% 65%, rgba(26,95,171,0.08) 0%, transparent 60%); }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; }
+  .hero-water { position: absolute; right: 6%; top: 50%; transform: translateY(-50%); width: 360px; height: 360px; opacity: 0.08; pointer-events: none; }
+  .hero-water img { width: 100%; height: 100%; object-fit: contain; }
+  .hero-kicker { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+  .hero-kicker-pill { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; background: rgba(36,114,200,0.2); color: var(--water-light); border: 1px solid rgba(36,114,200,0.35); padding: 0.3rem 0.75rem; }
+  .hero-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(3.5rem, 11vw, 10rem); line-height: 0.9; letter-spacing: -0.03em; color: var(--white); text-transform: uppercase; }
+  .hero-title span { color: var(--water-light); }
+  .hero-title .level-range { display: block; font-size: clamp(1.5rem, 4vw, 3.5rem); color: rgba(255,255,255,0.25); letter-spacing: 0.05em; margin-top: 0.5rem; font-weight: 700; }
+  .hero-sub { font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: clamp(1rem, 1.8vw, 1.15rem); color: rgba(250,250,247,0.55); max-width: 520px; line-height: 1.75; margin-top: 1.25rem; }
+  .hero-cta-row { display: flex; align-items: center; gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap; }
+  .btn-primary { display: inline-block; background: var(--blue); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2.25rem; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: var(--blue-mid); transform: translateY(-2px); }
+  .btn-ghost { display: inline-block; color: rgba(255,255,255,0.5); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+  .btn-ghost:hover { color: var(--white); border-color: var(--water-light); }
+  .hero-accent-line { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--blue) 0%, var(--water-light) 50%, rgba(26,95,171,0.15) 100%); }
+
+  /* ── SHIFT SECTION ── */
+  .shift-section { background: var(--white); color: var(--text); padding: 6rem 0; }
+  .shift-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .shift-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--black); margin-bottom: 1.5rem; }
+  .shift-headline em { font-style: normal; color: var(--blue-dark); }
+  .shift-body p { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 1rem; }
+  .shift-body p:last-child { margin-bottom: 0; }
+  .shift-list { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
+  .shift-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .shift-icon { width: 44px; height: 44px; flex-shrink: 0; background: var(--blue-light); display: flex; align-items: center; justify-content: center; }
+  .shift-icon svg { width: 20px; height: 20px; fill: none; stroke: var(--blue-dark); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .shift-text strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--black); margin-bottom: 0.3rem; }
+  .shift-text span { font-family: 'Nunito Sans', sans-serif; font-size: 0.875rem; color: var(--gray-500); line-height: 1.6; }
+
+  /* ── COMPETITION PIPELINE ── */
+  .pipeline-section { background: var(--blue-muted); padding: 7rem 0; }
+  .pipeline-header { margin-bottom: 4rem; }
+  .pipeline-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 0.75rem; }
+  .pipeline-sub { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.45); max-width: 600px; line-height: 1.75; }
+  .pipeline-track { display: flex; flex-direction: column; gap: 1px; }
+  .pipeline-step { display: grid; grid-template-columns: 200px 1fr; gap: 0; }
+  .pipeline-left { background: rgba(255,255,255,0.04); padding: 1.75rem 2rem; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255,255,255,0.08); }
+  .pipeline-right { background: rgba(255,255,255,0.02); padding: 1.75rem 2rem; }
+  .pipeline-step.active .pipeline-left { background: rgba(36,114,200,0.15); border-right-color: var(--blue); }
+  .pipeline-step.active .pipeline-right { background: rgba(36,114,200,0.06); }
+  .pipeline-org { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: -0.01em; text-transform: uppercase; }
+  .pipeline-step.active .pipeline-org { color: var(--water-light); }
+  .pipeline-step:not(.active) .pipeline-org { color: rgba(255,255,255,0.35); }
+  .pipeline-location { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 0.2rem; }
+  .pipeline-step.active .pipeline-location { color: rgba(93,184,245,0.5); }
+  .pipeline-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .pipeline-step.active .pipeline-name { color: var(--white); }
+  .pipeline-step:not(.active) .pipeline-name { color: rgba(255,255,255,0.4); }
+  .pipeline-desc { font-family: 'Nunito Sans', sans-serif; font-size: 0.875rem; line-height: 1.65; }
+  .pipeline-step.active .pipeline-desc { color: rgba(255,255,255,0.55); }
+  .pipeline-step:not(.active) .pipeline-desc { color: rgba(255,255,255,0.22); }
+  .pipeline-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.2rem 0.5rem; margin-top: 0.5rem; }
+  .tag-active { background: rgba(36,114,200,0.2); color: var(--water-light); border: 1px solid rgba(36,114,200,0.3); }
+  .tag-future { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.08); }
+
+  /* FREESTYLE SCORING */
+  .scoring-section { background: var(--black); padding: 7rem 0; }
+  .scoring-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .scoring-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 1rem; }
+  .scoring-headline em { font-style: normal; color: var(--water-light); }
+  .scoring-body p { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 1rem; }
+  .scoring-cards { display: flex; flex-direction: column; gap: 1px; }
+  .score-card { padding: 1.25rem 1.5rem; display: grid; grid-template-columns: 60px 1fr 40px; gap: 1rem; align-items: center; }
+  .score-card:nth-child(1) { background: rgba(36,114,200,0.12); border-left: 3px solid var(--blue); }
+  .score-card:nth-child(2) { background: rgba(36,114,200,0.08); border-left: 3px solid rgba(36,114,200,0.5); }
+  .score-card:nth-child(3) { background: rgba(36,114,200,0.06); border-left: 3px solid rgba(36,114,200,0.3); }
+  .score-card:nth-child(4) { background: rgba(36,114,200,0.04); border-left: 3px solid rgba(36,114,200,0.15); }
+  .score-category { font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--water-light); }
+  .score-desc { font-family: 'Nunito Sans', sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+  .score-points { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.25rem; color: rgba(255,255,255,0.2); text-align: right; }
+  .score-total { margin-top: 0.75rem; padding: 0.75rem 1.5rem; background: rgba(36,114,200,0.1); border: 1px solid rgba(36,114,200,0.2); display: flex; align-items: center; justify-content: space-between; }
+  .score-total-label { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .score-total-value { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--water-light); }
+  .e5-connection { margin-top: 1.5rem; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); }
+  .e5-connection-label { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--water-light); margin-bottom: 0.5rem; }
+  .e5-connection-text { font-family: 'Nunito Sans', sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.6; }
+
+  /* ── GEORGE ── */
+  .george-section { background: var(--blue-deep); padding: 7rem 0; border-top: 3px solid var(--blue); border-bottom: 3px solid var(--blue); }
+  .george-grid { display: grid; grid-template-columns: 320px 1fr; gap: 4rem; align-items: start; }
+  .george-photo { position: relative; overflow: hidden; }
+  .george-photo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+  .george-photo-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem 1.25rem; background: linear-gradient(transparent, rgba(0,0,0,0.7)); }
+  .george-photo-name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: -0.01em; text-transform: uppercase; color: var(--white); }
+  .george-photo-title { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--water-light); margin-top: 0.15rem; }
+  .george-content { padding-top: 0.5rem; }
+  .george-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(36,114,200,0.15); border: 1px solid rgba(36,114,200,0.3); padding: 0.4rem 0.85rem; margin-bottom: 1.25rem; }
+  .george-badge span { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--water-light); }
+  .george-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.1; letter-spacing: -0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 1rem; }
+  .george-headline em { font-style: normal; color: var(--water-light); }
+  .george-body p { font-family: 'Nunito Sans', sans-serif; font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 0.85rem; }
+  .george-body p:last-child { margin-bottom: 0; }
+  .george-stat-row { display: flex; gap: 2rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.07); flex-wrap: wrap; }
+  .george-stat-value { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.5rem; letter-spacing: -0.02em; color: var(--white); display: block; }
+  .george-stat-label { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+
+  /* ── SURGE ── */
+  .surge-section { background: var(--black); padding: 7rem 0; }
+  .surge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .surge-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 1rem; }
+  .surge-headline em { font-style: normal; color: var(--water-light); }
+  .surge-body p { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 1rem; }
+  .surge-body p:last-child { margin-bottom: 0; }
+  .surge-card { background: rgba(36,114,200,0.06); border: 1px solid rgba(36,114,200,0.2); padding: 2.5rem; }
+  .surge-card-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--water-light); margin-bottom: 0.6rem; }
+  .surge-card-name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2.5rem; letter-spacing: -0.03em; text-transform: uppercase; color: var(--white); margin-bottom: 0.5rem; line-height: 1; }
+  .surge-card-tagline { font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-style: italic; font-size: 0.95rem; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; line-height: 1.5; }
+  .surge-criteria { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.5rem; }
+  .surge-criteria li { display: flex; align-items: flex-start; gap: 0.6rem; font-family: 'Nunito Sans', sans-serif; font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+  .surge-criteria li::before { content: '—'; color: var(--water-light); flex-shrink: 0; font-size: 0.7rem; margin-top: 0.2em; }
+  .surge-coming { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.2); padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.07); }
+
+  /* ── ENROLL ── */
+  .enroll-section { background: var(--blue); padding: 7rem 0; position: relative; overflow: hidden; }
+  .enroll-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px); background-size: 40px 40px; }
+  .enroll-content { position: relative; text-align: center; }
+  .enroll-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 0.95; letter-spacing: -0.03em; text-transform: uppercase; color: var(--white); margin-bottom: 1.25rem; }
+  .enroll-sub { font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: 1.05rem; color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.75; }
+  .enroll-cta-row { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .btn-white { display: inline-block; background: var(--white); color: var(--blue-dark); font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2.25rem; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-white:hover { background: var(--gray-100); transform: translateY(-2px); }
+  .btn-outline-white { display: inline-block; background: transparent; color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2.25rem; border: 2px solid rgba(255,255,255,0.5); text-decoration: none; transition: border-color 0.2s; }
+  .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+  .enroll-req { margin-top: 2rem; font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+  /* ── FOOTER ── */
+  .page-footer { background: var(--black); border-top: 3px solid var(--blue); padding: 2.5rem 0; text-align: center; }
+  .footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.25rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--water-light); margin-bottom: 0.5rem; }
+  .footer-sub { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.22); }
+
+  @media (max-width: 900px) {
+    .shift-grid, .scoring-grid, .surge-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .george-grid { grid-template-columns: 1fr; }
+    .pipeline-step { grid-template-columns: 1fr; }
+    .pipeline-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-kicker { animation: fadeUp 0.6s ease both; }
+  .hero-title { animation: fadeUp 0.7s 0.1s ease both; }
+  .hero-sub { animation: fadeUp 0.7s 0.2s ease both; }
+  .hero-cta-row { animation: fadeUp 0.7s 0.3s ease both; }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="e5-nav">
+  <div class="e5-nav-inner">
+    <a href="/" class="e5-logo">
+      <img src="E5_Logo_FullLockUp_021224 (2).png" alt="Elemental 5">
+    </a>
+    <ul class="e5-nav-links">
+      <li><a href="/programs.html">Programs</a>
+        <div class="dropdown">
+          <a href="/programs.html">All Programs</a>
+          <a href="/ninfit-page%20(1).html">NinFit</a>
+          <a href="/tx3-page.html">TX3</a>
+          <a href="/ninfit-intermediate-page.html">NinFit Lvl 4-6</a>
+        </div>
+      </li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/about.html">About</a>
+        <div class="dropdown">
+          <a href="/about.html">About Us</a>
+          <a href="/policies.html">Policies</a>
+          <a href="/team.html">Team</a>
+        </div>
+      </li>
+      <li><a href="/new-gym.html">New Gym</a></li>
+      <li><a href="/schedule.html">Schedule</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
+    <button class="e5-hamburger" onclick="document.getElementById('e5mob').classList.toggle('e5-open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="e5-mobile-menu" id="e5mob">
+    <a href="/programs.html">Programs</a>
+    <a href="/ninfit-page%20(1).html">NinFit</a>
+    <a href="/tx3-page.html">TX3</a>
+    <a href="/ninfit-intermediate-page.html">NinFit Lvl 4-6</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/about.html">About Us</a>
+    <a href="/policies.html">Policies</a>
+    <a href="/team.html">Team</a>
+    <a href="/new-gym.html">New Gym</a>
+    <a href="/schedule.html">Schedule</a>
+    <a href="/contact.html">Contact</a>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-water"><img src="data:image/png;base64,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" alt="" /></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="hero-kicker">
+      <span class="hero-kicker-pill">Levels 4 – 6</span>
+    </div>
+    <h1 class="hero-title">Nin<span>Fit</span><span class="level-range">Intermediate</span></h1>
+    <p class="hero-sub">The training changes here. Skills become intentional. Competition becomes possible. This is where athletes stop learning how to move and start learning how to compete.</p>
+    <div class="hero-cta-row">
+      <a href="#enroll" class="btn-primary">Enroll Now</a>
+      <a href="#pipeline" class="btn-ghost">The competition path ↓</a>
+    </div>
+  </div>
+  <div class="hero-accent-line"></div>
+</section>
+
+<!-- ══ THE SHIFT ══ -->
+<section class="shift-section">
+  <div class="container">
+    <div class="shift-grid">
+      <div>
+        <span class="eyebrow on-light">Levels 4 – 6</span>
+        <h2 class="shift-headline">Everything changes<br><em>at Level 4.</em></h2>
+        <div class="shift-body">
+          <p>Levels 1–3 are about building a body that can move. Level 4 is where that body starts being used with intention. The skills are harder, the coaching is sharper, and for the first time — competition is on the table.</p>
+          <p>The Level 3 to Level 4 gate is the only formal assessment in the NinFit program. Athletes who pass it don't just move to a new level — they move to a new class hour, a new standard, and a new identity as a competitive athlete.</p>
+          <p>Levels 4–6 are the pipeline to RMPC, the Rocky Mountain Parkour Championships — Colorado's premier youth parkour competition league — and beyond that, the US Parkour National Championships.</p>
+        </div>
+      </div>
+      <ul class="shift-list">
+        <li class="shift-item">
+          <div class="shift-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
+          <div class="shift-text"><strong>One gate. No exceptions.</strong><span>Athletes must pass a formal Level 3→4 assessment to enter this class. The standard is real, and so is the recognition when it's met.</span></div>
+        </li>
+        <li class="shift-item">
+          <div class="shift-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+          <div class="shift-text"><strong>Competition-oriented training</strong><span>The four parkour zones — wall, floor, vault, bar — are trained with competition scoring in mind. Execution, flow, versatility, and difficulty become coaching targets.</span></div>
+        </li>
+        <li class="shift-item">
+          <div class="shift-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <div class="shift-text"><strong>Aspirational skill development</strong><span>At Level 4+, the curriculum becomes a menu rather than a checklist. Athletes develop their own movement identity — pursuing the skills that match their style and ambitions.</span></div>
+        </li>
+        <li class="shift-item">
+          <div class="shift-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="shift-text"><strong>The path to Surge</strong><span>The most dedicated Intermediate athletes will form E5's Surge competitive team — a focused group built explicitly for RMPC and national competition.</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPETITION PIPELINE ══ -->
+<section class="pipeline-section" id="pipeline">
+  <div class="container">
+    <div class="pipeline-header">
+      <span class="eyebrow on-dark">The Competition Path</span>
+      <h2 class="pipeline-headline">Where this leads.</h2>
+      <p class="pipeline-sub">E5's Intermediate program is built around a clear competitive pathway — from local Colorado competitions all the way to the national stage and beyond.</p>
+    </div>
+    <div class="pipeline-track">
+
+      <div class="pipeline-step active">
+        <div class="pipeline-left">
+          <div class="pipeline-org">RMPC</div>
+          <div class="pipeline-location">Colorado Springs, CO</div>
+        </div>
+        <div class="pipeline-right">
+          <div class="pipeline-name">Rocky Mountain Parkour Championships</div>
+          <p class="pipeline-desc">Colorado's first and largest youth parkour league. Athletes compete in Speed, Freestyle, and Tag across three age brackets — U9, U12, and U16. Freestyle is scored on Execution, Flow, Versatility, and Difficulty out of 40 points. This is E5's primary competitive target for Level 4–6 athletes.</p>
+          <span class="pipeline-tag tag-active">Primary Target</span>
+        </div>
+      </div>
+
+      <div class="pipeline-step active">
+        <div class="pipeline-left">
+          <div class="pipeline-org">USPK</div>
+          <div class="pipeline-location">Regional Circuit</div>
+        </div>
+        <div class="pipeline-right">
+          <div class="pipeline-name">US Parkour National Championships</div>
+          <p class="pipeline-desc">The national governing body for parkour in the USA. Athletes compete in a regional qualifier circuit — Speed, Skill, and Style — with top finishers advancing to the USPK National Championships. E5's own coach George Mossman competed at the 2025 USPK Nationals at Tumble Tech in Texas.</p>
+          <span class="pipeline-tag tag-active">Advanced Athletes</span>
+        </div>
+      </div>
+
+      <div class="pipeline-step">
+        <div class="pipeline-left">
+          <div class="pipeline-org">SPL</div>
+          <div class="pipeline-location">Vancouver, BC</div>
+        </div>
+        <div class="pipeline-right">
+          <div class="pipeline-name">Sport Parkour League — World Championships</div>
+          <p class="pipeline-desc">The 2026 USPK Nationals serves as a direct qualifier for the Sport Parkour League World Championships in Vancouver. The top pathway in North American competitive parkour — and the long-term horizon for E5's most dedicated athletes.</p>
+          <span class="pipeline-tag tag-future">Long-Term Horizon</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FREESTYLE SCORING ══ -->
+<section class="scoring-section">
+  <div class="container">
+    <div class="scoring-grid">
+      <div>
+        <span class="eyebrow on-dark">How Competition Works</span>
+        <h2 class="scoring-headline">Training for<br><em>a real standard.</em></h2>
+        <div class="scoring-body">
+          <p>RMPC Freestyle is scored across four categories out of 40 points. Every category maps directly onto how E5 trains parkour — which means athletes who have been training in NinFit since Level 1 are already building the right habits for competition.</p>
+          <p>At Levels 4–6 the coaching becomes deliberate about these categories. It's no longer just "did you land it" — it's how cleanly, how fluidly, how varied, and how ambitious.</p>
+        </div>
+        <div class="e5-connection">
+          <div class="e5-connection-label">How E5 trains for this</div>
+          <p class="e5-connection-text">Wall, floor, vault, and bar — E5's four parkour zones — map directly onto RMPC's Versatility scoring categories. Athletes who rotate through all four zones every class are naturally building the variety judges reward.</p>
+        </div>
+      </div>
+      <div>
+        <div class="scoring-cards">
+          <div class="score-card">
+            <div class="score-category">Execution</div>
+            <div class="score-desc">How cleanly each skill is landed. Low impact landings earn no deductions. Sloppy landings cost points.</div>
+            <div class="score-points">10</div>
+          </div>
+          <div class="score-card">
+            <div class="score-category">Flow</div>
+            <div class="score-desc">Transitions between skills. Direct, continuous movement earns no deductions. Pauses and hesitations cost points.</div>
+            <div class="score-points">10</div>
+          </div>
+          <div class="score-card">
+            <div class="score-category">Versatility</div>
+            <div class="score-desc">Variety of skills shown across floor, wall, vault, drop, and bar. Points gained for each category demonstrated.</div>
+            <div class="score-points">10</div>
+          </div>
+          <div class="score-card">
+            <div class="score-category">Difficulty</div>
+            <div class="score-desc">Points gained for flipping rotations, twisting, precision landings, and skills involving height and distance.</div>
+            <div class="score-points">10</div>
+          </div>
+        </div>
+        <div class="score-total">
+          <span class="score-total-label">Total possible score</span>
+          <span class="score-total-value">40 pts</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GEORGE ══ -->
+<section class="george-section">
+  <div class="container">
+    <div class="george-grid">
+      <div class="george-photo">
+        <img src="https://static.wixstatic.com/media/221b20_271d9f83e6bf43b7912ba865bfe6ce58~mv2.jpg/v1/crop/x_0,y_385,w_1542,h_1278/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/george%20mossman.jpg" alt="George Mossman — E5 Coach" onerror="this.style.background='rgba(36,114,200,0.1)';this.style.minHeight='260px'" />
+        <div class="george-photo-overlay">
+          <div class="george-photo-name">George Mossman</div>
+          <div class="george-photo-title">Assistant Coach · E5</div>
+        </div>
+      </div>
+      <div class="george-content">
+        <div class="george-badge"><span>🏆 USPK National Competitor</span></div>
+        <h2 class="george-headline">Coached by someone<br>who <em>competes.</em></h2>
+        <div class="george-body">
+          <p>George Mossman started flipping at age six — in a parkour class with Joe. A video of a standing backflip lit a fire in him that never went out. Through gymnastics, garden trampolining, and years of progressive training, he pushed deeper into the sport than most athletes ever go.</p>
+          <p>In 2025, George competed at the USPK National Championships at Tumble Tech in Texas — one of the highest-level parkour competitions in the country. He brought that experience back to E5, and now he coaches it into the next generation of athletes.</p>
+          <p>When your coach has stood on a national competition floor, the training means something different.</p>
+        </div>
+        <div class="george-stat-row">
+          <div><span class="george-stat-value">2025</span><span class="george-stat-label">USPK Nationals competitor</span></div>
+          <div><span class="george-stat-value">E5</span><span class="george-stat-label">Trained since age 6</span></div>
+          <div><span class="george-stat-value">Surge</span><span class="george-stat-label">Future team coach</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SURGE ══ -->
+<section class="surge-section">
+  <div class="container">
+    <div class="surge-grid">
+      <div>
+        <span class="eyebrow on-dark">Coming Soon</span>
+        <h2 class="surge-headline">Introducing<br><em>Surge.</em></h2>
+        <div class="surge-body">
+          <p>Surge is E5's dedicated competitive team — a small group of Intermediate athletes who are committed to training specifically for RMPC and national-level competition. It's not a class. It's a team.</p>
+          <p>Surge athletes will train with competition scoring as the explicit goal — drilling execution, building flow, developing versatile lines, and pushing difficulty within safe, coached progression.</p>
+          <p>Surge launches with the new facility. The pipeline starts now — in the Intermediate class, with athletes who are building the foundation that Surge will demand.</p>
+        </div>
+      </div>
+      <div class="surge-card">
+        <div class="surge-card-eyebrow">E5 Competitive Team</div>
+        <div class="surge-card-name">Surge</div>
+        <div class="surge-card-tagline">"Built for competition. Trained for character."</div>
+        <ul class="surge-criteria">
+          <li>NinFit Level 4 minimum to be considered</li>
+          <li>Commitment to regular training and competition attendance</li>
+          <li>Coach selection — not open enrollment</li>
+          <li>RMPC Speed, Freestyle, and Tag competition</li>
+          <li>USPK regional and national circuit for advanced athletes</li>
+          <li>Guided by coaches who compete themselves</li>
+        </ul>
+        <div class="surge-coming">Launching with the new E5 facility · Fall 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ENROLL ══ -->
+<section class="enroll-section" id="enroll">
+  <div class="enroll-bg"></div>
+  <div class="container">
+    <div class="enroll-content">
+      <h2 class="enroll-headline">Ready for<br>the next level?</h2>
+      <p class="enroll-sub">NinFit Intermediate is open to athletes who have passed the Level 3→4 formal assessment. If you're currently in Levels 1–3 and working toward that gate, keep training — that's exactly what it's there for.</p>
+      <div class="enroll-cta-row">
+        <a href="/enroll" class="btn-white">Enroll Now</a>
+        <a href="/contact" class="btn-outline-white">Ask a Question</a>
+      </div>
+      <p class="enroll-req">Prerequisite: NinFit Level 3 → 4 formal assessment · Ages 7–16</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="page-footer">
+  <div class="container">
+    <div class="footer-logo">Elemental 5</div>
+    <p class="footer-sub">Acrobatics · Parkour · Ninja · Salida, Colorado</p>
+  </div>
+</footer>
+
+</body>
+</html>
