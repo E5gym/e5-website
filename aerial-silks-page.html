@@ -55,6 +55,7 @@
 
   /* ── HERO ── */
   .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 0 6rem; position: relative; background: var(--black); overflow: hidden; }
+  .vimeo-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 0 6rem; position: relative; overflow: hidden; }
   .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 60% 35%, rgba(92,132,158,0.16) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 5% 70%, rgba(59,90,120,0.08) 0%, transparent 60%); }
   .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px); background-size: 60px 60px; }
   .hero-air { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); width: 400px; height: 400px; opacity: 0.07; pointer-events: none; }
@@ -259,7 +260,7 @@
 </nav>
 
 <!-- ══ HERO ══ -->
-<section class="vimeo-hero" style="position: relative; width: 100vw; height: 100vh; overflow: hidden; margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; background: var(--air-deep);">
+<section class="vimeo-hero" style="position: relative; width: 100vw; height: 100vh; overflow: hidden; margin: 0; display: flex; align-items: center; justify-content: flex-end; padding: 0 0 6rem; background: var(--air-deep);">
   <!-- Vimeo Background -->
   <iframe src="https://player.vimeo.com/video/1185993082?h=c20ae5f4bb&autoplay=1&loop=1&muted=1&background=1" 
           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; object-fit: cover;" 
