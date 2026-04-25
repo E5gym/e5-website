@@ -55,6 +55,7 @@
 
   /* ── HERO ── */
   .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 0 6rem; position: relative; background: var(--black); overflow: hidden; }
+  .vimeo-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 0 6rem; position: relative; overflow: hidden; }
   .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 60% 35%, rgba(92,132,158,0.16) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 5% 70%, rgba(59,90,120,0.08) 0%, transparent 60%); }
   .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px); background-size: 60px 60px; }
   .hero-air { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); width: 400px; height: 400px; opacity: 0.07; pointer-events: none; }
@@ -72,9 +73,9 @@
   .hero-accent-line { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--air-dark) 0%, var(--air-light) 50%, rgba(139,167,194,0.1) 100%); }
 
   /* ── WHAT ── */
-  .what-section { background: var(--white); color: var(--text); padding: 6rem 0; }
+  .what-section { background: #FFFFFF; color: #1C1C1A; padding: 6rem 0; }
   .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-  .what-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--black); margin-bottom: 1.5rem; }
+  .what-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--air-dark); margin-bottom: 1.5rem; }
   .what-headline em { font-style: normal; color: var(--air-dark); }
   .what-body p { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 1rem; }
   .what-body p:last-child { margin-bottom: 0; }
@@ -259,24 +260,7 @@
 </nav>
 
 <!-- ══ HERO ══ -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-air"><img src="data:image/png;base64,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" alt="" /></div>
-  <div class="container" style="position:relative;z-index:1;">
-    <div class="hero-kicker">
-      <span class="hero-kicker-pill">Air Element</span>
-      <span class="hero-kicker-pill">Ages 8 – 14</span>
-    </div>
-    <h1 class="hero-title">Aerial<br><span>Silks</span></h1>
-    <p class="hero-sub">Strength disguised as grace. Art built on discipline. Aerial silks is where athletes learn to move through the air with intention — and discover what they're capable of when the ground is no longer beneath them.</p>
-    <div class="hero-cta-row">
-      <a href="#enroll" class="btn-primary">Enroll Now</a>
-      <a href="#journey" class="btn-ghost">Beginner to Intermediate ↓</a>
-    </div>
-  </div>
-<!-- ══ HERO ══ -->
-<section class="vimeo-hero" style="position: relative; width: 100vw; height: 100vh; overflow: hidden; margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; background: var(--air-deep);">
+<section class="vimeo-hero" style="position: relative; width: 100vw; height: 100vh; overflow: hidden; margin: 0; display: flex; align-items: center; justify-content: flex-end; padding: 0 0 6rem; background: var(--air-deep);">
   <!-- Vimeo Background -->
   <iframe src="https://player.vimeo.com/video/1185993082?h=c20ae5f4bb&autoplay=1&loop=1&muted=1&background=1" 
           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; object-fit: cover;" 
@@ -299,6 +283,7 @@
     </div>
   </div>
 </section>
+<section class="what-section">
   <div class="container">
     <div class="what-grid">
       <div>
@@ -587,3 +572,4 @@
 
 </body>
 </html>
+
