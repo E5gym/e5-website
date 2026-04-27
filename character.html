@@ -694,6 +694,8 @@ html, body {
 .e5-nav-links li:hover > .dropdown{display:flex;}
 .e5-nav-btn{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#fff;background:#CC1F1F;text-decoration:none;padding:10px 20px;border-radius:3px;white-space:nowrap;transition:background 0.2s;flex-shrink:0;}
 .e5-nav-btn:hover{background:#A51818;}
+.e5-nav-btn-coaches{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#fff;background:#1A5FAB;text-decoration:none;padding:10px 20px;border-radius:3px;white-space:nowrap;transition:background 0.2s;flex-shrink:0;margin-left:8px;}
+.e5-nav-btn-coaches:hover{background:#0D3D72;}
 .e5-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
 .e5-hamburger span{display:block;width:24px;height:2px;background:rgba(0,0,0,0.8);border-radius:2px;}
 .e5-mobile-menu{display:none;flex-direction:column;background:#1A1208;border-top:1px solid rgba(196,146,42,0.1);padding:16px 24px 24px;gap:4px;}
@@ -731,6 +733,7 @@ html, body {
       <li><a href="/contact.html">Contact</a></li>
     </ul>
     <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
+    <a href="https://coach.elementalfive.com/portal" target="_blank" class="e5-nav-btn-coaches">Coaches Portal</a>
     <button class="e5-hamburger" onclick="document.getElementById('e5mob').classList.toggle('e5-open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -748,6 +751,7 @@ html, body {
     <a href="/schedule.html">Schedule</a>
     <a href="/contact.html">Contact</a>
     <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
+    <a href="https://coach.elementalfive.com/portal" target="_blank" class="e5-nav-btn-coaches">Coaches Portal</a>
   </div>
 </nav>
 <!-- ── END NAV ── -->
@@ -1025,6 +1029,34 @@ html, body {
 
   </div>
 </section>
+
+<!-- FOOTER -->
+<footer style="background:#0E0804;border-top:3px solid #C4622D;padding:4rem 2rem;margin-top:4rem;">
+  <div style="max-width:1120px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:3rem;margin-bottom:3rem;">
+      <div>
+        <h3 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.25rem;color:#C4622D;margin-bottom:1rem;text-transform:uppercase;letter-spacing:-0.01em;">Elemental 5</h3>
+        <p style="font-family:'Nunito Sans',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1.5rem;">A human development center disguised as an acrobatics gym. We build athletes, leaders, and humans.</p>
+      </div>
+      <div>
+        <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:#C4622D;margin-bottom:1rem;">Contact</p>
+        <p style="font-family:'Nunito Sans',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.7);margin-bottom:0.5rem;"><a href="tel:7198382023" style="color:rgba(255,255,255,0.7);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C4622D'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Phone: 719-838-2023</a></p>
+        <p style="font-family:'Nunito Sans',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.7);margin-bottom:0.5rem;"><a href="mailto:gym@elementalfive.com" style="color:rgba(255,255,255,0.7);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C4622D'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Email: gym@elementalfive.com</a></p>
+      </div>
+      <div>
+        <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:#C4622D;margin-bottom:1rem;">Location</p>
+        <p style="font-family:'Nunito Sans',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.6;">9985 US-50<br>Unit C<br>Poncha Springs, CO 81242</p>
+      </div>
+      <div>
+        <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:#C4622D;margin-bottom:1rem;">Join Our Team</p>
+        <a href="https://coach.elementalfive.com" target="_blank" style="display:inline-block;background:#CC1F1F;color:#fff;font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:0.9rem 1.5rem;text-decoration:none;border-radius:3px;transition:background 0.2s;" onmouseover="this.style.background='#A51818'" onmouseout="this.style.background='#CC1F1F'">Apply Here →</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:2rem;text-align:center;">
+      <p style="font-family:'Nunito Sans',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.5);">&copy; 2024 Elemental 5. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
