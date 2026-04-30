@@ -269,6 +269,51 @@ html, body {
   cursor: pointer;
 }
 
+/* anonymous checkbox */
+.anon-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 18px 20px;
+  margin-bottom: 32px;
+}
+
+.anon-block input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--dark);
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.anon-block-copy { display: flex; flex-direction: column; gap: 4px; }
+
+.anon-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+.anon-hint {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.55;
+}
+
+.followup-hint {
+  font-size: 13px;
+  color: var(--soft);
+  line-height: 1.55;
+  margin-top: 10px;
+}
+
 /* contact fields card */
 .contact-fields {
   display: none;
@@ -440,16 +485,25 @@ html, body {
     <form action="https://formspree.io/f/mykoywdb" method="POST">
       <input type="hidden" name="_redirect" value="https://www.elementalfive.com/feedback-thank-you.html">
 
+      <!-- Anonymous option -->
+      <div class="anon-block">
+        <input type="checkbox" id="submit_anonymously" name="submit_anonymously" value="yes">
+        <div class="anon-block-copy">
+          <label class="anon-label" for="submit_anonymously">Submit anonymously</label>
+          <span class="anon-hint">You may leave parent and student names blank if you prefer to stay anonymous.</span>
+        </div>
+      </div>
+
       <!-- About You -->
       <p class="field-section-label">About You</p>
 
       <div class="field-row">
         <div class="field-group">
-          <label for="parent_name">Parent / Guardian Name<span class="req">*</span></label>
-          <input type="text" id="parent_name" name="parent_name" required autocomplete="name">
+          <label for="parent_name">Parent / Guardian Name (optional)</label>
+          <input type="text" id="parent_name" name="parent_name" autocomplete="name">
         </div>
         <div class="field-group">
-          <label for="student_name">Student Name</label>
+          <label for="student_name">Student Name (optional)</label>
           <input type="text" id="student_name" name="student_name" autocomplete="off">
         </div>
       </div>
@@ -537,6 +591,7 @@ html, body {
             No
           </label>
         </div>
+        <p class="followup-hint">If you would like us to follow up, please include an email or phone number.</p>
 
         <div class="contact-fields" id="contact-fields">
           <p class="contact-fields-note">
@@ -544,11 +599,11 @@ html, body {
             Leave whichever you prefer — email, phone, or both.
           </p>
           <div class="field-group">
-            <label for="email">Email</label>
+            <label for="email">Email (optional)</label>
             <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com">
           </div>
           <div class="field-group" style="margin-bottom:0;">
-            <label for="phone">Phone</label>
+            <label for="phone">Phone (optional)</label>
             <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="719-555-0100">
           </div>
         </div>
