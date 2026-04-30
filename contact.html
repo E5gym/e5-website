@@ -327,6 +327,7 @@ html, body {
 }
 
 .map-link:hover { gap: 12px; }
+.map-link.spaced { margin-top: 16px; }
 
 .hours-card {
   background: var(--bg3);
@@ -434,9 +435,163 @@ html, body {
 
 .social-btn:hover { background: var(--cream); }
 
+/* ── FEEDBACK ── */
+.feedback-section {
+  width: 100%;
+  background: var(--dark);
+  padding: 80px 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.feedback-copy { flex: 1; max-width: 560px; }
+
+.feedback-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+.feedback-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.feedback-body {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.6);
+}
+
+.feedback-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  background: var(--red);
+  border-radius: 3px;
+  padding: 16px 28px;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.feedback-btn:hover { background: #A51818; }
+
+/* ── FOOTER ── */
+.site-footer {
+  background: #0E0804;
+  border-top: 3px solid #C4622D;
+  padding: 4rem 2rem;
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: #C4622D;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.footer-tagline {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+}
+
+.footer-col-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C4622D;
+  margin-bottom: 1rem;
+}
+
+.footer-link {
+  display: block;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+
+.footer-link:hover { color: #C4622D; }
+
+.footer-address {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+.footer-apply-btn {
+  display: inline-block;
+  background: #CC1F1F;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.5rem;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.footer-apply-btn:hover { background: #A51818; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.footer-copy {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
+
 /* ── MOBILE ── */
 @media (max-width: 900px) {
-  .hero, .ways-section, .find-section, .social-section {
+  .hero, .ways-section, .find-section, .social-section, .feedback-section {
     padding-left: 20px; padding-right: 20px;
   }
   .hero-grid { grid-template-columns: 1fr; }
@@ -453,6 +608,7 @@ html, body {
   .contact-item { padding: 16px 14px; gap: 12px; }
   .contact-value { font-size: 12px; word-break: break-all; }
   .contact-label { letter-spacing: 0.1em; }
+  .feedback-section { flex-direction: column; align-items: flex-start; }
 }
 </style>
 </head>
@@ -603,7 +759,7 @@ html, body {
         <p class="address-note">
           <strong>Located directly off US-50 in Poncha Springs,</strong> just outside Salida. Look for the E5 sign. Parking is available on site.
         </p>
-        <a href="https://maps.google.com/?q=9985+US-50+Unit+C+Poncha+Springs+CO+81242" target="_blank" class="map-link" style="margin-top:16px;display:inline-flex;">Get directions →</a>
+        <a href="https://maps.google.com/?q=9985+US-50+Unit+C+Poncha+Springs+CO+81242" target="_blank" class="map-link spaced">Get directions →</a>
       </div>
     </div>
 
@@ -645,6 +801,16 @@ html, body {
   </div>
 </section>
 
+<!-- ── FEEDBACK ── -->
+<section class="feedback-section">
+  <div class="feedback-copy">
+    <p class="feedback-eyebrow">Parent Feedback</p>
+    <h2 class="feedback-headline">Help us improve<br>the E5 experience.</h2>
+    <p class="feedback-body">Your feedback helps us improve classes, coaching, communication, and the overall student experience. Whether something went great or something needs attention, we want to hear it.</p>
+  </div>
+  <a href="https://YOUR-FEEDBACK-FORM-LINK-HERE" target="_blank" class="feedback-btn">Give Feedback →</a>
+</section>
+
 <!-- ── SOCIAL ── -->
 <div class="social-section">
   <div class="social-text">
@@ -658,7 +824,40 @@ html, body {
   </div>
 </div>
 
-<!-- FOOTER -->\n<footer style=\"background:#0E0804;border-top:3px solid #C4622D;padding:4rem 2rem;margin-top:4rem;\">\n  <div style=\"max-width:1120px;margin:0 auto;\">\n    <div style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:3rem;margin-bottom:3rem;\">\n      <div>\n        <h3 style=\"font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.25rem;color:#C4622D;margin-bottom:1rem;text-transform:uppercase;letter-spacing:-0.01em;\">Elemental 5</h3>\n        <p style=\"font-family:'Nunito Sans',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1.5rem;\">A human development center disguised as an acrobatics gym. We build athletes, leaders, and humans.</p>\n      </div>\n      <div>\n        <p style=\"font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:#C4622D;margin-bottom:1rem;\">Contact</p>\n        <p style=\"font-family:'Nunito Sans',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.7);margin-bottom:0.5rem;\"><a href=\"tel:7198382023\" style=\"color:rgba(255,255,255,0.7);text-decoration:none;transition:color 0.2s;\" onmouseover=\"this.style.color='#C4622D'\" onmouseout=\"this.style.color='rgba(255,255,255,0.7)'\">Phone: 719-838-2023</a></p>\n        <p style=\"font-family:'Nunito Sans',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.7);margin-bottom:0.5rem;\"><a href=\"mailto:gym@elementalfive.com\" style=\"color:rgba(255,255,255,0.7);text-decoration:none;transition:color 0.2s;\" onmouseover=\"this.style.color='#C4622D'\" onmouseout=\"this.style.color='rgba(255,255,255,0.7)'\">Email: gym@elementalfive.com</a></p>\n      </div>\n      <div>\n        <p style=\"font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:#C4622D;margin-bottom:1rem;\">Location</p>\n        <p style=\"font-family:'Nunito Sans',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.6;\">9985 US-50<br>Unit C<br>Poncha Springs, CO 81242</p>\n      </div>\n      <div>\n        <p style=\"font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:#C4622D;margin-bottom:1rem;\">Join Our Team</p>\n        <a href=\"https://coach.elementalfive.com\" target=\"_blank\" style=\"display:inline-block;background:#CC1F1F;color:#fff;font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:0.9rem 1.5rem;text-decoration:none;border-radius:3px;transition:background 0.2s;\" onmouseover=\"this.style.background='#A51818'\" onmouseout=\"this.style.background='#CC1F1F'\">Apply Here →</a>\n      </div>\n    </div>\n    <div style=\"border-top:1px solid rgba(255,255,255,0.1);padding-top:2rem;text-align:center;\">\n      <p style=\"font-family:'Nunito Sans',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.5);\">&copy; 2024 Elemental 5. All rights reserved.</p>\n    </div>\n  </div>\n</footer>\n\n</body>
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+
+      <div>
+        <p class="footer-brand">Elemental 5</p>
+        <p class="footer-tagline">A human development center disguised as an acrobatics gym. We build athletes, leaders, and humans.</p>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <a href="tel:7198382023" class="footer-link">Phone: 719-838-2023</a>
+        <a href="mailto:gym@elementalfive.com" class="footer-link">Email: gym@elementalfive.com</a>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Location</p>
+        <p class="footer-address">9985 US-50<br>Unit C<br>Poncha Springs, CO 81242</p>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Join Our Team</p>
+        <a href="https://coach.elementalfive.com" target="_blank" class="footer-apply-btn">Apply Here →</a>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Elemental 5. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
 
 
