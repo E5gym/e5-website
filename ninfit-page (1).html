@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -331,83 +331,15 @@
 </head>
 <body>
 
-<!-- ── E5 NAVIGATION ── -->
-<style>
-.e5-nav{width:100%;background:#ffffff;border-bottom:1px solid rgba(196,146,42,0.15);position:sticky;top:0;z-index:1000;font-family:'Montserrat',sans-serif;}
-.e5-nav-inner{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:68px;}
-.e5-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;}
-.e5-logo img{height:40px;width:auto;}
-.e5-nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
-.e5-nav-links li{position:relative;}
-.e5-nav-links a{display:block;padding:8px 12px;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#1A1A18;transition:color 0.2s;}
-.e5-nav-links a:hover{color:#CC1F1F;}
-.dropdown{display:none;position:absolute;top:100%;left:0;background:#ffffff;border:1px solid rgba(196,146,42,0.1);border-top:none;flex-direction:column;z-index:999;min-width:160px;}
-.e5-nav-links li:hover .dropdown{display:flex;}
-.dropdown a{padding:10px 16px;border-bottom:1px solid rgba(196,146,42,0.08);}
-.dropdown a:last-child{border-bottom:none;}
-.e5-nav-btn{display:inline-block;background:#CC1F1F;color:#ffffff;text-decoration:none;padding:10px 20px;border-radius:3px;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.2s;}
-.e5-nav-btn:hover{background:#A51818;}
-.e5-hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:4px;padding:8px;}
-.e5-hamburger span{display:block;width:24px;height:2px;background:rgba(0,0,0,0.8);border-radius:2px;transition:all 0.3s;}
-.e5-mobile-menu{display:none;flex-direction:column;background:#1A1208;border-top:1px solid rgba(196,146,42,0.1);padding:16px 24px 24px;gap:4px;}
-.e5-mobile-menu a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05);transition:color 0.2s;}
-.e5-mobile-menu a:hover{color:#fff;}
-.e5-mobile-menu a:last-child{border-bottom:none;}
-.e5-mobile-menu .e5-nav-btn{margin-top:12px;text-align:center;display:block;}
-.e5-mobile-menu.e5-open{display:flex;}
-.e5-open span:nth-child(1){transform:rotate(45deg) translate(10px,10px);}
-.e5-open span:nth-child(2){opacity:0;}
-.e5-open span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px);}
-@media(max-width:768px){.e5-nav-links,.e5-nav-btn{display:none;}.e5-hamburger{display:flex;}}
-</style>
-<nav class="e5-nav">
-  <div class="e5-nav-inner">
-    <a href="/" class="e5-logo">
-      <img src="E5_Logo_FullLockUp_021224 (2).png" alt="Elemental 5">
-    </a>
-    <ul class="e5-nav-links">
-      <li><a href="/programs.html">Programs</a>
-        <div class="dropdown">
-          <a href="/programs.html">All Programs</a>
-          <a href="/ninfit-page%20(1).html">NinFit</a>
-          <a href="/tx3-page.html">TX3</a>
-          <a href="/aerial-silks-page.html">Aerial Silks</a>
-        </div>
-      </li>
-      <li><a href="/pricing.html">Pricing</a></li>
-      <li><a href="/about.html">About</a>
-        <div class="dropdown">
-          <a href="/about.html">About Us</a>
-          <a href="/policies.html">Policies</a>
-          <a href="/team.html">Team</a>
-        </div>
-      </li>
-      <li><a href="/new-gym.html">New Gym</a></li>
-      <li><a href="/schedule.html">Schedule</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
-    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
-    <button class="e5-hamburger" onclick="document.getElementById('e5mob').classList.toggle('e5-open')" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="e5-mobile-menu" id="e5mob">
-    <a href="/programs.html">Programs</a>
-    <a href="/ninfit-page%20(1).html">NinFit</a>
-    <a href="/tx3-page.html">TX3</a>
-    <a href="/pricing.html">Pricing</a>
-    <a href="/about.html">About Us</a>
-    <a href="/policies.html">Policies</a>
-    <a href="/team.html">Team</a>
-    <a href="/new-gym.html">New Gym</a>
-    <a href="/schedule.html">Schedule</a>
-    <a href="/contact.html">Contact</a>
-    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
-  </div>
-</nav>
-<!-- ── END NAV ── -->
+<div id='site-nav'></div>
 
-<!-- ══ HERO ══ -->
+<script>
+  fetch('/partials/nav.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('site-nav').innerHTML = html;
+    });
+</script><!-- ══ HERO ══ -->
 <section class="vimeo-hero" style="position: relative; width: 100vw; height: 100vh; overflow: hidden; margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; background: var(--black);">
   <!-- Vimeo Background -->
   <iframe src="https://player.vimeo.com/video/1185758614?h=79acd76977&autoplay=1&muted=1&loop=1&background=1"
@@ -979,3 +911,4 @@
 
 </body>
 </html>
+

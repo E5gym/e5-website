@@ -1,0 +1,111 @@
+<style>
+.e5-nav { width:100%; background:#ffffff; border-bottom:1px solid rgba(14,8,4,0.12); position:-webkit-sticky; position:sticky; top:0; z-index:1000; font-family:'Montserrat',sans-serif; }
+.e5-nav-inner { max-width:1400px; margin:0 auto; padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:68px; }
+.e5-logo { display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0; }
+.e5-logo img { height:52px; width:auto; }
+.e5-nav-links { display:flex; align-items:center; gap:4px; list-style:none; }
+.e5-nav-links > li { position:relative; }
+.e5-nav-links a { font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:rgba(14,8,4,0.7); text-decoration:none; padding:8px 14px; border-radius:3px; transition:color 0.2s,background 0.2s; white-space:nowrap; }
+.e5-nav-links a:hover { color:#0E0804; background:rgba(14,8,4,0.06); }
+.e5-nav-links a.e5-active { color:#C4922A; }
+.e5-nav-links .dropdown { position:absolute; top:100%; left:0; background:#fff; min-width:180px; box-shadow:0 4px 12px rgba(0,0,0,0.15); border-radius:3px; display:none; flex-direction:column; padding:4px 0; z-index:100; }
+.e5-nav-links .dropdown a { font-size:11px; padding:10px 16px; border-radius:0; }
+.e5-nav-links li:hover > .dropdown { display:flex; }
+
+.dropdown-subitem { position:relative; }
+.dropdown-subitem > a { display:block; }
+.side-dropdown { display:none; position:absolute; top:0; left:100%; background:#fff; min-width:230px; box-shadow:0 4px 12px rgba(0,0,0,0.15); border-radius:3px; flex-direction:column; padding:4px 0; z-index:200; }
+.dropdown-subitem:hover .side-dropdown { display:flex; }
+.side-dropdown a { font-size:11px; padding:10px 16px; border-radius:0; line-height:1.3; }
+.side-dropdown a span { display:block; margin-top:2px; font-size:10px; font-weight:600; color:rgba(14,8,4,0.45); letter-spacing:0.04em; text-transform:none; }
+
+.e5-nav-btn { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:#fff; background:#CC1F1F; text-decoration:none; padding:10px 20px; border-radius:3px; white-space:nowrap; transition:background 0.2s; flex-shrink:0; }
+.e5-nav-btn:hover { background:#A51818; }
+.e5-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; background:none; border:none; }
+.e5-hamburger span { display:block; width:24px; height:2px; background:rgba(14,8,4,0.8); border-radius:2px; }
+.e5-mobile-menu { display:none; flex-direction:column; background:#f5f5f3; border-top:1px solid rgba(196,146,42,0.1); padding:16px 24px 24px; gap:4px; }
+.e5-mobile-menu a { font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:rgba(14,8,4,0.7); text-decoration:none; padding:12px 0; border-bottom:1px solid rgba(14,8,4,0.08); transition:color 0.2s; }
+.e5-mobile-menu a:hover { color:#0E0804; }
+.e5-mobile-menu a:last-child { border-bottom:none; }
+.e5-mobile-menu .e5-nav-btn { margin-top:12px; text-align:center; display:block; }
+.e5-mobile-menu.e5-open { display:flex; }
+
+@media(max-width:900px) { 
+  .e5-nav-links, .e5-nav-btn { display:none; } 
+  .e5-hamburger { display:flex; } 
+  .e5-nav-inner { padding:0 20px; } 
+}
+</style>
+
+<nav class="e5-nav">
+  <div class="e5-nav-inner">
+    <a href="/" class="e5-logo">
+      <img src="/E5_Logo_FullLockUp_021224 (2).png" alt="Elemental 5">
+    </a>
+
+    <ul class="e5-nav-links">
+      <li>
+        <a href="/programs.html">Programs</a>
+
+        <div class="dropdown">
+          <a href="/programs.html">All Programs</a>
+
+          <div class="dropdown-subitem">
+            <a href="/ninfit-page%20(1).html">NinFit ▸</a>
+
+            <div class="side-dropdown">
+              <a href="/ninfit-page%20(1).html">
+                NinFit Beginner
+                <span>Levels 1–3</span>
+              </a>
+              <a href="/ninfit-intermediate-page.html">
+                NinFit Intermediate
+                <span>Levels 4–6</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="/tx3-page.html">TX3</a>
+          <a href="/aerial-silks-page.html">Aerial Silks</a>
+        </div>
+      </li>
+
+      <li><a href="/pricing.html">Pricing</a></li>
+
+      <li>
+        <a href="/about.html">About</a>
+        <div class="dropdown">
+          <a href="/about.html">About Us</a>
+          <a href="/policies.html">Policies</a>
+          <a href="/team.html">Team</a>
+        </div>
+      </li>
+
+      <li><a href="/new-gym.html">New Gym</a></li>
+      <li><a href="/schedule.html">Schedule</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
+
+    <button class="e5-hamburger" onclick="document.getElementById('e5mob').classList.toggle('e5-open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="e5-mobile-menu" id="e5mob">
+    <a href="/programs.html">Programs</a>
+    <a href="/ninfit-page%20(1).html">NinFit Beginner — Levels 1–3</a>
+    <a href="/ninfit-intermediate-page.html">NinFit Intermediate — Levels 4–6</a>
+    <a href="/tx3-page.html">TX3</a>
+    <a href="/aerial-silks-page.html">Aerial Silks</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/about.html">About Us</a>
+    <a href="/policies.html">Policies</a>
+    <a href="/team.html">Team</a>
+    <a href="/new-gym.html">New Gym</a>
+    <a href="/schedule.html">Schedule</a>
+    <a href="/contact.html">Contact</a>
+    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
+  </div>
+</nav>
