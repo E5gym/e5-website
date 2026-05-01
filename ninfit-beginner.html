@@ -1,0 +1,840 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>NinFit Beginner — Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#1A5FAB;--blue-dark:#0D3D72;--blue-mid:#2472C8;--blue-light:#E6F1FB;--blue-muted:#0A2540;--black:#0F0F14;--void:#1A1A2E;--white:#FAFAF7;--gray-100:#F4F3EF;--gray-200:#E8E7E0;--gray-500:#888880;--gray-700:#444440;--text:#1C1C1A;--earth:#8B6A3A;--earth-bg:#1C0F00;--earth-light:#C8955A;--water-bg:#00142A;--red:#CC1F1F}
+html{scroll-behavior:smooth}body{font-family:'Nunito Sans',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}a,button{-webkit-tap-highlight-color:transparent}.container{max-width:1120px;margin:0 auto;padding:0 2rem}.eyebrow{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;display:block;margin-bottom:.85rem}.eyebrow.on-dark{color:var(--blue-mid)}.eyebrow.on-light{color:var(--blue-dark)}
+.btn-primary{display:inline-block;background:var(--blue);color:var(--white);font-family:'Montserrat',sans-serif;font-size:.75rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:.9rem 2.25rem;text-decoration:none;border:2px solid var(--blue);transition:background .2s,transform .15s}.btn-primary:hover{background:var(--blue-mid);transform:translateY(-2px)}.btn-ghost{display:inline-block;color:rgba(255,255,255,.72);font-family:'Montserrat',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;border:2px solid rgba(255,255,255,.75);padding:.85rem 2.1rem;transition:background .2s,border-color .2s}.btn-ghost:hover{background:rgba(255,255,255,.08);border-color:#fff}.btn-white{display:inline-block;background:var(--white);color:var(--blue-dark);font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:.9rem 2.25rem;text-decoration:none;transition:background .2s,transform .15s}.btn-white:hover{background:var(--gray-100);transform:translateY(-2px)}.btn-outline-white{display:inline-block;background:transparent;color:var(--white);font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:.9rem 2.25rem;border:2px solid rgba(255,255,255,.55);text-decoration:none;transition:border-color .2s,background .2s}.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+/* HERO */
+.vimeo-hero{position:relative;width:100%;height:100vh;overflow:hidden;margin:0;padding:0;display:flex;align-items:center;justify-content:center;background:var(--black)}.vimeo-hero iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;object-fit:cover}.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.50),rgba(0,0,0,.62));z-index:10}.hero-content{position:relative;z-index:20;text-align:center;max-width:780px;padding:40px 72px;color:white}.hero-kicker{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;display:block;margin-bottom:24px;color:rgba(93,184,245,.9)}.hero-title{font-family:'Montserrat',sans-serif;font-size:clamp(42px,7vw,82px);font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:22px;text-transform:uppercase}.hero-title span{color:var(--blue-mid)}.hero-sub{font-size:clamp(16px,2.2vw,22px);font-weight:400;line-height:1.6;margin:0 auto 44px;color:rgba(255,255,255,.86);max-width:680px}.hero-cta-row{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}.section-divider{height:3px;background:linear-gradient(90deg,transparent,var(--blue) 20%,var(--blue-mid) 80%,transparent);opacity:.8}
+/* WHAT */
+.what-section{background:var(--white);color:var(--text);padding:6rem 0}.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}.section-headline{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);line-height:1.05;letter-spacing:-.02em;text-transform:uppercase;color:var(--black);margin-bottom:1.5rem}.section-headline em{font-style:normal;color:var(--blue-dark)}.body-copy p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1rem}.body-copy p:last-child{margin-bottom:0}.quick-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.8rem}.quick-list li{background:var(--gray-100);border-left:4px solid var(--blue);padding:1rem 1.1rem;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--black)}
+/* CYCLE */
+.cycle-section{background:var(--void);padding:7rem 0}.cycle-header{margin-bottom:3.5rem}.dark-headline{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);line-height:1.05;letter-spacing:-.02em;text-transform:uppercase;color:var(--white);margin-bottom:.8rem}.dark-headline em{font-style:normal;color:var(--blue-mid)}.dark-sub{font-size:1rem;line-height:1.75;color:rgba(255,255,255,.5);max-width:680px}.cycle-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08);margin-bottom:2rem}.cycle-track{background:var(--void);padding:2rem}.track-label{font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-mid);margin-bottom:1rem}.week-list{list-style:none;display:flex;flex-direction:column;gap:1px}.week-list li{display:grid;grid-template-columns:48px 1fr;background:rgba(255,255,255,.035)}.week-num{font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:900;color:var(--blue-mid);display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,255,255,.06);padding:.75rem .6rem}.week-name{font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:rgba(255,255,255,.78);padding:.75rem .9rem}.cycle-note{background:rgba(26,95,171,.10);border:1px solid rgba(26,95,171,.25);padding:1.5rem 1.75rem;color:rgba(255,255,255,.58);line-height:1.7}.cycle-note strong{color:var(--white)}
+/* CLASS FLOW */
+.flow-section{background:var(--black);padding:7rem 0}.flow-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,.08)}.flow-card{background:var(--black);padding:2rem 1.4rem}.flow-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:2.5rem;color:rgba(255,255,255,.06);line-height:1;margin-bottom:.8rem}.flow-title{font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-mid);margin-bottom:.7rem}.flow-desc{font-size:.88rem;line-height:1.65;color:rgba(255,255,255,.45)}
+/* PROGRESSION */
+.progression-section{background:var(--white);color:var(--text);padding:7rem 0}.progression-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}.progress-card{background:var(--gray-100);border-left:4px solid var(--earth);padding:1.5rem 1.75rem;margin-bottom:1rem}.progress-card-title{font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:.5rem}.progress-card p{font-size:.95rem;line-height:1.75;color:var(--gray-700)}.booklet-card{background:var(--blue-muted);color:var(--white);padding:2.5rem;border-top:4px solid var(--blue)}.booklet-eyebrow{font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(93,184,245,.9);margin-bottom:.8rem}.booklet-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.4rem,2.5vw,2.1rem);line-height:1.08;text-transform:uppercase;margin-bottom:1rem}.booklet-card p{font-size:.95rem;line-height:1.75;color:rgba(255,255,255,.58);margin-bottom:1rem}.booklet-card p:last-child{margin-bottom:0}.booklet-card strong{color:var(--white)}
+/* LEVELS */
+.levels-section{background:var(--gray-100);color:var(--text);padding:7rem 0}.levels-header{margin-bottom:3rem}.levels-sub{font-size:1rem;color:var(--gray-500);max-width:650px;line-height:1.75}.levels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2rem}.level-card{overflow:hidden;background:var(--white)}.level-card-header{padding:2rem 1.75rem 1.5rem;background:var(--earth-bg)}.level-card:nth-child(3) .level-card-header{background:var(--water-bg)}.level-badge{display:inline-block;font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:.25rem .65rem;margin-bottom:.85rem;background:var(--earth);color:#fff}.level-card:nth-child(3) .level-badge{background:var(--blue)}.level-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:3rem;letter-spacing:-.03em;color:#fff;line-height:1;margin-bottom:.25rem}.level-title{font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.85rem}.level-motto{font-size:.875rem;color:rgba(255,255,255,.42);font-style:italic;line-height:1.55}.level-card-body{padding:1.5rem 1.75rem;border-top:3px solid var(--earth)}.level-card:nth-child(3) .level-card-body{border-color:var(--blue)}.disc-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}.disc-tag{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:.2rem .55rem;background:var(--gray-100);color:var(--gray-700)}.level-desc{font-size:.875rem;color:var(--gray-500);line-height:1.7}.gate-callout{background:var(--black);border:1px solid rgba(139,106,58,.32);padding:2rem 2.5rem;display:flex;gap:1.4rem;align-items:flex-start}.gate-icon{font-size:1.5rem;flex-shrink:0}.gate-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:var(--earth-light);margin-bottom:.5rem}.gate-desc{font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.75}
+/* NEXT STEP */
+.next-section{background:var(--blue-muted);padding:5.5rem 0}.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}.next-card{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);padding:2.2rem}.next-card-title{font-family:'Montserrat',sans-serif;font-weight:900;text-transform:uppercase;font-size:1.5rem;margin-bottom:.8rem}.next-card p{color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:1.5rem}
+/* FAQ + ENROLL */
+.faq-section{background:var(--white);color:var(--text);padding:7rem 0}.faq-headline{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.75rem,3.5vw,2.5rem);letter-spacing:-.02em;text-transform:uppercase;color:var(--black);margin-bottom:3rem}.faq-list{display:flex;flex-direction:column;max-width:760px}.faq-item{border-bottom:1px solid var(--gray-200);padding:1.5rem 0}.faq-q{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:800;letter-spacing:.02em;text-transform:uppercase;color:var(--black);margin-bottom:.7rem}.faq-a{font-size:.95rem;color:var(--gray-500);line-height:1.75}.enroll-section{background:var(--blue);padding:7rem 0;position:relative;overflow:hidden}.enroll-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.08) 1px,transparent 1px);background-size:40px 40px}.enroll-content{position:relative;text-align:center}.enroll-headline{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2.5rem,7vw,5.5rem);line-height:.95;letter-spacing:-.03em;text-transform:uppercase;color:#fff;margin-bottom:1.25rem}.enroll-sub{font-size:1.05rem;color:rgba(255,255,255,.72);max-width:540px;margin:0 auto 2.5rem;line-height:1.75}.enroll-cta-row{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}.enroll-stats{display:flex;justify-content:center;gap:3rem;margin-top:3rem;flex-wrap:wrap}.stat{text-align:center}.stat-value{font-family:'Montserrat',sans-serif;font-weight:900;font-size:2.25rem;letter-spacing:-.02em;color:#fff;display:block;margin-bottom:.2rem}.stat-label{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.48)}
+.page-footer{background:var(--black);border-top:3px solid var(--blue);padding:2.5rem 0;text-align:center}.footer-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.25rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-mid);margin-bottom:.5rem}.footer-sub{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.22)}
+@media(max-width:900px){.what-grid,.progression-grid,.next-grid{grid-template-columns:1fr;gap:3rem}.cycle-grid,.flow-grid,.levels-grid{grid-template-columns:1fr}.quick-list{grid-template-columns:1fr}.gate-callout{flex-direction:column}.hero-content{padding:32px 24px}.vimeo-hero{height:90vh}}
+@media(max-width:600px){.container{padding:0 1.4rem}.hero-cta-row,.enroll-cta-row{gap:12px}.btn-primary,.btn-ghost,.btn-white,.btn-outline-white{width:100%;text-align:center}.flow-card,.cycle-track,.booklet-card{padding:1.6rem}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}.hero-kicker{animation:fadeUp .6s ease both}.hero-title{animation:fadeUp .7s .1s ease both}.hero-sub{animation:fadeUp .7s .2s ease both}.hero-cta-row{animation:fadeUp .7s .3s ease both}
+</style>
+</head>
+<body>
+<div id="site-nav"></div>
+<script>
+fetch('/partials/nav.html').then(response=>response.text()).then(html=>{document.getElementById('site-nav').innerHTML=html;});
+</script>
+
+<section class="vimeo-hero">
+  <iframe src="https://player.vimeo.com/video/1185758614?h=79acd76977&autoplay=1&muted=1&loop=1&background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen playsinline webkit-playsinline></iframe>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-kicker">Elemental 5 · Salida, Colorado</span>
+    <h1 class="hero-title">Nin<span>Fit</span><br>Beginner</h1>
+    <p class="hero-sub">Parkour. Tumbling. Trampoline. A structured beginner program where kids build confidence, coordination, strength, and body control through an 8-week training cycle.</p>
+    <div class="hero-cta-row">
+      <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="btn-primary">Enroll Now</a>
+      <a href="#how" class="btn-ghost">How it works ↓</a>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<section class="what-section">
+  <div class="container">
+    <div class="what-grid">
+      <div>
+        <span class="eyebrow on-light">What is NinFit Beginner?</span>
+        <h2 class="section-headline">A movement program<br><em>with structure.</em></h2>
+        <div class="body-copy">
+          <p>NinFit Beginner is Elemental 5's foundational youth program for ages 5–12. Students train parkour, tumbling, and trampoline together in one class, building the physical tools that support long-term athletic development.</p>
+          <p>This is not random open gym time. Each week has a specific focus, each class follows a clear rhythm, and coaches use the same progression language across the program.</p>
+          <p>Students learn how to jump, land, roll, vault, swing, climb, tumble, bounce, and move with control. Along the way, they also learn how to listen, take turns, work through frustration, and keep showing up.</p>
+        </div>
+      </div>
+      <ul class="quick-list">
+        <li>Ages 5–12</li>
+        <li>Levels 1–3</li>
+        <li>Parkour</li>
+        <li>Tumbling</li>
+        <li>Trampoline</li>
+        <li>8-week cycle</li>
+        <li>Coach-guided</li>
+        <li>Mat chat built in</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cycle-section" id="how">
+  <div class="container">
+    <div class="cycle-header">
+      <span class="eyebrow on-dark">How the program works</span>
+      <h2 class="dark-headline">Same structure.<br><em>New focus every week.</em></h2>
+      <p class="dark-sub">NinFit Beginner runs on an 8-week training cycle. Each week gives coaches a clear focus and gives students repeated exposure to the foundational skills they need most. The cycle keeps class organized without making it feel rigid. Students can enter at any time and still get a complete experience over the full rotation.</p>
+    </div>
+    <div class="cycle-grid">
+      <div class="cycle-track">
+        <div class="track-label">Parkour Weekly Focus</div>
+        <ol class="week-list">
+          <li><span class="week-num">01</span><span class="week-name">Impact Landing</span></li>
+          <li><span class="week-num">02</span><span class="week-name">Shoulder Roll</span></li>
+          <li><span class="week-num">03</span><span class="week-name">Precision</span></li>
+          <li><span class="week-num">04</span><span class="week-name">Vault</span></li>
+          <li><span class="week-num">05</span><span class="week-name">Low Bar</span></li>
+          <li><span class="week-num">06</span><span class="week-name">Mid Bar</span></li>
+          <li><span class="week-num">07</span><span class="week-name">High Bar</span></li>
+          <li><span class="week-num">08</span><span class="week-name">Wall Run</span></li>
+        </ol>
+      </div>
+      <div class="cycle-track">
+        <div class="track-label">Tumbling + Trampoline Weekly Focus</div>
+        <ol class="week-list">
+          <li><span class="week-num">01</span><span class="week-name">Basics</span></li>
+          <li><span class="week-num">02</span><span class="week-name">Front Flip Foundations</span></li>
+          <li><span class="week-num">03</span><span class="week-name">Back Flip Foundations</span></li>
+          <li><span class="week-num">04</span><span class="week-name">Front Handspring Foundations</span></li>
+          <li><span class="week-num">05</span><span class="week-name">Back Handspring Foundations</span></li>
+          <li><span class="week-num">06</span><span class="week-name">Front Tumbling</span></li>
+          <li><span class="week-num">07</span><span class="week-name">Back Tumbling</span></li>
+          <li><span class="week-num">08</span><span class="week-name">Mixed Tumbling</span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="cycle-note"><strong>The weekly focus is the anchor point, not the whole class.</strong> Coaches use it to organize stations, drills, challenges, and skill progressions so the class stays purposeful while still giving students variety and movement time.</div>
+  </div>
+</section>
+
+<section class="flow-section">
+  <div class="container">
+    <div class="cycle-header">
+      <span class="eyebrow on-dark">What class looks like</span>
+      <h2 class="dark-headline">Focused training.<br><em>High energy.</em></h2>
+      <p class="dark-sub">A NinFit class should feel active and fun, but never random. The rhythm gives coaches control and gives students enough repetition to actually improve.</p>
+    </div>
+    <div class="flow-grid">
+      <div class="flow-card"><div class="flow-num">01</div><div class="flow-title">Warm-Up</div><p class="flow-desc">Movement games, crawling, jumping, mobility, and basic strength patterns prepare the body and help coaches read the room.</p></div>
+      <div class="flow-card"><div class="flow-num">02</div><div class="flow-title">Skill Focus</div><p class="flow-desc">Coaches introduce the weekly anchor, demonstrate the standard, and give simple cues students can actually remember.</p></div>
+      <div class="flow-card"><div class="flow-num">03</div><div class="flow-title">Rotations</div><p class="flow-desc">Students rotate through parkour, tumbling, trampoline, bar, vault, wall, or floor stations based on the weekly focus.</p></div>
+      <div class="flow-card"><div class="flow-num">04</div><div class="flow-title">Observation</div><p class="flow-desc">Coaches watch for readiness, consistency, confidence, control, and whether a student is ready for more structured progression.</p></div>
+      <div class="flow-card"><div class="flow-num">05</div><div class="flow-title">Mat Chat</div><p class="flow-desc">Every class closes with a short character conversation tied to the Elemental 5 framework.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="progression-section">
+  <div class="container">
+    <div class="progression-grid">
+      <div>
+        <span class="eyebrow on-light">Progression without pressure</span>
+        <h2 class="section-headline">Kids progress at<br><em>different speeds.</em></h2>
+        <div class="body-copy">
+          <p>NinFit Beginner is intentionally mixed-age and mixed-ability. A 5-year-old beginner and an 11-year-old beginner may be in the same class, but they are not expected to progress the same way.</p>
+          <p>Some students are here for confidence, coordination, and fun. Some students become deeply motivated by skills, levels, and measurable progress. NinFit is designed to serve both.</p>
+          <p>Coaches pay attention to readiness over age. When a student shows consistent control, focus, and interest, they may begin working more directly through the NinFit level pathway.</p>
+        </div>
+      </div>
+      <div>
+        <div class="progress-card"><div class="progress-card-title">Coach observed</div><p>Students progress through what coaches consistently see in class, not one lucky rep or one pressure-filled test day.</p></div>
+        <div class="progress-card"><div class="progress-card-title">Readiness based</div><p>Age matters less than attention, safety, control, and willingness to work through the process.</p></div>
+        <div class="progress-card"><div class="progress-card-title">Clear path</div><p>The class stays recreational and accessible while still giving motivated students a serious pathway forward.</p></div>
+      </div>
+    </div>
+    <div class="booklet-card" style="margin-top:3rem;">
+      <div class="booklet-eyebrow">Skill booklet pathway</div>
+      <h3 class="booklet-title">For students ready to track their path.</h3>
+      <p>The NinFit booklet is a progression tool for students who are ready for more structure. It gives athletes a clear view of the skills connected to Levels 1–3 and helps coaches track when those skills are showing up consistently in class.</p>
+      <p><strong>The booklet is not a pressure system and it is not a race.</strong> It is a way to help motivated students understand what they're working toward and give families a clearer window into their progress.</p>
+      <p>Skills are signed off when coaches see consistent mastery, not one lucky rep. The goal is not to rush through the booklet. The goal is to build real ability.</p>
+    </div>
+  </div>
+</section>
+
+<section class="levels-section" id="levels">
+  <div class="container">
+    <div class="levels-header">
+      <span class="eyebrow on-light">The beginner path</span>
+      <h2 class="section-headline">Levels 1–3 are<br><em>the foundation.</em></h2>
+      <p class="levels-sub">These are the levels where students learn how to train, how to control their bodies, and how to build real movement capacity before moving into a more demanding training environment.</p>
+    </div>
+    <div class="levels-grid">
+      <div class="level-card">
+        <div class="level-card-header"><span class="level-badge">Earth Phase</span><div class="level-num">1</div><div class="level-title">Level One</div><div class="level-motto">"Consistency beats talent every time."</div></div>
+        <div class="level-card-body"><div class="disc-tags"><span class="disc-tag">Parkour</span><span class="disc-tag">Tumbling</span><span class="disc-tag">Trampoline</span></div><p class="level-desc">Students learn safe contact with the ground and equipment. Jumping, landing, rolling, basic bar work, tumbling shapes, and trampoline control are introduced from the ground up.</p></div>
+      </div>
+      <div class="level-card">
+        <div class="level-card-header"><span class="level-badge">Earth Phase</span><div class="level-num">2</div><div class="level-title">Level Two</div><div class="level-motto">"Slow is right. Right is fast."</div></div>
+        <div class="level-card-body"><div class="disc-tags"><span class="disc-tag">Parkour</span><span class="disc-tag">Tumbling</span><span class="disc-tag">Trampoline</span></div><p class="level-desc">Students begin adding distance, commitment, and stronger movement patterns. Skills become more dynamic while still staying grounded in control.</p></div>
+      </div>
+      <div class="level-card">
+        <div class="level-card-header"><span class="level-badge">Water Phase</span><div class="level-num">3</div><div class="level-title">Level Three</div><div class="level-motto">"Run your own race."</div></div>
+        <div class="level-card-body"><div class="disc-tags"><span class="disc-tag">Parkour</span><span class="disc-tag">Tumbling</span><span class="disc-tag">Trampoline</span></div><p class="level-desc">Students begin linking movement together with rhythm and adaptability. This is where basic competence starts becoming flow and students prepare for the next training environment.</p></div>
+      </div>
+    </div>
+    <div class="gate-callout">
+      <div class="gate-icon">🔒</div>
+      <div><div class="gate-title">Level 3 → 4 is the first formal gate</div><p class="gate-desc">Levels 1–3 are developmental. The Level 3 to Level 4 transition is the first formal assessment in the NinFit pathway. Students who reach that point may be invited into Intermediate NinFit, where training becomes more technical, more focused, and more connected to competition-style movement.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="next-section">
+  <div class="container">
+    <div class="next-grid">
+      <div>
+        <span class="eyebrow on-dark">After Level 3</span>
+        <h2 class="dark-headline">Level 4 is<br><em>a real shift.</em></h2>
+        <p class="dark-sub">Levels 1–3 build the body, habits, and foundational movement skills needed for more serious training. Intermediate NinFit is the next step for students who are ready for a higher standard and a more focused environment.</p>
+      </div>
+      <div class="next-card">
+        <h3 class="next-card-title">NinFit Intermediate</h3>
+        <p>For students who have passed the Level 3→4 gate and are ready for more technical, intentional training.</p>
+        <a href="/ninfit-intermediate-page.html" class="btn-primary">Learn About Intermediate</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="container">
+    <span class="eyebrow on-light">Common Questions</span>
+    <h2 class="faq-headline">What parents ask</h2>
+    <div class="faq-list">
+      <div class="faq-item"><p class="faq-q">Does my child need experience?</p><p class="faq-a">No. Level 1 is built for beginners. If your child can follow directions, participate safely, and wants to move, they can begin.</p></div>
+      <div class="faq-item"><p class="faq-q">Does every student use a booklet?</p><p class="faq-a">No. The booklet is used when a student is ready for more structured progression. Some students need time to build confidence and class habits first. Coaches help determine when the booklet becomes useful.</p></div>
+      <div class="faq-item"><p class="faq-q">How does my child level up?</p><p class="faq-a">Students level up through coach observation. Skills are signed off when coaches see consistent control in class. It is not based on one test day or one lucky attempt.</p></div>
+      <div class="faq-item"><p class="faq-q">Can younger kids keep up with older kids?</p><p class="faq-a">Yes, because the class is coached by readiness, not just age. Younger students may work on simpler foundation goals while older or more ready students work through level skills.</p></div>
+      <div class="faq-item"><p class="faq-q">What does a typical class look like?</p><p class="faq-a">Classes include warm-up, a weekly skill focus, training rotations, coach observation, and a short mat chat. The weekly curriculum follows an 8-week cycle.</p></div>
+      <div class="faq-item"><p class="faq-q">What happens after Level 3?</p><p class="faq-a">Level 4 is the beginning of Intermediate NinFit. It requires a formal assessment and represents a real shift in skill standard, focus, and commitment.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="enroll-section" id="enroll">
+  <div class="enroll-bg"></div>
+  <div class="container">
+    <div class="enroll-content">
+      <h2 class="enroll-headline">Ready to<br>start training?</h2>
+      <p class="enroll-sub">NinFit Beginner is the starting point for students who want to build strength, confidence, coordination, and real movement skill.</p>
+      <div class="enroll-cta-row">
+        <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="btn-white">Enroll Now</a>
+        <a href="/contact.html" class="btn-outline-white">Ask a Question</a>
+      </div>
+      <div class="enroll-stats">
+        <div class="stat"><span class="stat-value">1–3</span><span class="stat-label">Beginner levels</span></div>
+        <div class="stat"><span class="stat-value">3</span><span class="stat-label">Disciplines trained</span></div>
+        <div class="stat"><span class="stat-value">8</span><span class="stat-label">Week cycle</span></div>
+        <div class="stat"><span class="stat-value">5–12</span><span class="stat-label">Ages served</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SKILL LOG BOOKLET ══ -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap');
+
+  .e5-ninfit-block * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .e5-ninfit-block {
+    --e5-black: #0a0a0a;
+    --e5-dark: #111214;
+    --e5-card: #18191d;
+    --e5-card-border: #252629;
+    --e5-blue: #2a7de1;
+    --e5-blue-light: #4a97ff;
+    --e5-blue-dim: rgba(42, 125, 225, 0.12);
+    --e5-gold: #c9a227;
+    --e5-white: #f4f4f5;
+    --e5-muted: #7a7d85;
+    --e5-subtle: #2a2c32;
+    font-family: 'Barlow', sans-serif;
+    background: var(--e5-black);
+    color: var(--e5-white);
+    padding: 0;
+    width: 100%;
+  }
+
+  /* ── HERO ── */
+  .e5-hero {
+    background: var(--e5-dark);
+    border-bottom: 1px solid var(--e5-card-border);
+    padding: 56px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .e5-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 50% -10%, rgba(42,125,225,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .e5-hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--e5-blue-light);
+    margin-bottom: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .e5-hero-eyebrow::before,
+  .e5-hero-eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--e5-blue);
+  }
+
+  .e5-hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(44px, 9vw, 76px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .e5-hero-title span {
+    color: var(--e5-blue-light);
+  }
+
+  .e5-hero-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(16px, 3.5vw, 22px);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--e5-muted);
+    margin-bottom: 28px;
+  }
+
+  .e5-hero-intro {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #b0b3bc;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ── BODY WRAPPER ── */
+  .e5-body {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 20px 64px;
+  }
+
+  /* ── TWO-COL LAYOUT ── */
+  .e5-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: 680px) {
+    .e5-layout {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  /* ── IMAGE PLACEHOLDER ── */
+  .e5-image-card {
+    background: var(--e5-card);
+    border: 1px solid var(--e5-card-border);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    gap: 14px;
+    color: var(--e5-muted);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .e5-image-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 18px,
+      rgba(255,255,255,0.018) 18px,
+      rgba(255,255,255,0.018) 19px
+    );
+  }
+
+  .e5-image-card-icon {
+    width: 52px;
+    height: 52px;
+    border: 1.5px dashed var(--e5-subtle);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .e5-image-card-icon svg {
+    opacity: 0.35;
+  }
+
+  .e5-image-card-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--e5-muted);
+  }
+
+  .booklet-image-wrap {
+  background: var(--e5-card);
+  border: 1px solid var(--e5-card-border);
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booklet-image {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+  /* ── FAQ CARDS ── */
+  .e5-faq-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .e5-faq-card {
+    background: var(--e5-card);
+    border: 1px solid var(--e5-card-border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    transition: border-color 0.2s;
+  }
+
+  .e5-faq-card:hover {
+    border-color: rgba(42,125,225,0.35);
+  }
+
+  .e5-faq-q {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--e5-blue-light);
+    margin-bottom: 6px;
+  }
+
+  .e5-faq-a {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #b0b3bc;
+  }
+
+  /* ── SECTION LABEL ── */
+  .e5-section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--e5-muted);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .e5-section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--e5-subtle);
+  }
+
+  /* ── PATHWAY ── */
+  .e5-pathway {
+    margin-bottom: 40px;
+  }
+
+  .e5-pathway-track {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .e5-pathway-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .e5-pathway-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-width: 110px;
+    position: relative;
+    text-align: center;
+  }
+
+  .e5-pathway-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 17px;
+    right: -1px;
+    width: calc(50% + 1px);
+    height: 2px;
+    background: linear-gradient(90deg, var(--e5-blue) 0%, rgba(42,125,225,0.3) 100%);
+    z-index: 0;
+  }
+
+  .e5-pathway-step:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    top: 17px;
+    left: -1px;
+    width: calc(50% + 1px);
+    height: 2px;
+    background: linear-gradient(90deg, rgba(42,125,225,0.3) 0%, var(--e5-blue) 100%);
+    z-index: 0;
+  }
+
+  .e5-pathway-dot {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--e5-card);
+    border: 2px solid var(--e5-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+
+  .e5-pathway-dot-inner {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--e5-blue);
+  }
+
+  .e5-pathway-step:last-child .e5-pathway-dot {
+    border-color: var(--e5-gold);
+    background: rgba(201, 162, 39, 0.12);
+  }
+
+  .e5-pathway-step:last-child .e5-pathway-dot-inner {
+    background: var(--e5-gold);
+  }
+
+  .e5-pathway-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.35;
+    color: #8c9099;
+    padding: 0 6px;
+  }
+
+  .e5-pathway-step:last-child .e5-pathway-text {
+    color: var(--e5-gold);
+  }
+
+  /* ── QUOTE ── */
+  .e5-quote {
+    background: var(--e5-blue-dim);
+    border: 1px solid rgba(42,125,225,0.25);
+    border-left: 3px solid var(--e5-blue);
+    border-radius: 6px;
+    padding: 28px 28px 28px 28px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .e5-quote-mark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--e5-blue);
+    opacity: 0.25;
+    line-height: 1;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+  }
+
+  .e5-quote-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(18px, 3.5vw, 24px);
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--e5-white);
+    font-style: italic;
+    padding-left: 8px;
+  }
+
+  /* ── CTA ── */
+  .e5-cta {
+    background: var(--e5-card);
+    border: 1px solid var(--e5-card-border);
+    border-radius: 8px;
+    padding: 32px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .e5-cta-left {}
+
+  .e5-cta-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+
+  .e5-cta-text {
+    font-size: 14px;
+    color: #8c9099;
+    line-height: 1.6;
+    max-width: 420px;
+  }
+
+  .e5-cta-badge {
+    background: var(--e5-blue);
+    border-radius: 6px;
+    padding: 14px 24px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .e5-cta-price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1;
+    color: #fff;
+  }
+
+  .e5-cta-price-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-top: 4px;
+  }
+
+  /* ── OPTIONAL PILL ── */
+  .e5-optional-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 4px 12px 4px 8px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--e5-muted);
+    margin-bottom: 20px;
+  }
+
+  .e5-optional-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--e5-blue-light);
+  }
+
+  /* ── DIVIDER ── */
+  .e5-divider {
+    border: none;
+    border-top: 1px solid var(--e5-card-border);
+    margin: 40px 0;
+  }
+</style>
+
+<div class="e5-ninfit-block">
+
+  <!-- HERO -->
+  <div class="e5-hero">
+    <div class="e5-hero-eyebrow">Elemental 5 · NinFit Program</div>
+    <h2 class="e5-hero-title">Student Skill<br><span>Log Booklet</span></h2>
+    <div class="e5-optional-pill">
+      <span class="e5-optional-dot"></span>
+      Optional — Not Required
+    </div>
+    <p class="e5-hero-sub">Progress Tracker for Levels 1–3</p>
+    <p class="e5-hero-intro">
+      This high-quality spiral-bound booklet helps students track their progress through our beginner NinFit levels. It covers key skills in parkour, tumbling, and trampoline — with coach sign-off areas and testing readiness pages built right in.
+    </p>
+  </div>
+
+  <!-- BODY -->
+  <div class="e5-body">
+
+    <!-- IMAGE + FAQ GRID -->
+    <div class="e5-layout">
+
+      <!-- Image placeholder -->
+      <div class="booklet-image-wrap">
+  <img 
+    src="/ninfit-booklet-promo.png" 
+    alt="NinFit Student Skill Log Booklet" 
+    class="booklet-image"
+  >
+</div>
+
+      <!-- FAQ stack -->
+      <div class="e5-faq-stack">
+
+        <div class="e5-faq-card">
+          <div class="e5-faq-q">Is it required?</div>
+          <div class="e5-faq-a">No. All students continue training, learning, and progressing with or without a booklet.</div>
+        </div>
+
+        <div class="e5-faq-card">
+          <div class="e5-faq-q">Who is it for?</div>
+          <div class="e5-faq-a">Students who want a clearer path, enjoy tracking goals, or are working toward moving from beginner NinFit into intermediate training.</div>
+        </div>
+
+        <div class="e5-faq-card">
+          <div class="e5-faq-q">How does it work?</div>
+          <div class="e5-faq-a">Students bring it to class. When a coach sees a skill is consistent, controlled, and ready — they sign it off. Sign-offs happen naturally over time, not all at once.</div>
+        </div>
+
+        <div class="e5-faq-card">
+          <div class="e5-faq-q">What about testing?</div>
+          <div class="e5-faq-a">Testing is for students ready to move from Level 3 into Level 4. A testing window opens at Week 8 of our training cycle — but students only test when coaches believe they are ready.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- QUOTE -->
+    <div class="e5-quote">
+      <div class="e5-quote-mark">"</div>
+      <p class="e5-quote-text">The booklet does not create progress. It helps students see the progress they are already building.</p>
+    </div>
+
+    <!-- PATHWAY -->
+    <div class="e5-pathway">
+      <div class="e5-section-label">Student Journey</div>
+      <div class="e5-pathway-track">
+
+        <div class="e5-pathway-step">
+          <div class="e5-pathway-dot"><div class="e5-pathway-dot-inner"></div></div>
+          <div class="e5-pathway-text">Train<br>Weekly</div>
+        </div>
+
+        <div class="e5-pathway-step">
+          <div class="e5-pathway-dot"><div class="e5-pathway-dot-inner"></div></div>
+          <div class="e5-pathway-text">Build<br>Skills</div>
+        </div>
+
+        <div class="e5-pathway-step">
+          <div class="e5-pathway-dot"><div class="e5-pathway-dot-inner"></div></div>
+          <div class="e5-pathway-text">Coach<br>Sign-Offs</div>
+        </div>
+
+        <div class="e5-pathway-step">
+          <div class="e5-pathway-dot"><div class="e5-pathway-dot-inner"></div></div>
+          <div class="e5-pathway-text">Level 3–4<br>Testing</div>
+        </div>
+
+        <div class="e5-pathway-step">
+          <div class="e5-pathway-dot"><div class="e5-pathway-dot-inner"></div></div>
+          <div class="e5-pathway-text">Intermediate<br>NinFit</div>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="e5-divider">
+
+    <!-- CTA -->
+    <div class="e5-cta">
+      <div class="e5-cta-left">
+        <div class="e5-cta-heading">Interested?</div>
+        <p class="e5-cta-text">
+          Ask a coach at the front desk or bring the booklet to class when your student is ready to start tracking their journey more intentionally.
+        </p>
+      </div>
+      <div class="e5-cta-badge">
+        <div class="e5-cta-price">$15</div>
+        <div class="e5-cta-price-label">Spiral-Bound Booklet</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="page-footer">
+  <div class="container">
+    <div class="footer-logo">Elemental 5</div>
+    <p class="footer-sub">Acrobatics · Parkour · Ninja · Salida, Colorado</p>
+  </div>
+</footer>
+</body>
+</html>
