@@ -452,7 +452,7 @@ a { -webkit-tap-highlight-color: transparent; }
 
 .nl-callout strong { color: var(--text-dark); font-weight: 600; }
 
-/* ── IMAGE SECTIONS (Showcase, Hill Climb, NinFit) ── */
+/* ── IMAGE SECTIONS (NinFit split layout) ── */
 .nl-img-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -481,6 +481,53 @@ a { -webkit-tap-highlight-color: transparent; }
 
 .nl-img-content.dark-pad {
   padding: 24px 0 24px 40px;
+}
+
+/* ── FULL-WIDTH EVENT FLYER ── */
+.nl-flyer-full {
+  width: 100%;
+  max-width: 680px;
+  margin: 32px auto 0;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 12px 56px rgba(0,0,0,0.55);
+}
+
+.nl-flyer-full img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.nl-flyer-detail {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.nl-flyer-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.nl-flyer-detail-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+
+.nl-flyer-detail-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--white);
 }
 
 /* ── NINJAS OF MONTH ── */
@@ -830,6 +877,7 @@ a { -webkit-tap-highlight-color: transparent; }
   .nl-img-frame { aspect-ratio: 16/9; }
   .nl-img-content,
   .nl-img-content.dark-pad { padding: 28px 0 0; }
+  .nl-flyer-full { max-width: 100%; }
 
   .nl-pricing-grid { grid-template-columns: 1fr; }
   .nl-og-grid { grid-template-columns: 1fr; }
@@ -1113,20 +1161,29 @@ a { -webkit-tap-highlight-color: transparent; }
 <div class="nl-divider"></div>
 
 <!-- ══ 4. SUMMER SHOWCASE ══ -->
-<section class="nl-section off-white">
-  <div class="nl-section-inner">
-    <div class="nl-img-section">
-      <div class="nl-img-frame">
-        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f506275f81f9391d9d1c7f_summer%20showcase%202026%20(2).png" alt="Summer Showcase 2026 poster">
+<section class="nl-section dark" style="padding-bottom:80px;">
+  <div class="nl-section-inner" style="text-align:center;">
+    <p class="nl-label light" style="text-align:left;">June 13 &amp; 14</p>
+    <h2 class="nl-headline white" style="text-align:left;">Summer Showcase</h2>
+    <div class="nl-flyer-full">
+      <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f506275f81f9391d9d1c7f_summer%20showcase%202026%20(2).png" alt="Summer Showcase 2026 poster">
+    </div>
+    <div class="nl-flyer-detail">
+      <div class="nl-flyer-detail-item">
+        <span class="nl-flyer-detail-label">Date</span>
+        <span class="nl-flyer-detail-value">June 13 &amp; 14</span>
       </div>
-      <div class="nl-img-content">
-        <p class="nl-label">June 13 &amp; 14</p>
-        <h2 class="nl-headline">Summer Showcase</h2>
-        <p class="nl-body">
-          Our Summer Showcase is confirmed at the Elemental 5 facility:
-          <strong>Saturday, June 13 at 5pm</strong> and <strong>Sunday, June 14 at 2pm.</strong>
-          No ticket purchase is required. We will have a suggested $5 donation at the door.
-        </p>
+      <div class="nl-flyer-detail-item">
+        <span class="nl-flyer-detail-label">Times</span>
+        <span class="nl-flyer-detail-value">Sat 5pm &middot; Sun 2pm</span>
+      </div>
+      <div class="nl-flyer-detail-item">
+        <span class="nl-flyer-detail-label">Location</span>
+        <span class="nl-flyer-detail-value">Elemental 5 Facility</span>
+      </div>
+      <div class="nl-flyer-detail-item">
+        <span class="nl-flyer-detail-label">Admission</span>
+        <span class="nl-flyer-detail-value">Free &middot; $5 donation suggested</span>
       </div>
     </div>
   </div>
@@ -1135,18 +1192,25 @@ a { -webkit-tap-highlight-color: transparent; }
 <div class="nl-divider"></div>
 
 <!-- ══ 5. HILL CLIMB ══ -->
-<section class="nl-section light-gray">
-  <div class="nl-section-inner">
-    <div class="nl-img-section reverse">
-      <div class="nl-img-frame">
-        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f50626cfd080fae3b5be7c_Hill%20Climb%202026%20(1).png" alt="FibArk Hill Climb 2026 flyer">
+<section class="nl-section dark-ember" style="padding-bottom:80px;">
+  <div class="nl-section-inner" style="text-align:center;">
+    <p class="nl-label light" style="text-align:left;">June 18 &middot; 6pm</p>
+    <h2 class="nl-headline white" style="text-align:left;">Join Us for the FibArk Hill Climb</h2>
+    <div class="nl-flyer-full">
+      <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f50626cfd080fae3b5be7c_Hill%20Climb%202026%20(1).png" alt="FibArk Hill Climb 2026 flyer">
+    </div>
+    <div class="nl-flyer-detail">
+      <div class="nl-flyer-detail-item">
+        <span class="nl-flyer-detail-label">Date</span>
+        <span class="nl-flyer-detail-value">June 18, 2026</span>
       </div>
-      <div class="nl-img-content dark-pad">
-        <p class="nl-label">June 18 &middot; 6pm</p>
-        <h2 class="nl-headline">Join Us for the FibArk Hill Climb</h2>
-        <p class="nl-body">
-          On <strong>June 18 at 6pm,</strong> we are encouraging families to join us in running the FibArk Hill Climb. All evening classes will be canceled for race day so our community can participate together.
-        </p>
+      <div class="nl-flyer-detail-item">
+        <span class="nl-flyer-detail-label">Start Time</span>
+        <span class="nl-flyer-detail-value">6:00 PM</span>
+      </div>
+      <div class="nl-flyer-detail-item">
+        <span class="nl-flyer-detail-label">Classes</span>
+        <span class="nl-flyer-detail-value">All evening classes canceled</span>
       </div>
     </div>
   </div>
