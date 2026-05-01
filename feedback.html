@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elemental 5 | Feedback</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg1:   #F2F0EC;
+  --bg2:   #E8E6E0;
+  --bg3:   #DEDAD4;
+  --cream: #C8C0B0;
+  --dark:  #1A1A18;
+  --mid:   #4A4640;
+  --soft:  rgba(26,26,24,0.45);
+  --body:  rgba(26,26,24,0.68);
+  --red:   #CC1F1F;
+  --white: #ffffff;
+}
+
+html, body {
+  width: 100%;
+  margin: 0; padding: 0;
+  background: var(--bg1);
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.fb-hero {
+  width: 100%;
+  background: var(--dark);
+  padding: 96px 72px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fb-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 60px,
+    rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px
+  );
+  pointer-events: none;
+}
+
+.fb-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.fb-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+.fb-headline em {
+  font-style: normal;
+  color: var(--red);
+  display: block;
+}
+
+.fb-subhead {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  max-width: 540px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── FORM SECTION ── */
+.form-section {
+  width: 100%;
+  background: var(--bg1);
+  padding: 72px 72px 88px;
+}
+
+.form-wrap {
+  max-width: 680px;
+}
+
+/* field groups */
+.field-group {
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field-divider {
+  border: none;
+  border-top: 1px solid rgba(26,26,24,0.1);
+  margin: 36px 0;
+}
+
+.field-section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 20px;
+}
+
+/* labels */
+.form-wrap label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+.form-wrap label .req {
+  color: var(--red);
+  margin-left: 3px;
+}
+
+/* inputs */
+.form-wrap input[type="text"],
+.form-wrap input[type="email"],
+.form-wrap input[type="tel"],
+.form-wrap select,
+.form-wrap textarea {
+  width: 100%;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
+  color: var(--dark);
+  background: var(--white);
+  border: 1.5px solid rgba(26,26,24,0.15);
+  border-radius: 4px;
+  padding: 14px 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.2s;
+}
+
+.form-wrap input:focus,
+.form-wrap select:focus,
+.form-wrap textarea:focus {
+  outline: none;
+  border-color: var(--dark);
+}
+
+.form-wrap textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+/* select arrow */
+.select-wrap {
+  position: relative;
+}
+
+.select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--mid);
+  pointer-events: none;
+}
+
+/* rating radios */
+.rating-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rating-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  background: var(--white);
+  border: 1.5px solid rgba(26,26,24,0.12);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.rating-option input[type="radio"] {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--dark);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.rating-option input[type="radio"]:checked ~ .rating-label {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.rating-label {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  color: var(--mid);
+  cursor: pointer;
+}
+
+/* follow-up radios */
+.followup-row {
+  display: flex;
+  gap: 10px;
+}
+
+.followup-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--white);
+  border: 1.5px solid rgba(26,26,24,0.12);
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.followup-option input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--white);
+  cursor: pointer;
+}
+
+/* anonymous checkbox */
+.anon-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 18px 20px;
+  margin-bottom: 32px;
+}
+
+.anon-block input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--dark);
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.anon-block-copy { display: flex; flex-direction: column; gap: 4px; }
+
+.anon-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+.anon-hint {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.55;
+}
+
+.followup-hint {
+  font-size: 13px;
+  color: var(--soft);
+  line-height: 1.55;
+  margin-top: 10px;
+}
+
+/* contact fields card */
+.contact-fields {
+  display: none;
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 24px 24px 20px;
+  margin-top: 12px;
+}
+
+.contact-fields-note {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.contact-fields-note strong {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* submit */
+.submit-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--red);
+  border: none;
+  border-radius: 3px;
+  padding: 18px 40px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 36px;
+}
+
+.submit-btn:hover { background: #A51818; }
+
+/* ── FOOTER ── */
+.site-footer {
+  background: #0E0804;
+  border-top: 3px solid #C4622D;
+  padding: 4rem 2rem;
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: #C4622D;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.footer-tagline {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+}
+
+.footer-col-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C4622D;
+  margin-bottom: 1rem;
+}
+
+.footer-link {
+  display: block;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+
+.footer-link:hover { color: #C4622D; }
+
+.footer-address {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+.footer-apply-btn {
+  display: inline-block;
+  background: #CC1F1F;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.5rem;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.footer-apply-btn:hover { background: #A51818; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.footer-copy {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  .fb-hero        { padding: 64px 20px 56px; }
+  .form-section   { padding: 48px 20px 64px; }
+  .field-row      { grid-template-columns: 1fr; }
+  .followup-row   { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<div id="site-nav"></div>
+<script>
+  fetch('/Partials/nav.html')
+    .then(function(r){ return r.text(); })
+    .then(function(html){ document.getElementById('site-nav').innerHTML = html; });
+</script>
+
+<!-- ── HERO ── -->
+<section class="fb-hero">
+  <p class="fb-eyebrow">Parent Feedback</p>
+  <h1 class="fb-headline">
+    How did we<br>
+    <em>do today?</em>
+  </h1>
+  <p class="fb-subhead">
+    Your feedback helps us improve the Elemental 5 experience for students, parents, and coaches.
+    Whether something went great or something needs attention, we want to hear it.
+  </p>
+</section>
+
+<!-- ── FORM ── -->
+<section class="form-section">
+  <div class="form-wrap">
+
+    <form action="https://formspree.io/f/mykoywdb" method="POST">
+      <input type="hidden" name="_redirect" value="https://www.elementalfive.com/feedback-thank-you.html">
+
+      <!-- Anonymous option -->
+      <div class="anon-block">
+        <input type="checkbox" id="submit_anonymously" name="submit_anonymously" value="yes">
+        <div class="anon-block-copy">
+          <label class="anon-label" for="submit_anonymously">Submit anonymously</label>
+          <span class="anon-hint">You may leave parent and student names blank if you prefer to stay anonymous.</span>
+        </div>
+      </div>
+
+      <!-- About You -->
+      <p class="field-section-label">About You</p>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="parent_name">Parent / Guardian Name (optional)</label>
+          <input type="text" id="parent_name" name="parent_name" autocomplete="name">
+        </div>
+        <div class="field-group">
+          <label for="student_name">Student Name (optional)</label>
+          <input type="text" id="student_name" name="student_name" autocomplete="off">
+        </div>
+      </div>
+
+      <hr class="field-divider">
+
+      <!-- About the Experience -->
+      <p class="field-section-label">About the Experience</p>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="program_or_class">Program or Class</label>
+          <div class="select-wrap">
+            <select id="program_or_class" name="program_or_class">
+              <option value="">Select one</option>
+              <option>NinFit</option>
+              <option>Tx3</option>
+              <option>Aerial</option>
+              <option>Mini Ninjas</option>
+              <option>Ninja Tots</option>
+              <option>Open Gym</option>
+              <option>Birthday Party</option>
+              <option>Camp</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Experience Rating<span class="req">*</span></label>
+          <div class="rating-stack">
+            <label class="rating-option">
+              <input type="radio" name="experience_rating" value="5 - Excellent" required>
+              <span class="rating-label">5 &mdash; Excellent</span>
+            </label>
+            <label class="rating-option">
+              <input type="radio" name="experience_rating" value="4 - Good">
+              <span class="rating-label">4 &mdash; Good</span>
+            </label>
+            <label class="rating-option">
+              <input type="radio" name="experience_rating" value="3 - Okay">
+              <span class="rating-label">3 &mdash; Okay</span>
+            </label>
+            <label class="rating-option">
+              <input type="radio" name="experience_rating" value="2 - Needs attention">
+              <span class="rating-label">2 &mdash; Needs attention</span>
+            </label>
+            <label class="rating-option">
+              <input type="radio" name="experience_rating" value="1 - Poor">
+              <span class="rating-label">1 &mdash; Poor</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <hr class="field-divider">
+
+      <!-- Your Feedback -->
+      <p class="field-section-label">Your Feedback</p>
+
+      <div class="field-group">
+        <label for="what_went_well">What went well?</label>
+        <textarea id="what_went_well" name="what_went_well" placeholder="Tell us what you loved about today's experience."></textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="what_could_improve">What could we improve?</label>
+        <textarea id="what_could_improve" name="what_could_improve" placeholder="Any suggestions or things that didn't go as expected."></textarea>
+      </div>
+
+      <hr class="field-divider">
+
+      <!-- Follow-up -->
+      <p class="field-section-label">Follow-Up</p>
+
+      <div class="field-group">
+        <label>Would you like us to follow up?<span class="req">*</span></label>
+        <div class="followup-row">
+          <label class="followup-option" id="fu-yes-label">
+            <input type="radio" id="fu-yes" name="follow_up_requested" value="Yes" required>
+            Yes
+          </label>
+          <label class="followup-option" id="fu-no-label">
+            <input type="radio" id="fu-no" name="follow_up_requested" value="No">
+            No
+          </label>
+        </div>
+        <p class="followup-hint">If you would like us to follow up, please include an email or phone number.</p>
+
+        <div class="contact-fields" id="contact-fields">
+          <p class="contact-fields-note">
+            <strong>We will reach out using the details you provide below.</strong>
+            Leave whichever you prefer — email, phone, or both.
+          </p>
+          <div class="field-group">
+            <label for="email">Email (optional)</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com">
+          </div>
+          <div class="field-group" style="margin-bottom:0;">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="719-555-0100">
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Feedback</button>
+
+    </form>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+
+      <div>
+        <p class="footer-brand">Elemental 5</p>
+        <p class="footer-tagline">A human development center disguised as an acrobatics gym. We build athletes, leaders, and humans.</p>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <a href="tel:7198382023" class="footer-link">Phone: 719-838-2023</a>
+        <a href="mailto:gym@elementalfive.com" class="footer-link">Email: gym@elementalfive.com</a>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Location</p>
+        <p class="footer-address">9985 US-50<br>Unit C<br>Poncha Springs, CO 81242</p>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Join Our Team</p>
+        <a href="https://coach.elementalfive.com" target="_blank" class="footer-apply-btn">Apply Here →</a>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Elemental 5. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('input[name="follow_up_requested"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      document.getElementById('contact-fields').style.display =
+        this.value === 'Yes' ? 'block' : 'none';
+    });
+  });
+</script>
+
+</body>
+</html>
