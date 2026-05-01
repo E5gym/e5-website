@@ -719,15 +719,13 @@ fetch('/partials/nav.html').then(response=>response.text()).then(html=>{document
     <div class="e5-layout">
 
       <!-- Image placeholder -->
-      <img src="YOUR_IMAGE_URL" alt="NinFit Student Skill Log Booklet" style="width:100%;height:100%;object-fit:cover;border-radius:7px;position:absolute;inset:0;">
-          <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <circle cx="8.5" cy="8.5" r="1.5"/>
-            <path d="M21 15l-5-5L5 21"/>
-          </svg>
-        </div>
-        <div class="e5-image-card-label">Booklet Image Here</div>
-      </div>
+      <div class="booklet-image-wrap">
+  <img 
+    src="/ninfit-booklet-promo.png" 
+    alt="NinFit Student Skill Log Booklet" 
+    class="booklet-image"
+  >
+</div>
 
       <!-- FAQ stack -->
       <div class="e5-faq-stack">
