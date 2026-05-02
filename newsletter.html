@@ -115,49 +115,6 @@ a { -webkit-tap-highlight-color: transparent; }
   opacity: 0.4;
 }
 
-/* ── MASTHEAD ── */
-.nl-masthead {
-  width: 100%;
-  background: var(--white);
-  border-bottom: 1px solid rgba(196,98,45,0.15);
-  padding: 18px 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.nl-masthead-logo img {
-  height: 48px;
-  width: auto;
-  display: block;
-}
-
-.nl-masthead-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 3px;
-}
-
-.nl-issue-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--ember);
-}
-
-.nl-issue-date {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--black);
-}
-
 /* ── HERO ── */
 .nl-hero {
   width: 100%;
@@ -867,7 +824,6 @@ a { -webkit-tap-highlight-color: transparent; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
-  .nl-masthead { padding: 16px 24px; }
   .nl-hero { padding: 56px 24px 64px; }
   .nl-section { padding: 52px 24px; }
   .nl-footer { padding: 44px 24px 36px; }
@@ -904,8 +860,7 @@ a { -webkit-tap-highlight-color: transparent; }
 
 @media (max-width: 600px) {
   .nl-hero-headline { font-size: 42px; }
-  .nl-masthead-meta { display: none; }
-  .nl-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+.nl-gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .nl-market-dates { gap: 6px; }
   .nl-market-date { font-size: 12px; padding: 8px 14px; }
 }
@@ -919,19 +874,6 @@ a { -webkit-tap-highlight-color: transparent; }
     .then(r => r.text())
     .then(html => { document.getElementById('site-nav').innerHTML = html; });
 </script>
-
-<!-- ══ MASTHEAD ══ -->
-<div class="nl-masthead">
-  <a href="/" class="nl-masthead-logo">
-    <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6807dcf85b762cd87fae47c6_E5_Logo.avif" alt="Elemental 5">
-  </a>
-  <div class="nl-masthead-meta">
-    <span class="nl-issue-label">Monthly Newsletter</span>
-    <span class="nl-issue-date">May 2026</span>
-  </div>
-</div>
-
-<div class="nl-divider"></div>
 
 <!-- ══ HERO ══ -->
 <section class="nl-hero">
@@ -1254,7 +1196,7 @@ a { -webkit-tap-highlight-color: transparent; }
 
       <div class="nl-ninja-card">
         <div class="nl-ninja-photo">
-          <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f15e341b7b0e5f4ed1b677_IMG_7556.jpeg" alt="Makena Wamsley">
+          <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f15e341b7b0e5f4ed1b677_IMG_7556.jpeg" alt="Makena Wamsley" style="object-position: 50% 20%;">
         </div>
         <div class="nl-ninja-info">
           <p class="nl-ninja-name">Makena Wamsley</p>
