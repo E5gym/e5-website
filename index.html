@@ -316,7 +316,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .strip-link:hover { gap: 12px; }
 
 /* ── FACILITY ── */
-.facility-section { width: 100%; padding: 80px 72px 100px; position: relative; overflow: hidden; background: #181008; background-image: repeating-linear-gradient(-55deg, transparent, transparent 3px, rgba(196,98,45,0.04) 3px, rgba(196,98,45,0.04) 4px), radial-gradient(ellipse at 50% 0%, rgba(196,98,45,0.14) 0%, transparent 60%), linear-gradient(rgba(10,10,10,0.72), rgba(10,10,10,0.78)), url("https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f676dd1328190e342ab1ef_fieryglow.png"); background-size: auto, auto, auto, cover; background-position: left top, center top, center, center; background-repeat: repeat, no-repeat, no-repeat, no-repeat; }
+.facility-section { width: 100%; padding: 80px 72px 100px; background: #181008; background-image: repeating-linear-gradient(-55deg, transparent, transparent 3px, rgba(196,98,45,0.04) 3px, rgba(196,98,45,0.04) 4px), radial-gradient(ellipse at 50% 0%, rgba(196,98,45,0.14) 0%, transparent 60%), linear-gradient(rgba(10,10,10,0.72), rgba(10,10,10,0.78)), url("https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f676dd1328190e342ab1ef_fieryglow.png"); background-size: auto, auto, auto, cover; background-position: left top, center top, center, center; background-repeat: repeat, no-repeat, no-repeat, no-repeat; }
 .facility-section .section-label { color: rgba(255,255,255,0.4); }
 .facility-section .section-headline { color: var(--white); font-size: clamp(36px, 4.5vw, 64px); margin-bottom: 48px; }
 .facility-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 6px; }
@@ -347,12 +347,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .tier-row:last-of-type { border-bottom: none; }
 .tier-name { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #1A1A1A; }
 .tier-desc { font-size: 11px; color: #7A6F62; margin-top: 2px; }
-
-/* ── NINJA EASTER EGG ── */
-.decor-ninja-wrap { position: absolute; left: 56px; bottom: 0; width: 72px; height: 68px; overflow: hidden; pointer-events: none; z-index: 2; }
-.decor-ninja-wrap img { position: absolute; width: 96px; left: -12px; top: 0; opacity: 0; filter: blur(2px); transition: opacity 0.8s ease 0.3s, filter 0.8s ease 0.3s; }
-.decor-ninja-wrap.is-visible img { opacity: 0.85; filter: blur(0); }
-@media (max-width: 768px) { .decor-ninja-wrap { display: none; } }
 
 /* ── ANNOUNCEMENTS ── */
 .announcements-section { width: 100%; padding: 80px 72px 100px; background: var(--light-3); }
@@ -564,9 +558,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <div class="founding-card"><p class="founding-eyebrow">Founding Membership</p><h3 class="founding-headline">Lock in your<br>place before we open.</h3><p class="founding-desc">Founding members lock in rates before the new facility opens and help shape what E5 becomes. <strong>Spots are limited and this offer closes before the doors open.</strong></p><a href="/new-gym.html" class="founding-btn">Become a Founding Member →</a></div>
     <div class="tiers-card"><p class="tiers-eyebrow">Membership Tiers</p><div class="tier-row"><div><p class="tier-name">Earth</p><p class="tier-desc">Individual founding support</p></div></div><div class="tier-row"><div><p class="tier-name">Water</p><p class="tier-desc">Family founding support</p></div></div><div class="tier-row"><div><p class="tier-name">Fire</p><p class="tier-desc">Community champion</p></div></div><div class="tier-row"><div><p class="tier-name">Air</p><p class="tier-desc">Lead sponsor recognition</p></div></div><div class="tier-row"><div><p class="tier-name">Void</p><p class="tier-desc">By conversation only</p></div></div><div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(0,0,0,0.1);"><p style="font-size:12px;color:#5A5148;line-height:1.6;margin-bottom:12px;">Tier investment levels, naming rights, and benefits are outlined in our facility expansion overview.</p><a href="https://67b7281f-1abe-4e28-913a-475047794dcc.usrfiles.com/ugd/221b20_8e6ef64e825649d79928980b3a37257b.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#CC1F1F;text-decoration:none;">Download Facility Overview PDF →</a></div></div>
   </div>
-  <div class="decor-ninja-wrap">
-    <img src="/e5ninjaman.png" alt="" aria-hidden="true">
-  </div>
 </section>
 
 <div class="section-divider"></div>
@@ -686,16 +677,5 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </div>
   </div>
 </footer>
-
-<script>
-(function() {
-  var wrap = document.querySelector('.decor-ninja-wrap');
-  if (!wrap) return;
-  var obs = new IntersectionObserver(function(entries) {
-    if (entries[0].isIntersecting) { wrap.classList.add('is-visible'); obs.disconnect(); }
-  }, { threshold: 0.15 });
-  obs.observe(wrap.closest('section'));
-})();
-</script>
 </body>
 </html>
