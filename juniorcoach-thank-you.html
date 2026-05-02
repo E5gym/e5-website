@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Application Received | Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg1:   #F2F0EC;
+  --bg2:   #E8E6E0;
+  --bg3:   #DEDAD4;
+  --cream: #C8C0B0;
+  --dark:  #1A1A18;
+  --mid:   #4A4640;
+  --soft:  rgba(26,26,24,0.45);
+  --body:  rgba(26,26,24,0.68);
+  --red:   #CC1F1F;
+  --ember: #C4622D;
+  --white: #ffffff;
+}
+
+html, body {
+  width: 100%;
+  margin: 0; padding: 0;
+  background: var(--bg1);
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.ty-hero {
+  width: 100%;
+  background: var(--dark);
+  padding: 96px 72px 88px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ty-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 60px,
+    rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px
+  );
+  pointer-events: none;
+}
+
+.ty-icon {
+  position: relative;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  background: var(--ember);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.ty-icon svg {
+  width: 28px; height: 28px;
+  stroke: var(--white);
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ty-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.ty-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(36px, 5vw, 68px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+.ty-headline em {
+  font-style: normal;
+  color: var(--ember);
+  display: block;
+}
+
+.ty-body {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  max-width: 520px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── NEXT STEPS ── */
+.ty-next {
+  width: 100%;
+  background: var(--bg2);
+  padding: 64px 72px;
+}
+
+.ty-next-inner {
+  max-width: 760px;
+}
+
+.ty-next-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 20px;
+}
+
+.ty-next-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+
+.ty-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.ty-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--white);
+  border-radius: 4px;
+  padding: 18px 20px;
+  border-left: 3px solid var(--ember);
+}
+
+.ty-step-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--ember);
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.ty-step-text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--body);
+}
+
+.ty-step-text strong { color: var(--dark); font-weight: 600; }
+
+/* ── BOTTOM ACTIONS ── */
+.ty-actions {
+  width: 100%;
+  background: var(--bg1);
+  padding: 52px 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.ty-actions-text h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--dark);
+  margin-bottom: 5px;
+}
+
+.ty-actions-text p { font-size: 13px; color: var(--body); line-height: 1.5; }
+
+.ty-btns { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
+
+.ty-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  background: var(--red);
+  border-radius: 3px;
+  padding: 13px 22px;
+  transition: background 0.2s;
+}
+
+.ty-btn-primary:hover { background: #A51818; }
+
+.ty-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark);
+  text-decoration: none;
+  background: var(--bg3);
+  border-radius: 3px;
+  padding: 13px 22px;
+  transition: background 0.2s;
+}
+
+.ty-btn-secondary:hover { background: var(--cream); }
+
+/* ── FOOTER ── */
+.site-footer {
+  background: #0E0804;
+  border-top: 3px solid #C4622D;
+  padding: 4rem 2rem;
+}
+
+.footer-inner { max-width: 1120px; margin: 0 auto; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: #C4622D;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.footer-tagline {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+}
+
+.footer-col-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C4622D;
+  margin-bottom: 1rem;
+}
+
+.footer-link {
+  display: block;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+
+.footer-link:hover { color: #C4622D; }
+
+.footer-address {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+.footer-apply-btn {
+  display: inline-block;
+  background: #CC1F1F;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.5rem;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.footer-apply-btn:hover { background: #A51818; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.footer-copy {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .ty-hero,
+  .ty-next,
+  .ty-actions { padding-left: 24px; padding-right: 24px; }
+
+  .ty-hero { padding-top: 64px; padding-bottom: 64px; }
+  .ty-actions { flex-direction: column; align-items: flex-start; }
+  .ty-btns { flex-direction: row; }
+}
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+<script>
+  fetch('/partials/nav.html')
+    .then(r => r.text())
+    .then(html => { document.getElementById('site-nav').innerHTML = html; });
+</script>
+
+<!-- ══ HERO ══ -->
+<section class="ty-hero">
+  <div class="ty-icon">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <p class="ty-eyebrow">Application Received</p>
+  <h1 class="ty-headline">We Got<br><em>Your Application.</em></h1>
+  <p class="ty-body">
+    Thank you for applying to the Junior Coach Apprenticeship program. The coaching staff will review all applications and reach out with next steps.
+  </p>
+</section>
+
+<!-- ══ NEXT STEPS ══ -->
+<section class="ty-next">
+  <div class="ty-next-inner">
+    <p class="ty-next-label">What Happens Next</p>
+    <h2 class="ty-next-title">After You Apply</h2>
+    <div class="ty-steps">
+      <div class="ty-step">
+        <span class="ty-step-num">01</span>
+        <p class="ty-step-text"><strong>Application Review</strong> — The coaching team reviews all applications for the current cycle. Acceptance is based on fit, availability, and readiness.</p>
+      </div>
+      <div class="ty-step">
+        <span class="ty-step-num">02</span>
+        <p class="ty-step-text"><strong>We'll Be in Touch</strong> — If your student is accepted, we will contact you at the email or phone number provided to confirm placement and cycle start date.</p>
+      </div>
+      <div class="ty-step">
+        <span class="ty-step-num">03</span>
+        <p class="ty-step-text"><strong>Cycle Fee</strong> — The $50 cycle fee is due upon acceptance. Payment can be made through the parent portal or at the front desk.</p>
+      </div>
+      <div class="ty-step">
+        <span class="ty-step-num">04</span>
+        <p class="ty-step-text"><strong>Questions?</strong> — Email <a href="mailto:gym@elementalfive.com" style="color:var(--ember);text-decoration:none;">gym@elementalfive.com</a> or stop by the front desk anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BOTTOM ACTIONS ══ -->
+<div class="ty-actions">
+  <div class="ty-actions-text">
+    <h4>Keep Exploring</h4>
+    <p>Check out all programs or visit the student portal while you wait to hear back.</p>
+  </div>
+  <div class="ty-btns">
+    <a href="/index.html" class="ty-btn-primary">Return Home →</a>
+    <a href="/programs.html" class="ty-btn-secondary">View Programs →</a>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">Elemental 5</p>
+        <p class="footer-tagline">A human development center disguised as an acrobatics gym. We build athletes, leaders, and humans.</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <a href="tel:7198382023" class="footer-link">Phone: 719-838-2023</a>
+        <a href="mailto:gym@elementalfive.com" class="footer-link">Email: gym@elementalfive.com</a>
+      </div>
+      <div>
+        <p class="footer-col-title">Location</p>
+        <p class="footer-address">9985 US-50<br>Unit C<br>Poncha Springs, CO 81242</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Join Our Team</p>
+        <a href="https://coach.elementalfive.com" target="_blank" class="footer-apply-btn">Apply Here →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Elemental 5. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Junior Coach Apprenticeship | Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg1:   #F2F0EC;
+  --bg2:   #E8E6E0;
+  --bg3:   #DEDAD4;
+  --cream: #C8C0B0;
+  --dark:  #1A1A18;
+  --mid:   #4A4640;
+  --soft:  rgba(26,26,24,0.45);
+  --body:  rgba(26,26,24,0.68);
+  --red:   #CC1F1F;
+  --ember: #C4622D;
+  --flame: #E8843A;
+  --white: #ffffff;
+}
+
+html, body {
+  width: 100%;
+  margin: 0; padding: 0;
+  background: var(--bg1);
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+a { -webkit-tap-highlight-color: transparent; }
+
+/* ── SHARED ── */
+.section-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 16px;
+}
+
+.section-eyebrow.light { color: rgba(255,255,255,0.45); }
+
+.section-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+
+.section-headline.white { color: var(--white); }
+
+.section-body {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--body);
+}
+
+.section-body.light { color: rgba(255,255,255,0.65); }
+.section-body strong { color: var(--dark); font-weight: 600; }
+.section-body.light strong { color: var(--white); }
+
+/* ── HERO ── */
+.jc-hero {
+  width: 100%;
+  background: var(--dark);
+  padding: 96px 72px 88px;
+  position: relative;
+  overflow: hidden;
+}
+
+.jc-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 60px,
+    rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px
+  );
+  pointer-events: none;
+}
+
+.jc-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(196,98,45,0.12);
+  border: 1px solid rgba(196,98,45,0.3);
+  border-radius: 100px;
+  padding: 6px 16px 6px 10px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.jc-badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--ember);
+  animation: jc-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes jc-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.jc-badge-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--flame);
+}
+
+.jc-hero-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(44px, 6vw, 84px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.jc-hero-headline em {
+  font-style: normal;
+  color: var(--ember);
+  display: block;
+}
+
+.jc-hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  max-width: 560px;
+  position: relative;
+  z-index: 1;
+}
+
+.jc-hero-sub strong { color: rgba(255,255,255,0.9); font-weight: 500; }
+
+.jc-hero-meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 44px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.jc-meta-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 4px;
+}
+
+.jc-meta-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: var(--white);
+}
+
+/* ── GENERAL SECTIONS ── */
+.jc-section {
+  width: 100%;
+  padding: 72px 72px;
+}
+
+.jc-section.bg1 { background: var(--bg1); }
+.jc-section.bg2 { background: var(--bg2); }
+.jc-section.dark { background: var(--dark); }
+
+.jc-section-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ── WHAT IT IS ── */
+.jc-explainer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.jc-explainer-card {
+  background: var(--white);
+  border-radius: 4px;
+  padding: 32px 28px 36px;
+  border-top: 3px solid var(--ember);
+}
+
+.jc-explainer-card.no { border-top-color: rgba(26,26,24,0.2); }
+
+.jc-card-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 10px;
+}
+
+.jc-card-tag.muted { color: var(--soft); }
+
+.jc-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--dark);
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.jc-card-body {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--body);
+}
+
+/* ── WHAT THEY DO ── */
+.jc-duties-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.jc-duty-card {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 26px 24px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.jc-duty-icon {
+  width: 32px; height: 32px;
+  background: var(--dark);
+  border-radius: 3px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.jc-duty-icon svg {
+  width: 16px; height: 16px;
+  stroke: rgba(255,255,255,0.75);
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.jc-duty-text {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--mid);
+}
+
+.jc-duty-text strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dark);
+  margin-bottom: 3px;
+}
+
+/* ── PROGRAM STRUCTURE STATS ── */
+.jc-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 44px;
+}
+
+.jc-stat-card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  padding: 32px 24px;
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+
+.jc-stat-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--flame);
+  margin-bottom: 8px;
+}
+
+.jc-stat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.jc-stat-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.jc-program-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.jc-detail-row {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.jc-detail-dash {
+  width: 20px;
+  height: 2px;
+  background: var(--ember);
+  flex-shrink: 0;
+  margin-top: 10px;
+}
+
+.jc-detail-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.65);
+}
+
+.jc-detail-text strong { color: var(--white); font-weight: 600; }
+
+/* ── PLACEMENT TIMES ── */
+.jc-placement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+  margin-top: 36px;
+}
+
+.jc-placement-card {
+  background: var(--white);
+  border-radius: 4px;
+  padding: 24px 22px 28px;
+  border-left: 3px solid var(--ember);
+}
+
+.jc-placement-day {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ember);
+  margin-bottom: 6px;
+}
+
+.jc-placement-time {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.jc-placement-class {
+  font-size: 12px;
+  color: var(--soft);
+  line-height: 1.4;
+}
+
+/* ── APPLICATION FORM SECTION ── */
+.jc-form-section {
+  width: 100%;
+  background: var(--bg2);
+  padding: 72px 72px 96px;
+}
+
+.jc-form-header {
+  max-width: 680px;
+  margin-bottom: 48px;
+}
+
+.form-wrap {
+  max-width: 720px;
+}
+
+.field-group {
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field-divider {
+  border: none;
+  border-top: 1px solid rgba(26,26,24,0.12);
+  margin: 36px 0;
+}
+
+.field-section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 20px;
+}
+
+.form-wrap label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+.form-wrap label .req { color: var(--red); margin-left: 3px; }
+
+.form-wrap input[type="text"],
+.form-wrap input[type="email"],
+.form-wrap input[type="tel"],
+.form-wrap input[type="number"],
+.form-wrap select,
+.form-wrap textarea {
+  width: 100%;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
+  color: var(--dark);
+  background: var(--white);
+  border: 1.5px solid rgba(26,26,24,0.15);
+  border-radius: 4px;
+  padding: 14px 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.2s;
+}
+
+.form-wrap input:focus,
+.form-wrap select:focus,
+.form-wrap textarea:focus {
+  outline: none;
+  border-color: var(--dark);
+}
+
+.form-wrap textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.select-wrap { position: relative; }
+
+.select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 16px; top: 50%;
+  transform: translateY(-50%);
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--mid);
+  pointer-events: none;
+}
+
+/* radio options */
+.radio-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  background: var(--white);
+  border: 1.5px solid rgba(26,26,24,0.12);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.radio-option:hover { border-color: rgba(26,26,24,0.3); }
+
+.radio-option input[type="radio"] {
+  width: 17px; height: 17px;
+  accent-color: var(--dark);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.radio-label {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  color: var(--mid);
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+/* checkbox options */
+.checkbox-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  background: var(--white);
+  border: 1.5px solid rgba(26,26,24,0.12);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.checkbox-option:hover { border-color: rgba(26,26,24,0.3); }
+
+.checkbox-option input[type="checkbox"] {
+  width: 17px; height: 17px;
+  accent-color: var(--dark);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  color: var(--mid);
+  cursor: pointer;
+}
+
+/* returning fields (hidden by default) */
+.returning-fields {
+  display: none;
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 28px 24px 24px;
+  margin-top: 12px;
+}
+
+.returning-fields-note {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* confirmation block */
+.confirm-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 20px 22px;
+  border-left: 3px solid var(--ember);
+}
+
+.confirm-block input[type="checkbox"] {
+  width: 18px; height: 18px;
+  accent-color: var(--dark);
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.confirm-block-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--mid);
+  cursor: pointer;
+}
+
+.field-hint {
+  font-size: 12px;
+  color: var(--soft);
+  line-height: 1.5;
+}
+
+/* submit */
+.submit-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--red);
+  border: none;
+  border-radius: 3px;
+  padding: 18px 44px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 36px;
+}
+
+.submit-btn:hover { background: #A51818; }
+
+/* ── FOOTER ── */
+.site-footer {
+  background: #0E0804;
+  border-top: 3px solid #C4622D;
+  padding: 4rem 2rem;
+}
+
+.footer-inner { max-width: 1120px; margin: 0 auto; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: #C4622D;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.footer-tagline {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+}
+
+.footer-col-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C4622D;
+  margin-bottom: 1rem;
+}
+
+.footer-link {
+  display: block;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+
+.footer-link:hover { color: #C4622D; }
+
+.footer-address {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+.footer-apply-btn {
+  display: inline-block;
+  background: #CC1F1F;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.5rem;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.footer-apply-btn:hover { background: #A51818; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.footer-copy {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .jc-hero,
+  .jc-section,
+  .jc-form-section { padding-left: 24px; padding-right: 24px; }
+
+  .jc-hero { padding-top: 64px; padding-bottom: 64px; }
+
+  .jc-explainer-grid { grid-template-columns: 1fr; }
+  .jc-duties-grid { grid-template-columns: 1fr 1fr; }
+  .jc-stats-grid { grid-template-columns: 1fr 1fr; }
+  .jc-placement-grid { grid-template-columns: 1fr 1fr; }
+  .field-row { grid-template-columns: 1fr; }
+  .jc-hero-meta { gap: 20px; }
+}
+
+@media (max-width: 600px) {
+  .jc-duties-grid { grid-template-columns: 1fr; }
+  .jc-stats-grid { grid-template-columns: 1fr 1fr; }
+  .jc-placement-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+<script>
+  fetch('/partials/nav.html')
+    .then(r => r.text())
+    .then(html => { document.getElementById('site-nav').innerHTML = html; });
+</script>
+
+<!-- ══ HERO ══ -->
+<section class="jc-hero">
+  <div class="jc-hero-badge">
+    <span class="jc-badge-dot"></span>
+    <span class="jc-badge-text">Leadership Program</span>
+  </div>
+  <h1 class="jc-hero-headline">Junior Coach<br><em>Apprenticeship</em></h1>
+  <p class="jc-hero-sub">
+    An <strong>8-week leadership pathway</strong> for students ages 11–13 ready to serve, assist, and grow into future coaches.
+  </p>
+  <div class="jc-hero-meta">
+    <div class="jc-meta-item">
+      <p class="jc-meta-label">Ages</p>
+      <p class="jc-meta-value">11 – 13</p>
+    </div>
+    <div class="jc-meta-item">
+      <p class="jc-meta-label">Format</p>
+      <p class="jc-meta-value">8-Week Cycle</p>
+    </div>
+    <div class="jc-meta-item">
+      <p class="jc-meta-label">Cycle Fee</p>
+      <p class="jc-meta-value">$50</p>
+    </div>
+    <div class="jc-meta-item">
+      <p class="jc-meta-label">Enrollment</p>
+      <p class="jc-meta-value">Application-Based</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHAT IT IS ══ -->
+<section class="jc-section bg1">
+  <div class="jc-section-inner">
+    <p class="section-eyebrow">What It Is</p>
+    <h2 class="section-headline">A Structured Leadership Opportunity</h2>
+    <p class="section-body" style="max-width:640px;">
+      The Junior Coach Apprenticeship is not a paid staff position and not a regular class. It is a structured, service-based apprenticeship where selected students assist coaches on the floor, support younger students, and begin learning what it means to lead in a gym environment.
+    </p>
+
+    <div class="jc-explainer-grid">
+      <div class="jc-explainer-card">
+        <p class="jc-card-tag">What It Is</p>
+        <p class="jc-card-title">A Leadership Apprenticeship</p>
+        <p class="jc-card-body">Students assist in selected classes under direct coach supervision. They are there to serve, model behavior, and support — not to run things on their own.</p>
+      </div>
+      <div class="jc-explainer-card no">
+        <p class="jc-card-tag muted">What It Is Not</p>
+        <p class="jc-card-title">Not a Staff Role</p>
+        <p class="jc-card-body">Junior Coaches are not paid employees, are not responsible for class management, and are not substitutes for E5 coaching staff. Every session is supervised.</p>
+      </div>
+      <div class="jc-explainer-card no">
+        <p class="jc-card-tag muted">What It Is Not</p>
+        <p class="jc-card-title">Not Automatic Enrollment</p>
+        <p class="jc-card-body">Participation requires a completed application. Students accepted for a cycle may reapply when that cycle ends. Acceptance is not guaranteed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHO IT'S FOR ══ -->
+<section class="jc-section bg2">
+  <div class="jc-section-inner">
+    <p class="section-eyebrow">Who It's For</p>
+    <h2 class="section-headline">Students Ready to Lead</h2>
+    <p class="section-body" style="max-width:640px;">
+      This program is designed for students who already understand E5 culture and want to contribute to it. The right Junior Coach is <strong>responsible, focused, kind,</strong> and genuinely interested in helping younger athletes grow — not just in earning a title.
+    </p>
+    <p class="section-body" style="max-width:640px; margin-top:16px;">
+      Students in this program are expected to model the same standards they help teach: listening on the floor, resetting equipment, staying engaged, and representing Elemental 5 well every time they show up.
+    </p>
+  </div>
+</section>
+
+<!-- ══ WHAT JUNIOR COACHES DO ══ -->
+<section class="jc-section bg1">
+  <div class="jc-section-inner">
+    <p class="section-eyebrow">Responsibilities</p>
+    <h2 class="section-headline">What Junior Coaches Do</h2>
+    <div class="jc-duties-grid">
+
+      <div class="jc-duty-card">
+        <div class="jc-duty-icon">
+          <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <div class="jc-duty-text">
+          <strong>Reset Equipment</strong>
+          Help set up and break down stations before and after class.
+        </div>
+      </div>
+
+      <div class="jc-duty-card">
+        <div class="jc-duty-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="jc-duty-text">
+          <strong>Support Younger Students</strong>
+          Encourage beginners, offer patient guidance, and help athletes feel confident.
+        </div>
+      </div>
+
+      <div class="jc-duty-card">
+        <div class="jc-duty-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="jc-duty-text">
+          <strong>Model Focus and Listening</strong>
+          Demonstrate the behaviors E5 teaches — attention, respect, and controlled energy.
+        </div>
+      </div>
+
+      <div class="jc-duty-card">
+        <div class="jc-duty-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+        </div>
+        <div class="jc-duty-text">
+          <strong>Assist Stations Under Supervision</strong>
+          Work within coach-designated stations, spotting and supporting as directed.
+        </div>
+      </div>
+
+      <div class="jc-duty-card">
+        <div class="jc-duty-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        </div>
+        <div class="jc-duty-text">
+          <strong>Learn How Coaches Think</strong>
+          Observe class structure, transitions, and how coaches manage energy in a room.
+        </div>
+      </div>
+
+      <div class="jc-duty-card">
+        <div class="jc-duty-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="jc-duty-text">
+          <strong>Build Responsibility and Confidence</strong>
+          Earn recognition at cycle completion and develop real leadership skills over time.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROGRAM STRUCTURE ══ -->
+<section class="jc-section dark">
+  <div class="jc-section-inner">
+    <p class="section-eyebrow light">Program Structure</p>
+    <h2 class="section-headline white">How the Cycle Works</h2>
+
+    <div class="jc-stats-grid">
+      <div class="jc-stat-card">
+        <p class="jc-stat-value">8</p>
+        <p class="jc-stat-label">Week Cycle</p>
+      </div>
+      <div class="jc-stat-card">
+        <p class="jc-stat-value">$50</p>
+        <p class="jc-stat-label">Cycle Fee</p>
+        <p class="jc-stat-note">If accepted</p>
+      </div>
+      <div class="jc-stat-card">
+        <p class="jc-stat-value">1×</p>
+        <p class="jc-stat-label">Class Per Week</p>
+        <p class="jc-stat-note">One placement per cycle</p>
+      </div>
+      <div class="jc-stat-card">
+        <p class="jc-stat-value" style="font-size:36px;">Pin</p>
+        <p class="jc-stat-label">End-of-Cycle Token</p>
+        <p class="jc-stat-note">Earned at completion</p>
+      </div>
+    </div>
+
+    <div class="jc-program-detail">
+      <div class="jc-detail-row">
+        <div class="jc-detail-dash"></div>
+        <p class="jc-detail-text">Each Junior Coach is assigned <strong>one class placement per cycle</strong> — one day and time that is their consistent commitment for the full 8 weeks.</p>
+      </div>
+      <div class="jc-detail-row">
+        <div class="jc-detail-dash"></div>
+        <p class="jc-detail-text">Students who complete a cycle in good standing receive a <strong>recognition pin</strong> and are eligible to reapply for future cycles.</p>
+      </div>
+      <div class="jc-detail-row">
+        <div class="jc-detail-dash"></div>
+        <p class="jc-detail-text">Returning Junior Coaches can reapply at the end of each completed cycle. <strong>Acceptance for each cycle is separate.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PLACEMENT OPTIONS ══ -->
+<section class="jc-section bg2">
+  <div class="jc-section-inner">
+    <p class="section-eyebrow">Available Placements</p>
+    <h2 class="section-headline">Class Times</h2>
+    <p class="section-body" style="max-width:600px;">
+      Applicants may indicate preferred placement times below. Final placement is determined by the coaching staff based on need and fit.
+    </p>
+    <div class="jc-placement-grid">
+
+      <div class="jc-placement-card">
+        <p class="jc-placement-day">Monday</p>
+        <p class="jc-placement-time">4:30 PM</p>
+        <p class="jc-placement-class">Beginner NinFit</p>
+      </div>
+
+      <div class="jc-placement-card">
+        <p class="jc-placement-day">Tuesday</p>
+        <p class="jc-placement-time">4:30 PM</p>
+        <p class="jc-placement-class">Beginner NinFit</p>
+      </div>
+
+      <div class="jc-placement-card">
+        <p class="jc-placement-day">Wednesday</p>
+        <p class="jc-placement-time">4:30 PM</p>
+        <p class="jc-placement-class">Beginner NinFit</p>
+      </div>
+
+      <div class="jc-placement-card">
+        <p class="jc-placement-day">Thursday</p>
+        <p class="jc-placement-time">4:30 PM</p>
+        <p class="jc-placement-class">Beginner NinFit</p>
+      </div>
+
+      <div class="jc-placement-card">
+        <p class="jc-placement-day">Friday</p>
+        <p class="jc-placement-time">9:00 – 10:00 AM</p>
+        <p class="jc-placement-class">Mini Ninjas</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ APPLICATION FORM ══ -->
+<section class="jc-form-section">
+  <div class="jc-form-header">
+    <p class="section-eyebrow">Apply Now</p>
+    <h2 class="section-headline">Junior Coach Application</h2>
+    <p class="section-body">
+      Complete this form for your student. Applications are reviewed by the coaching staff. You will be contacted if your student is accepted for the next available cycle.
+    </p>
+  </div>
+
+  <form class="form-wrap" action="https://formspree.io/f/xwvyverv" method="POST">
+
+    <input type="hidden" name="_subject" value="New Junior Coach Application">
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+    <input type="hidden" name="_redirect" value="https://www.elementalfive.com/juniorcoach-thank-you.html">
+
+    <!-- STUDENT INFO -->
+    <p class="field-section-label">Student Information</p>
+
+    <div class="field-row">
+      <div class="field-group">
+        <label for="student_name">Student Name <span class="req">*</span></label>
+        <input type="text" id="student_name" name="student_name" required placeholder="First and last name">
+      </div>
+      <div class="field-group">
+        <label for="student_age">Student Age <span class="req">*</span></label>
+        <input type="number" id="student_age" name="student_age" required min="11" max="13" placeholder="11, 12, or 13">
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label for="enrolled">Currently Enrolled at Elemental 5? <span class="req">*</span></label>
+      <div class="radio-stack">
+        <label class="radio-option">
+          <input type="radio" name="currently_enrolled" value="Yes" required>
+          <span class="radio-label">Yes — currently enrolled</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="currently_enrolled" value="No">
+          <span class="radio-label">No — not currently enrolled</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label for="current_program">Current E5 Program or Class</label>
+      <input type="text" id="current_program" name="current_program" placeholder="e.g. Wednesday NinFit, Friday open gym…">
+      <span class="field-hint">Leave blank if not currently enrolled.</span>
+    </div>
+
+    <hr class="field-divider">
+
+    <!-- PARENT INFO -->
+    <p class="field-section-label">Parent / Guardian Information</p>
+
+    <div class="field-row">
+      <div class="field-group">
+        <label for="parent_name">Parent / Guardian Name <span class="req">*</span></label>
+        <input type="text" id="parent_name" name="parent_name" required placeholder="Full name">
+      </div>
+      <div class="field-group">
+        <label for="parent_phone">Phone Number <span class="req">*</span></label>
+        <input type="tel" id="parent_phone" name="parent_phone" required placeholder="(719) 000-0000">
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label for="parent_email">Parent Email <span class="req">*</span></label>
+      <input type="email" id="parent_email" name="parent_email" required placeholder="you@example.com">
+    </div>
+
+    <hr class="field-divider">
+
+    <!-- APPLICATION TYPE -->
+    <p class="field-section-label">Application Type</p>
+
+    <div class="field-group">
+      <label>Is this a first-time application or a reapplication? <span class="req">*</span></label>
+      <div class="radio-stack">
+        <label class="radio-option">
+          <input type="radio" name="application_type" value="First-Time Application" required id="app-first">
+          <span class="radio-label">First-time Junior Coach application</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="application_type" value="Returning Junior Coach Reapplication" id="app-returning">
+          <span class="radio-label">Returning Junior Coach reapplication</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- RETURNING FIELDS (shown only for returning applicants) -->
+    <div class="returning-fields" id="returning-fields">
+      <p class="field-section-label">Returning Junior Coach</p>
+      <p style="font-size:13px;color:var(--body);margin-bottom:20px;">Tell us about your previous cycle so we can plan your next placement well.</p>
+
+      <div class="field-group">
+        <label for="prev_cycle">What Cycle Did You Complete?</label>
+        <input type="text" id="prev_cycle" name="previous_cycle" placeholder="e.g. Spring 2026, Wednesday 4:30">
+      </div>
+
+      <div class="field-group">
+        <label for="prev_learned">What Did You Learn Last Time?</label>
+        <textarea id="prev_learned" name="previous_learned" rows="3" placeholder="Describe what stood out most from your last cycle…"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="prev_improve">What Do You Want to Improve This Cycle?</label>
+        <textarea id="prev_improve" name="improve_this_cycle" rows="3" placeholder="What specifically are you working on as a leader?"></textarea>
+      </div>
+    </div>
+
+    <hr class="field-divider">
+
+    <!-- PLACEMENT PREFERENCES -->
+    <p class="field-section-label">Placement Preferences</p>
+    <div class="field-group">
+      <label>Which days work for your student? Check all that apply.</label>
+      <div class="checkbox-stack">
+        <label class="checkbox-option">
+          <input type="checkbox" name="placement" value="Monday 4:30 PM — Beginner NinFit">
+          <span class="checkbox-label">Monday 4:30 PM — Beginner NinFit</span>
+        </label>
+        <label class="checkbox-option">
+          <input type="checkbox" name="placement" value="Tuesday 4:30 PM — Beginner NinFit">
+          <span class="checkbox-label">Tuesday 4:30 PM — Beginner NinFit</span>
+        </label>
+        <label class="checkbox-option">
+          <input type="checkbox" name="placement" value="Wednesday 4:30 PM — Beginner NinFit">
+          <span class="checkbox-label">Wednesday 4:30 PM — Beginner NinFit</span>
+        </label>
+        <label class="checkbox-option">
+          <input type="checkbox" name="placement" value="Thursday 4:30 PM — Beginner NinFit">
+          <span class="checkbox-label">Thursday 4:30 PM — Beginner NinFit</span>
+        </label>
+        <label class="checkbox-option">
+          <input type="checkbox" name="placement" value="Friday 9–10 AM — Mini Ninjas">
+          <span class="checkbox-label">Friday 9–10 AM — Mini Ninjas</span>
+        </label>
+      </div>
+    </div>
+
+    <hr class="field-divider">
+
+    <!-- SHORT ANSWERS -->
+    <p class="field-section-label">About Your Student</p>
+
+    <div class="field-group">
+      <label for="why_jc">Why does your student want to become a Junior Coach? <span class="req">*</span></label>
+      <textarea id="why_jc" name="why_junior_coach" required placeholder="What draws them to this opportunity?"></textarea>
+    </div>
+
+    <div class="field-group">
+      <label for="good_coach">In your student's own words: what makes a good coach?</label>
+      <textarea id="good_coach" name="qualities_of_good_coach" placeholder="Have your student answer this one in their own words if possible."></textarea>
+    </div>
+
+    <hr class="field-divider">
+
+    <!-- PARENT CONFIRMATION -->
+    <p class="field-section-label">Parent Confirmation</p>
+
+    <div class="field-group">
+      <label class="confirm-block">
+        <input type="checkbox" name="parent_confirmed" value="Confirmed" required>
+        <span class="confirm-block-text">
+          I understand this is an <strong>application-based 8-week leadership program</strong> with a $50 cycle fee if accepted. I understand Junior Coaches are expected to model focus, kindness, safety, and responsibility at all times while on the gym floor.
+        </span>
+      </label>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit Application →</button>
+
+  </form>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">Elemental 5</p>
+        <p class="footer-tagline">A human development center disguised as an acrobatics gym. We build athletes, leaders, and humans.</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <a href="tel:7198382023" class="footer-link">Phone: 719-838-2023</a>
+        <a href="mailto:gym@elementalfive.com" class="footer-link">Email: gym@elementalfive.com</a>
+      </div>
+      <div>
+        <p class="footer-col-title">Location</p>
+        <p class="footer-address">9985 US-50<br>Unit C<br>Poncha Springs, CO 81242</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Join Our Team</p>
+        <a href="https://coach.elementalfive.com" target="_blank" class="footer-apply-btn">Apply Here →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Elemental 5. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('input[name="application_type"]').forEach(function(input) {
+    input.addEventListener('change', function() {
+      document.getElementById('returning-fields').style.display =
+        this.value === 'Returning Junior Coach Reapplication' ? 'block' : 'none';
+    });
+  });
+</script>
+
+</body>
+</html>
