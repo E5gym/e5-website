@@ -18,12 +18,12 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --blue: #3b3980;
-    --blue-dark: #1f1c48;
-    --blue-mid: #5b56a4;
-    --blue-light: #b5b2db;
-    --blue-deep: #0b0c2b;
-    --blue-muted: #12112a;
+    --blue: #1b3865;
+    --blue-dark: #0f2241;
+    --blue-mid: #3b6aa5;
+    --blue-light: #8facdc;
+    --blue-deep: #081228;
+    --blue-muted: #081826;
     --black: #0F0F14;
     --white: #FAFAF7;
     --gray-100: #F4F3EF;
@@ -31,9 +31,9 @@
     --gray-500: #888880;
     --gray-700: #444440;
     --text: #1C1C1A;
-    --water: #3b3980;
-    --water-light: #b5b2db;
-    --water-pale: #d7d6ed;
+    --water: #1b3865;
+    --water-light: #8facdc;
+    --water-pale: #cedaf4;
   }
 
   html { scroll-behavior: smooth; }
@@ -68,12 +68,12 @@
 
   /* ── HERO ── */
   .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 0 6rem; position: relative; background: var(--black); overflow: hidden; }
-  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 65% 55% at 70% 35%, rgba(59,57,128,0.2) 0%, transparent 65%), radial-gradient(ellipse 40% 60% at 10% 65%, rgba(59,57,128,0.08) 0%, transparent 60%); }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 65% 55% at 70% 35%, rgba(27,56,101,0.2) 0%, transparent 65%), radial-gradient(ellipse 40% 60% at 10% 65%, rgba(27,56,101,0.08) 0%, transparent 60%); }
   .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; }
   .hero-water { position: absolute; right: 6%; top: 50%; transform: translateY(-50%); width: 360px; height: 360px; opacity: 0.08; pointer-events: none; }
   .hero-water img { width: 100%; height: 100%; object-fit: contain; }
   .hero-kicker { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
-  .hero-kicker-pill { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; background: rgba(59,57,128,0.2); color: var(--water-light); border: 1px solid rgba(59,57,128,0.35); padding: 0.3rem 0.75rem; }
+  .hero-kicker-pill { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; background: rgba(61,106,167,0.18); color: var(--water-light); border: 1px solid rgba(61,106,167,0.35); padding: 0.3rem 0.75rem; }
   .hero-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(3.5rem, 10vw, 10rem); line-height: 0.9; letter-spacing: -0.03em; color: var(--white); text-transform: uppercase; }
   .hero-title span { color: var(--water-light); }
   .hero-title .level-range { display: block; font-size: clamp(1.5rem, 4vw, 3.5rem); color: rgba(255,255,255,0.25); letter-spacing: 0.05em; margin-top: 0.5rem; font-weight: 700; }
@@ -83,7 +83,7 @@
   .btn-primary:hover { background: var(--blue-mid); transform: translateY(-2px); }
   .btn-ghost { display: inline-block; color: rgba(255,255,255,0.5); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
   .btn-ghost:hover { color: var(--white); border-color: var(--water-light); }
-  .hero-accent-line { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--blue) 0%, var(--water-light) 50%, rgba(91,86,164,0.15) 100%); }
+  .hero-accent-line { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--blue) 0%, var(--water-light) 50%, rgba(143,172,220,0.15) 100%); }
 
   /* ── SHIFT SECTION ── */
   .shift-section { background: var(--white); color: var(--text); padding: 6rem 0; }
@@ -108,13 +108,13 @@
   .pipeline-step { display: grid; grid-template-columns: 200px 1fr; gap: 0; }
   .pipeline-left { background: rgba(255,255,255,0.04); padding: 1.75rem 2rem; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255,255,255,0.08); }
   .pipeline-right { background: rgba(255,255,255,0.02); padding: 1.75rem 2rem; }
-  .pipeline-step.active .pipeline-left { background: rgba(59,57,128,0.15); border-right-color: var(--blue); }
-  .pipeline-step.active .pipeline-right { background: rgba(59,57,128,0.06); }
+  .pipeline-step.active .pipeline-left { background: rgba(27,56,101,0.15); border-right-color: var(--blue); }
+  .pipeline-step.active .pipeline-right { background: rgba(27,56,101,0.06); }
   .pipeline-org { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: -0.01em; text-transform: uppercase; }
   .pipeline-step.active .pipeline-org { color: var(--water-light); }
   .pipeline-step:not(.active) .pipeline-org { color: rgba(255,255,255,0.35); }
   .pipeline-location { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 0.2rem; }
-  .pipeline-step.active .pipeline-location { color: rgba(181,178,219,0.5); }
+  .pipeline-step.active .pipeline-location { color: rgba(143,172,220,0.5); }
   .pipeline-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 0.4rem; }
   .pipeline-step.active .pipeline-name { color: var(--white); }
   .pipeline-step:not(.active) .pipeline-name { color: rgba(255,255,255,0.4); }
@@ -122,7 +122,7 @@
   .pipeline-step.active .pipeline-desc { color: rgba(255,255,255,0.55); }
   .pipeline-step:not(.active) .pipeline-desc { color: rgba(255,255,255,0.22); }
   .pipeline-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.2rem 0.5rem; margin-top: 0.5rem; }
-  .tag-active { background: rgba(59,57,128,0.2); color: var(--water-light); border: 1px solid rgba(59,57,128,0.3); }
+  .tag-active { background: rgba(27,56,101,0.2); color: var(--water-light); border: 1px solid rgba(27,56,101,0.3); }
   .tag-future { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.08); }
 
   /* FREESTYLE SCORING */
@@ -133,14 +133,14 @@
   .scoring-body p { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 1rem; }
   .scoring-cards { display: flex; flex-direction: column; gap: 1px; }
   .score-card { padding: 1.25rem 1.5rem; display: grid; grid-template-columns: 60px 1fr 40px; gap: 1rem; align-items: center; }
-  .score-card:nth-child(1) { background: rgba(59,57,128,0.12); border-left: 3px solid var(--blue); }
-  .score-card:nth-child(2) { background: rgba(59,57,128,0.08); border-left: 3px solid rgba(59,57,128,0.5); }
-  .score-card:nth-child(3) { background: rgba(59,57,128,0.06); border-left: 3px solid rgba(59,57,128,0.3); }
-  .score-card:nth-child(4) { background: rgba(59,57,128,0.04); border-left: 3px solid rgba(59,57,128,0.15); }
+  .score-card:nth-child(1) { background: rgba(27,56,101,0.12); border-left: 3px solid var(--blue); }
+  .score-card:nth-child(2) { background: rgba(27,56,101,0.08); border-left: 3px solid rgba(27,56,101,0.5); }
+  .score-card:nth-child(3) { background: rgba(27,56,101,0.06); border-left: 3px solid rgba(27,56,101,0.3); }
+  .score-card:nth-child(4) { background: rgba(27,56,101,0.04); border-left: 3px solid rgba(27,56,101,0.15); }
   .score-category { font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--water-light); }
   .score-desc { font-family: 'Nunito Sans', sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
   .score-points { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.25rem; color: rgba(255,255,255,0.2); text-align: right; }
-  .score-total { margin-top: 0.75rem; padding: 0.75rem 1.5rem; background: rgba(59,57,128,0.1); border: 1px solid rgba(59,57,128,0.2); display: flex; align-items: center; justify-content: space-between; }
+  .score-total { margin-top: 0.75rem; padding: 0.75rem 1.5rem; background: rgba(27,56,101,0.1); border: 1px solid rgba(27,56,101,0.2); display: flex; align-items: center; justify-content: space-between; }
   .score-total-label { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
   .score-total-value { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--water-light); }
   .e5-connection { margin-top: 1.5rem; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); }
@@ -156,7 +156,7 @@
   .george-photo-name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: -0.01em; text-transform: uppercase; color: var(--white); }
   .george-photo-title { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--water-light); margin-top: 0.15rem; }
   .george-content { padding-top: 0.5rem; }
-  .george-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(59,57,128,0.15); border: 1px solid rgba(59,57,128,0.3); padding: 0.4rem 0.85rem; margin-bottom: 1.25rem; }
+  .george-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(27,56,101,0.15); border: 1px solid rgba(27,56,101,0.3); padding: 0.4rem 0.85rem; margin-bottom: 1.25rem; }
   .george-badge span { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--water-light); }
   .george-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.1; letter-spacing: -0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 1rem; }
   .george-headline em { font-style: normal; color: var(--water-light); }
@@ -173,7 +173,7 @@
   .surge-headline em { font-style: normal; color: var(--water-light); }
   .surge-body p { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 1rem; }
   .surge-body p:last-child { margin-bottom: 0; }
-  .surge-card { background: rgba(59,57,128,0.06); border: 1px solid rgba(59,57,128,0.2); padding: 2.5rem; }
+  .surge-card { background: rgba(27,56,101,0.06); border: 1px solid rgba(27,56,101,0.2); padding: 2.5rem; }
   .surge-card-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--water-light); margin-bottom: 0.6rem; }
   .surge-card-name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2.5rem; letter-spacing: -0.03em; text-transform: uppercase; color: var(--white); margin-bottom: 0.5rem; line-height: 1; }
   .surge-card-tagline { font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-style: italic; font-size: 0.95rem; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; line-height: 1.5; }
@@ -399,7 +399,7 @@
   <div class="container">
     <div class="george-grid">
       <div class="george-photo">
-        <img src="https://static.wixstatic.com/media/221b20_271d9f83e6bf43b7912ba865bfe6ce58~mv2.jpg/v1/crop/x_0,y_385,w_1542,h_1278/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/george%20mossman.jpg" alt="George Mossman — E5 Coach" onerror="this.style.background='rgba(59,57,128,0.1)';this.style.minHeight='260px'" />
+        <img src="https://static.wixstatic.com/media/221b20_271d9f83e6bf43b7912ba865bfe6ce58~mv2.jpg/v1/crop/x_0,y_385,w_1542,h_1278/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/george%20mossman.jpg" alt="George Mossman — E5 Coach" onerror="this.style.background='rgba(27,56,101,0.1)';this.style.minHeight='260px'" />
         <div class="george-photo-overlay">
           <div class="george-photo-name">George Mossman</div>
           <div class="george-photo-title">Assistant Coach · E5</div>
