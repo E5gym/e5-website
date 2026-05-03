@@ -1,6 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8M0R94VV10"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8M0R94VV10');
+</script>
 <meta charset="UTF-8">
 <!-- FIX 1: viewport-fit=cover for iOS notch/safe area -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -316,7 +325,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .strip-link:hover { gap: 12px; }
 
 /* ── FACILITY ── */
-.facility-section { width: 100%; padding: 80px 72px 100px; background: #181008; background-image: repeating-linear-gradient(-55deg, transparent, transparent 3px, rgba(196,98,45,0.04) 3px, rgba(196,98,45,0.04) 4px), radial-gradient(ellipse at 50% 0%, rgba(196,98,45,0.14) 0%, transparent 60%); }
+.facility-section { width: 100%; padding: 80px 72px 100px; background: #181008; background-image: repeating-linear-gradient(-55deg, transparent, transparent 3px, rgba(196,98,45,0.04) 3px, rgba(196,98,45,0.04) 4px), radial-gradient(ellipse at 50% 0%, rgba(196,98,45,0.14) 0%, transparent 60%), linear-gradient(rgba(10,10,10,0.72), rgba(10,10,10,0.78)), url("https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f676dd1328190e342ab1ef_fieryglow.png"); background-size: auto, auto, auto, cover; background-position: left top, center top, center, center; background-repeat: repeat, no-repeat, no-repeat, no-repeat; }
 .facility-section .section-label { color: rgba(255,255,255,0.4); }
 .facility-section .section-headline { color: var(--white); font-size: clamp(36px, 4.5vw, 64px); margin-bottom: 48px; }
 .facility-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 6px; }
@@ -368,6 +377,14 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .newsletter-text p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
 .newsletter-link { display: inline-flex; align-items: center; gap: 8px; background: var(--red); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 13px 24px; border-radius: 3px; text-decoration: none; white-space: nowrap; flex-shrink: 0; -webkit-transition: background 0.2s; transition: background 0.2s; }
 .newsletter-link:hover { background: #A51818; }
+.jc-home-strip { background: var(--white); border-radius: 4px; padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 6px; border-left: 4px solid var(--ember); }
+.jc-home-left { display: flex; flex-direction: column; gap: 5px; }
+.jc-home-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ember); }
+.jc-home-title { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.02em; color: var(--text-dark); }
+.jc-home-desc { font-size: 13px; color: var(--text-mid); line-height: 1.5; max-width: 540px; }
+.jc-home-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--black); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 20px; border-radius: 3px; text-decoration: none; white-space: nowrap; flex-shrink: 0; -webkit-transition: background 0.2s; transition: background 0.2s; }
+.jc-home-btn:hover { background: #333; }
+@media (max-width: 700px) { .jc-home-strip { flex-direction: column; align-items: flex-start; } }
 
 /* FIX 4: Form inputs — CSS-based focus states instead of inline JS onfocus/onblur */
 .e5-input {
@@ -562,9 +579,17 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <div class="event-card" style="--card-bar: #C4922A;"><div class="event-top-bar"></div><div class="event-body"><p class="event-type">Camp</p><h3 class="event-name">Summer Ninja Camp</h3><p class="event-date">Summer 2026 &nbsp;·&nbsp; Dates TBD</p><p class="event-desc">A full week of parkour, tumbling, and ninja training for ages 5 to 12. Half-day and full-day options available.</p><span class="event-link no-link" style="color:#CC1F1F;opacity:0.7;">Currently Full</span></div></div>
     <div class="event-card" style="--card-bar: #9B6BB5;"><div class="event-top-bar"></div><div class="event-body"><p class="event-type">Performance</p><h3 class="event-name">E5 Echo Summer Showcase</h3><p class="event-date">June 13 and 14</p><p class="event-desc">Come watch our elite performance troupe take the floor. Two nights of movement, artistry, and everything E5 has been building toward.</p><span class="event-link no-link">Details coming soon</span></div></div>
   </div>
+  <div class="jc-home-strip">
+    <div class="jc-home-left">
+      <p class="jc-home-eyebrow">Leadership Program &middot; Ages 11–13</p>
+      <p class="jc-home-title">Junior Coach Apprenticeship</p>
+      <p class="jc-home-desc">An 8-week service-based cycle where students assist coaches, support younger athletes, and earn their first leadership credential.</p>
+    </div>
+    <a href="/juniorcoach.html" class="jc-home-btn">Learn &amp; Apply →</a>
+  </div>
   <div class="newsletter-strip">
     <div class="newsletter-text"><h4>Stay in the loop</h4><p>Gym closures, class changes, camp dates, and Ninja of the Month. All in the newsletter.</p></div>
-    <a href="https://drive.google.com/file/d/1_XH8RoWx-w8W80ZuIY4OV7kB6ran4TQV/view" target="_blank" class="newsletter-link">Read the Newsletter →</a>
+    <a href="/newsletter.html" class="newsletter-link">Read the Newsletter →</a>
   </div>
 </section>
 
@@ -661,6 +686,5 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </div>
   </div>
 </footer>
-
 </body>
 </html>

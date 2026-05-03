@@ -1,0 +1,1513 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8M0R94VV10"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8M0R94VV10');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Elemental 5 — May 2026 Newsletter</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:   #1C1108;
+  --void:    #0D0B08;
+  --ember:   #C4622D;
+  --flame:   #E8843A;
+  --red:     #CC1F1F;
+  --orange:  #F97316;
+  --ash:     #8C7E6A;
+  --fog:     #D4C9B8;
+  --sky:     #F0EBE1;
+  --cream:   #E8E4DD;
+  --light-1: #F8FAFC;
+  --light-2: #F3F4F6;
+  --light-3: #EEF4F8;
+  --warm-1:  #FAF7F2;
+  --warm-2:  #F5F1EB;
+  --white:   #ffffff;
+  --text-dark: #1F2937;
+  --text-mid:  #4B5563;
+  --text-soft: rgba(31,41,55,0.55);
+}
+
+html, body {
+  width: 100%;
+  margin: 0; padding: 0;
+  background: var(--warm-1);
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+a { -webkit-tap-highlight-color: transparent; }
+
+/* ── SHARED UTILITIES ── */
+.nl-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 14px;
+}
+
+.nl-label.light { color: rgba(255,255,255,0.5); }
+
+.nl-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.nl-headline.white { color: var(--white); }
+
+.nl-body {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--text-mid);
+}
+
+.nl-body.light { color: rgba(255,255,255,0.7); }
+
+.nl-body strong { color: var(--text-dark); font-weight: 600; }
+.nl-body.light strong { color: var(--white); }
+
+.nl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--red);
+  text-decoration: none;
+  padding: 13px 24px;
+  border-radius: 3px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.nl-btn:hover { background: #A51818; }
+.nl-btn.orange { background: var(--orange); }
+.nl-btn.orange:hover { background: #EA6C0A; }
+.nl-btn.ghost {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.85);
+}
+.nl-btn.ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); }
+
+.nl-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ember) 20%, var(--ember) 80%, transparent);
+  opacity: 0.4;
+}
+
+/* ── HERO ── */
+.nl-hero {
+  width: 100%;
+  background: var(--black);
+  padding: 80px 72px 88px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nl-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 80px, rgba(196,98,45,0.03) 80px, rgba(196,98,45,0.03) 81px);
+  pointer-events: none;
+}
+
+.nl-hero-inner {
+  max-width: 860px;
+  position: relative;
+  z-index: 1;
+}
+
+.nl-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.nl-hero-eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--ember);
+  animation: nl-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes nl-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.nl-hero-eyebrow-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--flame);
+}
+
+.nl-hero-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 28px;
+}
+
+.nl-hero-headline em {
+  font-style: normal;
+  color: var(--flame);
+  display: block;
+}
+
+.nl-hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+  max-width: 580px;
+}
+
+.nl-hero-sub strong { color: rgba(255,255,255,0.9); font-weight: 600; }
+
+/* ── SECTION WRAPPER ── */
+.nl-section {
+  width: 100%;
+  padding: 72px 72px;
+}
+
+.nl-section.dark {
+  background: var(--black);
+}
+
+.nl-section.off-white {
+  background: var(--warm-1);
+}
+
+.nl-section.light-gray {
+  background: var(--light-2);
+}
+
+.nl-section.warm-cream {
+  background: var(--warm-2);
+}
+
+.nl-section.dark-ember {
+  background: #1A0F07;
+}
+
+.nl-section-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* ── IMPORTANT DATES ── */
+.nl-dates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 8px;
+  margin-top: 36px;
+}
+
+.nl-date-card {
+  background: var(--white);
+  border-radius: 4px;
+  padding: 22px 24px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  border-left: 3px solid var(--ember);
+}
+
+.nl-date-badge {
+  flex-shrink: 0;
+  min-width: 56px;
+  text-align: center;
+}
+
+.nl-date-month {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ember);
+  display: block;
+}
+
+.nl-date-day {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--text-dark);
+  display: block;
+}
+
+.nl-date-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.nl-date-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-mid);
+}
+
+/* ── PRICING TABLE ── */
+.nl-pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.nl-pricing-card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  padding: 32px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.nl-pricing-rows { margin-top: 16px; }
+
+.nl-pricing-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.nl-pricing-row:last-child { border-bottom: none; }
+
+.nl-pricing-item {
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.4;
+}
+
+.nl-pricing-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--white);
+  white-space: nowrap;
+  margin-left: 16px;
+  text-align: right;
+}
+
+.nl-pricing-price s {
+  font-size: 11px;
+  opacity: 0.4;
+  font-weight: 600;
+  margin-right: 4px;
+  text-decoration: line-through;
+}
+
+.nl-pricing-price .nl-new { color: var(--flame); }
+
+/* ── OPEN GYM CARDS ── */
+.nl-og-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.nl-og-card {
+  background: var(--white);
+  border-radius: 4px;
+  padding: 36px 32px;
+  border-top: 3px solid var(--ember);
+}
+
+.nl-og-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 10px;
+}
+
+.nl-og-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.nl-og-detail {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.nl-og-detail-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  width: 52px;
+  flex-shrink: 0;
+}
+
+.nl-og-detail-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.nl-callout {
+  background: rgba(196,98,45,0.08);
+  border-left: 3px solid var(--ember);
+  border-radius: 0 4px 4px 0;
+  padding: 18px 20px;
+  margin-top: 28px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-mid);
+}
+
+.nl-callout strong { color: var(--text-dark); font-weight: 600; }
+
+/* ── IMAGE SECTIONS (NinFit split layout) ── */
+.nl-img-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.nl-img-section.reverse { direction: rtl; }
+.nl-img-section.reverse > * { direction: ltr; }
+
+.nl-img-frame {
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.nl-img-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nl-img-content {
+  padding: 24px 40px;
+}
+
+.nl-img-content.dark-pad {
+  padding: 24px 0 24px 40px;
+}
+
+/* ── FULL-WIDTH EVENT FLYER ── */
+.nl-flyer-full {
+  width: 100%;
+  max-width: 680px;
+  margin: 32px auto 0;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 12px 56px rgba(0,0,0,0.55);
+}
+
+.nl-flyer-full img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.nl-flyer-detail {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.nl-flyer-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.nl-flyer-detail-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+
+.nl-flyer-detail-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--white);
+}
+
+/* ── NINJAS OF MONTH ── */
+.nl-ninja-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.nl-ninja-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.nl-ninja-photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.nl-ninja-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.nl-ninja-info {
+  padding: 28px 28px 32px;
+}
+
+.nl-ninja-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.nl-ninja-qa { margin-bottom: 14px; }
+
+.nl-ninja-q {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 4px;
+}
+
+.nl-ninja-a {
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.7);
+}
+
+/* ── JUNIOR COACHES ── */
+.nl-coaches-names {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.nl-name-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dark);
+  background: var(--white);
+  border-radius: 3px;
+  padding: 9px 16px;
+  border: 1px solid rgba(196,98,45,0.2);
+}
+
+/* ── JC APPLY CTA ── */
+.nl-jc-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--black);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.nl-jc-cta-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 6px;
+}
+
+.nl-jc-cta-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+
+.nl-jc-cta-body {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ── ECHO AUDITIONS ── */
+.nl-requirements {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  padding: 24px 28px;
+  margin: 24px 0;
+}
+
+.nl-req-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--flame);
+  margin-bottom: 12px;
+}
+
+.nl-req-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nl-req-list li {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.nl-req-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--ember);
+}
+
+/* ── GRANT / FACILITY ── */
+.nl-grant-callout {
+  background: linear-gradient(135deg, #1C1108 0%, #2A1A0A 100%);
+  border-radius: 4px;
+  padding: 40px 44px;
+  margin-top: 36px;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.nl-grant-amount {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.nl-grant-amount-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--flame);
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+.nl-grant-amount-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  display: block;
+  margin-top: 4px;
+}
+
+.nl-grant-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+}
+
+.nl-grant-text strong { color: var(--white); font-weight: 600; }
+
+/* ── FOUNDING MEMBERSHIP ── */
+.nl-founding-card {
+  background: var(--black);
+  border-radius: 4px;
+  padding: 52px;
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+}
+
+.nl-founding-tier {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 12px;
+}
+
+.nl-founding-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 1.0;
+  margin-bottom: 16px;
+}
+
+.nl-founding-body {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+}
+
+.nl-founding-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+/* ── FARMERS MARKET ── */
+.nl-market-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.nl-market-date {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  background: var(--ember);
+  border-radius: 3px;
+  padding: 10px 18px;
+}
+
+.nl-market-note {
+  background: var(--white);
+  border-radius: 4px;
+  padding: 20px 24px;
+  margin-top: 16px;
+  border-left: 3px solid var(--ember);
+}
+
+.nl-market-note-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.nl-market-note-body {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-mid);
+}
+
+/* ── APRIL GALLERY ── */
+.nl-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-top: 40px;
+}
+
+.nl-gallery-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.nl-gallery-item:first-child {
+  grid-column: span 2;
+  aspect-ratio: 2/1;
+}
+
+.nl-gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.nl-gallery-item:hover img { transform: scale(1.04); }
+
+/* ── NEWSLETTER FOOTER ── */
+.nl-footer {
+  background: var(--warm-1);
+  border-top: 2px solid rgba(196,98,45,0.2);
+  padding: 56px 72px 48px;
+  text-align: center;
+}
+
+.nl-footer-symbol {
+  height: 56px;
+  width: auto;
+  opacity: 0.65;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.nl-footer-tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.nl-footer-programs {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 14px;
+}
+
+.nl-footer-contact {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.nl-footer-contact a {
+  color: var(--text-mid);
+  text-decoration: none;
+}
+
+.nl-footer-contact a:hover { color: var(--ember); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .nl-hero { padding: 56px 24px 64px; }
+  .nl-section { padding: 52px 24px; }
+  .nl-footer { padding: 44px 24px 36px; }
+
+  .nl-img-section { grid-template-columns: 1fr; }
+  .nl-img-section.reverse { direction: ltr; }
+  .nl-img-frame { aspect-ratio: 16/9; }
+  .nl-img-content,
+  .nl-img-content.dark-pad { padding: 28px 0 0; }
+  .nl-flyer-full { max-width: 100%; }
+
+  .nl-pricing-grid { grid-template-columns: 1fr; }
+  .nl-og-grid { grid-template-columns: 1fr; }
+  .nl-ninja-grid { grid-template-columns: 1fr; }
+  .nl-dates-grid { grid-template-columns: 1fr; }
+
+  .nl-founding-card {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+    gap: 24px;
+  }
+
+  .nl-founding-actions { flex-direction: row; flex-wrap: wrap; }
+
+  .nl-grant-callout {
+    flex-direction: column;
+    padding: 28px 24px;
+    gap: 20px;
+  }
+
+  .nl-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .nl-gallery-item:first-child { grid-column: span 2; aspect-ratio: 16/9; }
+}
+
+@media (max-width: 600px) {
+  .nl-hero-headline { font-size: 42px; }
+.nl-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .nl-market-dates { gap: 6px; }
+  .nl-market-date { font-size: 12px; padding: 8px 14px; }
+}
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+<script>
+  fetch('/partials/nav.html')
+    .then(r => r.text())
+    .then(html => { document.getElementById('site-nav').innerHTML = html; });
+</script>
+
+<!-- ══ HERO ══ -->
+<section class="nl-hero">
+  <div class="nl-hero-inner">
+    <div class="nl-hero-eyebrow">
+      <span class="nl-hero-eyebrow-dot"></span>
+      <span class="nl-hero-eyebrow-text">Elemental 5 &middot; May Newsletter</span>
+    </div>
+    <h1 class="nl-hero-headline">Summer Is<br><em>Almost Here</em></h1>
+    <p class="nl-hero-sub">
+      <strong>Important dates, schedule updates, NinFit progression news,</strong> student highlights, and community moments from the gym.
+    </p>
+  </div>
+</section>
+
+<div class="nl-divider"></div>
+
+<!-- ══ 1. IMPORTANT DATES ══ -->
+<section class="nl-section off-white">
+  <div class="nl-section-inner">
+    <p class="nl-label">Mark Your Calendar</p>
+    <h2 class="nl-headline">Important Dates</h2>
+    <div class="nl-dates-grid">
+
+      <div class="nl-date-card">
+        <div class="nl-date-badge">
+          <span class="nl-date-month">May</span>
+          <span class="nl-date-day">15</span>
+        </div>
+        <div>
+          <p class="nl-date-label">Last Camp Friday</p>
+          <p class="nl-date-desc">Last Camp Friday of the school year.</p>
+        </div>
+      </div>
+
+      <div class="nl-date-card">
+        <div class="nl-date-badge">
+          <span class="nl-date-month">May</span>
+          <span class="nl-date-day">25</span>
+        </div>
+        <div>
+          <p class="nl-date-label">Gym Closed</p>
+          <p class="nl-date-desc">Elemental 5 will be closed.</p>
+        </div>
+      </div>
+
+      <div class="nl-date-card">
+        <div class="nl-date-badge">
+          <span class="nl-date-month">Jun</span>
+          <span class="nl-date-day">1</span>
+        </div>
+        <div>
+          <p class="nl-date-label">Tuition &amp; Open Gym Updates</p>
+          <p class="nl-date-desc">Tuition adjustments and updated open gym schedule take effect.</p>
+        </div>
+      </div>
+
+      <div class="nl-date-card">
+        <div class="nl-date-badge">
+          <span class="nl-date-month">Jun</span>
+          <span class="nl-date-day">13–14</span>
+        </div>
+        <div>
+          <p class="nl-date-label">Summer Showcase</p>
+          <p class="nl-date-desc">June 13 at 5pm &amp; June 14 at 2pm. Suggested $5 donation at the door.</p>
+        </div>
+      </div>
+
+      <div class="nl-date-card">
+        <div class="nl-date-badge">
+          <span class="nl-date-month">Jun</span>
+          <span class="nl-date-day">18</span>
+        </div>
+        <div>
+          <p class="nl-date-label">FibArk Hill Climb</p>
+          <p class="nl-date-desc">6pm start. All evening classes canceled for race day.</p>
+        </div>
+      </div>
+
+      <div class="nl-date-card">
+        <div class="nl-date-badge">
+          <span class="nl-date-month">Jul</span>
+          <span class="nl-date-day">4</span>
+        </div>
+        <div>
+          <p class="nl-date-label">Riverside Park Show</p>
+          <p class="nl-date-desc">Planned shows with the Salida Community Center at Riverside Park.</p>
+        </div>
+      </div>
+
+      <div class="nl-date-card">
+        <div class="nl-date-badge">
+          <span class="nl-date-month">Jul</span>
+          <span class="nl-date-day">13–17</span>
+        </div>
+        <div>
+          <p class="nl-date-label">E5 Ninja Camp</p>
+          <p class="nl-date-desc">New summer camp week added. Registration open in the parent portal.</p>
+        </div>
+      </div>
+
+      <div class="nl-date-card">
+        <div class="nl-date-badge" style="min-width:64px;">
+          <span class="nl-date-month">Jun–Sep</span>
+          <span class="nl-date-day" style="font-size:18px;">Market</span>
+        </div>
+        <div>
+          <p class="nl-date-label">Farmers Market Demos</p>
+          <p class="nl-date-desc">Jun 6 · Jun 20 · Jul 25 · Aug 29 · Sep 26</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="nl-divider"></div>
+
+<!-- ══ 2. TUITION ADJUSTMENTS ══ -->
+<section class="nl-section dark">
+  <div class="nl-section-inner">
+    <p class="nl-label light">Effective June 1, 2026</p>
+    <h2 class="nl-headline white">Tuition Adjustments</h2>
+    <p class="nl-body light" style="max-width:640px;">
+      As a reminder, our tuition adjustments begin June 1. We know any tuition change matters, and we do not take this lightly. These updates help us continue improving coaching quality, strengthening our programs, and preparing the space your children train in every week.
+    </p>
+
+    <div class="nl-pricing-grid">
+
+      <div class="nl-pricing-card">
+        <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--ember);margin-bottom:4px;">Drop-In</p>
+        <div class="nl-pricing-rows">
+          <div class="nl-pricing-row">
+            <span class="nl-pricing-item">First-time class drop-in</span>
+            <span class="nl-pricing-price"><span class="nl-new">$20</span></span>
+          </div>
+          <div class="nl-pricing-row">
+            <span class="nl-pricing-item">Single class drop-in (card)</span>
+            <span class="nl-pricing-price"><span class="nl-new">$35</span></span>
+          </div>
+          <div class="nl-pricing-row">
+            <span class="nl-pricing-item">Single class drop-in (cash)</span>
+            <span class="nl-pricing-price"><span class="nl-new">$30</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nl-pricing-card">
+        <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--ember);margin-bottom:4px;">Monthly Enrollment</p>
+        <div class="nl-pricing-rows">
+          <div class="nl-pricing-row">
+            <span class="nl-pricing-item">1 hour/week class</span>
+            <span class="nl-pricing-price"><s>$79</s><span class="nl-new">$97/mo</span></span>
+          </div>
+          <div class="nl-pricing-row">
+            <span class="nl-pricing-item">Mini Ninjas</span>
+            <span class="nl-pricing-price"><span class="nl-new">$79/mo</span></span>
+          </div>
+          <div class="nl-pricing-row">
+            <span class="nl-pricing-item">1.5 hour/week class</span>
+            <span class="nl-pricing-price"><s>$118</s><span class="nl-new">$141/mo</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:32px;">
+      <a href="/pricing.html" class="nl-btn orange">View Pricing Page →</a>
+    </div>
+  </div>
+</section>
+
+<div class="nl-divider"></div>
+
+<!-- ══ 3. SUMMER OPEN GYM ══ -->
+<section class="nl-section warm-cream">
+  <div class="nl-section-inner">
+    <p class="nl-label">Schedule Update</p>
+    <h2 class="nl-headline">Summer Open Gym Updates</h2>
+    <p class="nl-body" style="max-width:600px;">
+      Starting this summer, open gym will be held on <strong>Fridays only.</strong> Weekday sessions will be re-evaluated once we are in the new facility.
+    </p>
+
+    <div class="nl-og-grid">
+      <div class="nl-og-card">
+        <p class="nl-og-tag">Youth</p>
+        <p class="nl-og-title">Youth Open Gym</p>
+        <div class="nl-og-detail">
+          <span class="nl-og-detail-label">Ages</span>
+          <span class="nl-og-detail-value">5–18</span>
+        </div>
+        <div class="nl-og-detail">
+          <span class="nl-og-detail-label">Day</span>
+          <span class="nl-og-detail-value">Fridays</span>
+        </div>
+        <div class="nl-og-detail">
+          <span class="nl-og-detail-label">Time</span>
+          <span class="nl-og-detail-value">5:30 – 7:30 PM</span>
+        </div>
+      </div>
+
+      <div class="nl-og-card">
+        <p class="nl-og-tag">Mini</p>
+        <p class="nl-og-title">Mini Open Gym</p>
+        <div class="nl-og-detail">
+          <span class="nl-og-detail-label">Ages</span>
+          <span class="nl-og-detail-value">1–5</span>
+        </div>
+        <div class="nl-og-detail">
+          <span class="nl-og-detail-label">Day</span>
+          <span class="nl-og-detail-value">Fridays</span>
+        </div>
+        <div class="nl-og-detail">
+          <span class="nl-og-detail-label">Time</span>
+          <span class="nl-og-detail-value">10:00 – 11:30 AM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="nl-callout">
+      <strong>Summer Open Gym Rate:</strong> $40/month for youth or mini open gym. Students enrolled in at least one weekly class may add <strong>Unlimited Open Gym for $30/month</strong> year-round, regardless of seasonal adjustments.
+    </div>
+  </div>
+</section>
+
+<div class="nl-divider"></div>
+
+<!-- ══ 4. SUMMER SHOWCASE ══ -->
+<section class="nl-section dark" style="padding-bottom:80px;">
+  <div class="nl-section-inner" style="text-align:center;">
+    <p class="nl-label light" style="text-align:left;">June 13 &amp; 14</p>
+    <h2 class="nl-headline white" style="text-align:left;">Summer Showcase</h2>
+    <div class="nl-flyer-full">
+      <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f506275f81f9391d9d1c7f_summer%20showcase%202026%20(2).png" alt="Summer Showcase 2026 poster">
+    </div>
+    <div class="nl-flyer-detail">
+      <div class="nl-flyer-detail-item">
+        <span class="nl-flyer-detail-label">Date</span>
+        <span class="nl-flyer-detail-value">June 13 &amp; 14</span>
+      </div>
+      <div class="nl-flyer-detail-item">
+        <span class="nl-flyer-detail-label">Times</span>
+        <span class="nl-flyer-detail-value">Sat 5pm &middot; Sun 2pm</span>
+      </div>
+      <div class="nl-flyer-detail-item">
+        <span class="nl-flyer-detail-label">Location</span>
+        <span class="nl-flyer-detail-value">Elemental 5 Facility</span>
+      </div>
+      <div class="nl-flyer-detail-item">
+        <span class="nl-flyer-detail-label">Admission</span>
+        <span class="nl-flyer-detail-value">Free &middot; $5 donation suggested</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="nl-divider"></div>
+
+<!-- ══ 5. HILL CLIMB ══ -->
+<section class="nl-section dark-ember" style="padding-bottom:80px;">
+  <div class="nl-section-inner" style="text-align:center;">
+    <p class="nl-label light" style="text-align:left;">June 18 &middot; 6pm</p>
+    <h2 class="nl-headline white" style="text-align:left;">Join Us for the FibArk Hill Climb</h2>
+    <div class="nl-flyer-full">
+      <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f50626cfd080fae3b5be7c_Hill%20Climb%202026%20(1).png" alt="FibArk Hill Climb 2026 flyer">
+    </div>
+    <div class="nl-flyer-detail">
+      <div class="nl-flyer-detail-item">
+        <span class="nl-flyer-detail-label">Date</span>
+        <span class="nl-flyer-detail-value">June 18, 2026</span>
+      </div>
+      <div class="nl-flyer-detail-item">
+        <span class="nl-flyer-detail-label">Start Time</span>
+        <span class="nl-flyer-detail-value">6:00 PM</span>
+      </div>
+      <div class="nl-flyer-detail-item">
+        <span class="nl-flyer-detail-label">Classes</span>
+        <span class="nl-flyer-detail-value">All evening classes canceled</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="nl-divider"></div>
+
+<!-- ══ 6. NINFIT BOOKLET UPDATE ══ -->
+<section class="nl-section warm-cream">
+  <div class="nl-section-inner">
+    <div class="nl-img-section">
+      <div class="nl-img-frame">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f509789736e8690ee1d3cc_ninfit%20booklet.png" alt="NinFit Student Skill Log Booklet">
+      </div>
+      <div class="nl-img-content">
+        <p class="nl-label">NinFit Progression Update</p>
+        <h2 class="nl-headline">Updated Student Skill Log Booklets</h2>
+        <p class="nl-body">
+          Many students already have the first iteration of our NinFit Student Skill Log Booklet. We are releasing an updated version that better matches our current weekly training cycle, progression system, and testing pathway for Levels 1–3.
+        </p>
+        <div class="nl-callout" style="margin-top:24px;margin-bottom:24px;">
+          The booklet is <strong>not required.</strong> All students continue training, learning, and progressing with or without one. The booklet is simply a high-quality tool for students who enjoy tracking goals, collecting coach sign-offs, and seeing the path from beginner NinFit toward intermediate training.
+        </div>
+        <p class="nl-body">
+          Booklets are <strong>$15</strong> and will be available at the front desk. If your student already has skills signed off in the first version, those skills can be transferred into the updated booklet. Sign-offs happen naturally over time when coaches see that a skill is consistent, controlled, and ready.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="nl-divider"></div>
+
+<!-- ══ 7. NINJAS OF THE MONTH ══ -->
+<section class="nl-section dark">
+  <div class="nl-section-inner">
+    <p class="nl-label light">Student Spotlight</p>
+    <h2 class="nl-headline white">Ninjas of the Month</h2>
+
+    <div class="nl-ninja-grid">
+
+      <div class="nl-ninja-card">
+        <div class="nl-ninja-photo">
+          <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f15e341b7b0e5f4ed1b677_IMG_7556.jpeg" alt="Makena Wamsley" style="object-position: 50% 20%;">
+        </div>
+        <div class="nl-ninja-info">
+          <p class="nl-ninja-name">Makena Wamsley</p>
+          <div class="nl-ninja-qa">
+            <p class="nl-ninja-q">Favorite thing about E5?</p>
+            <p class="nl-ninja-a">Rollover.</p>
+          </div>
+          <div class="nl-ninja-qa">
+            <p class="nl-ninja-q">Element</p>
+            <p class="nl-ninja-a">Fire, because I'm determined … and my hair is red.</p>
+          </div>
+          <div class="nl-ninja-qa">
+            <p class="nl-ninja-q">Superpower</p>
+            <p class="nl-ninja-a">Teleporting.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="nl-ninja-card">
+        <div class="nl-ninja-photo">
+          <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f0effe14676960d4091289_image0%20(1).jpeg" alt="Eli Piscopio">
+        </div>
+        <div class="nl-ninja-info">
+          <p class="nl-ninja-name">Eli Piscopio</p>
+          <div class="nl-ninja-qa">
+            <p class="nl-ninja-q">Favorite thing about E5?</p>
+            <p class="nl-ninja-a">The silks and the angel flip, because I like being upside down.</p>
+          </div>
+          <div class="nl-ninja-qa">
+            <p class="nl-ninja-q">Element</p>
+            <p class="nl-ninja-a">Water because at E5 camp I was chosen for the water team and won the water challenge.</p>
+          </div>
+          <div class="nl-ninja-qa">
+            <p class="nl-ninja-q">Superpower</p>
+            <p class="nl-ninja-a">Shooting water out of my hands.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="nl-divider"></div>
+
+<!-- ══ 8. JUNIOR COACHES ══ -->
+<section class="nl-section off-white">
+  <div class="nl-section-inner">
+    <p class="nl-label">Leadership in Motion</p>
+    <h2 class="nl-headline">Junior Coaches Shout-Out</h2>
+    <p class="nl-body" style="max-width:680px;">
+      A huge shout-out to these students for supporting our 4:30 class for the last 8 weeks as Junior Coaches.
+    </p>
+    <div class="nl-coaches-names">
+      <span class="nl-name-tag">Joey Moon</span>
+      <span class="nl-name-tag">Maverick Tolsma</span>
+      <span class="nl-name-tag">Peyton Holte</span>
+      <span class="nl-name-tag">Eli Hart</span>
+    </div>
+    <p class="nl-body" style="max-width:640px;">
+      This program gives students ages 11–13 a chance to practice leadership, responsibility, and service on the floor. They help younger students, support the coaching team, and begin learning what it means to be a positive role model in the gym.
+    </p>
+    <div class="nl-jc-cta">
+      <div>
+        <p class="nl-jc-cta-eyebrow">Applications Open &middot; Ages 11–13</p>
+        <p class="nl-jc-cta-title">Interested in Becoming a Junior Coach?</p>
+        <p class="nl-jc-cta-body">8-week cycles, $50 fee if accepted. Students apply, get placed in a class, and earn a recognition pin at completion.</p>
+      </div>
+      <a href="/juniorcoach.html" class="nl-btn">Apply for the Program →</a>
+    </div>
+  </div>
+</section>
+
+<div class="nl-divider"></div>
+
+<!-- ══ 9. SUMMER CAMPS ══ -->
+<section class="nl-section light-gray">
+  <div class="nl-section-inner">
+    <p class="nl-label">Summer Camps</p>
+    <h2 class="nl-headline">New E5 Ninja Camp Added</h2>
+    <p class="nl-body" style="max-width:620px;">
+      We added a new <strong>E5 Ninja Camp week: July 13–17.</strong> If you have been looking for another summer camp option, registration is open through the parent portal.
+    </p>
+    <div style="margin-top:28px;">
+      <a href="https://portal.iclasspro.com/elemental5/booking/wizard-question-01?typeId=1&next=camps&nextTitle=Ninja%20Summer%20Camp&pluralTitle=Ninja%20Summer%20Camps&sortBy=name" target="_blank" class="nl-btn">Register for Camp →</a>
+    </div>
+  </div>
+</section>
+
+<div class="nl-divider"></div>
+
+<!-- ══ 10. ECHO AUDITIONS ══ -->
+<section class="nl-section dark-ember">
+  <div class="nl-section-inner">
+    <p class="nl-label light">Performance Pathway</p>
+    <h2 class="nl-headline white">Echo Troupe Auditions</h2>
+    <p class="nl-body light" style="max-width:600px;">
+      We are opening audition appointments over the next 3 months for students interested in joining <strong>Echo,</strong> our performance troupe pathway.
+    </p>
+
+    <div class="nl-requirements">
+      <p class="nl-req-label">Requirements</p>
+      <ul class="nl-req-list">
+        <li>Students must be at least 9 years old</li>
+        <li>Ready for a minimum 1-year commitment</li>
+        <li>Auditions are by appointment only</li>
+      </ul>
+    </div>
+
+    <p class="nl-body light" style="max-width:600px;margin-bottom:28px;">
+      More information about the audition process will be given upon request. To ask about an audition appointment, email <a href="mailto:gym@elementalfive.com" style="color:var(--flame);text-decoration:none;">gym@elementalfive.com</a>.
+    </p>
+
+    <a href="mailto:gym@elementalfive.com?subject=Echo%20Audition%20Inquiry" class="nl-btn ghost">Ask About an Audition →</a>
+  </div>
+</section>
+
+<div class="nl-divider"></div>
+
+<!-- ══ 11. GRANT / FACILITY ══ -->
+<section class="nl-section warm-cream">
+  <div class="nl-section-inner">
+    <p class="nl-label">New Facility Campaign</p>
+    <h2 class="nl-headline">Grant Received</h2>
+    <p class="nl-body" style="max-width:640px;">
+      We are grateful to share that Elemental 5 received a <strong>$25,000 grant</strong> through the Enterprise Fund through the Chaffee County Community Foundation to help fund our new spring floor. This is a major step toward the next chapter of the gym and the equipment needed for our new facility.
+    </p>
+
+    <div class="nl-grant-callout">
+      <div class="nl-grant-amount">
+        <span class="nl-grant-amount-value">$25K</span>
+        <span class="nl-grant-amount-label">Grant Received</span>
+      </div>
+      <div class="nl-grant-text">
+        <p>We are still actively fundraising and seeking sponsors as we work toward our larger equipment and facility goals. <strong>Every contribution — large or small — moves us closer to the facility this community deserves.</strong></p>
+      </div>
+    </div>
+
+    <div style="margin-top:28px;">
+      <a href="/new-gym.html" class="nl-btn">View New Gym Campaign →</a>
+    </div>
+  </div>
+</section>
+
+<div class="nl-divider"></div>
+
+<!-- ══ 12. FOUNDING MEMBERSHIP ══ -->
+<section class="nl-section off-white">
+  <div class="nl-section-inner">
+    <p class="nl-label">Limited Opportunity</p>
+    <h2 class="nl-headline">Founding Membership Opportunity</h2>
+    <p class="nl-body" style="max-width:640px;margin-bottom:8px;">
+      If you would like to <strong>lock in current pricing,</strong> the only way to do that is through our Founding Membership campaign. Founding members will keep today's rates for two years and become a permanent part of this building and this community.
+    </p>
+
+    <div class="nl-founding-card">
+      <div>
+        <p class="nl-founding-tier">Founding Tiers Start at $500 for Families</p>
+        <h3 class="nl-founding-headline">Lock in Your Rate.<br>Shape the Gym.</h3>
+        <p class="nl-founding-body">
+          Founding members lock in today's pricing for <strong>two full years</strong> and become a named part of the new Elemental 5 facility. To learn more, email us or stop by the front desk.
+        </p>
+      </div>
+      <div class="nl-founding-actions">
+        <a href="mailto:gym@elementalfive.com?subject=Founding%20Membership%20Inquiry" class="nl-btn">Email Us →</a>
+        <a href="/new-gym.html" class="nl-btn orange">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="nl-divider"></div>
+
+<!-- ══ 13. FARMERS MARKET ══ -->
+<section class="nl-section light-gray">
+  <div class="nl-section-inner">
+    <p class="nl-label">Community Demos</p>
+    <h2 class="nl-headline">Farmers Market Demo Dates</h2>
+    <p class="nl-body" style="max-width:600px;">
+      We have our 2026 student demo dates picked out. Please save these dates in your calendar.
+    </p>
+
+    <div class="nl-market-dates">
+      <span class="nl-market-date">June 6</span>
+      <span class="nl-market-date">June 20</span>
+      <span class="nl-market-date">July 25</span>
+      <span class="nl-market-date">Aug 29</span>
+      <span class="nl-market-date">Sep 26</span>
+    </div>
+
+    <div class="nl-market-note">
+      <p class="nl-market-note-title">July 4 — Riverside Park</p>
+      <p class="nl-market-note-body">Planned shows with the Salida Community Center at Riverside Park.</p>
+    </div>
+
+    <div class="nl-market-note" style="margin-top:8px;">
+      <p class="nl-market-note-title">October 24 — Shedfest</p>
+      <p class="nl-market-note-body">Performance is tentative while we wait for approval.</p>
+    </div>
+
+    <div class="nl-callout" style="margin-top:20px;">
+      We also plan to bring our <strong>bounce house</strong> to the Farmers Market free of charge. Donations are welcome and help support our new facility and equipment campaign.
+    </div>
+  </div>
+</section>
+
+<div class="nl-divider"></div>
+
+<!-- ══ 14. APRIL GALLERY ══ -->
+<section class="nl-section dark">
+  <div class="nl-section-inner">
+    <p class="nl-label light">April Gallery</p>
+    <h2 class="nl-headline white">Moments From the Gym</h2>
+    <p class="nl-body light" style="max-width:560px;">
+      A few snapshots from recent events, birthday celebrations, student training, and community outreach.
+    </p>
+
+    <div class="nl-gallery-grid">
+      <div class="nl-gallery-item">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f50625231067a7cfc27786_longfellow%20elementary%20event.jpg" alt="Longfellow Elementary event">
+      </div>
+      <div class="nl-gallery-item">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f5062543f61a6607363738_adult%20aerial%20e5.jpg" alt="Adult aerial class at E5">
+      </div>
+      <div class="nl-gallery-item">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f506258e123630b4516ce9_e5%20birthday%204.jpg" alt="E5 birthday party">
+      </div>
+      <div class="nl-gallery-item">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f5062464716ee0300714e7_bridge.jpg" alt="Student bridge skill">
+      </div>
+      <div class="nl-gallery-item">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f50625b3a725fff434b805_e5%20birthday2.jpg" alt="E5 birthday celebration">
+      </div>
+      <div class="nl-gallery-item">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f50625a07f7592af18ea60_e5%20birthday.jpg" alt="E5 birthday party moment">
+      </div>
+      <div class="nl-gallery-item">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f5062549d6fbd9b12699d6_ninja%20tots.jpg" alt="Ninja tots in class">
+      </div>
+      <div class="nl-gallery-item">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f5062537223a026e9d5b9c_longfellow%20elementary%20event%202.jpg" alt="Longfellow Elementary event 2">
+      </div>
+      <div class="nl-gallery-item">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f5062537de54235ec64dc5_e5%20birthday%203.jpg" alt="E5 birthday party 3">
+      </div>
+      <div class="nl-gallery-item">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f50624e280d87878484657_happy%20birthday%20E5.jpg" alt="Happy birthday at E5">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NEWSLETTER FOOTER ══ -->
+<footer class="nl-footer">
+  <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6808637a070a68b07d8b0d50_E5_Logo_Symbol_021224.png" alt="Elemental 5 symbol" class="nl-footer-symbol">
+  <p class="nl-footer-tagline">Be a Force of Nature.</p>
+  <p class="nl-footer-programs">Elemental 5 &middot; Acro &middot; Parkour &middot; Ninja</p>
+  <p class="nl-footer-contact">
+    <a href="https://www.elementalfive.com">elementalfive.com</a> &nbsp;&middot;&nbsp;
+    <a href="mailto:gym@elementalfive.com">gym@elementalfive.com</a>
+  </p>
+</footer>
+
+</body>
+</html>
