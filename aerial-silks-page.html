@@ -9,12 +9,12 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --air: #8BA7C2;
-    --air-light: #B8D0E8;
-    --air-pale: #E4EEF7;
-    --air-dark: #3A5A78;
-    --air-deep: #0D1F2D;
-    --air-mid: #5C849E;
+    --air: #7a8490;
+    --air-light: #b6bfc9;
+    --air-pale: #e4e8ed;
+    --air-dark: #3e4a58;
+    --air-deep: #121821;
+    --air-mid: #7a8490;
     --black: #0F0F14;
     --white: #FAFAF7;
     --gray-100: #F4F3EF;
@@ -61,7 +61,7 @@
   .hero-air { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); width: 400px; height: 400px; opacity: 0.07; pointer-events: none; }
   .hero-air img { width: 100%; height: 100%; object-fit: contain; }
   .hero-kicker { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
-  .hero-kicker-pill { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; background: rgba(139,167,194,0.15); color: var(--air-light); border: 1px solid rgba(139,167,194,0.3); padding: 0.3rem 0.75rem; }
+  .hero-kicker-pill { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; background: rgba(122,132,144,0.18); color: var(--air-light); border: 1px solid rgba(122,132,144,0.35); padding: 0.3rem 0.75rem; }
   .hero-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(3rem, 10vw, 9rem); line-height: 0.9; letter-spacing: -0.03em; color: var(--white); text-transform: uppercase; }
   .hero-title span { color: var(--air-light); }
   .hero-sub { font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: clamp(1rem, 1.8vw, 1.2rem); color: rgba(250,250,247,0.55); max-width: 520px; line-height: 1.8; margin-top: 1.5rem; }
@@ -70,7 +70,7 @@
   .btn-primary:hover { background: var(--air-mid); transform: translateY(-2px); }
   .btn-ghost { display: inline-block; color: rgba(255,255,255,0.45); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
   .btn-ghost:hover { color: var(--white); border-color: var(--air-light); }
-  .hero-accent-line { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--air-dark) 0%, var(--air-light) 50%, rgba(139,167,194,0.1) 100%); }
+  .hero-accent-line { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--air-dark) 0%, var(--air-light) 50%, rgba(122,132,144,0.1) 100%); }
 
   /* ── WHAT ── */
   .what-section { background: #FFFFFF; color: #1C1C1A; padding: 6rem 0; }
@@ -130,7 +130,7 @@
   .coach-photo-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.75rem 1rem; background: linear-gradient(transparent, rgba(0,0,0,0.75)); }
   .coach-photo-name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 0.85rem; letter-spacing: -0.01em; text-transform: uppercase; color: var(--white); }
   .coach-photo-title { font-family: 'Montserrat', sans-serif; font-size: 0.5rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--air-light); margin-top: 0.1rem; }
-  .coach-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(139,167,194,0.12); border: 1px solid rgba(139,167,194,0.25); padding: 0.3rem 0.7rem; margin-bottom: 0.85rem; }
+  .coach-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(122,132,144,0.12); border: 1px solid rgba(122,132,144,0.25); padding: 0.3rem 0.7rem; margin-bottom: 0.85rem; }
   .coach-badge span { font-family: 'Montserrat', sans-serif; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--air-light); }
   .coach-name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.25rem; letter-spacing: -0.01em; text-transform: uppercase; color: var(--white); margin-bottom: 0.75rem; line-height: 1.1; }
   .coach-bio { font-family: 'Nunito Sans', sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.75; }
@@ -146,8 +146,8 @@
   .perf-step { display: flex; gap: 0; }
   .perf-step-left { background: rgba(255,255,255,0.03); padding: 1.25rem 1.5rem; min-width: 120px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255,255,255,0.07); }
   .perf-step-right { background: rgba(255,255,255,0.02); padding: 1.25rem 1.5rem; flex: 1; }
-  .perf-step.highlight .perf-step-left { background: rgba(139,167,194,0.1); border-right-color: var(--air-dark); }
-  .perf-step.highlight .perf-step-right { background: rgba(139,167,194,0.05); }
+  .perf-step.highlight .perf-step-left { background: rgba(122,132,144,0.1); border-right-color: var(--air-dark); }
+  .perf-step.highlight .perf-step-right { background: rgba(122,132,144,0.05); }
   .perf-label { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
   .perf-step.highlight .perf-label { color: var(--air-light); }
   .perf-step:not(.highlight) .perf-label { color: rgba(255,255,255,0.25); }
@@ -159,12 +159,12 @@
   .perf-step:not(.highlight) .perf-desc { color: rgba(255,255,255,0.2); }
 
   /* COMING SOON */
-  .coming-section { background: rgba(139,167,194,0.06); border: 1px solid rgba(139,167,194,0.15); padding: 2.5rem 3rem; margin-top: 3rem; }
+  .coming-section { background: rgba(122,132,144,0.06); border: 1px solid rgba(122,132,144,0.15); padding: 2.5rem 3rem; margin-top: 3rem; }
   .coming-label { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--air-light); margin-bottom: 0.75rem; }
   .coming-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.25rem; letter-spacing: -0.01em; text-transform: uppercase; color: var(--white); margin-bottom: 0.65rem; }
   .coming-desc { font-family: 'Nunito Sans', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.4); line-height: 1.7; }
   .coming-apparatus { display: flex; gap: 0.6rem; margin-top: 1rem; flex-wrap: wrap; }
-  .apparatus-pill { font-family: 'Montserrat', sans-serif; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.7rem; background: rgba(139,167,194,0.1); color: var(--air-light); border: 1px solid rgba(139,167,194,0.2); }
+  .apparatus-pill { font-family: 'Montserrat', sans-serif; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.7rem; background: rgba(122,132,144,0.1); color: var(--air-light); border: 1px solid rgba(122,132,144,0.2); }
 
   /* ── ENROLL ── */
   .enroll-section { background: var(--air-dark); padding: 7rem 0; position: relative; overflow: hidden; }
@@ -360,7 +360,7 @@
       <!-- LEXEE -->
       <div class="coach-card">
         <div class="coach-photo">
-          <img src="https://static.wixstatic.com/media/67b728_62a4ca7c8b6c42d2817dff7016b58077~mv2.jpg/v1/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/lexeelobeckselfie.jpg" alt="Lexee Lobeck" onerror="this.style.background='rgba(139,167,194,0.1)';this.style.minHeight='200px'" />
+          <img src="https://static.wixstatic.com/media/67b728_62a4ca7c8b6c42d2817dff7016b58077~mv2.jpg/v1/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/lexeelobeckselfie.jpg" alt="Lexee Lobeck" onerror="this.style.background='rgba(122,132,144,0.1)';this.style.minHeight='200px'" />
           <div class="coach-photo-overlay">
             <div class="coach-photo-name">Lexee Lobeck</div>
             <div class="coach-photo-title">Head Coach · Aerial Silks</div>
@@ -376,7 +376,7 @@
       <!-- EMILY -->
       <div class="coach-card">
         <div class="coach-photo">
-          <img src="https://static.wixstatic.com/media/67b728_9e45380eccf44a2bad7c5399c935ba9d~mv2.jpg/v1/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_9137.jpg" alt="Emily Cuiksa" onerror="this.style.background='rgba(139,167,194,0.1)';this.style.minHeight='200px'" />
+          <img src="https://static.wixstatic.com/media/67b728_9e45380eccf44a2bad7c5399c935ba9d~mv2.jpg/v1/fill/w_403,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_9137.jpg" alt="Emily Cuiksa" onerror="this.style.background='rgba(122,132,144,0.1)';this.style.minHeight='200px'" />
           <div class="coach-photo-overlay">
             <div class="coach-photo-name">Emily Cuiksa</div>
             <div class="coach-photo-title">Assistant Coach · Aerial Silks</div>
