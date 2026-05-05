@@ -18,14 +18,16 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --red: #B01C1C;
-    --red-mid: #CC2E2E;
-    --red-bright: #E03C3C;
-    --red-dark: #6B0F0F;
-    --red-bg: #1A0505;
-    --ember: #C4622D;
-    --flame: #E8890C;
-    --black: #0F0F14;
+    --red: #c0262d;
+    --flame: #c0262d;
+    --ember: #e07733;
+    --red-mid: #b1242b;
+    --red-bright: #f15a5f;
+    --red-dark: #7a1318;
+    --red-bg: #190606;
+    --red-light: #f7d6d7;
+    --orange: #c0262d;
+    --black: #1a1818;
     --white: #FAFAF7;
     --gray-100: #F4F3EF;
     --gray-200: #E8E7E0;
@@ -59,12 +61,19 @@
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 38%;
-    background: linear-gradient(transparent, rgba(26,5,5,0.72));
+    background:
+      radial-gradient(circle at 32% 24%, rgba(224,38,45,0.12), transparent 16%),
+      radial-gradient(circle at 68% 18%, rgba(232,137,12,0.16), transparent 20%),
+      linear-gradient(transparent, rgba(26,5,5,0.78));
     z-index: 15;
     pointer-events: none;
   }
   .hero-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(4.5rem, 14vw, 12rem); line-height: 0.88; letter-spacing: -0.03em; color: var(--white); text-transform: uppercase; }
-  .hero-title span { color: var(--ember); text-shadow: 0 0 48px rgba(232,137,12,0.45); }
+  .hero-title span {
+    color: var(--flame);
+    text-shadow: 0 0 26px rgba(224,38,45,0.34), 0 0 50px rgba(232,137,12,0.2);
+    display: inline-block;
+  }
   .hero-tagline { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(1rem, 2.2vw, 1.5rem); letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 1rem; }
   .hero-tagline em { font-style: normal; color: var(--flame); }
   .hero-sub { font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: clamp(1rem, 1.8vw, 1.15rem); color: rgba(250,250,247,0.55); max-width: 500px; line-height: 1.75; margin-top: 1.25rem; }
@@ -102,18 +111,16 @@
   .fire-divider {
     background: var(--red-bg);
     background-image:
-      linear-gradient(rgba(26,5,5,0.76), rgba(26,5,5,0.76)),
-      url("https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f676dd1328190e342ab1ef_fieryglow.png");
-    background-size: auto, cover;
-    background-position: center, center;
-    background-repeat: repeat, no-repeat;
-    border-top: 1px solid rgba(196,98,45,0.45);
-    border-bottom: 1px solid rgba(196,98,45,0.45);
-    padding: 3rem 0;
+      radial-gradient(circle at 50% 18%, rgba(224,38,45,0.18), transparent 24%),
+      linear-gradient(180deg, rgba(26,5,5,0.35), rgba(26,5,5,0.85));
+    background-repeat: no-repeat;
+    border-top: 1px solid rgba(196,98,45,0.35);
+    border-bottom: 1px solid rgba(196,98,45,0.35);
+    padding: 2.75rem 0;
   }
   .fire-divider-inner { display: flex; align-items: center; justify-content: center; gap: 2.5rem; }
-  .fire-emblem { width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; opacity: 0.85; }
-  .fire-emblem svg { width: 48px; height: 48px; }
+  .fire-emblem { width: 40px; height: 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; opacity: 0.92; }
+  .fire-emblem svg { width: 100%; height: 100%; }
   .fire-statement { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(1.1rem, 2.5vw, 1.75rem); letter-spacing: -0.01em; text-transform: uppercase; color: var(--white); }
   .fire-statement span { color: var(--flame); }
 
@@ -335,15 +342,15 @@
     <div class="fire-divider-inner">
       <div class="fire-emblem">
         <svg viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 1C12 1 7 7.5 7 13C7 15.76 9.24 18 12 18C14.76 18 17 15.76 17 13C17 10 15 8 15 6C15 6 19.5 10 19.5 15C19.5 20.25 15.25 24 9.5 24C4.5 24 1 20.25 1 15C1 8 7 3 12 1Z" fill="rgba(232,137,12,0.75)" stroke="rgba(196,98,45,0.5)" stroke-width="0.5"/>
-          <path d="M12 11C12 11 10 13.5 10 15.5C10 16.88 11.12 18 12.5 18C13.88 18 15 16.88 15 15.5C15 13.5 12 11 12 11Z" fill="rgba(255,210,100,0.65)"/>
+          <path d="M12 1C12 1 7 7.5 7 13c0 2.76 2.24 5 5 5s5-2.24 5-5c0-2.8-3-4-3-7 0-1 4.5 3 4.5 8.5 0 5.25-4.25 9-10 9C2.5 23.5 0 20 0 15 0 8 7 3 12 1Z" fill="var(--flame)" opacity="0.88" stroke="rgba(255,255,255,0.18)" stroke-width="0.5"/>
+          <path d="M12 11s-2 2.5-2 4.5c0 1.4 1.12 2.5 2.5 2.5S15 16.9 15 15.5C15 13.5 12 11 12 11Z" fill="rgba(255,255,255,0.55)"/>
         </svg>
       </div>
       <div class="fire-statement">For kids who can't get <span>enough flipping.</span></div>
       <div class="fire-emblem">
         <svg viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 1C12 1 7 7.5 7 13C7 15.76 9.24 18 12 18C14.76 18 17 15.76 17 13C17 10 15 8 15 6C15 6 19.5 10 19.5 15C19.5 20.25 15.25 24 9.5 24C4.5 24 1 20.25 1 15C1 8 7 3 12 1Z" fill="rgba(232,137,12,0.75)" stroke="rgba(196,98,45,0.5)" stroke-width="0.5"/>
-          <path d="M12 11C12 11 10 13.5 10 15.5C10 16.88 11.12 18 12.5 18C13.88 18 15 16.88 15 15.5C15 13.5 12 11 12 11Z" fill="rgba(255,210,100,0.65)"/>
+          <path d="M12 1C12 1 7 7.5 7 13c0 2.76 2.24 5 5 5s5-2.24 5-5c0-2.8-3-4-3-7 0-1 4.5 3 4.5 8.5 0 5.25-4.25 9-10 9C2.5 23.5 0 20 0 15 0 8 7 3 12 1Z" fill="var(--flame)" opacity="0.88" stroke="rgba(255,255,255,0.18)" stroke-width="0.5"/>
+          <path d="M12 11s-2 2.5-2 4.5c0 1.4 1.12 2.5 2.5 2.5S15 16.9 15 15.5C15 13.5 12 11 12 11Z" fill="rgba(255,255,255,0.55)"/>
         </svg>
       </div>
     </div>

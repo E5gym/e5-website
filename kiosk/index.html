@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elemental 5 | Welcome</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:   #1C1108;
+  --void:    #0D0B08;
+  --ember:   #C4622D;
+  --flame:   #E8843A;
+  --red:     #CC1F1F;
+  --ash:     #8C7E6A;
+  --fog:     #D4C9B8;
+  --sky:     #F0EBE1;
+  --cream:   #D6CCBE;
+  --panel:   #141414;
+  --white:   #ffffff;
+  --mid:     #1E1208;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0; padding: 0;
+  background: var(--void);
+  font-family: 'Nunito Sans', sans-serif;
+  overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+  user-select: none;
+}
+
+/* ── SHELL ── */
+.kiosk {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--void);
+  position: relative;
+  overflow: hidden;
+}
+
+/* diagonal texture overlay */
+.kiosk::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 80px, rgba(196,98,45,0.018) 80px, rgba(196,98,45,0.018) 81px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  position: relative; z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 64px;
+  background: rgba(13,11,8,0.95);
+  border-bottom: 1px solid rgba(196,98,45,0.15);
+  flex-shrink: 0;
+}
+
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+.logo span { color: var(--ember); }
+
+.nav {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ash);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.nav-btn:hover { color: var(--fog); border-color: rgba(255,255,255,0.08); }
+.nav-btn.active {
+  background: var(--red);
+  color: var(--white);
+  border-color: var(--red);
+}
+
+.topbar-right {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(196,98,45,0.3);
+}
+
+/* ── CONTENT AREA ── */
+.content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.page {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  scrollbar-width: none;
+}
+.page::-webkit-scrollbar { display: none; }
+.page.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── BOTTOM BAR ── */
+.bottombar {
+  position: relative; z-index: 10;
+  height: 48px;
+  background: rgba(13,11,8,0.95);
+  border-top: 1px solid rgba(196,98,45,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-shrink: 0;
+}
+
+.bottom-item {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(140,126,106,0.4);
+}
+.bottom-item.accent { color: rgba(196,98,45,0.5); }
+
+/* ── SHARED SECTION PARTS ── */
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--ember);
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+.section-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+.section-headline em { font-style: normal; color: var(--red); }
+
+.rule {
+  width: 40px; height: 2px;
+  background: var(--ember);
+  margin: 16px 0 20px;
+}
+
+/* ── PAGE 1: PHILOSOPHY ── */
+#page-philosophy {
+  padding: 40px 48px 32px;
+}
+
+.phil-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 32px;
+}
+
+.phil-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.element-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 4px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: background 0.2s, border-color 0.2s;
+  cursor: default;
+}
+.element-card:hover {
+  background: rgba(196,98,45,0.08);
+  border-color: rgba(196,98,45,0.2);
+}
+
+.el-bar {
+  width: 3px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.el-content {}
+.el-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.el-trait {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ash);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.el-desc {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--fog);
+  line-height: 1.55;
+  opacity: 0.75;
+}
+.el-tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 6px;
+  opacity: 0.4;
+}
+
+.phil-right {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.statement-block {
+  background: var(--red);
+  border-radius: 4px;
+  padding: 32px 36px;
+  flex: 1;
+}
+.statement-block .section-label { color: rgba(255,255,255,0.55); opacity: 1; }
+.statement-quote {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.statement-sub {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.75);
+}
+
+.points-block {
+  background: #141414;
+  border-radius: 4px;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.point-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.point-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.point-text {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(200,192,180,0.7);
+}
+.point-text strong { color: var(--sky); font-weight: 600; }
+
+/* ── PAGE 2: PROGRAMS ── */
+#page-programs {
+  padding: 40px 48px 32px;
+}
+
+.programs-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 28px;
+}
+
+.programs-note {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--ash);
+  max-width: 320px;
+  text-align: right;
+}
+.programs-note strong { color: var(--fog); font-weight: 600; }
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.prog-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+.prog-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+}
+.prog-card.selected {
+  border-color: rgba(196,98,45,0.5);
+  background: rgba(196,98,45,0.07);
+}
+
+.prog-bar { height: 4px; width: 100%; flex-shrink: 0; }
+.prog-body { padding: 20px 20px 24px; flex: 1; display: flex; flex-direction: column; }
+
+.prog-age {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 10px;
+}
+.prog-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--sky);
+  margin-bottom: 4px;
+}
+.prog-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 14px;
+}
+.prog-desc {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--fog);
+  opacity: 0.7;
+  flex: 1;
+  margin-bottom: 16px;
+}
+.prog-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.prog-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--ash);
+  line-height: 1.5;
+}
+.prog-points li::before {
+  content: '';
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+/* pathways below programs */
+.pathways-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.pathway-card {
+  background: #141414;
+  border-radius: 4px;
+  padding: 20px 24px;
+  border-left: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pathway-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+.pathway-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--sky);
+  letter-spacing: 0.02em;
+}
+.pathway-desc {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ash);
+}
+
+/* ── PAGE 3: JOURNEY ── */
+#page-journey {
+  padding: 40px 48px 32px;
+}
+
+.journey-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 28px;
+  margin-bottom: 6px;
+}
+
+.journey-statement {
+  background: #141414;
+  border-radius: 4px;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.journey-statement p {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(200,192,180,0.65);
+}
+.journey-statement p strong { color: var(--sky); font-weight: 600; }
+
+.journey-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.j-tab {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  color: var(--ash);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.j-tab:hover { border-color: rgba(255,255,255,0.15); color: var(--fog); }
+.j-tab.active {
+  background: rgba(196,98,45,0.12);
+  border-color: rgba(196,98,45,0.4);
+  color: var(--flame);
+}
+
+.journey-panel {
+  display: none;
+}
+.journey-panel.active { display: block; }
+
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.level-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 4px;
+  padding: 18px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.level-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ember);
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+.level-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.level-desc {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ash);
+}
+.level-card .card-accent {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+}
+
+.beyond-block {
+  background: var(--red);
+  border-radius: 4px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.beyond-text h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+.beyond-text p {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.75);
+}
+.beyond-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 100px;
+  padding: 5px 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── PAGE 4: GET STARTED ── */
+#page-start {
+  padding: 40px 48px 32px;
+}
+
+.start-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 28px;
+}
+
+.steps-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.step-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 4px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  transition: border-color 0.2s;
+}
+.step-card:hover { border-color: rgba(196,98,45,0.25); }
+
+.step-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--red);
+  opacity: 0.4;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 32px;
+}
+
+.step-content h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sky);
+  margin-bottom: 6px;
+}
+.step-content p {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--ash);
+}
+
+.contact-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.qr-card {
+  background: var(--red);
+  border-radius: 4px;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+.qr-card .section-label { color: rgba(255,255,255,0.55); opacity: 1; }
+.qr-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.qr-card p {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.75);
+}
+
+.qr-placeholder {
+  width: 96px; height: 96px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qr-placeholder svg { opacity: 0.6; }
+
+.url-display {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+}
+
+.contact-card {
+  background: #141414;
+  border-radius: 4px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.contact-card .section-label { margin-bottom: 4px; }
+.contact-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.contact-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ash);
+  opacity: 0.6;
+}
+.contact-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sky);
+}
+
+.desk-card {
+  background: rgba(196,98,45,0.08);
+  border: 1px solid rgba(196,98,45,0.2);
+  border-radius: 4px;
+  padding: 16px 20px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--fog);
+}
+.desk-card strong {
+  color: var(--flame);
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+
+<div class="kiosk">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="logo">Elemental<span>5</span></div>
+    <nav class="nav">
+      <button class="nav-btn active" onclick="showPage('philosophy')">Our Philosophy</button>
+      <button class="nav-btn" onclick="showPage('programs')">Programs</button>
+      <button class="nav-btn" onclick="showPage('journey')">The Journey</button>
+      <button class="nav-btn" onclick="showPage('start')">Get Started</button>
+    </nav>
+    <div class="topbar-right">Salida, Colorado</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- PAGE 1: PHILOSOPHY -->
+    <div class="page active" id="page-philosophy">
+      <div style="padding: 40px 48px 32px;">
+        <p class="section-label">The Framework</p>
+        <h2 class="section-headline" style="font-size: clamp(28px, 3.5vw, 48px);">Not just a gym.<br><em>A system.</em></h2>
+        <div class="rule"></div>
+        <p style="font-size:14px;font-weight:400;line-height:1.75;color:var(--ash);max-width:560px;">Every skill, every class, every progression at E5 is organized around five elemental principles. Physical and personal development woven together from day one.</p>
+
+        <div class="phil-grid">
+          <div class="phil-left">
+            <div class="element-card">
+              <div class="el-bar" style="background:#C4922A;"></div>
+              <div class="el-content">
+                <div class="el-name" style="color:#C4922A;">Earth</div>
+                <div class="el-trait">Strength · Stability · Showing up</div>
+                <div class="el-desc">Foundation-building. Consistency over flash. Strength comes from showing up physically and mentally even when it's hard.</div>
+                <div class="el-tagline" style="color:#C4922A;">"Show up. Do the work."</div>
+              </div>
+            </div>
+            <div class="element-card">
+              <div class="el-bar" style="background:#4A9FD4;"></div>
+              <div class="el-content">
+                <div class="el-name" style="color:#4A9FD4;">Water</div>
+                <div class="el-trait">Adaptability · Flow · Resilience</div>
+                <div class="el-desc">When a skill doesn't come easily, water-thinking means adjusting your approach rather than forcing or quitting.</div>
+                <div class="el-tagline" style="color:#4A9FD4;">"Bend. Don't break."</div>
+              </div>
+            </div>
+            <div class="element-card">
+              <div class="el-bar" style="background:#CC1F1F;"></div>
+              <div class="el-content">
+                <div class="el-name" style="color:#CC1F1F;">Fire</div>
+                <div class="el-trait">Intensity · Courage · Full effort</div>
+                <div class="el-desc">Fire moments are when kids commit fully to a scary skill, a hard conversation, or something they've never tried before.</div>
+                <div class="el-tagline" style="color:#CC1F1F;">"Go all in."</div>
+              </div>
+            </div>
+            <div class="element-card">
+              <div class="el-bar" style="background:#9AABAA;"></div>
+              <div class="el-content">
+                <div class="el-name" style="color:#9AABAA;">Air</div>
+                <div class="el-trait">Creativity · Lightness · Expression</div>
+                <div class="el-desc">Once foundations are solid, air is the freedom to explore, invent, and bring a unique style to movement.</div>
+                <div class="el-tagline" style="color:#9AABAA;">"Make it yours."</div>
+              </div>
+            </div>
+            <div class="element-card">
+              <div class="el-bar" style="background:#4A4040;"></div>
+              <div class="el-content">
+                <div class="el-name" style="color:var(--fog);">Void</div>
+                <div class="el-trait">Presence · Awareness · Potential</div>
+                <div class="el-desc">Stillness within movement. The ability to focus, reset, and be fully in the moment with yourself and others.</div>
+                <div class="el-tagline" style="color:var(--ash);">"Be here. Be aware."</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="phil-right">
+            <div class="statement-block">
+              <p class="section-label">The E5 difference</p>
+              <p class="statement-quote">Train the Body.<br>Sharpen the Mind.</p>
+              <p class="statement-sub">The elements aren't labels. They're a language your kid will use to talk about who they're becoming — inside the gym and out.</p>
+            </div>
+            <div class="points-block">
+              <div class="point-row">
+                <div class="point-dot"></div>
+                <p class="point-text"><strong>Every class weaves physical and character training together.</strong> Skills are the medium, not the point.</p>
+              </div>
+              <div class="point-row">
+                <div class="point-dot"></div>
+                <p class="point-text"><strong>Coaches use the five elements as a feedback language,</strong> so kids hear "that was fire" and know exactly what it means.</p>
+              </div>
+              <div class="point-row">
+                <div class="point-dot"></div>
+                <p class="point-text"><strong>Parents tell us the change isn't just physical.</strong> It's the way their kid walks into a room.</p>
+              </div>
+              <div class="point-row">
+                <div class="point-dot"></div>
+                <p class="point-text"><strong>A human development center</strong> disguised as an acrobatics gym.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 2: PROGRAMS -->
+    <div class="page" id="page-programs">
+      <div style="padding: 40px 48px 32px;">
+        <div class="programs-intro">
+          <div>
+            <p class="section-label">What We Offer</p>
+            <h2 class="section-headline" style="font-size: clamp(28px, 3.5vw, 48px);">Four paths.<br><em>One framework.</em></h2>
+            <div class="rule"></div>
+          </div>
+          <p class="programs-note">Every program runs on the Five Elements system. <strong>The physical skills are the medium. Character development is the point.</strong> Not every program is for every kid — and that's by design.</p>
+        </div>
+
+        <div class="programs-grid">
+
+          <!-- NinFit -->
+          <div class="prog-card">
+            <div class="prog-bar" style="background:#CC1F1F;"></div>
+            <div class="prog-body">
+              <div class="prog-age">Ages 5–12 &nbsp;·&nbsp; Most Popular</div>
+              <div class="prog-name">NinFit</div>
+              <div class="prog-sub">Parkour · Tumbling · Ninja</div>
+              <p class="prog-desc">The flagship E5 program. NinFit fuses parkour, tumbling, trampoline, and ninja training into a 9-level progression. Kids earn levels through real skill, not time served. Recreational through competitive.</p>
+              <ul class="prog-points">
+                <li>Parkour vaults, precision jumps, and flow</li>
+                <li>Tumbling and acrobatic foundations</li>
+                <li>Trampoline and aerial awareness</li>
+                <li>9-level structured progression</li>
+                <li>Feeds toward Surge for competitive athletes</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Tx3 -->
+          <div class="prog-card">
+            <div class="prog-bar" style="background:#4A9FD4;"></div>
+            <div class="prog-body">
+              <div class="prog-age">Ages 5–12</div>
+              <div class="prog-name">Tx3</div>
+              <div class="prog-sub">Trampoline · Tumbling · Tricking</div>
+              <p class="prog-desc">For kids who can't get enough flips. Tx3 is its own complete curriculum — the full hour spent on trampoline mechanics, ground tumbling, and tricking. Distinct identity from NinFit with its own progression system.</p>
+              <ul class="prog-points">
+                <li>Trampoline mechanics and air awareness</li>
+                <li>Tumbling from foundations to advanced</li>
+                <li>Tricking: kicks, flips, and combos</li>
+                <li>Own 5-level progression system</li>
+                <li>Cross-over with NinFit is natural and welcome</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Aerial Silks -->
+          <div class="prog-card">
+            <div class="prog-bar" style="background:#9B6BB5;"></div>
+            <div class="prog-body">
+              <div class="prog-age">Ages 8+</div>
+              <div class="prog-name">Aerial Silks</div>
+              <div class="prog-sub">Grace · Strength · Expression</div>
+              <p class="prog-desc">A completely distinct track drawing a different kind of athlete. Aerial silks builds extraordinary upper-body strength, spatial awareness, and artistic expression. Beginner classes are open. Intermediate is by invitation.</p>
+              <ul class="prog-points">
+                <li>Climbs, wraps, inversions, and drops</li>
+                <li>Choreography and performance readiness</li>
+                <li>Strength conditioning built into every class</li>
+                <li>Beginner open · Intermediate invite-only</li>
+                <li>Feeds naturally toward E5 Echo</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- EMA -->
+          <div class="prog-card">
+            <div class="prog-bar" style="background:#6B8F5E;"></div>
+            <div class="prog-body">
+              <div class="prog-age">Ages 6+</div>
+              <div class="prog-name">EMA</div>
+              <div class="prog-sub">Elemental Martial Arts</div>
+              <p class="prog-desc">The martial path. EMA blends BJJ, Judo, Karate, Kickboxing, and Muay Thai under one functional philosophy. Real self-defense capability alongside the discipline and respect of classical martial training.</p>
+              <ul class="prog-points">
+                <li>Five source arts, one integrated system</li>
+                <li>Functional self-defense from day one</li>
+                <li>Disciplined, traditional structure</li>
+                <li>Its own complete progression pathway</li>
+                <li>Cross-over with movement programs natural</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pathways beyond -->
+        <div class="pathways-row">
+          <div class="pathway-card" style="border-left-color:#9AABAA;">
+            <div class="pathway-eyebrow" style="color:#9AABAA;">Air · Performance</div>
+            <div class="pathway-name">E5 Echo</div>
+            <p class="pathway-desc">Elite performance troupe. Year-round commitment with live shows and travel. Draws expressive athletes across programs. Audition and panel interview required — not a program you enroll in.</p>
+          </div>
+          <div class="pathway-card" style="border-left-color:#4A9FD4;">
+            <div class="pathway-eyebrow" style="color:#4A9FD4;">Water · Competition</div>
+            <div class="pathway-name">Surge</div>
+            <p class="pathway-desc">Competition development track for NinFit and Tx3 athletes headed toward local, state, and national parkour and ninja events. Invitation based on demonstrated commitment and skill.</p>
+          </div>
+          <div class="pathway-card" style="border-left-color:#C4922A;">
+            <div class="pathway-eyebrow" style="color:#C4922A;">Leadership</div>
+            <div class="pathway-name">Junior Coach</div>
+            <p class="pathway-desc">An 8-week service-based cycle for athletes ages 11–13. Students assist coaches, support younger athletes, and earn their first leadership credential. Open to athletes from any program.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: JOURNEY -->
+    <div class="page" id="page-journey">
+      <div style="padding: 40px 48px 32px;">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:24px;">
+          <div>
+            <p class="section-label">Progression</p>
+            <h2 class="section-headline" style="font-size: clamp(28px, 3.5vw, 48px);">The journey<br><em>doesn't end.</em></h2>
+            <div class="rule"></div>
+          </div>
+          <p style="font-size:13px;font-weight:400;line-height:1.75;color:var(--ash);max-width:360px;text-align:right;">Every program has a real progression system. Your kid isn't just attending class — they're climbing something. Tap a program below to see what that looks like.</p>
+        </div>
+
+        <div class="journey-tabs">
+          <button class="j-tab active" onclick="showJourney('ninfit')">NinFit</button>
+          <button class="j-tab" onclick="showJourney('tx3')">Tx3</button>
+          <button class="j-tab" onclick="showJourney('aerial')">Aerial Silks</button>
+          <button class="j-tab" onclick="showJourney('ema')">EMA</button>
+        </div>
+
+        <!-- NinFit Journey -->
+        <div class="journey-panel active" id="journey-ninfit">
+          <div class="levels-grid">
+            <div class="level-card">
+              <div class="card-accent" style="background:#CC1F1F;"></div>
+              <div class="level-num">Levels 1 – 3</div>
+              <div class="level-name">Beginner</div>
+              <p class="level-desc">Foundational movement literacy. Safe landings, basic vaults, introductory tumbling, and trampoline awareness. Building the Earth layer — showing up and doing the work.</p>
+            </div>
+            <div class="level-card">
+              <div class="card-accent" style="background:#CC1F1F;"></div>
+              <div class="level-num">Levels 4 – 6</div>
+              <div class="level-name">Intermediate</div>
+              <p class="level-desc">Real skill development. More complex vaults, back handsprings, aerial awareness drills, and the beginning of personal style. Fire and Air elements start to show up in training.</p>
+            </div>
+            <div class="level-card">
+              <div class="card-accent" style="background:#CC1F1F;"></div>
+              <div class="level-num">Levels 7 – 9</div>
+              <div class="level-name">Advanced</div>
+              <p class="level-desc">High performance movement. Competition-ready skills, creative combination runs, and leadership within the gym. Athletes at this level are often on the radar for Surge and Echo.</p>
+            </div>
+          </div>
+          <div class="beyond-block">
+            <div class="beyond-text">
+              <h4>Beyond Level 9</h4>
+              <p>Advanced NinFit athletes are candidates for Surge (competition), Echo (performance), Junior Coach (leadership), or all three — depending on where their drive takes them.</p>
+            </div>
+            <span class="beyond-badge">Multiple Pathways</span>
+          </div>
+        </div>
+
+        <!-- Tx3 Journey -->
+        <div class="journey-panel" id="journey-tx3">
+          <div class="levels-grid">
+            <div class="level-card">
+              <div class="card-accent" style="background:#4A9FD4;"></div>
+              <div class="level-num">Levels 1 – 2</div>
+              <div class="level-name">Foundation</div>
+              <p class="level-desc">Trampoline basics, safe body position, introductory tumbling passes, and introductory tricking. Building air awareness and ground control simultaneously.</p>
+            </div>
+            <div class="level-card">
+              <div class="card-accent" style="background:#4A9FD4;"></div>
+              <div class="level-num">Level 3</div>
+              <div class="level-name">Development</div>
+              <p class="level-desc">Back tucks, front layouts, barani progressions, and early combo tricking. Athletes start developing personal style and stringing skills together into sequences.</p>
+            </div>
+            <div class="level-card">
+              <div class="card-accent" style="background:#4A9FD4;"></div>
+              <div class="level-num">Levels 4 – 5</div>
+              <div class="level-name">Performance</div>
+              <p class="level-desc">Advanced trampoline routines, complex tumbling, creative tricking combinations. Athletes at this level are competing or ready to compete in local and regional events.</p>
+            </div>
+          </div>
+          <div class="beyond-block" style="background:#4A9FD4;">
+            <div class="beyond-text">
+              <h4>Beyond Level 5</h4>
+              <p>Advanced Tx3 athletes often move into Surge for competitive development. Cross-training with NinFit is natural — many athletes train both simultaneously.</p>
+            </div>
+            <span class="beyond-badge">Surge Eligible</span>
+          </div>
+        </div>
+
+        <!-- Aerial Journey -->
+        <div class="journey-panel" id="journey-aerial">
+          <div class="levels-grid">
+            <div class="level-card">
+              <div class="card-accent" style="background:#9B6BB5;"></div>
+              <div class="level-num">Beginner</div>
+              <div class="level-name">Open Enrollment</div>
+              <p class="level-desc">Climbs, basic footlocks, intro inversions, and hanging strength. Building the upper body and spatial awareness needed for everything that comes next. No experience required.</p>
+            </div>
+            <div class="level-card">
+              <div class="card-accent" style="background:#9B6BB5;"></div>
+              <div class="level-num">Intermediate</div>
+              <div class="level-name">Invitation Only</div>
+              <p class="level-desc">Dynamic skills, complex wraps, drops, and the beginning of choreography. Athletes develop a personal movement signature and train toward performance readiness.</p>
+            </div>
+            <div class="level-card">
+              <div class="card-accent" style="background:#9B6BB5;"></div>
+              <div class="level-num">Advanced</div>
+              <div class="level-name">Echo Pathway</div>
+              <p class="level-desc">Performance-level aerial artistry. Athletes at this level are performing publicly, training with head coach Lexee toward showcase and external performance opportunities.</p>
+            </div>
+          </div>
+          <div class="beyond-block" style="background:#9B6BB5;">
+            <div class="beyond-text">
+              <h4>Echo Performance Troupe</h4>
+              <p>Advanced aerial athletes are the natural pipeline into E5 Echo. Audition includes a performance routine, hard gate skills, and a panel interview. Not every aerial athlete pursues Echo — and that's fine.</p>
+            </div>
+            <span class="beyond-badge">Echo Audition</span>
+          </div>
+        </div>
+
+        <!-- EMA Journey -->
+        <div class="journey-panel" id="journey-ema">
+          <div class="levels-grid">
+            <div class="level-card">
+              <div class="card-accent" style="background:#6B8F5E;"></div>
+              <div class="level-num">Foundation</div>
+              <div class="level-name">Basics and Awareness</div>
+              <p class="level-desc">Stance, movement, basic strikes, and the respect culture of martial training. Introductory grappling concepts and the five-element philosophy applied to combat.</p>
+            </div>
+            <div class="level-card">
+              <div class="card-accent" style="background:#6B8F5E;"></div>
+              <div class="level-num">Development</div>
+              <div class="level-name">Technique and Sparring</div>
+              <p class="level-desc">Controlled sparring, takedowns, submissions, and combinations across the five source arts. Athletes develop functional capability and begin to find their personal style.</p>
+            </div>
+            <div class="level-card">
+              <div class="card-accent" style="background:#6B8F5E;"></div>
+              <div class="level-num">Advanced</div>
+              <div class="level-name">Integration and Leadership</div>
+              <p class="level-desc">Cross-art integration, advanced weapons introduction (Escrima, Bo staff), and leadership responsibilities within the dojo. EMA at this level is a lifestyle, not just a class.</p>
+            </div>
+          </div>
+          <div class="beyond-block" style="background:#6B8F5E;">
+            <div class="beyond-text">
+              <h4>Forge Pathway</h4>
+              <p>Advanced EMA athletes move into Forge — the dedicated martial arts development track. EMA athletes frequently cross-train in NinFit, and the movement overlap is significant by design.</p>
+            </div>
+            <span class="beyond-badge">Forge Track</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PAGE 4: GET STARTED -->
+    <div class="page" id="page-start">
+      <div style="padding: 40px 48px 32px;">
+        <p class="section-label">Ready to Begin?</p>
+        <h2 class="section-headline" style="font-size: clamp(28px, 3.5vw, 48px);">Three steps.<br><em>No pressure.</em></h2>
+        <div class="rule"></div>
+
+        <div class="start-grid">
+          <div class="steps-col">
+            <div class="step-card">
+              <div class="step-num">01</div>
+              <div class="step-content">
+                <h4>Book a trial class</h4>
+                <p>Scan the QR code or visit elementalfive.com. Pick a program and a time that works. Every new student gets their first class free.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-num">02</div>
+              <div class="step-content">
+                <h4>Show up and move</h4>
+                <p>No gear needed. No experience needed. Just show up ready to move. Your coach will take care of the rest.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-num">03</div>
+              <div class="step-content">
+                <h4>Choose your path</h4>
+                <p>After the trial your coach will walk you through the right program for your athlete. Enroll when you're ready — no pressure, no rush.</p>
+              </div>
+            </div>
+            <div class="desk-card">
+              <strong>Already enrolled?</strong> Talk to any coach or visit the front desk — we'll get you sorted.
+            </div>
+          </div>
+
+          <div class="contact-col">
+            <div class="qr-card">
+              <p class="section-label">Book Online</p>
+              <h3>Start here.</h3>
+              <p>Everything you need — class schedule, program info, and enrollment — is at our website.</p>
+              <div style="display:flex;align-items:center;gap:20px;margin-top:8px;">
+                <div class="qr-placeholder">
+                  <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                    <rect x="4" y="4" width="18" height="18" rx="2" stroke="white" stroke-width="2.5" fill="none"/>
+                    <rect x="30" y="4" width="18" height="18" rx="2" stroke="white" stroke-width="2.5" fill="none"/>
+                    <rect x="4" y="30" width="18" height="18" rx="2" stroke="white" stroke-width="2.5" fill="none"/>
+                    <rect x="8" y="8" width="10" height="10" fill="white"/>
+                    <rect x="34" y="8" width="10" height="10" fill="white"/>
+                    <rect x="8" y="34" width="10" height="10" fill="white"/>
+                    <rect x="30" y="30" width="6" height="6" fill="white"/>
+                    <rect x="38" y="30" width="10" height="6" fill="white"/>
+                    <rect x="30" y="38" width="8" height="10" fill="white"/>
+                    <rect x="40" y="38" width="8" height="10" fill="white"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="url-display">elementalfive.com</div>
+                  <p style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;line-height:1.5;">Scan or visit on any device</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <p class="section-label">Contact Us</p>
+              <div class="contact-row">
+                <div class="contact-label">Phone</div>
+                <div class="contact-value">719-838-2023</div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-label">Email</div>
+                <div class="contact-value">gym@elementalfive.com</div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-label">Address</div>
+                <div class="contact-value" style="font-size:12px;line-height:1.5;">9985 US-50, Unit C<br>Poncha Springs, CO 81242</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end .content -->
+
+  <!-- BOTTOM BAR -->
+  <div class="bottombar">
+    <span class="bottom-item">Elemental 5</span>
+    <span class="bottom-item">·</span>
+    <span class="bottom-item accent">Salida, Colorado</span>
+    <span class="bottom-item">·</span>
+    <span class="bottom-item">elementalfive.com</span>
+    <span class="bottom-item">·</span>
+    <span class="bottom-item">719-838-2023</span>
+  </div>
+
+</div><!-- end .kiosk -->
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.nav-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('page-' + id).classList.add('active');
+  var btns = document.querySelectorAll('.nav-btn');
+  var map = {philosophy:0, programs:1, journey:2, start:3};
+  btns[map[id]].classList.add('active');
+  // scroll to top of newly activated page
+  document.getElementById('page-' + id).scrollTop = 0;
+}
+
+function showJourney(id) {
+  document.querySelectorAll('.journey-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.j-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.getElementById('journey-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+</script>
+</body>
+</html>
