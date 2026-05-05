@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8M0R94VV10"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8M0R94VV10');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echo Performance Troupe | Elemental 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg1:    #1E1A14;
+  --bg2:    #242018;
+  --bg3:    #2D2820;
+  --bg4:    #363028;
+  --gold:   #C4922A;
+  --gold2:  #D4A330;
+  --orange: #C4622D;
+  --cream:  #F2EDE4;
+  --white:  #FFFFFF;
+  --text:   rgba(242,237,228,0.88);
+  --muted:  rgba(242,237,228,0.55);
+  --soft:   rgba(242,237,228,0.32);
+}
+
+html, body {
+  width: 100%;
+  margin: 0; padding: 0;
+  background: var(--bg1);
+  color: var(--text);
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── TYPOGRAPHY HELPERS ─── */
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.section-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.section-headline em { font-style: normal; color: var(--gold); }
+
+/* ─── BUTTONS ─── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: var(--gold);
+  color: var(--bg1);
+  padding: 14px 28px;
+  border-radius: 3px;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: transparent;
+  color: var(--cream);
+  padding: 14px 28px;
+  border-radius: 3px;
+  border: 1px solid rgba(242,237,228,0.25);
+  transition: border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ─── 1. HERO ─── */
+.hero {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px 6px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  min-height: 560px;
+}
+
+.hero-left {
+  background: var(--bg2);
+  border-radius: 4px 0 0 4px;
+  padding: 72px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 60px,
+    rgba(196,146,42,0.03) 60px, rgba(196,146,42,0.03) 61px
+  );
+  pointer-events: none;
+}
+
+.hero-overline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(54px, 6.5vw, 96px);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: var(--cream);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-headline span { color: var(--gold); }
+
+.hero-tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  position: relative;
+  z-index: 1;
+  line-height: 1.5;
+}
+
+.hero-subhead {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--muted);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-right {
+  position: relative;
+  border-radius: 0 4px 4px 0;
+  overflow: hidden;
+  background: var(--bg3);
+}
+
+.hero-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(30,26,20,0.88));
+  padding: 40px 32px 28px;
+}
+
+.hero-caption {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(242,237,228,0.5);
+}
+
+/* ─── 2. INTRO ─── */
+.intro-section {
+  width: 100%;
+  background: var(--bg2);
+  padding: 80px 72px;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  margin-top: 44px;
+  align-items: start;
+}
+
+.intro-copy {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--text);
+}
+
+.intro-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.intro-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding: 16px 20px;
+  background: var(--bg3);
+  border-radius: 3px;
+  border-left: 3px solid var(--gold);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.intro-list li:hover { background: var(--bg4); border-color: var(--gold2); }
+
+.intro-list li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ─── PHOTO ROW ─── */
+.photo-row {
+  width: 100%;
+  background: var(--bg1);
+  padding: 6px 72px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.photo-cell {
+  aspect-ratio: 4/3;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg3);
+}
+
+.photo-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.photo-cell:hover img { transform: scale(1.04); }
+
+/* ─── 3. WHAT STUDENTS TRAIN ─── */
+.train-section {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px;
+}
+
+.train-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 44px;
+}
+
+.train-card {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: background 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.train-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.train-card:hover { background: var(--bg4); transform: translateY(-4px); }
+.train-card:hover::after { opacity: 1; }
+
+.train-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.train-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: var(--cream);
+}
+
+.train-body {
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--text);
+  flex: 1;
+}
+
+/* ─── 4. PERFORMANCE FOCUS ─── */
+.focus-section {
+  width: 100%;
+  background: var(--bg2);
+  padding: 80px 72px;
+}
+
+.focus-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 40px;
+}
+
+.focus-copy-panel {
+  background: var(--bg3);
+  border-radius: 4px 0 0 4px;
+  padding: 64px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+}
+
+.focus-body {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--text);
+}
+
+.focus-quote {
+  border-left: 3px solid var(--gold);
+  padding: 20px 24px;
+  background: var(--bg4);
+  border-radius: 0 4px 4px 0;
+}
+
+.focus-quote-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--cream);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.focus-image-panel {
+  border-radius: 0 4px 4px 0;
+  overflow: hidden;
+  background: var(--bg3);
+  min-height: 440px;
+}
+
+.focus-image-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── 5. PERFORMANCE OPPORTUNITIES ─── */
+.opps-section {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px;
+}
+
+.opps-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 28px;
+  margin-bottom: 48px;
+  align-items: start;
+}
+
+.opps-copy {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--text);
+}
+
+.opps-note {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 28px 32px;
+  border-left: 3px solid var(--orange);
+}
+
+.opps-note-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+
+.opps-note-text {
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.opps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.opp-card {
+  background: var(--bg3);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.opp-card:hover { transform: translateY(-4px); }
+
+.opp-card-img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  display: block;
+}
+
+.opp-card-body {
+  padding: 28px 28px 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.opp-tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(196,146,42,0.1);
+  border: 1px solid rgba(196,146,42,0.22);
+  border-radius: 2px;
+  padding: 4px 10px;
+  width: fit-content;
+}
+
+.opp-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--cream);
+  line-height: 1.2;
+}
+
+.opp-desc {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--muted);
+  flex: 1;
+}
+
+/* ─── 6. WHO ECHO IS FOR ─── */
+.who-section {
+  width: 100%;
+  background: var(--bg2);
+  padding: 80px 72px;
+}
+
+.who-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 44px;
+}
+
+.who-copy-panel {
+  background: var(--bg3);
+  border-radius: 4px 0 0 4px;
+  padding: 60px 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.who-body {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--text);
+}
+
+.who-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.who-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(242,237,228,0.07);
+}
+
+.who-list li:last-child { border-bottom: none; }
+
+.who-icon {
+  width: 22px;
+  height: 22px;
+  background: rgba(196,146,42,0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.who-icon::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.who-image-panel {
+  background: var(--bg3);
+  border-radius: 0 4px 4px 0;
+  overflow: hidden;
+}
+
+.who-image-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── 7. EXPECTATIONS ─── */
+.expect-section {
+  width: 100%;
+  background: var(--bg1);
+  padding: 80px 72px;
+}
+
+.expect-copy {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--text);
+  max-width: 600px;
+  margin-top: 20px;
+  margin-bottom: 48px;
+}
+
+.expect-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.expect-card {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 36px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  transition: background 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.expect-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.expect-card:hover { background: var(--bg4); transform: translateY(-3px); }
+.expect-card:hover::after { opacity: 1; }
+
+.expect-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  opacity: 0.3;
+}
+
+.expect-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cream);
+  line-height: 1.3;
+}
+
+/* ─── 8. FINAL CTA ─── */
+.cta-section {
+  width: 100%;
+  background: var(--bg2);
+  padding: 80px 72px;
+}
+
+.cta-inner {
+  background: var(--bg3);
+  border-radius: 4px;
+  padding: 80px 72px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg, transparent, transparent 40px,
+    rgba(196,146,42,0.025) 40px, rgba(196,146,42,0.025) 41px
+  );
+  pointer-events: none;
+}
+
+.cta-text { position: relative; z-index: 1; }
+
+.cta-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 3.5vw, 52px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  line-height: 1.0;
+  margin-bottom: 20px;
+}
+
+.cta-headline em { font-style: normal; color: var(--gold); }
+
+.cta-body {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--text);
+  max-width: 520px;
+  margin-bottom: 16px;
+}
+
+.cta-small {
+  font-size: 11px;
+  color: var(--soft);
+  line-height: 1.65;
+}
+
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 900px) {
+  .hero,
+  .intro-section,
+  .train-section,
+  .focus-section,
+  .opps-section,
+  .who-section,
+  .expect-section,
+  .cta-section { padding-left: 24px; padding-right: 24px; }
+
+  .photo-row { padding-left: 24px; padding-right: 24px; }
+
+  .hero-grid { grid-template-columns: 1fr; min-height: unset; }
+  .hero-left { border-radius: 4px; padding: 52px 32px; }
+  .hero-right { border-radius: 4px; min-height: 300px; }
+
+  .intro-grid { grid-template-columns: 1fr; gap: 32px; }
+
+  .train-grid { grid-template-columns: 1fr; }
+
+  .focus-grid { grid-template-columns: 1fr; }
+  .focus-copy-panel { border-radius: 4px; padding: 48px 32px; }
+  .focus-image-panel { border-radius: 4px; min-height: 280px; }
+
+  .opps-intro { grid-template-columns: 1fr; }
+  .opps-grid { grid-template-columns: 1fr; }
+
+  .who-grid { grid-template-columns: 1fr; }
+  .who-copy-panel { border-radius: 4px; padding: 44px 32px; }
+  .who-image-panel { border-radius: 4px; min-height: 260px; }
+
+  .expect-grid { grid-template-columns: 1fr 1fr; }
+
+  .cta-inner { grid-template-columns: 1fr; gap: 36px; padding: 52px 32px; }
+  .cta-actions { align-items: flex-start; }
+
+  .photo-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .expect-grid { grid-template-columns: 1fr; }
+  .hero-cta-group { flex-direction: column; }
+  .btn-primary, .btn-secondary { justify-content: center; width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<div id="site-nav"></div>
+<script>
+  fetch('/Partials/nav.html')
+    .then(r => r.text())
+    .then(function(html) {
+      document.getElementById('site-nav').innerHTML = html;
+    });
+</script>
+
+<!-- ─── 1. HERO ─── -->
+<section class="hero">
+  <div class="hero-grid">
+
+    <div class="hero-left">
+      <p class="hero-overline">Elemental 5 · Dedicated Performance Troupe</p>
+
+      <h1 class="hero-headline">Echo<br><span>Performance</span><br>Troupe.</h1>
+
+      <p class="hero-tagline">Where aerial, acrobatics, and tumbling become performance.</p>
+
+      <p class="hero-subhead">
+        Echo is Elemental 5's dedicated youth performance troupe for students ready to train with greater focus, develop stage presence, and bring their skills into choreographed performance. Through aerial arts, acrobatics, and tumbling, Echo students learn how to move with precision, confidence, and purpose in front of an audience.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="mailto:gym@elementalfive.com?subject=Echo%20Performance%20Troupe%20Inquiry" class="btn-primary">Ask About Echo</a>
+        <a href="#opportunities" class="btn-secondary">See Performance Opportunities</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <img src="https://lh3.googleusercontent.com/d/1qeJ5hT4TWWp_5SLfF9cYo4tvpVhBWBYx" alt="Echo Performance Troupe — group bow">
+      <div class="hero-overlay">
+        <p class="hero-caption">Echo Performance Troupe &nbsp;·&nbsp; Elemental 5</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── 2. INTRO ─── -->
+<section class="intro-section">
+  <p class="section-label">The Pathway</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,58px);">More Than Skills.<br><em>A Pathway Into Performance.</em></h2>
+
+  <div class="intro-grid">
+
+    <p class="intro-copy">
+      Echo is designed for students who are ready to take their training seriously and explore what it means to perform. Students continue developing strength, flexibility, tumbling, aerial technique, and acrobatic control — but the deeper focus is learning how to turn movement into a polished performance.<br><br>
+      This is where Elemental Athletes step into a new level of commitment, creativity, and presence. Echo is not about adding more classes to a schedule — it is about choosing a different direction entirely.
+    </p>
+
+    <ul class="intro-list">
+      <li>Stage presence</li>
+      <li>Confidence under pressure</li>
+      <li>Clean technique</li>
+      <li>Choreography awareness</li>
+      <li>Timing and musicality</li>
+      <li>Ensemble responsibility</li>
+      <li>Performance discipline</li>
+    </ul>
+
+  </div>
+</section>
+
+<!-- ─── PHOTO ROW ─── -->
+<div class="photo-row">
+  <div class="photo-cell">
+    <img src="https://lh3.googleusercontent.com/d/1D7h14459-QONMxciUOI2wC-TdAELBDKT" alt="Echo troupe group performance">
+  </div>
+  <div class="photo-cell">
+    <img src="https://lh3.googleusercontent.com/d/1t03EpSYzF-FAiOf3_Bp_8uRpKrnuciZb" alt="Echo troupe aerial performance">
+  </div>
+  <div class="photo-cell">
+    <img src="https://lh3.googleusercontent.com/d/1u9kiyXHxuBq_urmYF-CdMhUHtQ_3Vz5R" alt="Echo troupe acrobatics">
+  </div>
+</div>
+
+<!-- ─── 3. WHAT STUDENTS TRAIN ─── -->
+<section class="train-section">
+  <p class="section-label">Training Focus</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,58px);">What Students<br><em>Train in Echo.</em></h2>
+
+  <div class="train-grid">
+
+    <div class="train-card">
+      <p class="train-num">01</p>
+      <h3 class="train-title">Aerial Arts</h3>
+      <p class="train-body">Students develop strength, control, lines, sequencing, and confidence in the air. Training focuses on clean shapes, safe progressions, and performance-ready aerial movement that translates from equipment to stage. Every skill is trained with intention and presentation in mind.</p>
+    </div>
+
+    <div class="train-card">
+      <p class="train-num">02</p>
+      <h3 class="train-title">Acrobatics</h3>
+      <p class="train-body">Students build dynamic movement quality through partner-inspired shapes, floor acrobatics, transitions, balance, and controlled physical expression. Acrobatics in Echo is always connected to performance intent — not just what the body can do, but how it does it.</p>
+    </div>
+
+    <div class="train-card">
+      <p class="train-num">03</p>
+      <h3 class="train-title">Tumbling</h3>
+      <p class="train-body">Students refine tumbling skills with an emphasis on clean execution, power, control, and the ability to connect skills into performance choreography. Every pass is trained with stage awareness in mind — how you land is as important as what you throw.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── 4. PERFORMANCE FOCUS ─── -->
+<section class="focus-section">
+  <p class="section-label">The Standard</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,58px);">Training With<br><em>a Purpose.</em></h2>
+
+  <div class="focus-grid">
+
+    <div class="focus-copy-panel">
+      <p class="focus-body">
+        Echo gives students a reason to train beyond the next skill. Every class connects technique to performance quality. Students learn that how they enter, present, transition, recover, and finish matters just as much as the skill itself.<br><br>
+        Performance discipline is built over time through repetition, coaching, and real stage experience. Echo students don't just collect skills — they learn to use them in front of an audience, under pressure, with intention. That is a fundamentally different kind of training.
+      </p>
+      <div class="focus-quote">
+        <p class="focus-quote-text">"Echo is where Elemental Athletes learn to perform."</p>
+      </div>
+    </div>
+
+    <div class="focus-image-panel">
+      <img src="https://lh3.googleusercontent.com/d/1teOjLbicvDi6_RT8-gAQuoc_-0LoCCxN" alt="Echo troupe — performance focus">
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── 5. PERFORMANCE OPPORTUNITIES ─── -->
+<section class="opps-section" id="opportunities">
+  <p class="section-label">Performance Opportunities</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,58px);">Real Opportunities<br><em>to Perform.</em></h2>
+
+  <div class="opps-intro">
+    <p class="opps-copy">
+      Echo students have opportunities to perform throughout the year at Elemental 5 showcases, community events, and larger performance experiences. Elemental 5 has attended VIVA Fest for the last two years, giving students a window into a broader world of youth circus, aerial, and acrobatic performance. Echo membership connects students to these experiences — and to the possibility of more.
+    </p>
+    <div class="opps-note">
+      <p class="opps-note-label">Please Note</p>
+      <p class="opps-note-text">Participation in specific events may depend on readiness, commitment, and coach approval. Not all Echo students will perform in every event.</p>
+    </div>
+  </div>
+
+  <div class="opps-grid">
+
+    <div class="opp-card">
+      <img class="opp-card-img"
+        src="https://lh3.googleusercontent.com/d/1D7h14459-QONMxciUOI2wC-TdAELBDKT"
+        alt="Elemental 5 Showcase performance">
+      <div class="opp-card-body">
+        <span class="opp-tag">Year-Round</span>
+        <h3 class="opp-title">Elemental 5 Showcases</h3>
+        <p class="opp-desc">Echo students perform in multiple showcase events throughout the year — in front of a real audience, with real choreography and a real stage. This is where training becomes performance. These are the events Echo trains for.</p>
+      </div>
+    </div>
+
+    <div class="opp-card">
+      <img class="opp-card-img"
+        src="https://lh3.googleusercontent.com/d/1t03EpSYzF-FAiOf3_Bp_8uRpKrnuciZb"
+        alt="Local and community performances">
+      <div class="opp-card-body">
+        <span class="opp-tag">Community</span>
+        <h3 class="opp-title">Local &amp; Community Performances</h3>
+        <p class="opp-desc">Echo students represent Elemental 5 at local and community events, bringing polished aerial and acrobatic performance beyond the gym walls. These opportunities build confidence and reinforce what it means to perform for a live audience.</p>
+      </div>
+    </div>
+
+    <div class="opp-card">
+      <img class="opp-card-img"
+        src="https://lh3.googleusercontent.com/d/1qeJ5hT4TWWp_5SLfF9cYo4tvpVhBWBYx"
+        alt="Festival-style performance opportunities including VIVA Fest">
+      <div class="opp-card-body">
+        <span class="opp-tag">Festival</span>
+        <h3 class="opp-title">Festival-Style Opportunities</h3>
+        <p class="opp-desc">Elemental 5 has attended VIVA Fest for the last two years. Events like VIVA Fest give Echo students a window into a broader world of youth circus, aerial, and acrobatic performance — and a chance to see what the pathway ahead can look like.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── 6. WHO ECHO IS FOR ─── -->
+<section class="who-section">
+  <p class="section-label">Fit &amp; Readiness</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,58px);">Who Echo<br><em>Is For.</em></h2>
+
+  <div class="who-grid">
+
+    <div class="who-copy-panel">
+      <p class="who-body">
+        Echo is for students who are excited by performance and ready for a higher level of commitment. Students do not need to be perfect performers before joining — but they should be coachable, consistent, focused, and willing to train as part of a team.
+      </p>
+      <ul class="who-list">
+        <li>
+          <span class="who-icon"></span>
+          Students who love aerial, acrobatics, or tumbling
+        </li>
+        <li>
+          <span class="who-icon"></span>
+          Students interested in performing in front of an audience
+        </li>
+        <li>
+          <span class="who-icon"></span>
+          Students ready for more focused training
+        </li>
+        <li>
+          <span class="who-icon"></span>
+          Students who can listen, repeat, refine, and work as part of a group
+        </li>
+        <li>
+          <span class="who-icon"></span>
+          Students who want to represent Elemental 5 through performance
+        </li>
+      </ul>
+    </div>
+
+    <div class="who-image-panel">
+      <img src="https://lh3.googleusercontent.com/d/1ReHYEU7ITLBL6reFC1k4zMId2JyVlNdC" alt="Echo troupe student in performance">
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── 7. EXPECTATIONS ─── -->
+<section class="expect-section">
+  <p class="section-label">What We Expect</p>
+  <h2 class="section-headline" style="font-size:clamp(32px,4vw,58px);">The Echo<br><em>Standard.</em></h2>
+  <p class="expect-copy">
+    Because Echo is a performance troupe, students are expected to bring strong effort, respect, and consistency. The goal is not just to learn impressive skills — but to become reliable performers who can contribute to a group piece. Every Echo student carries the troupe's name when they step on stage.
+  </p>
+
+  <div class="expect-grid">
+
+    <div class="expect-card">
+      <p class="expect-num">01</p>
+      <h3 class="expect-title">Show Up Consistently</h3>
+    </div>
+
+    <div class="expect-card">
+      <p class="expect-num">02</p>
+      <h3 class="expect-title">Train With Focus</h3>
+    </div>
+
+    <div class="expect-card">
+      <p class="expect-num">03</p>
+      <h3 class="expect-title">Respect the Group</h3>
+    </div>
+
+    <div class="expect-card">
+      <p class="expect-num">04</p>
+      <h3 class="expect-title">Refine the Details</h3>
+    </div>
+
+    <div class="expect-card">
+      <p class="expect-num">05</p>
+      <h3 class="expect-title">Perform With Confidence</h3>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── 8. FINAL CTA ─── -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2 class="cta-headline">Ready to Step Into<br><em>Performance?</em></h2>
+      <p class="cta-body">If your student is drawn to aerial, acrobatics, tumbling, and the excitement of performing, Echo may be the next step in their Elemental 5 journey.</p>
+      <p class="cta-small">Echo placement may depend on age, readiness, coach recommendation, and current troupe openings.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="mailto:gym@elementalfive.com?subject=Echo%20Performance%20Troupe%20Inquiry" class="btn-primary">Ask About Echo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<div id="site-footer"></div>
+<script>
+  fetch('/Partials/footer.html')
+    .then(r => r.text())
+    .then(function(html) {
+      var el = document.getElementById('site-footer');
+      el.innerHTML = html;
+      el.querySelectorAll('script').forEach(function(s) {
+        var ns = document.createElement('script');
+        if (s.src) { ns.src = s.src; ns.type = s.type || 'text/javascript'; }
+        else { ns.textContent = s.textContent; }
+        document.body.appendChild(ns);
+      });
+    });
+</script>
+
+</body>
+</html>
