@@ -251,96 +251,6 @@ html, body {
 
 .ty-btn-secondary:hover { background: var(--cream); }
 
-/* ── FOOTER ── */
-.site-footer {
-  background: #0E0804;
-  border-top: 3px solid #C4622D;
-  padding: 4rem 2rem;
-}
-
-.footer-inner { max-width: 1120px; margin: 0 auto; }
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 3rem;
-  margin-bottom: 3rem;
-}
-
-.footer-brand {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  font-size: 1.25rem;
-  color: #C4622D;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-}
-
-.footer-tagline {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.7;
-}
-
-.footer-col-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #C4622D;
-  margin-bottom: 1rem;
-}
-
-.footer-link {
-  display: block;
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.7);
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-  transition: color 0.2s;
-}
-
-.footer-link:hover { color: #C4622D; }
-
-.footer-address {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.6;
-}
-
-.footer-apply-btn {
-  display: inline-block;
-  background: #CC1F1F;
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.9rem 1.5rem;
-  text-decoration: none;
-  border-radius: 3px;
-  transition: background 0.2s;
-}
-
-.footer-apply-btn:hover { background: #A51818; }
-
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 2rem;
-  text-align: center;
-}
-
-.footer-copy {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.5);
-}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
@@ -413,33 +323,14 @@ html, body {
   </div>
 </div>
 
-<!-- ══ FOOTER ══ -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div>
-        <p class="footer-brand">Elemental 5</p>
-        <p class="footer-tagline">A human development center disguised as an acrobatics gym. We build athletes, leaders, and humans.</p>
-      </div>
-      <div>
-        <p class="footer-col-title">Contact</p>
-        <a href="tel:7198382023" class="footer-link">Phone: 719-838-2023</a>
-        <a href="mailto:gym@elementalfive.com" class="footer-link">Email: gym@elementalfive.com</a>
-      </div>
-      <div>
-        <p class="footer-col-title">Location</p>
-        <p class="footer-address">9985 US-50<br>Unit C<br>Poncha Springs, CO 81242</p>
-      </div>
-      <div>
-        <p class="footer-col-title">Join Our Team</p>
-        <a href="https://coach.elementalfive.com" target="_blank" class="footer-apply-btn">Apply Here →</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">&copy; 2025 Elemental 5. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
+<!-- ── SHARED FOOTER ── -->
+<div id="site-footer"></div>
+<script>
+  fetch('/Partials/footer.html')
+    .then(r => r.text())
+    .then(html => { document.getElementById('site-footer').innerHTML = html; });
+</script>
+
 
 </body>
 </html>

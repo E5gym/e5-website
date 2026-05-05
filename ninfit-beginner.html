@@ -35,7 +35,6 @@ html{scroll-behavior:smooth}body{font-family:'Nunito Sans',sans-serif;background
 .next-section{background:var(--blue-muted);padding:5.5rem 0}.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}.next-card{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);padding:2.2rem}.next-card-title{font-family:'Montserrat',sans-serif;font-weight:900;text-transform:uppercase;font-size:1.5rem;margin-bottom:.8rem}.next-card p{color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:1.5rem}
 /* FAQ + ENROLL */
 .faq-section{background:var(--white);color:var(--text);padding:7rem 0}.faq-headline{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.75rem,3.5vw,2.5rem);letter-spacing:-.02em;text-transform:uppercase;color:var(--black);margin-bottom:3rem}.faq-list{display:flex;flex-direction:column;max-width:760px}.faq-item{border-bottom:1px solid var(--gray-200);padding:1.5rem 0}.faq-q{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:800;letter-spacing:.02em;text-transform:uppercase;color:var(--black);margin-bottom:.7rem}.faq-a{font-size:.95rem;color:var(--gray-500);line-height:1.75}.enroll-section{background:var(--blue);padding:7rem 0;position:relative;overflow:hidden}.enroll-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.08) 1px,transparent 1px);background-size:40px 40px}.enroll-content{position:relative;text-align:center}.enroll-headline{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2.5rem,7vw,5.5rem);line-height:.95;letter-spacing:-.03em;text-transform:uppercase;color:#fff;margin-bottom:1.25rem}.enroll-sub{font-size:1.05rem;color:rgba(255,255,255,.72);max-width:540px;margin:0 auto 2.5rem;line-height:1.75}.enroll-cta-row{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}.enroll-stats{display:flex;justify-content:center;gap:3rem;margin-top:3rem;flex-wrap:wrap}.stat{text-align:center}.stat-value{font-family:'Montserrat',sans-serif;font-weight:900;font-size:2.25rem;letter-spacing:-.02em;color:#fff;display:block;margin-bottom:.2rem}.stat-label{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.48)}
-.page-footer{background:var(--black);border-top:3px solid var(--blue);padding:2.5rem 0;text-align:center}.footer-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.25rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-mid);margin-bottom:.5rem}.footer-sub{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.22)}
 @media(max-width:900px){.what-grid,.progression-grid,.next-grid{grid-template-columns:1fr;gap:3rem}.cycle-grid,.flow-grid,.levels-grid{grid-template-columns:1fr}.quick-list{grid-template-columns:1fr}.gate-callout{flex-direction:column}.hero-content{padding:32px 24px}.vimeo-hero{height:90vh}}
 @media(max-width:600px){.container{padding:0 1.4rem}.hero-cta-row,.enroll-cta-row{gap:12px}.btn-primary,.btn-ghost,.btn-white,.btn-outline-white{width:100%;text-align:center}.flow-card,.cycle-track,.booklet-card{padding:1.6rem}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}.hero-kicker{animation:fadeUp .6s ease both}.hero-title{animation:fadeUp .7s .1s ease both}.hero-sub{animation:fadeUp .7s .2s ease both}.hero-cta-row{animation:fadeUp .7s .3s ease both}
@@ -839,11 +838,13 @@ fetch('/partials/nav.html').then(response=>response.text()).then(html=>{document
   </div>
 </div>
 
-<footer class="page-footer">
-  <div class="container">
-    <div class="footer-logo">Elemental 5</div>
-    <p class="footer-sub">Acrobatics · Parkour · Ninja · Salida, Colorado</p>
-  </div>
-</footer>
+<!-- ── SHARED FOOTER ── -->
+<div id="site-footer"></div>
+<script>
+  fetch('/Partials/footer.html')
+    .then(r => r.text())
+    .then(html => { document.getElementById('site-footer').innerHTML = html; });
+</script>
+
 </body>
 </html>

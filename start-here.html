@@ -422,5 +422,13 @@ a{text-decoration:none}
   </div>
 </section>
 
+<!-- ── SHARED FOOTER ── -->
+<div id="site-footer"></div>
+<script>
+  fetch('/Partials/footer.html')
+    .then(r => r.text())
+    .then(html => { document.getElementById('site-footer').innerHTML = html; });
+</script>
+
 </body>
 </html>

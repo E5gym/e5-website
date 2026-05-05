@@ -1498,16 +1498,14 @@ a { -webkit-tap-highlight-color: transparent; }
   </div>
 </section>
 
-<!-- ══ NEWSLETTER FOOTER ══ -->
-<footer class="nl-footer">
-  <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6808637a070a68b07d8b0d50_E5_Logo_Symbol_021224.png" alt="Elemental 5 symbol" class="nl-footer-symbol">
-  <p class="nl-footer-tagline">Be a Force of Nature.</p>
-  <p class="nl-footer-programs">Elemental 5 &middot; Acro &middot; Parkour &middot; Ninja</p>
-  <p class="nl-footer-contact">
-    <a href="https://www.elementalfive.com">elementalfive.com</a> &nbsp;&middot;&nbsp;
-    <a href="mailto:gym@elementalfive.com">gym@elementalfive.com</a>
-  </p>
-</footer>
+<!-- ── SHARED FOOTER ── -->
+<div id="site-footer"></div>
+<script>
+  fetch('/Partials/footer.html')
+    .then(r => r.text())
+    .then(html => { document.getElementById('site-footer').innerHTML = html; });
+</script>
+
 
 </body>
 </html>
