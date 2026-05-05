@@ -111,36 +111,90 @@ html, body {
   padding: 80px 72px 6px;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  min-height: 560px;
-}
-
-.hero-left {
-  background: var(--bg2);
-  border-radius: 4px 0 0 4px;
-  padding: 72px 56px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 36px;
+/* Layered hero: image fills the whole panel, content floats over gradient */
+.hero-inner {
   position: relative;
+  border-radius: 4px;
   overflow: hidden;
+  min-height: 620px;
+  background: var(--bg2);
+  display: flex;
+  align-items: stretch;
 }
 
-.hero-left::before {
-  content: '';
+/* ── Full-bleed image layer ── */
+.hero-bg {
   position: absolute;
   inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 68% center;
+  display: block;
+}
+
+/* Gradient: opaque dark on left → transparent toward right */
+.hero-bg-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    #242018 0%,
+    #242018 32%,
+    rgba(36,32,24,0.97) 42%,
+    rgba(36,32,24,0.72) 54%,
+    rgba(36,32,24,0.22) 70%,
+    transparent 86%
+  );
+}
+
+/* Subtle diagonal texture over the dark zone */
+.hero-bg-texture {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   background-image: repeating-linear-gradient(
     -45deg, transparent, transparent 60px,
-    rgba(196,146,42,0.03) 60px, rgba(196,146,42,0.03) 61px
+    rgba(196,146,42,0.025) 60px, rgba(196,146,42,0.025) 61px
   );
   pointer-events: none;
 }
 
+/* ── Content layer: sits over gradient ── */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 80px 64px 80px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* ── Caption pinned to bottom-right ── */
+.hero-caption-overlay {
+  position: absolute;
+  bottom: 22px;
+  right: 28px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.hero-caption {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(242,237,228,0.4);
+}
+
+/* ── Text elements ── */
 .hero-overline {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
@@ -148,20 +202,16 @@ html, body {
   letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--gold);
-  position: relative;
-  z-index: 1;
 }
 
 .hero-headline {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(54px, 6.5vw, 96px);
+  font-size: clamp(52px, 5.8vw, 96px);
   font-weight: 900;
   line-height: 0.88;
   letter-spacing: -0.025em;
   text-transform: uppercase;
   color: var(--cream);
-  position: relative;
-  z-index: 1;
 }
 
 .hero-headline span { color: var(--gold); }
@@ -173,8 +223,6 @@ html, body {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
-  position: relative;
-  z-index: 1;
   line-height: 1.5;
 }
 
@@ -183,47 +231,12 @@ html, body {
   font-weight: 400;
   line-height: 1.8;
   color: var(--muted);
-  position: relative;
-  z-index: 1;
 }
 
 .hero-cta-group {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  position: relative;
-  z-index: 1;
-}
-
-.hero-right {
-  position: relative;
-  border-radius: 0 4px 4px 0;
-  overflow: hidden;
-  background: var(--bg3);
-}
-
-.hero-right img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-.hero-overlay {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(30,26,20,0.88));
-  padding: 40px 32px 28px;
-}
-
-.hero-caption {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(242,237,228,0.5);
 }
 
 /* ─── 2. INTRO ─── */
@@ -788,9 +801,32 @@ html, body {
 
   .photo-row { padding-left: 24px; padding-right: 24px; }
 
-  .hero-grid { grid-template-columns: 1fr; min-height: unset; }
-  .hero-left { border-radius: 4px; padding: 52px 32px; }
-  .hero-right { border-radius: 4px; min-height: 300px; }
+  /* Layered hero: stack image on top, content below */
+  .hero-inner { min-height: unset; flex-direction: column; }
+  .hero-bg {
+    position: relative;
+    inset: unset;
+    height: 280px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .hero-bg img { height: 100%; object-position: center 20%; }
+  .hero-bg-fade {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(36,32,24,0.55) 65%,
+      #242018 100%
+    );
+  }
+  .hero-bg-texture { display: none; }
+  .hero-content {
+    max-width: 100%;
+    padding: 16px 28px 52px;
+    gap: 24px;
+    justify-content: flex-start;
+  }
+  .hero-caption-overlay { display: none; }
 
   .intro-grid { grid-template-columns: 1fr; gap: 32px; }
 
@@ -836,9 +872,17 @@ html, body {
 
 <!-- ─── 1. HERO ─── -->
 <section class="hero">
-  <div class="hero-grid">
+  <div class="hero-inner">
 
-    <div class="hero-left">
+    <!-- Image fills the full hero; gradient fades it dark on the left -->
+    <div class="hero-bg">
+      <img src="https://lh3.googleusercontent.com/d/1qeJ5hT4TWWp_5SLfF9cYo4tvpVhBWBYx" alt="Echo Performance Troupe — group performance">
+      <div class="hero-bg-fade"></div>
+    </div>
+    <div class="hero-bg-texture"></div>
+
+    <!-- Foreground: content sits over the gradient -->
+    <div class="hero-content">
       <p class="hero-overline">Elemental 5 · Dedicated Performance Troupe</p>
 
       <h1 class="hero-headline">Echo<br><span>Performance</span><br>Troupe.</h1>
@@ -855,11 +899,9 @@ html, body {
       </div>
     </div>
 
-    <div class="hero-right">
-      <img src="https://lh3.googleusercontent.com/d/1qeJ5hT4TWWp_5SLfF9cYo4tvpVhBWBYx" alt="Echo Performance Troupe — group bow">
-      <div class="hero-overlay">
-        <p class="hero-caption">Echo Performance Troupe &nbsp;·&nbsp; Elemental 5</p>
-      </div>
+    <!-- Caption pinned bottom-right over the photo area -->
+    <div class="hero-caption-overlay">
+      <p class="hero-caption">Echo Performance Troupe &nbsp;·&nbsp; Elemental 5</p>
     </div>
 
   </div>
