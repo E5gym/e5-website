@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -665,7 +665,16 @@ html, body {
 <script>
   fetch('/Partials/footer.html')
     .then(r => r.text())
-    .then(html => { document.getElementById('site-footer').innerHTML = html; });
+    .then(function(html) {
+      var el = document.getElementById('site-footer');
+      el.innerHTML = html;
+      el.querySelectorAll('script').forEach(function(s) {
+        var ns = document.createElement('script');
+        if (s.src) { ns.src = s.src; ns.type = s.type || 'text/javascript'; }
+        else { ns.textContent = s.textContent; }
+        document.body.appendChild(ns);
+      });
+    });
 </script>
 
 </body>
