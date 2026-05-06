@@ -18,10 +18,12 @@
 <meta property="og:url" content="https://www.elementalfive.com/store">
 <meta property="og:title" content="Elemental 5 Store | Official E5 Gear">
 <meta property="og:description" content="Official shirts, hoodies, hats, bottles, and training gear for Elemental 5 students, families, coaches, and supporters.">
+<meta property="og:image" content="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97519ed0704888e132fb_unisex-staple-t-shirt-athletic-heather-front-69fb964e78591.jpg">
 <meta property="og:site_name" content="Elemental 5">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Elemental 5 Store | Official E5 Gear">
 <meta name="twitter:description" content="Shop official Elemental 5 gear and Elemental Athlete apparel.">
+<meta name="twitter:image" content="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97519ed0704888e132fb_unisex-staple-t-shirt-athletic-heather-front-69fb964e78591.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -56,6 +58,7 @@ html, body {
 }
 
 a, button { -webkit-tap-highlight-color: transparent; }
+img { max-width: 100%; display: block; }
 
 .section-divider {
   width: 100%;
@@ -64,12 +67,13 @@ a, button { -webkit-tap-highlight-color: transparent; }
   opacity: 0.6;
 }
 
+/* HERO */
 .store-hero {
   position: relative;
   width: 100%;
-  min-height: 72vh;
+  min-height: 82vh;
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1fr;
   background: var(--black);
   overflow: hidden;
 }
@@ -85,7 +89,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .hero-copy {
   position: relative;
   z-index: 2;
-  padding: 110px 72px 96px;
+  padding: 112px 56px 96px 72px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -174,60 +178,64 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 .btn-secondary:hover { background: rgba(255,255,255,0.12); border-color: var(--white); transform: translateY(-1px); }
 
-.hero-panel {
+.hero-visual {
   position: relative;
   z-index: 2;
-  padding: 110px 72px 96px 24px;
+  padding: 112px 72px 96px 24px;
   display: flex;
   align-items: center;
 }
 
-.hero-card {
+.hero-product-grid {
   width: 100%;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.hero-product-tile {
+  position: relative;
   border-radius: 4px;
-  padding: 34px;
+  overflow: hidden;
+  background: #F3F4F6;
+  border: 1px solid rgba(255,255,255,0.08);
+  aspect-ratio: 1 / 1;
 }
 
-.hero-card-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ember);
-  margin-bottom: 22px;
+.hero-product-tile.large {
+  grid-row: span 2;
+  aspect-ratio: auto;
 }
 
-.hero-feature-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.hero-product-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-.hero-feature-list li {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  color: rgba(255,255,255,0.68);
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.hero-feature-list li::before {
+.hero-product-tile::after {
   content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--red);
-  flex-shrink: 0;
-  margin-top: 9px;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 58%, rgba(0,0,0,0.35));
+  pointer-events: none;
 }
 
-.hero-feature-list strong { color: var(--white); }
+.tile-label {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  z-index: 2;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+}
 
+/* GLOBAL SECTIONS */
 .section {
   width: 100%;
   padding: 80px 72px 100px;
@@ -285,6 +293,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .section-intro strong { color: var(--text-dark); font-weight: 700; }
 .section-dark .section-intro strong { color: var(--white); }
 
+/* CATEGORIES */
 .category-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -358,6 +367,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 .category-link:hover { color: #A51818; }
 
+/* PRODUCTS */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -379,18 +389,41 @@ a, button { -webkit-tap-highlight-color: transparent; }
   box-shadow: 0 18px 40px rgba(15,23,42,0.08);
 }
 
+.product-image {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: #EEF4F8;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.25s ease;
+}
+
+.product-card:hover .product-image img { transform: scale(1.03); }
+
 .product-tag {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  z-index: 2;
   font-family: 'Montserrat', sans-serif;
   font-size: 9px;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--red);
-  padding: 18px 22px 0;
+  color: var(--white);
+  background: rgba(28,17,8,0.82);
+  border-radius: 100px;
+  padding: 6px 10px;
 }
 
 .product-body {
-  padding: 12px 22px 24px;
+  padding: 22px 22px 24px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -429,6 +462,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 .btn-dark:hover { background: #333; }
 
+/* SUPPORT */
 .support-strip {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -511,10 +545,16 @@ a, button { -webkit-tap-highlight-color: transparent; }
   margin-top: 8px;
 }
 
-@media (max-width: 1000px) {
+/* FOOTER HOOK */
+.footer-placeholder {
+  width: 100%;
+  background: var(--black);
+}
+
+@media (max-width: 1100px) {
   .store-hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-copy { padding: 80px 36px 44px; }
-  .hero-panel { padding: 0 36px 72px; }
+  .hero-copy { padding: 88px 36px 44px; }
+  .hero-visual { padding: 0 36px 72px; }
   .section { padding-left: 36px; padding-right: 36px; }
   .category-grid { grid-template-columns: repeat(2, 1fr); }
   .product-grid { grid-template-columns: repeat(2, 1fr); }
@@ -523,12 +563,18 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 @media (max-width: 700px) {
   .hero-copy { padding: 64px 24px 38px; }
-  .hero-panel { padding: 0 24px 56px; }
-  .hero-card { padding: 26px 22px; }
+  .hero-visual { padding: 0 24px 56px; }
+  .hero-product-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
   .section { padding: 60px 24px 72px; }
   .section-header { flex-direction: column; align-items: flex-start; }
   .category-grid, .product-grid { grid-template-columns: 1fr; }
   .support-main, .support-side { padding: 34px 26px; }
+}
+
+@media (max-width: 460px) {
+  .hero-product-grid { grid-template-columns: 1fr; }
+  .hero-product-tile.large { aspect-ratio: 1 / 1; }
+  .store-actions a { width: 100%; }
 }
 </style>
 </head>
@@ -541,12 +587,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
     .then(response => response.text())
     .then(html => {
       document.getElementById('site-nav').innerHTML = html;
-      document.querySelectorAll('.e5-nav-links a, .e5-mobile-menu a').forEach(function(a) {
-        var href = a.getAttribute('href');
-        if (href === '/store' || href === '/store.html') {
-          a.classList.add('e5-active');
-        }
-      });
     });
 </script>
 
@@ -560,14 +600,29 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <a href="#featured-products" class="btn-secondary">Shop Featured Gear</a>
     </div>
   </div>
-  <div class="hero-panel">
-    <div class="hero-card">
-      <p class="hero-card-label">Why E5 Gear?</p>
-      <ul class="hero-feature-list">
-        <li><span><strong>Students feel connected</strong> to the culture they train in every week.</span></li>
-        <li><span><strong>Families can represent E5</strong> at school, events, camps, and around town.</span></li>
-        <li><span><strong>Every purchase supports the movement</strong> we are building in Chaffee County.</span></li>
-      </ul>
+
+  <div class="hero-visual">
+    <div class="hero-product-grid" aria-label="Featured Elemental 5 store products">
+      <a href="https://e5-swag.printful.me/product/elemental-athlete-youth-hoodie" target="_blank" rel="noopener" class="hero-product-tile large">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb9751feaafb750f4a0e68_kids-eco-hoodie-black-front-2-69fb96be6c2c0.jpg" alt="Elemental Athlete youth hoodie">
+        <span class="tile-label">Youth Hoodie</span>
+      </a>
+      <a href="https://e5-swag.printful.me/product/classic-e5-adult-unisex-t" target="_blank" rel="noopener" class="hero-product-tile">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97519ed0704888e132fb_unisex-staple-t-shirt-athletic-heather-front-69fb964e78591.jpg" alt="Classic E5 adult tee">
+        <span class="tile-label">Adult Tee</span>
+      </a>
+      <a href="https://e5-swag.printful.me/product/e5-hat" target="_blank" rel="noopener" class="hero-product-tile">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97517e70bb360cd4f78d_snapback-trucker-cap-charcoal-black-front-69fb96f8976a8.jpg" alt="E5 hat">
+        <span class="tile-label">E5 Hat</span>
+      </a>
+      <a href="https://e5-swag.printful.me/product/e5-stainless-steel-water-bottle-with-a-straw-lid" target="_blank" rel="noopener" class="hero-product-tile">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb9751343a62dc302b2bc6_stainless-steel-water-bottle-with-a-straw-lid-white-32-oz-front-69fb97219d5d4.jpg" alt="E5 stainless steel water bottle">
+        <span class="tile-label">Bottle</span>
+      </a>
+      <a href="https://e5-swag.printful.me/product/youth-t-shirt-water-color" target="_blank" rel="noopener" class="hero-product-tile">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97a332e5b0288d085e9f_youth-sports-tee-royal-front-69fb968745bff%5B1%5D.jpg" alt="Youth E5 shirt in water color">
+        <span class="tile-label">Youth Shirt</span>
+      </a>
     </div>
   </div>
 </section>
@@ -646,63 +701,81 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <p class="section-label">Featured Gear</p>
       <h2 class="section-headline">Start<br><em>here.</em></h2>
     </div>
-    <p class="section-intro">These are the easiest products to feature first: clean, useful, and directly tied to the E5 identity.</p>
+    <p class="section-intro">A focused set of E5 gear that gives families a clear place to start without overwhelming the page.</p>
   </div>
 
   <div class="product-grid">
-    <div class="product-card">
-      <p class="product-tag">Core E5</p>
+    <article class="product-card">
+      <a href="https://e5-swag.printful.me/product/classic-e5-adult-unisex-t" target="_blank" rel="noopener" class="product-image">
+        <span class="product-tag">Core E5</span>
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97519ed0704888e132fb_unisex-staple-t-shirt-athletic-heather-front-69fb964e78591.jpg" alt="Classic E5 adult tee">
+      </a>
       <div class="product-body">
         <h3 class="product-name">Classic E5 Adult Tee</h3>
         <p class="product-desc">The clean everyday E5 shirt for parents, coaches, and supporters.</p>
         <div class="product-actions"><a href="https://e5-swag.printful.me/product/classic-e5-adult-unisex-t" target="_blank" rel="noopener" class="btn-dark">Shop Tee →</a></div>
       </div>
-    </div>
+    </article>
 
-    <div class="product-card">
-      <p class="product-tag">Student Favorite</p>
+    <article class="product-card">
+      <a href="https://e5-swag.printful.me/product/youth-t-shirt-water-color" target="_blank" rel="noopener" class="product-image">
+        <span class="product-tag">Student Favorite</span>
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97a332e5b0288d085e9f_youth-sports-tee-royal-front-69fb968745bff%5B1%5D.jpg" alt="Youth E5 shirt in water color">
+      </a>
       <div class="product-body">
         <h3 class="product-name">Youth E5 Shirt</h3>
         <p class="product-desc">A simple youth shirt for students who want to represent Elemental 5 in class and around town.</p>
-        <div class="product-actions"><a href="https://e5-swag.printful.me/product/youth-t-shirt" target="_blank" rel="noopener" class="btn-dark">Shop Youth Shirt →</a></div>
+        <div class="product-actions"><a href="https://e5-swag.printful.me/product/youth-t-shirt-water-color" target="_blank" rel="noopener" class="btn-dark">Shop Youth Shirt →</a></div>
       </div>
-    </div>
+    </article>
 
-    <div class="product-card">
-      <p class="product-tag">Elemental Athlete</p>
+    <article class="product-card">
+      <a href="https://e5-swag.printful.me/product/elemental-athlete-youth-hoodie" target="_blank" rel="noopener" class="product-image">
+        <span class="product-tag">Elemental Athlete</span>
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb9751feaafb750f4a0e68_kids-eco-hoodie-black-front-2-69fb96be6c2c0.jpg" alt="Elemental Athlete youth hoodie">
+      </a>
       <div class="product-body">
         <h3 class="product-name">Youth Athlete Hoodie</h3>
         <p class="product-desc">A stronger identity piece for students moving deeper into training culture.</p>
         <div class="product-actions"><a href="https://e5-swag.printful.me/product/elemental-athlete-youth-hoodie" target="_blank" rel="noopener" class="btn-dark">Shop Hoodie →</a></div>
       </div>
-    </div>
+    </article>
 
-    <div class="product-card">
-      <p class="product-tag">Accessories</p>
+    <article class="product-card">
+      <a href="https://e5-swag.printful.me/product/e5-hat" target="_blank" rel="noopener" class="product-image">
+        <span class="product-tag">Accessories</span>
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97517e70bb360cd4f78d_snapback-trucker-cap-charcoal-black-front-69fb96f8976a8.jpg" alt="E5 hat">
+      </a>
       <div class="product-body">
         <h3 class="product-name">E5 Hat</h3>
         <p class="product-desc">An easy everyday piece for parents, coaches, and older athletes.</p>
         <div class="product-actions"><a href="https://e5-swag.printful.me/product/e5-hat" target="_blank" rel="noopener" class="btn-dark">Shop Hat →</a></div>
       </div>
-    </div>
+    </article>
 
-    <div class="product-card">
-      <p class="product-tag">Daily Use</p>
+    <article class="product-card">
+      <a href="https://e5-swag.printful.me/product/e5-stainless-steel-water-bottle-with-a-straw-lid" target="_blank" rel="noopener" class="product-image">
+        <span class="product-tag">Daily Use</span>
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb9751343a62dc302b2bc6_stainless-steel-water-bottle-with-a-straw-lid-white-32-oz-front-69fb97219d5d4.jpg" alt="E5 stainless steel water bottle">
+      </a>
       <div class="product-body">
         <h3 class="product-name">E5 Water Bottle</h3>
         <p class="product-desc">A practical gym item for classes, camps, school, and training days.</p>
         <div class="product-actions"><a href="https://e5-swag.printful.me/product/e5-stainless-steel-water-bottle-with-a-straw-lid" target="_blank" rel="noopener" class="btn-dark">Shop Bottle →</a></div>
       </div>
-    </div>
+    </article>
 
-    <div class="product-card">
-      <p class="product-tag">Gym Bag</p>
+    <article class="product-card">
+      <a href="https://e5-swag.printful.me/product/e5-drawstring-bag" target="_blank" rel="noopener" class="product-image">
+        <span class="product-tag">Gym Bag</span>
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb975246f3bddacf7ce053_all-over-print-drawstring-bag-white-front-69fb973ea6648.jpg" alt="E5 drawstring bag">
+      </a>
       <div class="product-body">
         <h3 class="product-name">E5 Drawstring Bag</h3>
         <p class="product-desc">A simple bag for shoes, water bottles, notebooks, and class essentials.</p>
         <div class="product-actions"><a href="https://e5-swag.printful.me/product/e5-drawstring-bag" target="_blank" rel="noopener" class="btn-dark">Shop Bag →</a></div>
       </div>
-    </div>
+    </article>
   </div>
 </section>
 
@@ -727,20 +800,832 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </div>
 </section>
 
-<!-- ── SHARED FOOTER ── -->
-<div id="site-footer"></div>
+<!-- SHARED FOOTER -->
+<div id="site-footer" class="footer-placeholder"></div>
 <script>
   fetch('/Partials/footer.html')
-    .then(r => r.text())
-    .then(function(html) {
-      var el = document.getElementById('site-footer');
-      el.innerHTML = html;
-      el.querySelectorAll('script').forEach(function(s) {
-        var ns = document.createElement('script');
-        if (s.src) { ns.src = s.src; ns.type = s.type || 'text/javascript'; }
-        else { ns.textContent = s.textContent; }
-        document.body.appendChild(ns);
-      });
+    .then(response => {
+      if (!response.ok) return '';
+      return response.text();
+    })
+    .then(html => {
+      if (html) document.getElementById('site-footer').innerHTML = html;
+    });
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8M0R94VV10"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8M0R94VV10');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Elemental 5 Store | Official E5 Gear and Elemental Athlete Apparel</title>
+<meta name="description" content="Shop official Elemental 5 gear, youth shirts, Elemental Athlete apparel, hoodies, hats, water bottles, and accessories for E5 families and supporters.">
+<link rel="canonical" href="https://www.elementalfive.com/store">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.elementalfive.com/store">
+<meta property="og:title" content="Elemental 5 Store | Official E5 Gear">
+<meta property="og:description" content="Official shirts, hoodies, hats, bottles, and training gear for Elemental 5 students, families, coaches, and supporters.">
+<meta property="og:image" content="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97519ed0704888e132fb_unisex-staple-t-shirt-athletic-heather-front-69fb964e78591.jpg">
+<meta property="og:site_name" content="Elemental 5">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elemental 5 Store | Official E5 Gear">
+<meta name="twitter:description" content="Shop official Elemental 5 gear and Elemental Athlete apparel.">
+<meta name="twitter:image" content="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97519ed0704888e132fb_unisex-staple-t-shirt-athletic-heather-front-69fb964e78591.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #1C1108;
+  --void: #0D0B08;
+  --ember: #C4622D;
+  --flame: #E8843A;
+  --red: #CC1F1F;
+  --ash: #8C7E6A;
+  --fog: #D4C9B8;
+  --sky: #F0EBE1;
+  --cream: #D6CCBE;
+  --white: #ffffff;
+  --light-1: #F8FAFC;
+  --light-2: #F3F4F6;
+  --light-3: #EEF4F8;
+  --text-dark: #1F2937;
+  --text-mid: #64748B;
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--black);
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+a, button { -webkit-tap-highlight-color: transparent; }
+img { max-width: 100%; display: block; }
+
+.section-divider {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--red) 20%, var(--red) 80%, transparent);
+  opacity: 0.6;
+}
+
+/* HERO */
+.store-hero {
+  position: relative;
+  width: 100%;
+  min-height: 82vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--black);
+  overflow: hidden;
+}
+
+.store-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 80px, rgba(196,98,45,0.035) 80px, rgba(196,98,45,0.035) 81px), radial-gradient(ellipse at 85% 25%, rgba(204,31,31,0.16), transparent 58%);
+  pointer-events: none;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  padding: 112px 56px 96px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.store-eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--flame);
+  background: rgba(196,98,45,0.1);
+  border: 1px solid rgba(196,98,45,0.28);
+  border-radius: 100px;
+  padding: 7px 16px;
+  margin-bottom: 28px;
+}
+
+.store-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(44px, 6vw, 88px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--sky);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.store-title em {
+  display: block;
+  color: var(--red);
+  font-style: normal;
+}
+
+.store-subhead {
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.7;
+  color: var(--fog);
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+.store-subhead strong { color: var(--sky); font-weight: 700; }
+
+.store-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.btn-primary, .btn-secondary, .btn-dark, .btn-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 3px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.btn-primary {
+  background: var(--red);
+  color: var(--white);
+  border: 2px solid var(--red);
+  padding: 14px 28px;
+}
+
+.btn-primary:hover { background: #A51818; border-color: #A51818; transform: translateY(-1px); }
+
+.btn-secondary {
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.06);
+  padding: 14px 28px;
+}
+
+.btn-secondary:hover { background: rgba(255,255,255,0.12); border-color: var(--white); transform: translateY(-1px); }
+
+.hero-visual {
+  position: relative;
+  z-index: 2;
+  padding: 112px 72px 96px 24px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-product-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.hero-product-tile {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #F3F4F6;
+  border: 1px solid rgba(255,255,255,0.08);
+  aspect-ratio: 1 / 1;
+}
+
+.hero-product-tile.large {
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+
+.hero-product-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-product-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 58%, rgba(0,0,0,0.35));
+  pointer-events: none;
+}
+
+.tile-label {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  z-index: 2;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* GLOBAL SECTIONS */
+.section {
+  width: 100%;
+  padding: 80px 72px 100px;
+}
+
+.section-light { background: var(--light-1); }
+.section-soft { background: var(--light-2); }
+.section-dark { background: #141414; }
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(31,41,55,0.5);
+  margin-bottom: 16px;
+}
+
+.section-dark .section-label { color: rgba(255,255,255,0.4); }
+
+.section-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(34px, 4.5vw, 64px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+}
+
+.section-dark .section-headline { color: var(--white); }
+
+.section-headline em {
+  color: var(--red);
+  font-style: normal;
+}
+
+.section-intro {
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(31,41,55,0.65);
+  max-width: 420px;
+}
+
+.section-dark .section-intro { color: rgba(255,255,255,0.6); }
+.section-intro strong { color: var(--text-dark); font-weight: 700; }
+.section-dark .section-intro strong { color: var(--white); }
+
+/* CATEGORIES */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.category-card {
+  background: var(--cream);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  transition: transform 0.2s;
+}
+
+.category-card:hover { transform: translateY(-4px); }
+
+.card-top-bar { height: 5px; width: 100%; flex-shrink: 0; }
+.bar-water { background: #4A9FD4; }
+.bar-fire { background: #CC3322; }
+.bar-air { background: #9AABAA; }
+.bar-void { background: #1E1E1E; }
+
+.category-body {
+  padding: 28px 24px 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.category-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #1A1A1A;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.category-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #4B4036;
+  flex: 1;
+  margin-bottom: 22px;
+}
+
+.category-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+}
+
+.category-link:hover { color: #A51818; }
+
+/* PRODUCTS */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: 4px;
+  border: 1px solid rgba(31,41,55,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15,23,42,0.08);
+}
+
+.product-image {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: #EEF4F8;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.25s ease;
+}
+
+.product-card:hover .product-image img { transform: scale(1.03); }
+
+.product-tag {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  z-index: 2;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: rgba(28,17,8,0.82);
+  border-radius: 100px;
+  padding: 6px 10px;
+}
+
+.product-body {
+  padding: 22px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.product-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-mid);
+  flex: 1;
+  margin-bottom: 22px;
+}
+
+.product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn-dark {
+  background: var(--black);
+  color: var(--white);
+  padding: 11px 16px;
+  font-size: 10px;
+}
+
+.btn-dark:hover { background: #333; }
+
+/* SUPPORT */
+.support-strip {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 6px;
+}
+
+.support-main {
+  background: var(--red);
+  border-radius: 4px;
+  padding: 48px 52px;
+}
+
+.support-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.support-text {
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.78);
+  max-width: 680px;
+  margin-bottom: 28px;
+}
+
+.btn-light {
+  background: var(--white);
+  color: var(--red);
+  padding: 13px 24px;
+}
+
+.btn-light:hover { background: var(--sky); }
+
+.support-side {
+  background: var(--cream);
+  border-radius: 4px;
+  padding: 38px 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.side-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #7A6F62;
+  margin-bottom: 18px;
+}
+
+.side-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.side-list li {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #3A3530;
+}
+
+.side-list li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+/* FOOTER HOOK */
+.footer-placeholder {
+  width: 100%;
+  background: var(--black);
+}
+
+@media (max-width: 1100px) {
+  .store-hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-copy { padding: 88px 36px 44px; }
+  .hero-visual { padding: 0 36px 72px; }
+  .section { padding-left: 36px; padding-right: 36px; }
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .support-strip { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .hero-copy { padding: 64px 24px 38px; }
+  .hero-visual { padding: 0 24px 56px; }
+  .hero-product-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .section { padding: 60px 24px 72px; }
+  .section-header { flex-direction: column; align-items: flex-start; }
+  .category-grid, .product-grid { grid-template-columns: 1fr; }
+  .support-main, .support-side { padding: 34px 26px; }
+}
+
+@media (max-width: 460px) {
+  .hero-product-grid { grid-template-columns: 1fr; }
+  .hero-product-tile.large { aspect-ratio: 1 / 1; }
+  .store-actions a { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- SHARED NAVIGATION -->
+<div id="site-nav"></div>
+<script>
+  fetch('/Partials/nav.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('site-nav').innerHTML = html;
+    });
+</script>
+
+<section class="store-hero">
+  <div class="hero-copy">
+    <p class="store-eyebrow">Official E5 Gear</p>
+    <h1 class="store-title">Elemental 5 <em>Store</em></h1>
+    <p class="store-subhead">Gear for <strong>Elemental Athletes</strong>, E5 families, coaches, and supporters. Shirts, hoodies, hats, bottles, and accessories that help students represent the gym beyond class.</p>
+    <div class="store-actions">
+      <a href="https://e5-swag.printful.me/" target="_blank" rel="noopener" class="btn-primary">Visit Full Store →</a>
+      <a href="#featured-products" class="btn-secondary">Shop Featured Gear</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-product-grid" aria-label="Featured Elemental 5 store products">
+      <a href="https://e5-swag.printful.me/product/elemental-athlete-youth-hoodie" target="_blank" rel="noopener" class="hero-product-tile large">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb9751feaafb750f4a0e68_kids-eco-hoodie-black-front-2-69fb96be6c2c0.jpg" alt="Elemental Athlete youth hoodie">
+        <span class="tile-label">Youth Hoodie</span>
+      </a>
+      <a href="https://e5-swag.printful.me/product/classic-e5-adult-unisex-t" target="_blank" rel="noopener" class="hero-product-tile">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97519ed0704888e132fb_unisex-staple-t-shirt-athletic-heather-front-69fb964e78591.jpg" alt="Classic E5 adult tee">
+        <span class="tile-label">Adult Tee</span>
+      </a>
+      <a href="https://e5-swag.printful.me/product/e5-hat" target="_blank" rel="noopener" class="hero-product-tile">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97517e70bb360cd4f78d_snapback-trucker-cap-charcoal-black-front-69fb96f8976a8.jpg" alt="E5 hat">
+        <span class="tile-label">E5 Hat</span>
+      </a>
+      <a href="https://e5-swag.printful.me/product/e5-stainless-steel-water-bottle-with-a-straw-lid" target="_blank" rel="noopener" class="hero-product-tile">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb9751343a62dc302b2bc6_stainless-steel-water-bottle-with-a-straw-lid-white-32-oz-front-69fb97219d5d4.jpg" alt="E5 stainless steel water bottle">
+        <span class="tile-label">Bottle</span>
+      </a>
+      <a href="https://e5-swag.printful.me/product/youth-t-shirt-water-color" target="_blank" rel="noopener" class="hero-product-tile">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97a332e5b0288d085e9f_youth-sports-tee-royal-front-69fb968745bff%5B1%5D.jpg" alt="Youth E5 shirt in water color">
+        <span class="tile-label">Youth Shirt</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="section section-light">
+  <div class="section-header">
+    <div>
+      <p class="section-label">Shop by Category</p>
+      <h2 class="section-headline">Find the right<br><em>gear.</em></h2>
+    </div>
+    <p class="section-intro">Start with the main categories below, or jump straight to the full Printful storefront for every color, size, and product option.</p>
+  </div>
+
+  <div class="category-grid">
+    <div class="category-card">
+      <div class="card-top-bar bar-water"></div>
+      <div class="category-body">
+        <h3 class="category-name">Youth Gear</h3>
+        <p class="category-desc">Core E5 shirts and Elemental Athlete apparel for NinFit, Tx3, Aerial, camps, and everyday wear.</p>
+        <div class="category-links">
+          <a href="https://e5-swag.printful.me/product/youth-t-shirt-water-color" target="_blank" rel="noopener" class="category-link">Water Shirt <span>→</span></a>
+          <a href="https://e5-swag.printful.me/product/youth-t-shirt-air-color" target="_blank" rel="noopener" class="category-link">Air Shirt <span>→</span></a>
+          <a href="https://e5-swag.printful.me/product/youth-t-shirt-elemental-athlete" target="_blank" rel="noopener" class="category-link">Elemental Athlete Shirt <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-card">
+      <div class="card-top-bar bar-fire"></div>
+      <div class="category-body">
+        <h3 class="category-name">Adult & Family</h3>
+        <p class="category-desc">Simple, clean E5 shirts and training apparel for parents, coaches, older students, and supporters.</p>
+        <div class="category-links">
+          <a href="https://e5-swag.printful.me/product/classic-e5-adult-unisex-t" target="_blank" rel="noopener" class="category-link">Classic Adult Tee <span>→</span></a>
+          <a href="https://e5-swag.printful.me/product/mens-tank-top-elemental-athlete" target="_blank" rel="noopener" class="category-link">Elemental Athlete Tank <span>→</span></a>
+          <a href="https://e5-swag.printful.me/product/e5-crop-hoodie" target="_blank" rel="noopener" class="category-link">Crop Hoodie <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-card">
+      <div class="card-top-bar bar-air"></div>
+      <div class="category-body">
+        <h3 class="category-name">Accessories</h3>
+        <p class="category-desc">Daily-use E5 items for the gym, school, travel, camps, and movement life.</p>
+        <div class="category-links">
+          <a href="https://e5-swag.printful.me/product/e5-hat" target="_blank" rel="noopener" class="category-link">E5 Hat <span>→</span></a>
+          <a href="https://e5-swag.printful.me/product/e5-drawstring-bag" target="_blank" rel="noopener" class="category-link">Drawstring Bag <span>→</span></a>
+          <a href="https://e5-swag.printful.me/product/e5-stainless-steel-water-bottle-with-a-straw-lid" target="_blank" rel="noopener" class="category-link">Water Bottle <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-card">
+      <div class="card-top-bar bar-void"></div>
+      <div class="category-body">
+        <h3 class="category-name">Elemental Athlete</h3>
+        <p class="category-desc">The more serious training identity: gear for kids and adults who see themselves as athletes in development.</p>
+        <div class="category-links">
+          <a href="https://e5-swag.printful.me/product/elemental-athlete-youth-hoodie" target="_blank" rel="noopener" class="category-link">Youth Hoodie <span>→</span></a>
+          <a href="https://e5-swag.printful.me/product/youth-t-shirt-elemental-athlete" target="_blank" rel="noopener" class="category-link">Youth Shirt <span>→</span></a>
+          <a href="https://e5-swag.printful.me/product/mens-tank-top-elemental-athlete" target="_blank" rel="noopener" class="category-link">Adult Tank <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="featured-products" class="section section-soft">
+  <div class="section-header">
+    <div>
+      <p class="section-label">Featured Gear</p>
+      <h2 class="section-headline">Start<br><em>here.</em></h2>
+    </div>
+    <p class="section-intro">A focused set of E5 gear that gives families a clear place to start without overwhelming the page.</p>
+  </div>
+
+  <div class="product-grid">
+    <article class="product-card">
+      <a href="https://e5-swag.printful.me/product/classic-e5-adult-unisex-t" target="_blank" rel="noopener" class="product-image">
+        <span class="product-tag">Core E5</span>
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97519ed0704888e132fb_unisex-staple-t-shirt-athletic-heather-front-69fb964e78591.jpg" alt="Classic E5 adult tee">
+      </a>
+      <div class="product-body">
+        <h3 class="product-name">Classic E5 Adult Tee</h3>
+        <p class="product-desc">The clean everyday E5 shirt for parents, coaches, and supporters.</p>
+        <div class="product-actions"><a href="https://e5-swag.printful.me/product/classic-e5-adult-unisex-t" target="_blank" rel="noopener" class="btn-dark">Shop Tee →</a></div>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <a href="https://e5-swag.printful.me/product/youth-t-shirt-water-color" target="_blank" rel="noopener" class="product-image">
+        <span class="product-tag">Student Favorite</span>
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97a332e5b0288d085e9f_youth-sports-tee-royal-front-69fb968745bff%5B1%5D.jpg" alt="Youth E5 shirt in water color">
+      </a>
+      <div class="product-body">
+        <h3 class="product-name">Youth E5 Shirt</h3>
+        <p class="product-desc">A simple youth shirt for students who want to represent Elemental 5 in class and around town.</p>
+        <div class="product-actions"><a href="https://e5-swag.printful.me/product/youth-t-shirt-water-color" target="_blank" rel="noopener" class="btn-dark">Shop Youth Shirt →</a></div>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <a href="https://e5-swag.printful.me/product/elemental-athlete-youth-hoodie" target="_blank" rel="noopener" class="product-image">
+        <span class="product-tag">Elemental Athlete</span>
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb9751feaafb750f4a0e68_kids-eco-hoodie-black-front-2-69fb96be6c2c0.jpg" alt="Elemental Athlete youth hoodie">
+      </a>
+      <div class="product-body">
+        <h3 class="product-name">Youth Athlete Hoodie</h3>
+        <p class="product-desc">A stronger identity piece for students moving deeper into training culture.</p>
+        <div class="product-actions"><a href="https://e5-swag.printful.me/product/elemental-athlete-youth-hoodie" target="_blank" rel="noopener" class="btn-dark">Shop Hoodie →</a></div>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <a href="https://e5-swag.printful.me/product/e5-hat" target="_blank" rel="noopener" class="product-image">
+        <span class="product-tag">Accessories</span>
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb97517e70bb360cd4f78d_snapback-trucker-cap-charcoal-black-front-69fb96f8976a8.jpg" alt="E5 hat">
+      </a>
+      <div class="product-body">
+        <h3 class="product-name">E5 Hat</h3>
+        <p class="product-desc">An easy everyday piece for parents, coaches, and older athletes.</p>
+        <div class="product-actions"><a href="https://e5-swag.printful.me/product/e5-hat" target="_blank" rel="noopener" class="btn-dark">Shop Hat →</a></div>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <a href="https://e5-swag.printful.me/product/e5-stainless-steel-water-bottle-with-a-straw-lid" target="_blank" rel="noopener" class="product-image">
+        <span class="product-tag">Daily Use</span>
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb9751343a62dc302b2bc6_stainless-steel-water-bottle-with-a-straw-lid-white-32-oz-front-69fb97219d5d4.jpg" alt="E5 stainless steel water bottle">
+      </a>
+      <div class="product-body">
+        <h3 class="product-name">E5 Water Bottle</h3>
+        <p class="product-desc">A practical gym item for classes, camps, school, and training days.</p>
+        <div class="product-actions"><a href="https://e5-swag.printful.me/product/e5-stainless-steel-water-bottle-with-a-straw-lid" target="_blank" rel="noopener" class="btn-dark">Shop Bottle →</a></div>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <a href="https://e5-swag.printful.me/product/e5-drawstring-bag" target="_blank" rel="noopener" class="product-image">
+        <span class="product-tag">Gym Bag</span>
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69fb975246f3bddacf7ce053_all-over-print-drawstring-bag-white-front-69fb973ea6648.jpg" alt="E5 drawstring bag">
+      </a>
+      <div class="product-body">
+        <h3 class="product-name">E5 Drawstring Bag</h3>
+        <p class="product-desc">A simple bag for shoes, water bottles, notebooks, and class essentials.</p>
+        <div class="product-actions"><a href="https://e5-swag.printful.me/product/e5-drawstring-bag" target="_blank" rel="noopener" class="btn-dark">Shop Bag →</a></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="section section-dark">
+  <div class="support-strip">
+    <div class="support-main">
+      <h2 class="support-title">Represent the gym.<br>Support the movement.</h2>
+      <p class="support-text">Elemental 5 gear helps students feel part of something bigger than a weekly class. It gives the gym culture a visible identity and lets families carry E5 into the community.</p>
+      <a href="https://e5-swag.printful.me/" target="_blank" rel="noopener" class="btn-light">Visit Full Storefront →</a>
+    </div>
+    <div class="support-side">
+      <p class="side-label">Good Starter Picks</p>
+      <ul class="side-list">
+        <li>Youth E5 shirt for current students</li>
+        <li>Classic adult tee for parents and coaches</li>
+        <li>Hat, bottle, and bag for daily gym use</li>
+        <li>Elemental Athlete hoodie for committed students</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SHARED FOOTER -->
+<div id="site-footer" class="footer-placeholder"></div>
+<script>
+  fetch('/Partials/footer.html')
+    .then(response => {
+      if (!response.ok) return '';
+      return response.text();
+    })
+    .then(html => {
+      if (html) document.getElementById('site-footer').innerHTML = html;
     });
 </script>
 
