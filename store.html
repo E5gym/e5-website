@@ -541,6 +541,12 @@ a, button { -webkit-tap-highlight-color: transparent; }
     .then(response => response.text())
     .then(html => {
       document.getElementById('site-nav').innerHTML = html;
+      document.querySelectorAll('.e5-nav-links a, .e5-mobile-menu a').forEach(function(a) {
+        var href = a.getAttribute('href');
+        if (href === '/store' || href === '/store.html') {
+          a.classList.add('e5-active');
+        }
+      });
     });
 </script>
 
@@ -720,6 +726,23 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </div>
   </div>
 </section>
+
+<!-- ── SHARED FOOTER ── -->
+<div id="site-footer"></div>
+<script>
+  fetch('/Partials/footer.html')
+    .then(r => r.text())
+    .then(function(html) {
+      var el = document.getElementById('site-footer');
+      el.innerHTML = html;
+      el.querySelectorAll('script').forEach(function(s) {
+        var ns = document.createElement('script');
+        if (s.src) { ns.src = s.src; ns.type = s.type || 'text/javascript'; }
+        else { ns.textContent = s.textContent; }
+        document.body.appendChild(ns);
+      });
+    });
+</script>
 
 </body>
 </html>
