@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /kiosk/
+
+Sitemap: https://www.elementalfive.com/sitemap.xml
