@@ -122,7 +122,7 @@ html, body {
   padding: 80px 72px 6px;
 }
 
-/* Layered hero: image fills the whole panel, content floats over gradient */
+/* Layered hero: video fills the whole panel, content floats over gradient */
 .hero-inner {
   position: relative;
   border-radius: 4px;
@@ -138,6 +138,7 @@ html, body {
   position: absolute;
   inset: 0;
   z-index: 0;
+  overflow: hidden;
 }
 
 .hero-bg img {
@@ -148,19 +149,25 @@ html, body {
   display: block;
 }
 
+.vimeo-hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  min-width: 177.78vh;
+  min-height: 100vh;
+  transform: translate(-50%, -50%);
+  border: none;
+  pointer-events: none;
+}
+
 /* Gradient: opaque dark on left → transparent toward right */
 .hero-bg-fade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    #242018 0%,
-    #242018 32%,
-    rgba(36,32,24,0.97) 42%,
-    rgba(36,32,24,0.72) 54%,
-    rgba(36,32,24,0.22) 70%,
-    transparent 86%
-  );
+  background: rgba(10,8,6,0.24);
+  pointer-events: none;
 }
 
 /* Subtle diagonal texture over the dark zone */
@@ -168,6 +175,7 @@ html, body {
   position: absolute;
   inset: 0;
   z-index: 1;
+  display: none;
   background-image: repeating-linear-gradient(
     -45deg, transparent, transparent 60px,
     rgba(196,146,42,0.025) 60px, rgba(196,146,42,0.025) 61px
@@ -179,12 +187,15 @@ html, body {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 700px;
-  padding: 80px 64px 80px 72px;
+  max-width: 560px;
+  margin: 72px 0 72px 72px;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 32px;
+  justify-content: center;
+  gap: 22px;
+  align-self: center;
+  text-shadow: 0 3px 24px rgba(0,0,0,0.78), 0 1px 4px rgba(0,0,0,0.65);
 }
 
 /* ── Caption pinned to bottom-right ── */
@@ -223,25 +234,27 @@ html, body {
   letter-spacing: -0.025em;
   text-transform: uppercase;
   color: var(--cream);
+  font-size: clamp(72px, 12vw, 168px);
 }
 
 .hero-headline span { color: var(--gold); }
 
 .hero-tagline {
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--cream);
   line-height: 1.5;
 }
 
 .hero-subhead {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 1.8;
-  color: var(--muted);
+  color: rgba(230,222,207,0.88);
+  max-width: 460px;
 }
 
 .hero-cta-group {
@@ -813,7 +826,7 @@ html, body {
 
   .photo-row { padding-left: 24px; padding-right: 24px; }
 
-  /* Layered hero: stack image on top, content below */
+  /* Layered hero: stack media on top, content below */
   .hero-inner { min-height: unset; flex-direction: column; }
   .hero-bg {
     position: relative;
@@ -823,20 +836,23 @@ html, body {
     overflow: hidden;
   }
   .hero-bg img { height: 100%; object-position: center 20%; }
+  .hero-bg .vimeo-hero-video {
+    width: 100%;
+    height: 100%;
+    min-width: 177.78%;
+    min-height: 100%;
+  }
   .hero-bg-fade {
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(36,32,24,0.55) 65%,
-      #242018 100%
-    );
+    background: rgba(10,8,6,0.18);
   }
   .hero-bg-texture { display: none; }
   .hero-content {
     max-width: 100%;
-    padding: 16px 28px 52px;
-    gap: 24px;
+    margin: 0;
+    padding: 26px 0 48px;
+    gap: 20px;
     justify-content: flex-start;
+    text-shadow: 0 3px 22px rgba(0,0,0,0.82), 0 1px 4px rgba(0,0,0,0.7);
   }
   .hero-caption-overlay { display: none; }
 
@@ -886,28 +902,27 @@ html, body {
 <section class="hero">
   <div class="hero-inner">
 
-    <!-- Image fills the full hero; gradient fades it dark on the left -->
+    <!-- Video fills the full hero with a subtle readability tint -->
     <div class="hero-bg">
-      <img src="https://lh3.googleusercontent.com/d/1qeJ5hT4TWWp_5SLfF9cYo4tvpVhBWBYx" alt="Echo Performance Troupe — group performance">
+      <iframe class="vimeo-hero-video" src="https://player.vimeo.com/video/1190271074?h=83c1ea760c&background=1&autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen playsinline webkit-playsinline title="Echo Performance Troupe background video"></iframe>
       <div class="hero-bg-fade"></div>
     </div>
     <div class="hero-bg-texture"></div>
 
-    <!-- Foreground: content sits over the gradient -->
+    <!-- Foreground: open copy over the video -->
     <div class="hero-content">
-      <p class="hero-overline">Elemental 5 · Dedicated Performance Troupe</p>
+      <p class="hero-overline">ELEMENTAL 5 • PERFORMANCE TROUPE</p>
 
-      <h1 class="hero-headline">Echo<br><span>Performance</span><br>Troupe.</h1>
+      <h1 class="hero-headline">ECHO</h1>
 
-      <p class="hero-tagline">Where aerial, acrobatics, and tumbling become performance.</p>
+      <p class="hero-tagline">Where training becomes performance.</p>
 
       <p class="hero-subhead">
-        Echo is Elemental 5's dedicated youth performance troupe for students ready to train with greater focus, develop stage presence, and bring their skills into choreographed performance. Through aerial arts, acrobatics, and tumbling, Echo students learn how to move with precision, confidence, and purpose in front of an audience.
+        A dedicated youth troupe for students ready to build routines, stage presence, and real show experience.
       </p>
 
       <div class="hero-cta-group">
-        <a href="mailto:gym@elementalfive.com?subject=Echo%20Performance%20Troupe%20Inquiry" class="btn-primary">Ask About Echo</a>
-        <a href="#opportunities" class="btn-secondary">See Performance Opportunities</a>
+        <a href="mailto:gym@elementalfive.com?subject=Echo%20Performance%20Troupe%20Inquiry" class="btn-primary">ASK ABOUT ECHO</a>
       </div>
     </div>
 
