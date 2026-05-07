@@ -109,6 +109,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.elementalfive.com/store</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.elementalfive.com/e5-surge.html</loc>
     <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
