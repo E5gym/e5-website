@@ -25,7 +25,7 @@ These are the main public-facing pages. They are linked from the shared navigati
 - `contact.html` - contact page
 - `newsletter.html` - newsletter page
 - `policies.html` - policies page
-- `store.html` - store page; `/store` is rewritten to this file by Netlify
+- `store.html` - store page retained in source, but temporarily hidden and redirected while the merch backend is rebuilt
 - `e5-surge.html` - Surge program page; this is an active page, not a duplicate
 
 ## Utility Pages
@@ -43,7 +43,7 @@ Shared partials live in `Partials/` and are loaded into pages with `fetch()`.
 
 - `Partials/nav.html`
   - Controls the desktop and mobile navigation.
-  - Includes the logo, dropdown menus, program links, `/store` link, and Student Portal CTA.
+  - Includes the logo, dropdown menus, program links, and Student Portal CTA. Store temporarily hidden while merch backend is being rebuilt.
   - Changing this file affects most public pages.
 
 - `Partials/footer.html`
@@ -85,7 +85,7 @@ Most images and brand assets live in the repository root.
 - `netlify.toml` sets `publish = "."`.
 - There is no build command.
 - Netlify serves the repository root directly.
-- `/store` is rewritten to `/store.html` with status `200`.
+- `/store` and `/store.html` temporarily redirect to `/` with status `302` while the merch backend is rebuilt.
 - `robots.txt` allows the public site and disallows `/kiosk/`.
 - `sitemap.xml` manually lists indexed public URLs.
 - Most pages include manual SEO metadata: title, description, canonical URL, Open Graph tags, and Twitter card tags.
