@@ -8,7 +8,6 @@ These are the main public-facing pages. They are linked from the shared navigati
 
 - `index.html` - homepage
 - `programs.html` - programs overview
-- `start-here.html` - new family / getting-started page
 - `pricing.html` - pricing and enrollment
 - `schedule.html` - class schedule
 - `new-gym.html` - new facility / founding membership

@@ -11,3 +11,13 @@
   from = "/store.html"
   to   = "/"
   status = 302
+
+[[redirects]]
+  from = "/start-here"
+  to   = "/programs.html"
+  status = 301
+
+[[redirects]]
+  from = "/start-here.html"
+  to   = "/programs.html"
+  status = 301
