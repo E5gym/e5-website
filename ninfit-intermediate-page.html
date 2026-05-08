@@ -47,8 +47,8 @@
     --water-pale: #cedaf4;
   }
 
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Nunito Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+  html { min-height: 100%; scroll-behavior: smooth; overflow-x: hidden; overflow-y: auto; }
+  body { min-height: 100%; font-family: 'Nunito Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; overflow-y: auto; }
 
   /* ── NAV ── */
   .e5-nav { width: 100%; background: #ffffff; border-bottom: 1px solid rgba(14,8,4,0.12); position: sticky; top: 0; z-index: 1000; font-family: 'Montserrat', sans-serif; }
@@ -217,7 +217,7 @@
   .vimeo-hero { position: relative; min-height: 100vh; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--black); padding: 0; touch-action: pan-y; }
   .vimeo-hero-video { position: absolute; top: 50%; left: 50%; width: 100vw; height: 56.25vw; min-width: 177.78vh; min-height: 100vh; transform: translate(-50%, -50%); border: none; pointer-events: none; }
   .vimeo-hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.52); z-index: 1; pointer-events: none; }
-  .vimeo-hero-content { position: relative; z-index: 2; padding: 40px 72px; display: flex; flex-direction: column; align-items: center; }
+  .vimeo-hero-content { position: relative; z-index: 2; padding: 40px 72px; display: flex; flex-direction: column; align-items: center; pointer-events: auto; }
   .vimeo-hero .hero-sub { max-width: 700px; color: rgba(255,255,255,0.86); }
   .vimeo-hero .hero-cta-row { justify-content: center; }
   @media (max-width: 900px) {
@@ -225,11 +225,11 @@
     .george-grid { grid-template-columns: 1fr; }
     .pipeline-step { grid-template-columns: 1fr; }
     .pipeline-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .vimeo-hero { min-height: 70vh; height: auto; padding: 120px 0 80px; }
   }
 
 
   @media (max-width: 600px) {
-    .vimeo-hero { min-height: 85vh; }
     .vimeo-hero-content { padding: 24px 20px; }
   }
 

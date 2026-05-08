@@ -47,8 +47,8 @@
     --text: #1C1C1A;
   }
 
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Nunito Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+  html { min-height: 100%; scroll-behavior: smooth; overflow-x: hidden; overflow-y: auto; }
+  body { min-height: 100%; font-family: 'Nunito Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; overflow-y: auto; }
 
   .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
   .eyebrow { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; display: block; margin-bottom: 0.85rem; }
@@ -68,6 +68,8 @@
     background: var(--red-bg);
     touch-action: pan-y;
   }
+  .vimeo-hero iframe { pointer-events: none; }
+  .vimeo-hero > .container { position: relative; z-index: 20; pointer-events: auto; }
   .vimeo-hero::after {
     content: '';
     position: absolute;
@@ -272,6 +274,7 @@
     .compare-grid { grid-template-columns: 1fr; }
     .fire-divider-inner { flex-direction: column; text-align: center; }
     .enroll-stats { gap: 2rem; }
+    .vimeo-hero { min-height: 70vh; height: auto !important; padding: 120px 0 80px !important; }
   }
 
   @media (max-width: 600px) {
