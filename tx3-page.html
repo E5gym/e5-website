@@ -66,6 +66,7 @@
     align-items: center;
     justify-content: center;
     background: var(--red-bg);
+    touch-action: pan-y;
   }
   .vimeo-hero::after {
     content: '';
@@ -297,9 +298,9 @@
 <!-- ══ HERO ══ -->
 <section class="vimeo-hero">
   <iframe src="https://player.vimeo.com/video/1185762882?h=20b5479639&autoplay=1&muted=1&loop=1&background=1"
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; object-fit: cover;"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; object-fit: cover; pointer-events: none;"
           frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2,0,0,0.45); z-index: 10;"></div>
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2,0,0,0.45); z-index: 10; pointer-events: none;"></div>
   <div class="container" style="position: relative; z-index: 20; text-align: center; max-width: 700px; padding: 40px 72px; color: white;">
     <span class="eyebrow on-dark">Elemental 5 · Salida, Colorado</span>
     <h1 class="hero-title">T<span>x</span>3</h1>
