@@ -46,8 +46,6 @@
 
   html { min-height: 100%; scroll-behavior: smooth; overflow-x: hidden; overflow-y: auto; }
   body { min-height: 100%; font-family: 'Nunito Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; overflow-y: auto; }
-  
-  /* ── NAV ── */
   .e5-nav { width: 100%; background: #ffffff; border-bottom: 1px solid rgba(14,8,4,0.12); position: sticky; top: 0; z-index: 1000; font-family: 'Montserrat', sans-serif; }
   .e5-nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
   .e5-logo img { height: 42px; width: auto; }
@@ -73,28 +71,21 @@
   .eyebrow.on-dark { color: var(--air-light); }
   .eyebrow.on-light { color: var(--air-dark); }
 
-  /* ── HERO ── */
-  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 0 6rem; position: relative; background: var(--black); overflow: hidden; }
-  .vimeo-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 0 6rem; position: relative; overflow: hidden; touch-action: pan-y; }
-  .vimeo-hero iframe { pointer-events: none; }
-  .vimeo-hero > div:last-child { position: relative; z-index: 20; pointer-events: auto; }
-  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 60% 35%, rgba(92,132,158,0.16) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 5% 70%, rgba(59,90,120,0.08) 0%, transparent 60%); }
-  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px); background-size: 60px 60px; }
-  .hero-air { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); width: 400px; height: 400px; opacity: 0.07; pointer-events: none; }
-  .hero-air img { width: 100%; height: 100%; object-fit: contain; }
-  .hero-kicker { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
-  .hero-kicker-pill { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; background: rgba(122,132,144,0.18); color: var(--air-light); border: 1px solid rgba(122,132,144,0.35); padding: 0.3rem 0.75rem; }
-  .hero-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(3rem, 10vw, 9rem); line-height: 0.9; letter-spacing: -0.03em; color: var(--white); text-transform: uppercase; }
-  .hero-title span { color: var(--air-light); }
-  .hero-sub { font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: clamp(1rem, 1.8vw, 1.2rem); color: rgba(250,250,247,0.55); max-width: 520px; line-height: 1.8; margin-top: 1.5rem; }
-  .hero-cta-row { display: flex; align-items: center; gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap; }
-  .btn-primary { display: inline-block; background: var(--air-dark); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2.25rem; text-decoration: none; transition: background 0.2s, transform 0.15s; }
-  .btn-primary:hover { background: var(--air-mid); transform: translateY(-2px); }
-  .btn-ghost { display: inline-block; color: rgba(255,255,255,0.45); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
-  .btn-ghost:hover { color: var(--white); border-color: var(--air-light); }
-  .hero-accent-line { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--air-dark) 0%, var(--air-light) 50%, rgba(122,132,144,0.1) 100%); }
-
-  /* ── WHAT ── */
+  /* PROGRAM CINEMATIC HERO */
+  .program-cinematic-hero { --program-accent: var(--air-light); --program-accent-dark: var(--air-dark); background: radial-gradient(ellipse at 50% 0%, rgba(122,132,144,0.24), transparent 58%), var(--black); padding: 5.5rem 3rem 3rem; }
+  .program-hero-frame { position: relative; max-width: 1320px; margin: 0 auto; aspect-ratio: 16 / 7; min-height: 520px; overflow: hidden; border-radius: 8px; background: var(--air-deep); box-shadow: 0 28px 80px rgba(0,0,0,0.42); }
+  .program-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
+  .program-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,10,14,0.94) 0%, rgba(7,10,14,0.78) 34%, rgba(7,10,14,0.34) 68%, rgba(7,10,14,0.62) 100%); pointer-events: none; }
+  .program-hero-content { position: relative; z-index: 2; min-height: 100%; max-width: 700px; padding: 5rem 4.5rem; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; color: var(--white); width: 100%; }
+  .program-hero-kicker { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: var(--program-accent); margin-bottom: 1rem; }
+  .program-hero-title { font-family: 'Montserrat', sans-serif; font-size: clamp(3.6rem, 8vw, 8rem); font-weight: 900; line-height: 0.9; letter-spacing: -0.04em; text-transform: uppercase; color: var(--white); margin-bottom: 1rem; }
+  .program-hero-title span { color: var(--program-accent); display: block; }
+  .program-hero-subtitle { font-family: 'Montserrat', sans-serif; font-size: clamp(1.15rem, 2vw, 1.65rem); font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 1rem; width: 100%; max-width: 100%; }
+  .program-hero-description { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.74); max-width: 580px; margin-bottom: 2rem; width: 100%; }
+  .program-hero-button { display: inline-flex; align-items: center; justify-content: center; background: var(--program-accent-dark); color: #fff; font-family: 'Montserrat', sans-serif; font-size: 0.74rem; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; padding: 1rem 1.55rem; border-radius: 3px; max-width: 100%; transition: background 0.2s, transform 0.15s; }
+  .program-hero-button:hover { background: var(--program-accent); transform: translateY(-2px); color: var(--air-deep); }
+  .program-hero-corner-label { position: absolute; right: 1.3rem; bottom: 1.15rem; z-index: 2; font-family: 'Montserrat', sans-serif; font-size: 0.62rem; font-weight: 900; letter-spacing: 0.18em; text-transform: uppercase; color: var(--program-accent); background: rgba(0,0,0,0.46); border: 1px solid rgba(255,255,255,0.12); padding: 0.55rem 0.7rem; border-radius: 3px; }
+  /* WHAT ── */
   .what-section { background: #FFFFFF; color: #1C1C1A; padding: 6rem 0; }
   .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
   .what-headline { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; color: var(--air-dark); margin-bottom: 1.5rem; }
@@ -222,14 +213,22 @@
     .journey-grid, .coaches-grid { grid-template-columns: 1fr; }
     .coach-card { grid-template-columns: 1fr; }
     .air-divider-inner { flex-direction: column; text-align: center; }
-    .vimeo-hero { min-height: 70vh; height: auto !important; padding: 120px 0 80px !important; }
+    .program-cinematic-hero { padding: 2.75rem 1.25rem 2rem; }
+    .program-hero-frame { aspect-ratio: auto; min-height: 680px; }
+    .program-hero-content { padding: 3.5rem 2rem; max-width: 640px; }
+    .program-hero-title { font-size: clamp(3.2rem, 16vw, 6rem); }
+    .program-hero-overlay { background: linear-gradient(90deg, rgba(7,10,14,0.96) 0%, rgba(7,10,14,0.82) 56%, rgba(7,10,14,0.52) 100%); }
+  }
+
+  @media (max-width: 600px) {
+    .program-cinematic-hero { padding: 1.5rem 0.9rem; }
+    .program-hero-frame { min-height: 640px; border-radius: 6px; }
+    .program-hero-content { padding: 2.6rem 1.35rem; }
+    .program-hero-subtitle, .program-hero-description { max-width: 310px; }
+    .program-hero-corner-label { left: 1rem; right: auto; bottom: 1rem; }
   }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-  .hero-kicker { animation: fadeUp 0.6s ease both; }
-  .hero-title { animation: fadeUp 0.7s 0.1s ease both; }
-  .hero-sub { animation: fadeUp 0.7s 0.2s ease both; }
-  .hero-cta-row { animation: fadeUp 0.7s 0.3s ease both; }
 </style>
 </head>
 <body>
@@ -246,27 +245,18 @@
 </script>
 
 <!-- ══ HERO ══ -->
-<section class="vimeo-hero" style="position: relative; width: 100vw; height: 100vh; overflow: hidden; margin: 0; display: flex; align-items: center; justify-content: flex-end; padding: 0 0 6rem; background: var(--air-deep); touch-action: pan-y;">
-  <!-- Vimeo Background Video -->
-  <iframe src="https://player.vimeo.com/video/1187156891?h=a5c70ee4a0&autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0" 
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; object-fit: cover; pointer-events: none;"
-          frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-  
-  <!-- Dark Overlay -->
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 26, 46, 0.65); z-index: 10; pointer-events: none;"></div>
-  
-  <!-- Content -->
-  <div style="position: relative; z-index: 20; text-align: center; max-width: 700px; padding: 40px 72px; color: white;">
-    <div class="hero-kicker">
-      <span class="hero-kicker-pill">Air Element</span>
-      <span class="hero-kicker-pill">Ages 8 – 14</span>
+<section class="program-cinematic-hero" style="--program-accent:var(--air-light);--program-accent-dark:var(--air-dark);">
+  <div class="program-hero-frame">
+    <iframe class="program-hero-video" src="https://player.vimeo.com/video/1187156891?h=a5c70ee4a0&autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Aerial Silks at Elemental 5"></iframe>
+    <div class="program-hero-overlay"></div>
+    <div class="program-hero-content">
+      <div class="program-hero-kicker">Elemental 5 &middot; Aerial Training</div>
+      <h1 class="program-hero-title">Aerial <span>Silks</span></h1>
+      <p class="program-hero-subtitle">Where strength becomes artistry.</p>
+      <p class="program-hero-description">Aerial training that builds strength, flexibility, confidence, and control through structured progressions in the air.</p>
+      <a href="#enroll" class="program-hero-button">Explore Aerial</a>
     </div>
-    <h1 class="hero-title">Aerial<br><span>Silks</span></h1>
-    <p class="hero-sub">Strength disguised as grace. Art built on discipline. Aerial silks is where athletes learn to move through the air with intention — and discover what they're capable of when the ground is no longer beneath them.</p>
-    <div class="hero-cta-row">
-      <a href="#enroll" class="btn-primary">Enroll Now</a>
-      <a href="#journey" class="btn-ghost">Beginner to Intermediate ↓</a>
-    </div>
+    <div class="program-hero-corner-label">Air Track</div>
   </div>
 </section>
 <section class="what-section">
