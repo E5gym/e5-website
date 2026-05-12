@@ -302,6 +302,18 @@
   body .vimeo-hero .hero-content{position:absolute!important;z-index:2!important;left:72px!important;top:50%!important;transform:translateY(-50%)!important;max-width:620px!important;padding:0!important;text-align:left!important;color:#fff!important;text-shadow:0 3px 24px rgba(0,0,0,.78),0 1px 4px rgba(0,0,0,.65)}
   body .vimeo-hero .hero-cta-row{justify-content:flex-start!important}
   body .vimeo-hero .program-hero-corner-label{position:absolute!important;z-index:2!important;right:32px!important;bottom:24px!important}
+  body .vimeo-hero{--program-accent:var(--ember)}
+  body .vimeo-hero .hero-kicker,body .vimeo-hero .eyebrow.on-dark{font-family:'Montserrat',sans-serif!important;font-size:11px!important;font-weight:800!important;letter-spacing:.28em!important;text-transform:uppercase!important;color:var(--program-accent,#7EA4F0)!important;margin:0 0 22px!important;display:block!important}
+  body .vimeo-hero .hero-kicker-pill{display:inline!important;background:transparent!important;border:0!important;padding:0!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important}
+  body .vimeo-hero .hero-title{font-family:'Montserrat',sans-serif!important;font-size:clamp(58px,8vw,118px)!important;font-weight:900!important;line-height:.92!important;letter-spacing:-.04em!important;text-transform:uppercase!important;color:#fff!important;margin:0 0 24px!important;text-shadow:0 3px 18px rgba(0,0,0,.35)!important}
+  body .vimeo-hero .hero-title span{color:var(--program-accent,#7EA4F0)!important}
+  body .vimeo-hero .hero-sub,body .vimeo-hero .hero-subtitle,body .vimeo-hero .hero-description,body .vimeo-hero .hero-tagline{font-family:'Nunito Sans',sans-serif!important;font-size:clamp(16px,1.4vw,21px)!important;font-weight:400!important;line-height:1.55!important;color:rgba(255,255,255,.82)!important;max-width:620px!important;margin:0 0 34px!important;letter-spacing:0!important;text-transform:none!important}
+  body .vimeo-hero .hero-tagline em{color:var(--program-accent,#7EA4F0)!important;font-style:normal!important}
+  body .vimeo-hero .hero-cta-row{display:flex!important;align-items:center!important;gap:20px!important;flex-wrap:wrap!important}
+  body .vimeo-hero .btn-primary,body .vimeo-hero .program-hero-button,body .vimeo-hero .hero-primary{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:180px!important;height:50px!important;padding:0 28px!important;border-radius:3px!important;background:var(--program-accent,#3B75D4)!important;color:#fff!important;font-family:'Montserrat',sans-serif!important;font-size:12px!important;font-weight:900!important;letter-spacing:.14em!important;text-transform:uppercase!important;text-decoration:none!important;border:2px solid var(--program-accent,#3B75D4)!important}
+  body .vimeo-hero .btn-ghost,body .vimeo-hero .program-hero-secondary,body .vimeo-hero .hero-secondary{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:180px!important;height:50px!important;padding:0 28px!important;border-radius:3px!important;background:transparent!important;color:rgba(255,255,255,.82)!important;font-family:'Montserrat',sans-serif!important;font-size:12px!important;font-weight:900!important;letter-spacing:.14em!important;text-transform:uppercase!important;text-decoration:none!important;border:2px solid rgba(255,255,255,.55)!important}
+  body .vimeo-hero .program-hero-corner-label{position:absolute!important;left:auto!important;right:32px!important;bottom:24px!important;z-index:3!important;font-family:'Montserrat',sans-serif!important;font-size:10px!important;font-weight:800!important;letter-spacing:.22em!important;text-transform:uppercase!important;color:rgba(255,255,255,.46)!important;text-align:right!important;text-shadow:0 2px 10px rgba(0,0,0,.35)!important}
+  @media(max-width:600px){body .vimeo-hero .hero-title{font-size:clamp(44px,14vw,72px)!important}body .vimeo-hero .hero-content{overflow:visible!important}body .vimeo-hero .btn-primary,body .vimeo-hero .btn-ghost,body .vimeo-hero .program-hero-button,body .vimeo-hero .program-hero-secondary,body .vimeo-hero .hero-primary,body .vimeo-hero .hero-secondary{width:100%!important;min-width:0!important}}
   @media(max-width:900px){body .vimeo-hero{padding:28px!important}body .vimeo-hero .hero-frame{min-height:640px!important;aspect-ratio:auto!important}body .vimeo-hero .hero-content{left:28px!important;right:28px!important;max-width:none!important}}
 </style>
 </head>
@@ -321,9 +333,9 @@
           frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <span class="eyebrow on-dark">Elemental 5 · Salida, Colorado</span>
-    <h1 class="hero-title">T<span>x</span>3</h1>
-    <p class="hero-tagline">Trampoline · Tumbling · <em>Tricking</em></p>
+    <span class="hero-kicker">Elemental 5 · Salida, Colorado</span>
+    <h1 class="hero-title">T<span>X</span>3</h1>
+    <p class="hero-tagline hero-subtitle">Trampoline · Tumbling · <em>Tricking</em></p>
     <p class="hero-sub">For kids who can't get enough flipping. The entire class is dedicated to trampoline and tumbling — no parkour, no distractions. Just an hour of doing what you love.</p>
     <div class="hero-cta-row">
       <a href="#enroll" class="btn-primary">Enroll Now</a>
