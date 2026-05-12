@@ -235,6 +235,16 @@
     .program-hero-corner-label { left: 1rem; right: auto; bottom: 1rem; }
   }
 
+  /* Current program hero format, matched to NinFit Beginner. */
+  body .vimeo-hero{width:100%;background:#17140f!important;padding:72px 66px 6px!important;height:auto!important;min-height:0!important;display:block!important;overflow:hidden!important}
+  body .vimeo-hero::after{content:none!important}
+  body .vimeo-hero .hero-frame{position:relative!important;width:100%!important;max-width:none!important;min-height:620px!important;aspect-ratio:16/5.6!important;border-radius:4px!important;overflow:hidden!important;background:#111!important;display:block!important}
+  body .vimeo-hero .hero-frame iframe{position:absolute!important;inset:auto!important;left:50%!important;top:50%!important;width:178%!important;height:100%!important;max-width:none!important;min-width:100%!important;min-height:100%!important;border:0!important;object-fit:cover!important;transform:translate(-50%,-50%) scale(1.08)!important;transform-origin:center center!important;pointer-events:none!important}
+  body .vimeo-hero .hero-overlay{position:absolute!important;inset:0!important;z-index:1!important;background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.48) 32%,rgba(0,0,0,.20) 62%,rgba(0,0,0,.10) 100%)!important;pointer-events:none!important}
+  body .vimeo-hero .hero-content{position:absolute!important;z-index:2!important;left:72px!important;top:50%!important;transform:translateY(-50%)!important;max-width:620px!important;padding:0!important;text-align:left!important;color:#fff!important;text-shadow:0 3px 24px rgba(0,0,0,.78),0 1px 4px rgba(0,0,0,.65)}
+  body .vimeo-hero .hero-cta-row{justify-content:flex-start!important}
+  body .vimeo-hero .program-hero-corner-label{position:absolute!important;z-index:2!important;right:32px!important;bottom:24px!important}
+  @media(max-width:900px){body .vimeo-hero{padding:28px!important}body .vimeo-hero .hero-frame{min-height:640px!important;aspect-ratio:auto!important}body .vimeo-hero .hero-content{left:28px!important;right:28px!important;max-width:none!important}}
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
@@ -252,22 +262,27 @@
 </script>
 
 <!-- ══ HERO ══ -->
-<section class="vimeo-hero" style="position: relative; width: 100vw; height: 100vh; overflow: hidden; margin: 0; display: flex; align-items: center; justify-content: flex-end; padding: 0 0 6rem; background: var(--air-deep); touch-action: pan-y;">
+<section class="vimeo-hero">
+  <div class="hero-frame">
   <!-- Vimeo Background Video -->
   <iframe src="https://player.vimeo.com/video/1187156891?h=a5c70ee4a0&autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0" 
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; object-fit: cover; pointer-events: none;"
           frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-  
-  <!-- Dark Overlay -->
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 26, 46, 0.65); z-index: 10; pointer-events: none;"></div>
+  <div class="hero-overlay"></div>
   
   <!-- Content -->
-  <div style="position: relative; z-index: 20; text-align: center; max-width: 700px; padding: 40px 72px; color: white;">
+  <div class="hero-content">
     <div class="hero-kicker">
       <span class="hero-kicker-pill">Air Element</span>
       <span class="hero-kicker-pill">Ages 8 – 14</span>
     </div>
-    <div class="program-hero-corner-label">Air Track</div>
+    <h1 class="hero-title">Aerial<br><span>Silks</span></h1>
+    <p class="hero-sub">Strength disguised as grace. Art built on discipline. Aerial silks is where athletes learn to move through the air with intention &mdash; and discover what they're capable of when the ground is no longer beneath them.</p>
+    <div class="hero-cta-row">
+      <a href="#enroll" class="btn-primary">Enroll Now</a>
+      <a href="#journey" class="btn-ghost">Beginner to Intermediate &darr;</a>
+    </div>
+  </div>
+  <div class="program-hero-corner-label">Air Track</div>
   </div>
 </section>
 <section class="what-section">
