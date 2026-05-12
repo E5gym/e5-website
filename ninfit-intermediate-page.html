@@ -243,36 +243,40 @@
   body .vimeo-hero .program-hero-corner-label{position:absolute!important;left:auto!important;right:32px!important;bottom:24px!important;z-index:3!important;font-family:'Montserrat',sans-serif!important;font-size:10px!important;font-weight:800!important;letter-spacing:.22em!important;text-transform:uppercase!important;color:rgba(255,255,255,.46)!important;text-align:right!important;text-shadow:0 2px 10px rgba(0,0,0,.35)!important}
   @media(max-width:600px){body .vimeo-hero .hero-title{font-size:clamp(44px,14vw,72px)!important}body .vimeo-hero .hero-content{overflow:visible!important}body .vimeo-hero .btn-primary,body .vimeo-hero .btn-ghost,body .vimeo-hero .program-hero-button,body .vimeo-hero .program-hero-secondary,body .vimeo-hero .hero-primary,body .vimeo-hero .hero-secondary{width:100%!important;min-width:0!important}}
   @media(max-width:900px){body .vimeo-hero{padding:28px!important}body .vimeo-hero .hero-frame{min-height:640px!important;aspect-ratio:auto!important}body .vimeo-hero .hero-content{left:28px!important;right:28px!important;max-width:none!important}}
-  body .vimeo-hero .hero-title-mobile{display:none!important}
   @media (max-width: 600px) {
-    body .vimeo-hero .hero-title-desktop { display: none !important; }
-    body .vimeo-hero .hero-title-mobile { display: block !important; }
     body .vimeo-hero .hero-title {
-      font-size: clamp(42px, 12vw, 58px) !important;
+      font-size: clamp(34px, 10vw, 46px) !important;
       line-height: 0.95 !important;
-      letter-spacing: -0.04em !important;
+      letter-spacing: -0.045em !important;
       max-width: 100% !important;
-      overflow-wrap: normal !important;
-      word-break: normal !important;
-    }
-
-    body .vimeo-hero .hero-content {
-      left: 42px !important;
-      right: 42px !important;
-      max-width: calc(100% - 84px) !important;
-    }
-  }
-
-  @media (max-width: 430px) {
-    body .vimeo-hero .hero-title {
-      font-size: clamp(38px, 11vw, 50px) !important;
-      line-height: 0.96 !important;
+      white-space: normal !important;
     }
 
     body .vimeo-hero .hero-content {
       left: 36px !important;
       right: 36px !important;
       max-width: calc(100% - 72px) !important;
+    }
+  }
+
+  @media (max-width: 430px) {
+    body .vimeo-hero .hero-title {
+      font-size: clamp(32px, 9.2vw, 42px) !important;
+      line-height: 0.95 !important;
+      letter-spacing: -0.05em !important;
+    }
+
+    body .vimeo-hero .hero-content {
+      left: 32px !important;
+      right: 32px !important;
+      max-width: calc(100% - 64px) !important;
+    }
+  }
+
+  @media (max-width: 380px) {
+    body .vimeo-hero .hero-title {
+      font-size: 30px !important;
+      letter-spacing: -0.055em !important;
     }
   }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
@@ -301,8 +305,7 @@
     <div class="hero-kicker">
       <span class="hero-kicker-pill">Levels 4 – 6</span>
     </div>
-    <h1 class="hero-title hero-title-desktop">Nin<span>Fit</span><br>Intermediate</h1>
-    <h1 class="hero-title hero-title-mobile">Nin<span>Fit</span><br>Inter<br>mediate</h1>
+    <h1 class="hero-title">Nin<span>Fit</span><br>Intermediate</h1>
     <p class="hero-sub">The training changes here. Skills become intentional. Competition becomes possible. This is where athletes stop learning how to move and start learning how to compete.</p>
     <div class="hero-cta-row">
       <a href="#enroll" class="btn-primary">Enroll Now</a>
