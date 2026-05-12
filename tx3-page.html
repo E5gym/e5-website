@@ -61,26 +61,30 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    margin: 0; padding: 0;
+    margin: 0 calc(50% - 50vw); padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--red-bg);
     touch-action: pan-y;
   }
-  .vimeo-hero iframe { pointer-events: none; }
-  .vimeo-hero > .container { position: relative; z-index: 20; pointer-events: auto; }
-  .vimeo-hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 38%;
-    background:
-      radial-gradient(circle at 32% 24%, rgba(224,38,45,0.12), transparent 16%),
-      radial-gradient(circle at 68% 18%, rgba(232,137,12,0.16), transparent 20%),
-      linear-gradient(transparent, rgba(26,5,5,0.78));
-    z-index: 15;
+  .vimeo-hero iframe {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 100vw !important;
+    height: 56.25vw !important;
+    min-width: 177.78vh !important;
+    min-height: 100vh !important;
+    transform: translate(-50%, -50%) !important;
+    border: none !important;
     pointer-events: none;
+  }
+  .vimeo-hero > .container {
+    position: relative;
+    z-index: 20;
+    pointer-events: auto;
+    text-shadow: 0 3px 24px rgba(0,0,0,0.78), 0 1px 4px rgba(0,0,0,0.65);
   }
   .hero-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(4.5rem, 14vw, 12rem); line-height: 0.88; letter-spacing: -0.03em; color: var(--white); text-transform: uppercase; }
   .hero-title span {
@@ -303,7 +307,6 @@
   <iframe src="https://player.vimeo.com/video/1185762882?h=20b5479639&autoplay=1&muted=1&loop=1&background=1"
           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; object-fit: cover; pointer-events: none;"
           frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2,0,0,0.45); z-index: 10; pointer-events: none;"></div>
   <div class="container" style="position: relative; z-index: 20; text-align: center; max-width: 700px; padding: 40px 72px; color: white;">
     <span class="eyebrow on-dark">Elemental 5 · Salida, Colorado</span>
     <h1 class="hero-title">T<span>x</span>3</h1>

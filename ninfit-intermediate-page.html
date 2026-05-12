@@ -214,10 +214,9 @@
 
 
   /* ── VIMEO HERO BACKGROUND ── */
-  .vimeo-hero { position: relative; min-height: 100vh; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--black); padding: 0; touch-action: pan-y; }
+  .vimeo-hero { position: relative; min-height: 100vh; width: 100vw; margin: 0 calc(50% - 50vw); overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--black); padding: 0; touch-action: pan-y; }
   .vimeo-hero-video { position: absolute; top: 50%; left: 50%; width: 100vw; height: 56.25vw; min-width: 177.78vh; min-height: 100vh; transform: translate(-50%, -50%); border: none; pointer-events: none; }
-  .vimeo-hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.52); z-index: 1; pointer-events: none; }
-  .vimeo-hero-content { position: relative; z-index: 2; padding: 40px 72px; display: flex; flex-direction: column; align-items: center; pointer-events: auto; }
+  .vimeo-hero-content { position: relative; z-index: 2; padding: 40px 72px; display: flex; flex-direction: column; align-items: center; pointer-events: auto; text-shadow: 0 3px 24px rgba(0,0,0,0.78), 0 1px 4px rgba(0,0,0,0.65); }
   .vimeo-hero .hero-sub { max-width: 700px; color: rgba(255,255,255,0.86); }
   .vimeo-hero .hero-cta-row { justify-content: center; }
   @media (max-width: 900px) {
@@ -256,8 +255,6 @@
 <!-- ══ HERO ══ -->
 <section class="vimeo-hero">
   <iframe class="vimeo-hero-video" src="https://player.vimeo.com/video/1187826816?h=41c64dfb78&autoplay=1&muted=1&loop=1&background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Ninfit Intermediate - E5 Website Programs"></iframe>
-  <div class="vimeo-hero-overlay"></div>
-
   <div class="container vimeo-hero-content">
     <div class="hero-kicker">
       <span class="hero-kicker-pill">Levels 4 – 6</span>
