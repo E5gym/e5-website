@@ -78,23 +78,6 @@
   .eyebrow.on-light { color: var(--blue-dark); }
 
   /* ── HERO ── */
-  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 0 6rem; position: relative; background: var(--black); overflow: hidden; }
-  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 65% 55% at 70% 35%, rgba(27,56,101,0.2) 0%, transparent 65%), radial-gradient(ellipse 40% 60% at 10% 65%, rgba(27,56,101,0.08) 0%, transparent 60%); }
-  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; }
-  .hero-water { position: absolute; right: 6%; top: 50%; transform: translateY(-50%); width: 360px; height: 360px; opacity: 0.08; pointer-events: none; }
-  .hero-water img { width: 100%; height: 100%; object-fit: contain; }
-  .hero-kicker { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
-  .hero-kicker-pill { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; background: rgba(61,106,167,0.18); color: var(--water-light); border: 1px solid rgba(61,106,167,0.35); padding: 0.3rem 0.75rem; }
-  .hero-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(3.5rem, 10vw, 10rem); line-height: 0.9; letter-spacing: -0.03em; color: var(--white); text-transform: uppercase; }
-  .hero-title span { color: var(--water-light); }
-  .hero-title .level-range { display: block; font-size: clamp(1.5rem, 4vw, 3.5rem); color: rgba(255,255,255,0.25); letter-spacing: 0.05em; margin-top: 0.5rem; font-weight: 700; }
-  .hero-sub { font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: clamp(1rem, 1.8vw, 1.2rem); color: rgba(250,250,247,0.55); max-width: 520px; line-height: 1.75; margin-top: 1.25rem; }
-  .hero-cta-row { display: flex; align-items: center; gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap; }
-  .btn-primary { display: inline-block; background: var(--blue); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2.25rem; text-decoration: none; transition: background 0.2s, transform 0.15s; }
-  .btn-primary:hover { background: var(--blue-mid); transform: translateY(-2px); }
-  .btn-ghost { display: inline-block; color: rgba(255,255,255,0.5); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
-  .btn-ghost:hover { color: var(--white); border-color: var(--water-light); }
-  .hero-accent-line { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--blue) 0%, var(--water-light) 50%, rgba(143,172,220,0.15) 100%); }
 
   /* ── SHIFT SECTION ── */
   .shift-section { background: var(--white); color: var(--text); padding: 6rem 0; }
@@ -214,9 +197,10 @@
 
 
   /* ── VIMEO HERO BACKGROUND ── */
-  .vimeo-hero { position: relative; min-height: 100vh; width: 100vw; margin: 0 calc(50% - 50vw); overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--black); padding: 0; touch-action: pan-y; }
+  .vimeo-hero { position: relative; min-height: 100vh; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--black); padding: 0; touch-action: pan-y; }
   .vimeo-hero-video { position: absolute; top: 50%; left: 50%; width: 100vw; height: 56.25vw; min-width: 177.78vh; min-height: 100vh; transform: translate(-50%, -50%); border: none; pointer-events: none; }
-  .vimeo-hero-content { position: relative; z-index: 2; padding: 40px 72px; display: flex; flex-direction: column; align-items: center; pointer-events: auto; text-shadow: 0 3px 24px rgba(0,0,0,0.78), 0 1px 4px rgba(0,0,0,0.65); }
+  .vimeo-hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.52); z-index: 1; pointer-events: none; }
+  .vimeo-hero-content { position: relative; z-index: 2; padding: 40px 72px; display: flex; flex-direction: column; align-items: center; pointer-events: auto; }
   .vimeo-hero .hero-sub { max-width: 700px; color: rgba(255,255,255,0.86); }
   .vimeo-hero .hero-cta-row { justify-content: center; }
   @media (max-width: 900px) {
@@ -224,19 +208,21 @@
     .george-grid { grid-template-columns: 1fr; }
     .pipeline-step { grid-template-columns: 1fr; }
     .pipeline-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .vimeo-hero { min-height: 70vh; height: auto; padding: 120px 0 80px; }
+    .program-cinematic-hero { padding: 2.75rem 1.25rem 2rem; }
+    .program-hero-frame { aspect-ratio: auto; min-height: 680px; }
+    .program-hero-content { padding: 3.5rem 2rem; max-width: 640px; }
+    .program-hero-title { font-size: clamp(3rem, 14vw, 5.8rem); }
+    .program-hero-title span { font-size: 0.58em; letter-spacing: -0.05em; }
+    .program-hero-overlay { background: linear-gradient(90deg, rgba(3,10,22,0.96) 0%, rgba(3,10,22,0.82) 56%, rgba(3,10,22,0.52) 100%); }
   }
-
-
   @media (max-width: 600px) {
-    .vimeo-hero-content { padding: 24px 20px; }
+    .program-cinematic-hero { padding: 1.5rem 0.9rem; }
+    .program-hero-frame { min-height: 640px; border-radius: 6px; }
+    .program-hero-content { padding: 2.6rem 1.35rem; }
+    .program-hero-subtitle, .program-hero-description { max-width: 310px; }
+    .program-hero-corner-label { left: 1rem; right: auto; bottom: 1rem; }
   }
-
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-  .hero-kicker { animation: fadeUp 0.6s ease both; }
-  .hero-title { animation: fadeUp 0.7s 0.1s ease both; }
-  .hero-sub { animation: fadeUp 0.7s 0.2s ease both; }
-  .hero-cta-row { animation: fadeUp 0.7s 0.3s ease both; }
 </style>
 </head>
 <body>
@@ -255,18 +241,14 @@
 <!-- ══ HERO ══ -->
 <section class="vimeo-hero">
   <iframe class="vimeo-hero-video" src="https://player.vimeo.com/video/1187826816?h=41c64dfb78&autoplay=1&muted=1&loop=1&background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Ninfit Intermediate - E5 Website Programs"></iframe>
+  <div class="vimeo-hero-overlay"></div>
+
   <div class="container vimeo-hero-content">
     <div class="hero-kicker">
       <span class="hero-kicker-pill">Levels 4 – 6</span>
     </div>
-    <h1 class="hero-title">Nin<span>Fit</span><span class="level-range">Intermediate</span></h1>
-    <p class="hero-sub">The training changes here. Skills become intentional. Competition becomes possible. This is where athletes stop learning how to move and start learning how to compete.</p>
-    <div class="hero-cta-row">
-      <a href="#enroll" class="btn-primary">Enroll Now</a>
-      <a href="#pipeline" class="btn-ghost">The competition path ↓</a>
-    </div>
+    <div class="program-hero-corner-label">Levels 4-6</div>
   </div>
-  <div class="hero-accent-line"></div>
 </section>
 
 <!-- ══ THE SHIFT ══ -->
