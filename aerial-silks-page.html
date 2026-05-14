@@ -213,19 +213,23 @@
     .journey-grid, .coaches-grid { grid-template-columns: 1fr; }
     .coach-card { grid-template-columns: 1fr; }
     .air-divider-inner { flex-direction: column; text-align: center; }
-    .program-cinematic-hero { padding: 2.75rem 1.25rem 2rem; }
-    .program-hero-frame { aspect-ratio: auto; min-height: 680px; }
-    .program-hero-content { padding: 3.5rem 2rem; max-width: 640px; }
-    .program-hero-title { font-size: clamp(3.2rem, 16vw, 6rem); }
-    .program-hero-overlay { background: linear-gradient(90deg, rgba(7,10,14,0.96) 0%, rgba(7,10,14,0.82) 56%, rgba(7,10,14,0.52) 100%); }
+        .program-cinematic-hero { padding: 2rem 1.25rem; }
+    .program-hero-frame { display: flex; flex-direction: column; aspect-ratio: auto; min-height: 0; border-radius: 6px; background: #10151d; }
+    .program-hero-video { position: relative; inset: auto; display: block; width: 100%; height: clamp(220px, 56vw, 340px); flex: 0 0 auto; }
+    .program-hero-overlay { display: none; }
+    .program-hero-content { position: relative; min-height: 0; max-width: none; width: auto; align-self: stretch; padding: 2rem; max-width: 100%; overflow: hidden; box-sizing: border-box; align-items: stretch; background: #10151d; }
+    .program-hero-title { font-size: clamp(3.25rem, 15vw, 5.2rem); }
+    .program-hero-button { width: 100%; }
+    .program-hero-corner-label { display: none; }
   }
 
   @media (max-width: 600px) {
-    .program-cinematic-hero { padding: 1.5rem 0.9rem; }
-    .program-hero-frame { min-height: 640px; border-radius: 6px; }
-    .program-hero-content { padding: 2.6rem 1.35rem; }
-    .program-hero-subtitle, .program-hero-description { max-width: 310px; }
-    .program-hero-corner-label { left: 1rem; right: auto; bottom: 1rem; }
+        .program-cinematic-hero { padding: 1.25rem 0.9rem; }
+    .program-hero-video { height: clamp(210px, 58vw, 300px); }
+    .program-hero-content { padding: 2rem 1.35rem; }
+    .program-hero-title { font-size: clamp(3.25rem, 15vw, 5.2rem); }
+    .program-hero-subtitle, .program-hero-description { width: auto; max-width: 100%; overflow-wrap: break-word; }
+    .program-hero-button { width: 100%; max-width: none; }
   }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
@@ -558,3 +562,7 @@
 
 </body>
 </html>
+
+
+
+
