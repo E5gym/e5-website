@@ -365,6 +365,72 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .strip-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); text-decoration: none; white-space: nowrap; flex-shrink: 0; -webkit-transition: gap 0.2s; transition: gap 0.2s; }
 .strip-link:hover { gap: 12px; }
 
+/* ── STORE CALLOUT ── */
+.store-callout-section {
+  width: 100%;
+  padding: 70px 72px;
+  background: #F3F4F6;
+}
+.store-callout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 36px;
+  max-width: 1180px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 4px;
+  border-left: 5px solid var(--ember);
+  box-shadow: 0 18px 45px rgba(14,8,4,0.08);
+  padding: 34px 40px;
+}
+.store-callout-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 10px;
+}
+.store-callout-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+.store-callout-copy {
+  max-width: 720px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--text-mid);
+}
+.store-callout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 14px 24px;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.2s;
+}
+.store-callout-btn:hover {
+  background: var(--red);
+  transform: translateY(-2px);
+}
+
 /* ── FACILITY ── */
 .facility-section { width: 100%; padding: 80px 72px 100px; background: #181008; background-image: repeating-linear-gradient(-55deg, transparent, transparent 3px, rgba(196,98,45,0.04) 3px, rgba(196,98,45,0.04) 4px), radial-gradient(ellipse at 50% 0%, rgba(196,98,45,0.14) 0%, transparent 60%), linear-gradient(rgba(10,10,10,0.72), rgba(10,10,10,0.78)), url("https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f676dd1328190e342ab1ef_fieryglow.png"); background-size: auto, auto, auto, cover; background-position: left top, center top, center, center; background-repeat: repeat, no-repeat, no-repeat, no-repeat; }
 .facility-section .section-label { color: rgba(255,255,255,0.4); }
@@ -469,7 +535,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .hero-right { padding: 32px 28px 56px 36px; border-left: none; border-top: 1px solid rgba(255,255,255,0.05); }
   .hero-right::before { display: none; }
   .element-spine, .location-tag { display: none; }
-  .elements-section, .programs-section, .facility-section, .announcements-section { padding-left: 28px; padding-right: 28px; }
+  .elements-section, .programs-section, .store-callout-section, .facility-section, .announcements-section { padding-left: 28px; padding-right: 28px; }
   .section-header { flex-direction: column; align-items: flex-start; }
   .section-intro, .header-note { text-align: left; max-width: 100%; }
   .elements-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -483,6 +549,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .founding-card, .tiers-card { padding: 36px 28px; }
   .events-grid { grid-template-columns: 1fr; }
   .newsletter-strip { flex-direction: column; align-items: flex-start; padding: 28px; }
+  .store-callout { grid-template-columns: 1fr; padding: 30px 28px; }
+  .store-callout-btn { width: 100%; }
 }
 
 @media (max-width: 768px) {
@@ -526,7 +594,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <div class="hero-button-row">
       <a href="/programs.html" class="hero-btn-primary">Explore Programs →</a>
       <a href="/new-gym.html" class="hero-btn-secondary">New Facility</a>
-      <!-- Store temporarily hidden while merch backend is being rebuilt. -->
     </div>
   </div>
 </section>
@@ -590,6 +657,20 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 <div class="section-divider"></div>
 
+<!-- STORE CALLOUT -->
+<section class="store-callout-section">
+  <div class="store-callout">
+    <div>
+      <p class="store-callout-eyebrow">Official Gear</p>
+      <h2 class="store-callout-title">Elemental 5 Gear &amp; Training Essentials</h2>
+      <p class="store-callout-copy">Pick up Elemental 5 apparel, training gear, and items that help students stay connected to their progress inside the gym.</p>
+    </div>
+    <a href="/store" class="store-callout-btn">Visit the Store →</a>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
 <!-- NEW FACILITY -->
 <section class="facility-section">
   <p class="section-label">What's Coming</p>
@@ -629,16 +710,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </div>
     <a href="/juniorcoach.html" class="jc-home-btn">Learn &amp; Apply →</a>
   </div>
-  <!-- Store temporarily hidden while merch backend is being rebuilt.
-  <div class="jc-home-strip" style="border-left-color:var(--red);">
-    <div class="jc-home-left">
-      <p class="jc-home-eyebrow">Official Gear</p>
-      <p class="jc-home-title">E5 Store</p>
-      <p class="jc-home-desc">Shirts, hoodies, hats, bottles, and accessories for Elemental 5 students, families, and supporters.</p>
-    </div>
-    <a href="/store" class="jc-home-btn">Visit the Store →</a>
-  </div>
-  -->
   <div class="newsletter-strip">
     <div class="newsletter-text"><h4>Stay in the loop</h4><p>Gym closures, class changes, camp dates, and Ninja of the Month. All in the newsletter.</p></div>
     <a href="/newsletter.html" class="newsletter-link">Read the Newsletter →</a>

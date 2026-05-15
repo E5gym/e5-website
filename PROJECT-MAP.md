@@ -1,6 +1,6 @@
 # Project Map
 
-This is a plain static HTML website for Elemental 5. There is no framework, package manager, or build pipeline. Netlify serves files directly from the repository root.
+This is a plain static HTML website for Elemental 5. There is no framework or package manager. Netlify runs the lightweight `node build.js` build step and publishes `_site`.
 
 ## Primary Public Pages
 
@@ -24,7 +24,7 @@ These are the main public-facing pages. They are linked from the shared navigati
 - `contact.html` - contact page
 - `newsletter.html` - newsletter page
 - `policies.html` - policies page
-- `store.html` - store page retained in source, but temporarily hidden and redirected while the merch backend is rebuilt
+- `store.html` - Elemental 5 Store page for official gear and training essentials
 - `e5-surge.html` - Surge program page; this is an active page, not a duplicate
 
 ## Utility Pages
@@ -42,7 +42,7 @@ Shared partials live in `Partials/` and are loaded into pages with `fetch()`.
 
 - `Partials/nav.html`
   - Controls the desktop and mobile navigation.
-  - Includes the logo, dropdown menus, program links, and Student Portal CTA. Store temporarily hidden while merch backend is being rebuilt.
+  - Includes the logo, dropdown menus, program links, Store link, and Student Portal CTA.
   - Changing this file affects most public pages.
 
 - `Partials/footer.html`
@@ -81,10 +81,10 @@ Most images and brand assets live in the repository root.
 
 ## Deployment Notes
 
-- `netlify.toml` sets `publish = "."`.
-- There is no build command.
-- Netlify serves the repository root directly.
-- `/store` and `/store.html` temporarily redirect to `/` with status `302` while the merch backend is rebuilt.
+- `netlify.toml` sets `command = "node build.js"` and `publish = "_site"`.
+- `build.js` copies static assets and inlines `Partials/nav.html` and `Partials/footer.html` into generated HTML files.
+- Netlify serves the generated `_site` directory.
+- `/store` serves `/store.html` with status `200`; `/store.html` remains available directly.
 - `robots.txt` allows the public site and disallows `/kiosk/`.
 - `sitemap.xml` manually lists indexed public URLs.
 - Most pages include manual SEO metadata: title, description, canonical URL, Open Graph tags, and Twitter card tags.
@@ -103,7 +103,7 @@ Common external services used by the site:
 
 ## Rules For Safely Editing This Site
 
-1. Do not assume there is a build step. Edit the actual `.html` or partial file that Netlify serves.
+1. Edit source `.html` files and shared partials, then run `node build.js` to regenerate `_site`.
 2. Prefer editing primary canonical pages, not `e5-*` duplicate pages.
 3. Treat `e5-surge.html` as active, despite the `e5-` prefix.
 4. For navigation changes, edit `Partials/nav.html` once instead of editing every page.
