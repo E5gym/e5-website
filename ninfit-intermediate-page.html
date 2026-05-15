@@ -208,19 +208,25 @@
     .george-grid { grid-template-columns: 1fr; }
     .pipeline-step { grid-template-columns: 1fr; }
     .pipeline-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .program-cinematic-hero { padding: 2.75rem 1.25rem 2rem; }
-    .program-hero-frame { aspect-ratio: auto; min-height: 680px; }
-    .program-hero-content { padding: 3.5rem 2rem; max-width: 640px; }
-    .program-hero-title { font-size: clamp(3rem, 14vw, 5.8rem); }
+    .program-cinematic-hero { padding: 2rem 1.25rem; }
+    .program-hero-frame { display: flex; flex-direction: column; aspect-ratio: auto; min-height: 0; border-radius: 6px; background: #050911; }
+    .program-hero-video { position: relative; inset: auto; display: block; width: 100%; height: clamp(220px, 56vw, 340px); flex: 0 0 auto; }
+    .program-hero-overlay { display: none; }
+    .program-hero-content { position: relative; min-height: 0; max-width: none; width: auto; align-self: stretch; padding: 2rem; max-width: 100%; overflow: hidden; box-sizing: border-box; align-items: stretch; background: #050911; }
+    .program-hero-title { font-size: clamp(2.9rem, 13vw, 5.2rem); }
     .program-hero-title span { font-size: 0.58em; letter-spacing: -0.05em; }
-    .program-hero-overlay { background: linear-gradient(90deg, rgba(3,10,22,0.96) 0%, rgba(3,10,22,0.82) 56%, rgba(3,10,22,0.52) 100%); }
+    
+    .program-hero-button { width: 100%; }
+    .program-hero-corner-label { display: none; }
   }
   @media (max-width: 600px) {
-    .program-cinematic-hero { padding: 1.5rem 0.9rem; }
-    .program-hero-frame { min-height: 640px; border-radius: 6px; }
-    .program-hero-content { padding: 2.6rem 1.35rem; }
-    .program-hero-subtitle, .program-hero-description { max-width: 310px; }
-    .program-hero-corner-label { left: 1rem; right: auto; bottom: 1rem; }
+    .program-cinematic-hero { padding: 1.25rem 0.9rem; }
+    .program-hero-video { height: clamp(210px, 58vw, 300px); }
+    .program-hero-content { padding: 2rem 1.35rem; }
+    .program-hero-title { font-size: clamp(2.85rem, 13vw, 4.6rem); }
+        .program-hero-title span { font-size: 0.58em; letter-spacing: -0.05em; }
+    .program-hero-subtitle, .program-hero-description { width: auto; max-width: 100%; overflow-wrap: break-word; }
+    .program-hero-button { width: 100%; max-width: none; }
   }
   /* Current program hero format, matched to NinFit Beginner. */
   body .vimeo-hero{width:100%;background:#17140f!important;padding:72px 66px 6px!important;height:auto!important;min-height:0!important;display:block!important;overflow:hidden!important;text-align:left!important}
@@ -545,3 +551,9 @@
 
 </body>
 </html>
+
+
+
+
+
+
