@@ -317,6 +317,39 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .point-text { font-size: 14px; font-weight: 400; line-height: 1.7; color: #C8C0B4; }
 .point-text strong { color: var(--white); font-weight: 600; }
 
+.e5-system-section { padding-top: 84px; }
+.e5-system-shell { display: grid; grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr); gap: 44px; align-items: center; margin-bottom: 28px; }
+.e5-system-visual { background: var(--cream); border-radius: 4px; min-height: 100%; padding: clamp(28px, 4vw, 54px); display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 1px rgba(31,41,55,0.06); }
+.e5-system-visual img { display: block; width: min(100%, 440px); height: auto; filter: drop-shadow(0 18px 28px rgba(31,41,55,0.14)); }
+.e5-system-content { max-width: 680px; }
+.e5-system-content .section-label { color: rgba(204,31,31,0.72); }
+.e5-system-copy { font-size: clamp(15px, 1.4vw, 17px); line-height: 1.78; color: rgba(31,41,55,0.7); margin-top: 22px; max-width: 620px; }
+.e5-system-highlight { display: inline-flex; margin-top: 26px; background: #141414; color: var(--white); border-left: 5px solid var(--red); border-radius: 4px; padding: 16px 20px; font-family: 'Montserrat', sans-serif; font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; letter-spacing: 0.02em; text-transform: uppercase; }
+.e5-system-elements { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+.e5-system-card { position: relative; overflow: hidden; background: var(--cream); border-radius: 4px; padding: 24px 18px 22px; min-height: 228px; display: flex; flex-direction: column; border-top: 5px solid var(--element-color); box-shadow: inset 0 0 0 1px rgba(31,41,55,0.04); }
+.e5-system-card::before { content: ''; position: absolute; inset: 0 0 auto; height: 76px; background: linear-gradient(180deg, var(--element-wash), transparent); pointer-events: none; }
+.e5-system-card > * { position: relative; }
+.e5-system-card h3 { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; color: #1A1A1A; margin-bottom: 8px; }
+.e5-system-traits { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #4D453C; line-height: 1.55; margin-bottom: 14px; }
+.e5-system-desc { font-size: 12.5px; line-height: 1.62; color: #5A5148; }
+.e5-system-card.card-earth { --element-color: #C4922A; --element-wash: rgba(196,146,42,0.16); }
+.e5-system-card.card-water { --element-color: #4A9FD4; --element-wash: rgba(74,159,212,0.15); }
+.e5-system-card.card-fire { --element-color: #CC3322; --element-wash: rgba(204,51,34,0.14); }
+.e5-system-card.card-air { --element-color: #9AABAA; --element-wash: rgba(154,171,170,0.22); }
+.e5-system-card.card-void { --element-color: var(--red); --element-wash: rgba(204,31,31,0.18); background: #1E1E1E; }
+.e5-system-card.card-void h3 { color: var(--white); }
+.e5-system-card.card-void .e5-system-traits { color: rgba(255,255,255,0.66); }
+.e5-system-card.card-void .e5-system-desc { color: rgba(255,255,255,0.52); }
+.e5-system-close { margin-top: 22px; display: flex; align-items: center; justify-content: space-between; gap: 22px; background: #141414; border-radius: 4px; padding: 22px 28px; }
+.e5-system-close p { color: rgba(255,255,255,0.78); font-size: 14px; line-height: 1.6; }
+.e5-system-close strong { color: var(--white); font-weight: 700; }
+.e5-system-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; flex-shrink: 0; }
+.e5-system-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 3px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.e5-system-btn.primary { background: var(--red); color: var(--white); border: 1px solid var(--red); }
+.e5-system-btn.primary:hover { background: #A51818; border-color: #A51818; }
+.e5-system-btn.secondary { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.28); }
+.e5-system-btn.secondary:hover { border-color: rgba(255,255,255,0.72); background: rgba(255,255,255,0.06); }
+
 /* ── PROGRAMS ── */
 .programs-section { width: 100%; padding: 80px 72px 100px; background: var(--light-1); }
 .header-note { font-size: 15px; font-weight: 400; line-height: 1.75; color: rgba(31,41,55,0.65); max-width: 340px; text-align: right; }
@@ -528,6 +561,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 .e5-select:focus { border-color: rgba(196,98,45,0.6); }
 
+@media (max-width: 1180px) {
+  .e5-system-elements { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 /* ── MOBILE ── */
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: auto; }
@@ -540,6 +577,13 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .section-intro, .header-note { text-align: left; max-width: 100%; }
   .elements-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
   .elements-statement { grid-template-columns: 1fr; }
+  .e5-system-shell { grid-template-columns: 1fr; gap: 28px; margin-bottom: 22px; }
+  .e5-system-visual { order: -1; padding: 30px 24px; }
+  .e5-system-content { max-width: 100%; }
+  .e5-system-elements { grid-template-columns: 1fr; gap: 10px; }
+  .e5-system-card { min-height: auto; padding: 22px 20px; }
+  .e5-system-close { flex-direction: column; align-items: flex-start; padding: 24px 22px; }
+  .e5-system-actions { width: 100%; justify-content: flex-start; }
   .statement-left, .statement-right { padding: 36px 28px; }
   .programs-grid-top, .programs-grid-bottom { grid-template-columns: 1fr; }
   .bottom-strip { grid-template-columns: 1fr; }
@@ -563,6 +607,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 @media (max-width: 560px) {
   .elements-grid { grid-template-columns: 1fr; }
+  .e5-system-btn { width: 100%; }
 }
 </style>
 </head>
@@ -601,27 +646,52 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <div class="section-divider"></div>
 
 <!-- FIVE ELEMENTS -->
-<section class="elements-section">
-  <div class="section-header">
-    <div>
-      <p class="section-label">The Framework</p>
-      <h2 class="section-headline">Not just a gym.<br><em>A system.</em></h2>
+<section class="elements-section e5-system-section" aria-labelledby="e5-system-title">
+  <div class="e5-system-shell">
+    <figure class="e5-system-visual">
+      <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a08e99c2f15651dadfff6e8_E5_ElementalAthlete_Color%5B1%5D.png" alt="Elemental Athlete framework showing Earth, Water, Fire, Air, and Void">
+    </figure>
+    <div class="e5-system-content">
+      <p class="section-label">The E5 System</p>
+      <h2 class="section-headline" id="e5-system-title">Not Just a Gym.<br><em>A Pathway.</em></h2>
+      <p class="e5-system-copy">Elemental 5 trains students across acrobatics, aerial arts, martial arts, and fitness through a structured progression system. The goal is not just better movement; it is the formation of capable bodies, confident minds, and humble character.</p>
+      <p class="e5-system-highlight">We call this student the Elemental Athlete.</p>
     </div>
-    <p class="section-intro">Every skill, every class, every progression at E5 is organized around <strong>five elemental principles.</strong> Physical and personal development woven together from day one.</p>
   </div>
-  <div class="elements-grid">
-    <div class="element-card card-earth"><div class="card-top-bar"></div><div class="card-body"><img src="https://static.wixstatic.com/media/d664e7_15e45dbefa064845b3e0df436b5656b6~mv2.png" alt="Earth" style="width:40px;height:40px;object-fit:contain;margin-bottom:10px;opacity:0.85;"><p class="card-name">Earth</p><p class="card-traits">Strength. Stability. Showing up.</p><p class="card-desc">Foundation-building. Consistency over flash. Strength comes from showing up physically and mentally even when it's hard.</p><p class="card-tagline">"Show up. Do the work."</p></div></div>
-    <div class="element-card card-water"><div class="card-top-bar"></div><div class="card-body"><img src="https://static.wixstatic.com/media/d664e7_beb8620cdb7a49198a02a624ea7530a3~mv2.png" alt="Water" style="width:40px;height:40px;object-fit:contain;margin-bottom:10px;opacity:0.85;"><p class="card-name">Water</p><p class="card-traits">Adaptability. Flow. Resilience.</p><p class="card-desc">When a skill doesn't come easily, water-thinking means adjusting your approach rather than forcing or quitting.</p><p class="card-tagline">"Bend. Don't break."</p></div></div>
-    <div class="element-card card-fire"><div class="card-top-bar"></div><div class="card-body"><img src="https://static.wixstatic.com/media/67b728_c260d1404bbe4e24b51a83e3622065c1~mv2.png" alt="Fire" style="width:40px;height:40px;object-fit:contain;margin-bottom:10px;opacity:0.85;"><p class="card-name">Fire</p><p class="card-traits">Intensity. Courage. Full Effort.</p><p class="card-desc">Fire moments are when kids commit fully to a scary skill, a hard conversation, or something they've never tried before.</p><p class="card-tagline">"Go all in."</p></div></div>
-    <div class="element-card card-air"><div class="card-top-bar"></div><div class="card-body"><img src="https://static.wixstatic.com/media/67b728_c2e237c70767412a8686c3e574e7bc44~mv2.png" alt="Air" style="width:40px;height:40px;object-fit:contain;margin-bottom:10px;opacity:0.85;"><p class="card-name">Air</p><p class="card-traits">Creativity. Lightness. Expression.</p><p class="card-desc">Once foundations are solid, air is the freedom to explore, invent, and bring a unique style to movement.</p><p class="card-tagline">"Make it yours."</p></div></div>
-    <div class="element-card card-void"><div class="card-top-bar"></div><div class="card-body"><img src="https://static.wixstatic.com/media/67b728_ec6eb12f06c944fc870124d60c7942f8~mv2.png" alt="Void" style="width:40px;height:40px;object-fit:contain;margin-bottom:10px;opacity:0.85;"><p class="card-name">Void</p><p class="card-traits">Presence. Awareness. Potential.</p><p class="card-desc">The void is stillness within movement, the ability to focus, reset, and be fully in the moment with yourself and others.</p><p class="card-tagline">"Be here. Be aware."</p></div></div>
+
+  <div class="e5-system-elements" aria-label="The five elements of the E5 progression system">
+    <article class="e5-system-card card-earth">
+      <h3>Earth</h3>
+      <p class="e5-system-traits">Strength &middot; Stability &middot; Foundation</p>
+      <p class="e5-system-desc">Students build the physical and mental base to show up, listen, work hard, and move with control.</p>
+    </article>
+    <article class="e5-system-card card-water">
+      <h3>Water</h3>
+      <p class="e5-system-traits">Skill &middot; Adaptability &middot; Flow</p>
+      <p class="e5-system-desc">Students learn technical progressions, adjust when skills are difficult, and develop coordination across disciplines.</p>
+    </article>
+    <article class="e5-system-card card-fire">
+      <h3>Fire</h3>
+      <p class="e5-system-traits">Power &middot; Courage &middot; Commitment</p>
+      <p class="e5-system-desc">Students learn to bring full effort to hard skills, scary moments, and meaningful challenges.</p>
+    </article>
+    <article class="e5-system-card card-air">
+      <h3>Air</h3>
+      <p class="e5-system-traits">Endurance &middot; Awareness &middot; Expression</p>
+      <p class="e5-system-desc">Students build stamina, creativity, and the ability to move with rhythm, style, and presence.</p>
+    </article>
+    <article class="e5-system-card card-void">
+      <h3>Void</h3>
+      <p class="e5-system-traits">Integration &middot; Mastery &middot; Character</p>
+      <p class="e5-system-desc">Students learn to connect the elements, becoming more focused, capable, respectful, and self-directed.</p>
+    </article>
   </div>
-  <div class="elements-statement">
-    <div class="statement-left"><p class="statement-quote">Train the Body. Sharpen the Mind.</p><p class="statement-sub">The elements aren't labels. They're a language your kid will use to talk about who they're becoming.</p></div>
-    <div class="statement-right">
-      <div class="statement-point"><div class="point-dot"></div><p class="point-text"><strong>Every class weaves physical and character training together.</strong> Skills are the medium, not the point.</p></div>
-      <div class="statement-point"><div class="point-dot"></div><p class="point-text"><strong>Coaches use the five elements as a feedback language,</strong> so kids hear "that was fire" and know exactly what it means.</p></div>
-      <div class="statement-point"><div class="point-dot"></div><p class="point-text"><strong>Parents tell us the change isn't just physical.</strong> It's the way their kid walks into a room.</p></div>
+
+  <div class="e5-system-close">
+    <p><strong>Every class, skill, and level at E5 is part of this larger pathway.</strong></p>
+    <div class="e5-system-actions" aria-label="Explore the Elemental 5 pathway">
+      <a href="/programs.html" class="e5-system-btn primary">Explore Programs</a>
+      <a href="/new-gym.html" class="e5-system-btn secondary">See the New Facility</a>
     </div>
   </div>
 </section>
