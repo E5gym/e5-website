@@ -367,6 +367,131 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .e5-system-btn.secondary:hover { border-color: rgba(255,255,255,0.72); background: rgba(255,255,255,0.06); }
 
 /* ── PROGRAMS ── */
+.start-section {
+  width: 100%;
+  background: #111111;
+  padding: 80px 72px;
+  border-top: 3px solid rgba(204,31,31,0.82);
+}
+
+.start-inner {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.start-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 34px;
+}
+
+.start-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 14px;
+}
+
+.start-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(30px, 3.4vw, 48px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.start-subtitle {
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.62);
+  max-width: 420px;
+}
+
+.start-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.start-card {
+  background: #1A1A1A;
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.start-card:hover {
+  transform: translateY(-4px);
+  background: #1E1E1E;
+  border-color: rgba(204,31,31,0.34);
+}
+
+.start-card .card-top-bar { height: 4px; background: var(--red); }
+
+.start-card-body {
+  padding: 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.start-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.start-desc {
+  font-size: 13px;
+  line-height: 1.72;
+  color: rgba(255,255,255,0.62);
+  margin-bottom: 24px;
+}
+
+.start-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  margin-top: auto;
+  padding: 12px 16px;
+  border-radius: 3px;
+  border: 1px solid rgba(204,31,31,0.72);
+  background: rgba(204,31,31,0.08);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.start-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+
 .programs-section { width: 100%; padding: 80px 72px 100px; background: var(--light-1); }
 .header-note { font-size: 15px; font-weight: 400; line-height: 1.75; color: rgba(31,41,55,0.65); max-width: 340px; text-align: right; }
 .header-note strong { color: var(--text-dark); font-weight: 600; }
@@ -545,9 +670,11 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .hero-right { padding: 32px 28px 56px 36px; border-left: none; border-top: 1px solid rgba(255,255,255,0.05); }
   .hero-right::before { display: none; }
   .element-spine, .location-tag { display: none; }
+  .start-section { padding: 56px 28px; }
   .elements-section, .programs-section, .facility-section, .announcements-section { padding-left: 28px; padding-right: 28px; }
   .section-header { flex-direction: column; align-items: flex-start; }
-  .start-header { flex-direction: column; align-items: flex-start; }
+  .start-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 28px; }
+  .start-title { font-size: clamp(28px, 8vw, 38px); }
   .section-intro, .header-note { text-align: left; max-width: 100%; }
   .start-subtitle { max-width: 100%; }
   .elements-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -685,36 +812,39 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 <!-- START HERE -->
 <section class="start-section">
-  <div class="start-header">
-    <div>
-      <p class="section-label">Start Here</p>
-      <h2 class="section-headline">Start<br><em>here.</em></h2>
-    </div>
-    <p class="start-subtitle">Not sure where your child fits? These are the most common starting points.</p>
-  </div>
-  <div class="start-grid">
-    <div class="start-card">
-      <div class="card-top-bar"></div>
-      <div class="start-card-body">
-        <h3 class="start-name">New to Elemental 5</h3>
-        <p class="start-desc">For most kids ages 5-12, NinFit Beginner is the best starting point. It builds strength, coordination, confidence, and foundational acrobatic movement.</p>
-        <a href="/ninfit-beginner.html" class="program-link">View NinFit Beginner →</a>
+  <div class="start-inner">
+    <div class="start-header">
+      <div>
+        <p class="start-eyebrow">Start Here</p>
+        <h2 class="start-title">Find the Right Starting Point</h2>
       </div>
+      <p class="start-subtitle">Not sure where your child fits? These are the most common starting points.</p>
     </div>
-    <div class="start-card">
-      <div class="card-top-bar"></div>
-      <div class="start-card-body">
-        <h3 class="start-name">Younger Kids</h3>
-        <p class="start-desc">For ages 3-5, Mini Ninjas introduces movement, confidence, listening skills, and gym awareness in an age-appropriate format.</p>
-        <a href="/programs.html" class="program-link">View Mini Ninjas →</a>
+
+    <div class="start-grid">
+      <div class="start-card">
+        <div class="card-top-bar"></div>
+        <div class="start-card-body">
+          <h3 class="start-name">New to Elemental 5</h3>
+          <p class="start-desc">For most kids ages 5-12, NinFit Beginner is the best starting point. It builds strength, coordination, confidence, and foundational acrobatic movement.</p>
+          <a href="/ninfit-beginner.html" class="start-btn">View NinFit Beginner →</a>
+        </div>
       </div>
-    </div>
-    <div class="start-card">
-      <div class="card-top-bar"></div>
-      <div class="start-card-body">
-        <h3 class="start-name">Kids Who Want Flips</h3>
-        <p class="start-desc">For students most interested in tumbling, trampoline, and acrobatic skill progressions, Tx3 is the clearest path.</p>
-        <a href="/tx3-page.html" class="program-link">View Tx3 →</a>
+      <div class="start-card">
+        <div class="card-top-bar"></div>
+        <div class="start-card-body">
+          <h3 class="start-name">Younger Kids</h3>
+          <p class="start-desc">For ages 3-5, Mini Ninjas introduces movement, confidence, listening skills, and gym awareness in an age-appropriate format.</p>
+          <a href="/programs.html" class="start-btn">View Mini Ninjas →</a>
+        </div>
+      </div>
+      <div class="start-card">
+        <div class="card-top-bar"></div>
+        <div class="start-card-body">
+          <h3 class="start-name">Kids Who Want Flips</h3>
+          <p class="start-desc">For students most interested in tumbling, trampoline, and acrobatic skill progressions, Tx3 is the clearest path.</p>
+          <a href="/tx3-page.html" class="start-btn">View Tx3 →</a>
+        </div>
       </div>
     </div>
   </div>
