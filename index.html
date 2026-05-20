@@ -552,6 +552,66 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .strip-link:hover { gap: 12px; }
 
 /* ── FACILITY ── */
+.store-promo-strip {
+  width: 100%;
+  background: #111111;
+  border-top: 1px solid rgba(204,31,31,0.55);
+  border-bottom: 1px solid rgba(204,31,31,0.55);
+  padding: 28px 72px;
+}
+.store-promo-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 28px;
+}
+.store-promo-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+.store-promo-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(20px, 2.2vw, 30px);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.store-promo-copy {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.72);
+  max-width: 760px;
+}
+.store-promo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 22px;
+  border-radius: 3px;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+.store-promo-link:hover { background: #A51818; color: var(--white); }
+
 .facility-section { width: 100%; padding: 80px 72px 100px; background: #181008; background-image: repeating-linear-gradient(-55deg, transparent, transparent 3px, rgba(196,98,45,0.04) 3px, rgba(196,98,45,0.04) 4px), radial-gradient(ellipse at 50% 0%, rgba(196,98,45,0.14) 0%, transparent 60%), linear-gradient(rgba(10,10,10,0.72), rgba(10,10,10,0.78)), url("https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f676dd1328190e342ab1ef_fieryglow.png"); background-size: auto, auto, auto, cover; background-position: left top, center top, center, center; background-repeat: repeat, no-repeat, no-repeat, no-repeat; }
 .facility-section .section-label { color: rgba(255,255,255,0.4); }
 .facility-section .section-headline { color: var(--white); font-size: clamp(36px, 4.5vw, 64px); margin-bottom: 48px; }
@@ -705,8 +765,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .community-feature-image { min-height: 220px; }
   .community-feature-body { padding: 30px 28px; }
   .newsletter-strip { flex-direction: column; align-items: flex-start; padding: 28px; }
-  .store-callout { grid-template-columns: 1fr; padding: 30px 28px; }
-  .store-callout-btn { width: 100%; }
+  .store-promo-strip { padding: 28px; }
+  .store-promo-inner { grid-template-columns: 1fr; align-items: flex-start; gap: 18px; }
+  .store-promo-link { width: 100%; }
 }
 
 @media (max-width: 768px) {
@@ -882,14 +943,14 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <div class="section-divider"></div>
 
 <!-- STORE CALLOUT -->
-<section class="store-callout-section">
-  <div class="store-callout">
+<section class="store-promo-strip">
+  <div class="store-promo-inner">
     <div>
-      <p class="store-callout-eyebrow">Official Gear</p>
-      <h2 class="store-callout-title">Elemental 5 Gear &amp; Training Essentials</h2>
-      <p class="store-callout-copy">Pick up Elemental 5 apparel, training gear, and items that help students stay connected to their progress inside the gym.</p>
+      <p class="store-promo-eyebrow">Official Gear</p>
+      <h2 class="store-promo-title">Elemental 5 Gear &amp; Training Essentials</h2>
+      <p class="store-promo-copy">Pick up Elemental 5 apparel, training gear, and items that help students stay connected to their progress inside the gym.</p>
     </div>
-    <a href="/store" class="store-callout-btn">Visit the Store →</a>
+    <a href="/store" class="store-promo-link">Visit the Store →</a>
   </div>
 </section>
 
