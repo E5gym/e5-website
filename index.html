@@ -317,23 +317,82 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .point-text { font-size: 14px; font-weight: 400; line-height: 1.7; color: #C8C0B4; }
 .point-text strong { color: var(--white); font-weight: 600; }
 
+.e5-system-section { padding-top: 84px; }
+.e5-system-shell { display: grid; grid-template-columns: minmax(340px, 1.05fr) minmax(0, 0.95fr); gap: 52px; align-items: center; margin-bottom: 28px; }
+.e5-system-visual { position: relative; display: flex; align-items: center; justify-content: center; min-height: 480px; padding: clamp(22px, 4vw, 50px); overflow: hidden; border-radius: 22px; background: radial-gradient(circle at 16% 28%, rgba(68,174,255,0.18), transparent 36%), radial-gradient(circle at 84% 24%, rgba(204,31,31,0.15), transparent 34%), radial-gradient(circle at 54% 82%, rgba(196,146,42,0.17), transparent 42%), radial-gradient(ellipse at center, rgba(255,255,255,0.5), transparent 58%); box-shadow: 0 24px 64px rgba(31,41,55,0.08); }
+.e5-system-visual::before { content: ''; position: absolute; inset: -20% -14%; background: radial-gradient(ellipse at 50% 48%, rgba(255,255,255,0.42), transparent 54%), radial-gradient(ellipse at 48% 56%, rgba(240,235,225,0.22), transparent 66%); filter: blur(22px); z-index: 0; }
+.e5-system-visual::after { content: ''; position: absolute; left: 16%; right: 16%; bottom: 8%; height: 22%; border-radius: 999px; background: radial-gradient(ellipse at center, rgba(31,41,55,0.15), transparent 72%); filter: blur(24px); opacity: 0.42; z-index: 0; }
+.e5-system-visual img { position: relative; z-index: 1; display: block; width: 100%; max-width: 780px; height: auto; object-fit: contain; filter: drop-shadow(0 22px 38px rgba(0,0,0,0.18)); transform: translateY(0) scale(1.04); transition: transform 220ms ease, filter 220ms ease; }
+.e5-system-visual:hover img { transform: translateY(-4px) scale(1.05); filter: drop-shadow(0 28px 46px rgba(0,0,0,0.2)); }
+.e5-system-content { max-width: 680px; }
+.e5-system-content .section-label { color: rgba(204,31,31,0.72); }
+.e5-system-copy { font-size: clamp(15px, 1.4vw, 17px); line-height: 1.78; color: rgba(31,41,55,0.7); margin-top: 22px; max-width: 620px; }
+.e5-system-highlight { display: inline-flex; margin-top: 26px; background: #141414; color: var(--white); border-left: 5px solid var(--red); border-radius: 4px; padding: 16px 20px; font-family: 'Montserrat', sans-serif; font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; letter-spacing: 0.02em; text-transform: uppercase; }
+.e5-system-elements { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+.e5-system-card { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(135deg, rgba(255,255,255,0.42), rgba(255,255,255,0.08) 42%), linear-gradient(180deg, var(--card-tint-top), var(--card-tint-bottom)); border-radius: 4px; padding: 24px 18px 22px; min-height: 228px; display: flex; flex-direction: column; border-top: 5px solid var(--element-color); box-shadow: inset 0 0 0 1px rgba(31,41,55,0.04); transition: transform 220ms ease, box-shadow 220ms ease; }
+.e5-system-card::before { content: ''; position: absolute; inset: 0; height: auto; z-index: 1; pointer-events: none; background: radial-gradient(circle at 88% 82%, var(--element-wash), transparent 54%), linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0)); }
+.e5-system-card::after { content: ''; position: absolute; right: -22px; bottom: -30px; width: 178px; height: 178px; z-index: 2; pointer-events: none; background-repeat: no-repeat; background-size: contain; background-position: center; transform: rotate(-5deg); transition: opacity 220ms ease, transform 220ms ease; }
+.e5-system-card:hover { transform: translateY(-5px); box-shadow: 0 18px 36px rgba(31,41,55,0.12); }
+.e5-system-card:hover::after { transform: rotate(-2deg) scale(1.045); }
+.e5-system-card > * { position: relative; z-index: 3; }
+.e5-system-card h3 { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; color: #1A1A1A; margin-bottom: 8px; }
+.e5-system-traits { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #4D453C; line-height: 1.55; margin-bottom: 14px; }
+.e5-system-desc { font-size: 12.5px; line-height: 1.62; color: #5A5148; }
+.e5-system-card.card-earth { --element-color: #C4922A; --element-wash: rgba(196,146,42,0.2); --card-tint-top: #DDD1BA; --card-tint-bottom: #CFC1A7; }
+.e5-system-card.card-earth::after { background-image: url("https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a0b4c7fae023a2d85ebc39e_Earth-symbol.png"); opacity: 0.2; width: 170px; height: 170px; right: -8px; bottom: -32px; filter: sepia(0.18) saturate(0.9) contrast(1.08) brightness(0.88); transform: rotate(0deg); }
+.e5-system-card.card-earth:hover::after { opacity: 0.26; transform: rotate(0deg) scale(1.035); }
+.e5-system-card.card-water { --element-color: #4A9FD4; --element-wash: rgba(74,159,212,0.22); --card-tint-top: #D5D7CC; --card-tint-bottom: #C2D0D2; }
+.e5-system-card.card-water::after { background-image: url("https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a0b4c8830fa581965296198_Water-symbol.png"); opacity: 0.24; width: 165px; height: 165px; right: -12px; bottom: -20px; filter: saturate(0.95) contrast(1.05) brightness(0.94); }
+.e5-system-card.card-water:hover::after { opacity: 0.32; }
+.e5-system-card.card-fire { --element-color: #CC3322; --element-wash: rgba(204,51,34,0.22); --card-tint-top: #DDC9BB; --card-tint-bottom: #D8BDAE; }
+.e5-system-card.card-fire::after { background-image: url("https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a0b4c912b8a0620375d8530_Fire-symbol.png"); opacity: 0.24; width: 172px; height: 172px; right: -16px; bottom: -22px; filter: saturate(0.95) contrast(1.05) brightness(0.95); }
+.e5-system-card.card-fire:hover::after { opacity: 0.32; }
+.e5-system-card.card-air { --element-color: #9AABAA; --element-wash: rgba(90,120,125,0.22); --card-tint-top: #D8D5C8; --card-tint-bottom: #C9CDC4; }
+.e5-system-card.card-air::after { background-image: url("https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a0b4c98c030e7bec021b4d3_Air-symbol.png"); opacity: 0.34; width: 192px; height: 192px; right: -22px; bottom: -32px; filter: sepia(0.08) saturate(0.55) contrast(1.18) brightness(0.76); }
+.e5-system-card.card-air:hover::after { opacity: 0.42; }
+.e5-system-card.card-void { --element-color: #CC1F1F; --element-wash: rgba(204,31,31,0.22); --card-tint-top: #241D1D; --card-tint-bottom: #171717; background: radial-gradient(circle at 90% 80%, rgba(204,31,31,0.18), transparent 48%), linear-gradient(135deg, #2B2424, #171717 58%, #111111); }
+.e5-system-card.card-void::after { background-image: url("https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a0b4c9f088fb52fc1583139_Void-symbol.png"); opacity: 0.26; width: 166px; height: 166px; right: -12px; bottom: -20px; filter: invert(1) saturate(0.35) contrast(1.15) brightness(0.85); }
+.e5-system-card.card-void:hover::after { opacity: 0.34; }
+.e5-system-card.card-void h3 { color: var(--white); }
+.e5-system-card.card-void .e5-system-traits { color: rgba(255,255,255,0.66); }
+.e5-system-card.card-void .e5-system-desc { color: rgba(255,255,255,0.52); }
+.e5-system-close { margin-top: 22px; display: flex; align-items: center; justify-content: space-between; gap: 22px; background: #141414; border-radius: 4px; padding: 22px 28px; }
+.e5-system-close p { color: rgba(255,255,255,0.78); font-size: 14px; line-height: 1.6; }
+.e5-system-close strong { color: var(--white); font-weight: 700; }
+.e5-system-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; flex-shrink: 0; }
+.e5-system-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 3px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.e5-system-btn.primary { background: var(--red); color: var(--white); border: 1px solid var(--red); }
+.e5-system-btn.primary:hover { background: #A51818; border-color: #A51818; }
+.e5-system-btn.secondary { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.28); }
+.e5-system-btn.secondary:hover { border-color: rgba(255,255,255,0.72); background: rgba(255,255,255,0.06); }
+
 /* ── PROGRAMS ── */
 .programs-section { width: 100%; padding: 80px 72px 100px; background: var(--light-1); }
 .header-note { font-size: 15px; font-weight: 400; line-height: 1.75; color: rgba(31,41,55,0.65); max-width: 340px; text-align: right; }
 .header-note strong { color: var(--text-dark); font-weight: 600; }
 .programs-grid-top { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
 .programs-grid-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 64px; }
-.program-card { background: var(--cream); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; -webkit-transition: -webkit-transform 0.2s; transition: transform 0.2s; }
-.program-card:hover { -webkit-transform: translateY(-4px); transform: translateY(-4px); }
-.card-ninfit .card-top-bar { background: var(--red); }
-.card-tx3   .card-top-bar { background: #4A9FD4; }
-.card-silks .card-top-bar { background: #9B6BB5; }
-.card-ema   .card-top-bar { background: #6B8F5E; }
-.card-echo  .card-top-bar { background: #C4922A; }
+.program-card { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(135deg, rgba(255,255,255,0.42), rgba(255,255,255,0.08) 44%), linear-gradient(180deg, var(--program-tint-top), var(--program-tint-bottom)); border-radius: 4px; display: flex; flex-direction: column; transition: transform 220ms ease, box-shadow 220ms ease; }
+.program-card::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(circle at 88% 82%, var(--program-wash), transparent 56%), linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0)); }
+.program-card > * { position: relative; z-index: 2; }
+.program-card:hover { transform: translateY(-5px); box-shadow: 0 18px 36px rgba(31,41,55,0.12); }
+.program-card.card-ninfit { --program-tint-top: #D8DEE3; --program-tint-bottom: #C3D4DF; --program-wash: rgba(74,159,212,0.24); }
+.program-card.card-ninfit .card-top-bar { background: #2F80C0; }
+.program-card.card-tx3 { --program-tint-top: #DECBC3; --program-tint-bottom: #D8B8AD; --program-wash: rgba(204,31,31,0.22); }
+.program-card.card-tx3 .card-top-bar { background: #CC1F1F; }
+.program-card.card-silks { --program-tint-top: #DBDAD4; --program-tint-bottom: #C9CBC7; --program-wash: rgba(120,130,135,0.2); }
+.program-card.card-silks .card-top-bar { background: #8E989B; }
+.program-card.card-ema { --program-tint-top: #D8D9C8; --program-tint-bottom: #C7D0B9; --program-wash: rgba(87,135,82,0.22); }
+.program-card.card-ema .card-top-bar { background: #5F8F5B; }
+.program-card.card-echo { --program-tint-top: #DED2B7; --program-tint-bottom: #D1BD8F; --program-wash: rgba(196,146,42,0.26); }
+.program-card.card-echo .card-top-bar { background: #C4922A; }
 .card-badges { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
 .age-badge { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #3A3530; background: rgba(0,0,0,0.08); border-radius: 100px; padding: 4px 12px; }
 .tag-popular { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--red); border-radius: 100px; padding: 4px 12px; }
 .tag-audition { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #7A5C1E; background: rgba(196,146,42,0.15); border: 1px solid rgba(196,146,42,0.3); border-radius: 100px; padding: 4px 12px; }
+.program-card .age-badge { background: rgba(255,255,255,0.34); border: 1px solid rgba(0,0,0,0.05); }
+.program-card .tag-popular { background: #CC1F1F; color: #ffffff; }
+.program-card .tag-audition { background: rgba(196,146,42,0.16); border: 1px solid rgba(196,146,42,0.34); }
 .program-name { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 900; letter-spacing: 0.02em; text-transform: uppercase; color: #1A1A1A; margin-bottom: 4px; }
 .program-subtitle { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7A6F62; margin-bottom: 14px; }
 .program-desc { font-size: 13px; font-weight: 400; line-height: 1.7; color: #3A3530; margin-bottom: 16px; flex: 1; }
@@ -357,6 +416,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
   transition:background 0.2s, color 0.2s, border-color 0.2s;
 }
 .program-link:hover { background:var(--red); color:#fff; border-color:var(--red); }
+.program-card .program-link { background: rgba(255,255,255,0.22); border-color: rgba(204,31,31,0.28); }
+.program-card .program-link:hover { background: var(--red); color: #fff; border-color: var(--red); }
 .bottom-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .strip-item { background: #141414; border-radius: 4px; padding: 28px 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; -webkit-transition: background 0.2s; transition: background 0.2s; }
 .strip-item:hover { background: #1E1E1E; }
@@ -364,20 +425,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .strip-text p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
 .strip-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); text-decoration: none; white-space: nowrap; flex-shrink: 0; -webkit-transition: gap 0.2s; transition: gap 0.2s; }
 .strip-link:hover { gap: 12px; }
-
-/* START HERE */
-.start-section { width: 100%; padding: 72px 72px 80px; background: var(--light-1); }
-.start-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 36px; }
-.start-subtitle { font-size: 15px; line-height: 1.7; color: rgba(31,41,55,0.65); max-width: 430px; }
-.start-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.start-card { background: var(--cream); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s; }
-.start-card:hover { transform: translateY(-4px); }
-.start-card-body { padding: 26px 24px 28px; flex: 1; display: flex; flex-direction: column; }
-.start-name { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.02em; color: #1A1A1A; margin-bottom: 10px; }
-.start-desc { font-size: 13px; line-height: 1.7; color: #3A3530; margin-bottom: 20px; flex: 1; }
-.start-card:nth-child(1) .card-top-bar { background: var(--red); }
-.start-card:nth-child(2) .card-top-bar { background: #6B8F5E; }
-.start-card:nth-child(3) .card-top-bar { background: #4A9FD4; }
 
 /* ── FACILITY ── */
 .facility-section { width: 100%; padding: 80px 72px 100px; background: #181008; background-image: repeating-linear-gradient(-55deg, transparent, transparent 3px, rgba(196,98,45,0.04) 3px, rgba(196,98,45,0.04) 4px), radial-gradient(ellipse at 50% 0%, rgba(196,98,45,0.14) 0%, transparent 60%), linear-gradient(rgba(10,10,10,0.72), rgba(10,10,10,0.78)), url("https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f676dd1328190e342ab1ef_fieryglow.png"); background-size: auto, auto, auto, cover; background-position: left top, center top, center, center; background-repeat: repeat, no-repeat, no-repeat, no-repeat; }
@@ -487,6 +534,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 .e5-select:focus { border-color: rgba(196,98,45,0.6); }
 
+@media (max-width: 1180px) {
+  .e5-system-elements { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 /* ── MOBILE ── */
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: auto; }
@@ -494,13 +545,26 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .hero-right { padding: 32px 28px 56px 36px; border-left: none; border-top: 1px solid rgba(255,255,255,0.05); }
   .hero-right::before { display: none; }
   .element-spine, .location-tag { display: none; }
-  .elements-section, .programs-section, .start-section, .facility-section, .announcements-section { padding-left: 28px; padding-right: 28px; }
+  .elements-section, .programs-section, .facility-section, .announcements-section { padding-left: 28px; padding-right: 28px; }
   .section-header { flex-direction: column; align-items: flex-start; }
   .start-header { flex-direction: column; align-items: flex-start; }
   .section-intro, .header-note { text-align: left; max-width: 100%; }
   .start-subtitle { max-width: 100%; }
   .elements-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
   .elements-statement { grid-template-columns: 1fr; }
+  .e5-system-shell { grid-template-columns: 1fr; gap: 28px; margin-bottom: 22px; }
+  .e5-system-visual { order: -1; padding: 30px 24px; }
+  .e5-system-content { max-width: 100%; }
+  .e5-system-elements { grid-template-columns: 1fr; gap: 10px; }
+  .e5-system-card { min-height: auto; padding: 22px 20px; }
+  .e5-system-card::after { width: 145px; height: 145px; right: -16px; bottom: -22px; }
+  .e5-system-card.card-earth::after { width: 145px; height: 145px; right: -4px; bottom: -24px; opacity: 0.18; }
+  .e5-system-card.card-water::after { width: 138px; height: 138px; opacity: 0.22; }
+  .e5-system-card.card-fire::after { width: 145px; height: 145px; opacity: 0.22; }
+  .e5-system-card.card-air::after { width: 158px; height: 158px; right: -18px; bottom: -26px; opacity: 0.3; }
+  .e5-system-card.card-void::after { width: 140px; height: 140px; opacity: 0.22; }
+  .e5-system-close { flex-direction: column; align-items: flex-start; padding: 24px 22px; }
+  .e5-system-actions { width: 100%; justify-content: flex-start; }
   .statement-left, .statement-right { padding: 36px 28px; }
   .start-grid { grid-template-columns: 1fr; }
   .programs-grid-top, .programs-grid-bottom { grid-template-columns: 1fr; }
@@ -514,6 +578,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .community-feature-image { min-height: 220px; }
   .community-feature-body { padding: 30px 28px; }
   .newsletter-strip { flex-direction: column; align-items: flex-start; padding: 28px; }
+  .store-callout { grid-template-columns: 1fr; padding: 30px 28px; }
+  .store-callout-btn { width: 100%; }
 }
 
 @media (max-width: 768px) {
@@ -526,6 +592,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 @media (max-width: 560px) {
   .elements-grid { grid-template-columns: 1fr; }
+  .e5-system-btn { width: 100%; }
 }
 </style>
 </head>
@@ -557,7 +624,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <div class="hero-button-row">
       <a href="/programs.html" class="hero-btn-primary">Explore Programs →</a>
       <a href="/new-gym.html" class="hero-btn-secondary">New Facility</a>
-      <!-- Store temporarily hidden while merch backend is being rebuilt. -->
     </div>
   </div>
 </section>
@@ -565,27 +631,52 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <div class="section-divider"></div>
 
 <!-- FIVE ELEMENTS -->
-<section class="elements-section">
-  <div class="section-header">
-    <div>
-      <p class="section-label">The Framework</p>
-      <h2 class="section-headline">Not just a gym.<br><em>A system.</em></h2>
+<section class="elements-section e5-system-section" aria-labelledby="e5-system-title">
+  <div class="e5-system-shell">
+    <figure class="e5-system-visual">
+      <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a08f1ef3d7160b1d90fedc6_elemental_athlete_true_transparent.png" alt="Elemental Athlete framework showing Earth, Water, Fire, Air, and Void">
+    </figure>
+    <div class="e5-system-content">
+      <p class="section-label">The E5 System</p>
+      <h2 class="section-headline" id="e5-system-title">Not Just a Gym.<br><em>A Pathway.</em></h2>
+      <p class="e5-system-copy">Elemental 5 trains students across acrobatics, aerial arts, martial arts, and fitness through a structured progression system. The goal is not just better movement; it is the formation of capable bodies, confident minds, and humble character.</p>
+      <p class="e5-system-highlight">We call this student the Elemental Athlete.</p>
     </div>
-    <p class="section-intro">Every skill, every class, every progression at E5 is organized around <strong>five elemental principles.</strong> Physical and personal development woven together from day one.</p>
   </div>
-  <div class="elements-grid">
-    <div class="element-card card-earth"><div class="card-top-bar"></div><div class="card-body"><img src="https://static.wixstatic.com/media/d664e7_15e45dbefa064845b3e0df436b5656b6~mv2.png" alt="Earth" style="width:40px;height:40px;object-fit:contain;margin-bottom:10px;opacity:0.85;"><p class="card-name">Earth</p><p class="card-traits">Strength. Stability. Showing up.</p><p class="card-desc">Foundation-building. Consistency over flash. Strength comes from showing up physically and mentally even when it's hard.</p><p class="card-tagline">"Show up. Do the work."</p></div></div>
-    <div class="element-card card-water"><div class="card-top-bar"></div><div class="card-body"><img src="https://static.wixstatic.com/media/d664e7_beb8620cdb7a49198a02a624ea7530a3~mv2.png" alt="Water" style="width:40px;height:40px;object-fit:contain;margin-bottom:10px;opacity:0.85;"><p class="card-name">Water</p><p class="card-traits">Adaptability. Flow. Resilience.</p><p class="card-desc">When a skill doesn't come easily, water-thinking means adjusting your approach rather than forcing or quitting.</p><p class="card-tagline">"Bend. Don't break."</p></div></div>
-    <div class="element-card card-fire"><div class="card-top-bar"></div><div class="card-body"><img src="https://static.wixstatic.com/media/67b728_c260d1404bbe4e24b51a83e3622065c1~mv2.png" alt="Fire" style="width:40px;height:40px;object-fit:contain;margin-bottom:10px;opacity:0.85;"><p class="card-name">Fire</p><p class="card-traits">Intensity. Courage. Full Effort.</p><p class="card-desc">Fire moments are when kids commit fully to a scary skill, a hard conversation, or something they've never tried before.</p><p class="card-tagline">"Go all in."</p></div></div>
-    <div class="element-card card-air"><div class="card-top-bar"></div><div class="card-body"><img src="https://static.wixstatic.com/media/67b728_c2e237c70767412a8686c3e574e7bc44~mv2.png" alt="Air" style="width:40px;height:40px;object-fit:contain;margin-bottom:10px;opacity:0.85;"><p class="card-name">Air</p><p class="card-traits">Creativity. Lightness. Expression.</p><p class="card-desc">Once foundations are solid, air is the freedom to explore, invent, and bring a unique style to movement.</p><p class="card-tagline">"Make it yours."</p></div></div>
-    <div class="element-card card-void"><div class="card-top-bar"></div><div class="card-body"><img src="https://static.wixstatic.com/media/67b728_ec6eb12f06c944fc870124d60c7942f8~mv2.png" alt="Void" style="width:40px;height:40px;object-fit:contain;margin-bottom:10px;opacity:0.85;"><p class="card-name">Void</p><p class="card-traits">Presence. Awareness. Potential.</p><p class="card-desc">The void is stillness within movement, the ability to focus, reset, and be fully in the moment with yourself and others.</p><p class="card-tagline">"Be here. Be aware."</p></div></div>
+
+  <div class="e5-system-elements" aria-label="The five elements of the E5 progression system">
+    <article class="e5-system-card card-earth">
+      <h3>Earth</h3>
+      <p class="e5-system-traits">Strength &middot; Stability &middot; Foundation</p>
+      <p class="e5-system-desc">Students build the physical and mental base to show up, listen, work hard, and move with control.</p>
+    </article>
+    <article class="e5-system-card card-water">
+      <h3>Water</h3>
+      <p class="e5-system-traits">Skill &middot; Adaptability &middot; Flow</p>
+      <p class="e5-system-desc">Students learn technical progressions, adjust when skills are difficult, and develop coordination across disciplines.</p>
+    </article>
+    <article class="e5-system-card card-fire">
+      <h3>Fire</h3>
+      <p class="e5-system-traits">Power &middot; Courage &middot; Commitment</p>
+      <p class="e5-system-desc">Students learn to bring full effort to hard skills, scary moments, and meaningful challenges.</p>
+    </article>
+    <article class="e5-system-card card-air">
+      <h3>Air</h3>
+      <p class="e5-system-traits">Endurance &middot; Awareness &middot; Expression</p>
+      <p class="e5-system-desc">Students build stamina, creativity, and the ability to move with rhythm, style, and presence.</p>
+    </article>
+    <article class="e5-system-card card-void">
+      <h3>Void</h3>
+      <p class="e5-system-traits">Integration &middot; Mastery &middot; Character</p>
+      <p class="e5-system-desc">Students learn to connect the elements, becoming more focused, capable, respectful, and self-directed.</p>
+    </article>
   </div>
-  <div class="elements-statement">
-    <div class="statement-left"><p class="statement-quote">Train the Body. Sharpen the Mind.</p><p class="statement-sub">The elements aren't labels. They're a language your kid will use to talk about who they're becoming.</p></div>
-    <div class="statement-right">
-      <div class="statement-point"><div class="point-dot"></div><p class="point-text"><strong>Every class weaves physical and character training together.</strong> Skills are the medium, not the point.</p></div>
-      <div class="statement-point"><div class="point-dot"></div><p class="point-text"><strong>Coaches use the five elements as a feedback language,</strong> so kids hear "that was fire" and know exactly what it means.</p></div>
-      <div class="statement-point"><div class="point-dot"></div><p class="point-text"><strong>Parents tell us the change isn't just physical.</strong> It's the way their kid walks into a room.</p></div>
+
+  <div class="e5-system-close">
+    <p><strong>Every class, skill, and level at E5 is part of this larger pathway.</strong></p>
+    <div class="e5-system-actions" aria-label="Explore the Elemental 5 pathway">
+      <a href="/programs.html" class="e5-system-btn primary">Explore Programs</a>
+      <a href="/new-gym.html" class="e5-system-btn secondary">See the New Facility</a>
     </div>
   </div>
 </section>
@@ -660,6 +751,20 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 <div class="section-divider"></div>
 
+<!-- STORE CALLOUT -->
+<section class="store-callout-section">
+  <div class="store-callout">
+    <div>
+      <p class="store-callout-eyebrow">Official Gear</p>
+      <h2 class="store-callout-title">Elemental 5 Gear &amp; Training Essentials</h2>
+      <p class="store-callout-copy">Pick up Elemental 5 apparel, training gear, and items that help students stay connected to their progress inside the gym.</p>
+    </div>
+    <a href="/store" class="store-callout-btn">Visit the Store →</a>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
 <!-- NEW FACILITY -->
 <section class="facility-section">
   <p class="section-label">What's Coming</p>
@@ -711,16 +816,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </div>
     <a href="/juniorcoach.html" class="jc-home-btn">Learn &amp; Apply →</a>
   </div>
-  <!-- Store temporarily hidden while merch backend is being rebuilt.
-  <div class="jc-home-strip" style="border-left-color:var(--red);">
-    <div class="jc-home-left">
-      <p class="jc-home-eyebrow">Official Gear</p>
-      <p class="jc-home-title">E5 Store</p>
-      <p class="jc-home-desc">Shirts, hoodies, hats, bottles, and accessories for Elemental 5 students, families, and supporters.</p>
-    </div>
-    <a href="/store" class="jc-home-btn">Visit the Store →</a>
-  </div>
-  -->
   <div class="newsletter-strip">
     <div class="newsletter-text"><h4>Stay in the loop</h4><p>Gym closures, class changes, camp dates, and Ninja of the Month. All in the newsletter.</p></div>
     <a href="/newsletter.html" class="newsletter-link">Read the Newsletter →</a>

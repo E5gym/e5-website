@@ -4,13 +4,8 @@
 
 [[redirects]]
   from = "/store"
-  to   = "/"
-  status = 302
-
-[[redirects]]
-  from = "/store.html"
-  to   = "/"
-  status = 302
+  to   = "/store.html"
+  status = 200
 
 [[redirects]]
   from = "/start-here"

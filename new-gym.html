@@ -47,7 +47,11 @@
 html, body {
   width: 100%;
   margin: 0; padding: 0;
-  background: var(--dark);
+  background:
+    radial-gradient(circle at 10% 6%, rgba(196,146,42,0.12), transparent 32%),
+    radial-gradient(circle at 90% 16%, rgba(204,58,10,0.11), transparent 34%),
+    radial-gradient(circle at 50% 100%, rgba(232,168,48,0.07), transparent 42%),
+    var(--dark);
   font-family: 'Nunito Sans', sans-serif;
   overflow-x: hidden;
 }
@@ -86,28 +90,43 @@ html, body {
 /* ── HERO ── */
 .gym-hero {
   width: 100%;
-  background: var(--dark);
+  background:
+    radial-gradient(circle at 80% 12%, rgba(232,98,26,0.16), transparent 36%),
+    radial-gradient(circle at 12% 78%, rgba(196,146,42,0.12), transparent 42%),
+    linear-gradient(135deg, #0E0804, #160D06 56%, #090604);
   padding: 80px 72px 0;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .gym-hero::before {
   content: '';
   position: absolute;
-  top: 0; right: 0;
-  width: 50%; height: 100%;
-  background: radial-gradient(ellipse at 80% 30%, rgba(200,80,10,0.12) 0%, transparent 65%);
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0) 42%),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.025) 0px,
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px,
+      transparent 76px
+    );
   pointer-events: none;
+  z-index: 0;
 }
 
 .gym-hero::after {
   content: '';
   position: absolute;
-  bottom: 0; left: 0;
-  width: 40%; height: 60%;
-  background: radial-gradient(ellipse at 20% 80%, rgba(196,146,42,0.08) 0%, transparent 65%);
+  right: -18%;
+  bottom: -34%;
+  width: 70%;
+  height: 78%;
+  background: radial-gradient(ellipse at center, rgba(196,146,42,0.18) 0%, transparent 68%);
   pointer-events: none;
+  z-index: 0;
 }
 
 .hero-grid {
@@ -119,8 +138,11 @@ html, body {
 }
 
 .hero-left {
-  background: var(--fire);
-  border-radius: 4px 0 0 4px;
+  background:
+    radial-gradient(circle at 14% 16%, rgba(255,255,255,0.18), transparent 32%),
+    radial-gradient(circle at 88% 84%, rgba(14,8,4,0.22), transparent 46%),
+    linear-gradient(135deg, #E8621A 0%, #CC3A0A 48%, #8F2208 100%);
+  border-radius: 6px 0 0 6px;
   padding: 72px 56px;
   display: flex;
   flex-direction: column;
@@ -128,6 +150,7 @@ html, body {
   gap: 40px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 24px 60px rgba(14,8,4,0.24);
 }
 
 /* Diagonal texture on fire card */
@@ -135,11 +158,21 @@ html, body {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: repeating-linear-gradient(
-    -45deg, transparent, transparent 40px,
-    rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0) 40%),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.035) 0px,
+      rgba(255,255,255,0.035) 1px,
+      transparent 1px,
+      transparent 72px
   );
   pointer-events: none;
+}
+
+.hero-left > * {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-headline {
@@ -172,29 +205,66 @@ html, body {
 .hero-subhead strong { color: var(--white); font-weight: 600; }
 
 .hero-right {
-  background: var(--char);
-  border-radius: 0 4px 4px 0;
+  background:
+    radial-gradient(circle at 88% 16%, rgba(196,146,42,0.16), transparent 34%),
+    radial-gradient(circle at 90% 88%, rgba(204,58,10,0.12), transparent 42%),
+    linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0) 42%),
+    linear-gradient(135deg, #20140A, #120B06 58%, #0A0603);
+  border-radius: 0 6px 6px 0;
   padding: 56px 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 6px;
-  border: 1px solid rgba(196,146,42,0.12);
+  border: 1px solid rgba(196,146,42,0.18);
   border-left: none;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 24px 60px rgba(14,8,4,0.2);
+}
+
+.hero-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0) 54%),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.022) 0px,
+      rgba(255,255,255,0.022) 1px,
+      transparent 1px,
+      transparent 72px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-right > * {
+  position: relative;
+  z-index: 2;
 }
 
 .stat-row {
-  background: var(--ash);
-  border-radius: 4px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(42,28,12,0.92), rgba(22,13,6,0.94));
+  border-radius: 5px;
   padding: 18px 24px;
   display: flex;
   align-items: center;
   gap: 20px;
-  border: 1px solid rgba(196,146,42,0.1);
-  transition: border-color 0.2s, transform 0.15s;
+  border: 1px solid rgba(196,146,42,0.16);
+  box-shadow: 0 10px 26px rgba(14,8,4,0.16);
+  transition: border-color 0.2s, transform 0.18s, box-shadow 0.18s;
 }
 
-.stat-row:hover { border-color: rgba(196,146,42,0.3); transform: translateX(4px); }
+.stat-row:hover {
+  border-color: rgba(196,146,42,0.36);
+  transform: translateX(3px) translateY(-2px);
+  box-shadow: 0 16px 32px rgba(14,8,4,0.22);
+}
 
 .stat-num {
   font-family: 'Montserrat', sans-serif;
@@ -237,7 +307,10 @@ html, body {
 /* ── VISION SECTION ── */
 .vision-section {
   width: 100%;
-  background: var(--char);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(196,146,42,0.09), transparent 32%),
+    radial-gradient(circle at 92% 22%, rgba(204,58,10,0.08), transparent 34%),
+    linear-gradient(135deg, #1A1008, #120B06);
   padding: 80px 72px;
 }
 
@@ -249,12 +322,15 @@ html, body {
 }
 
 .vision-statement {
-  background: var(--gold);
-  border-radius: 4px;
+  background:
+    radial-gradient(circle at 88% 82%, rgba(255,255,255,0.22), transparent 48%),
+    linear-gradient(135deg, #E0B34C, #C4922A 52%, #A87318);
+  border-radius: 6px;
   padding: 52px 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-shadow: 0 18px 42px rgba(14,8,4,0.18);
 }
 
 .vision-quote {
@@ -278,14 +354,18 @@ html, body {
 .vision-sub strong { color: var(--dark); font-weight: 600; }
 
 .vision-points {
-  background: var(--ash);
-  border-radius: 4px;
+  background:
+    radial-gradient(circle at 88% 82%, rgba(196,146,42,0.13), transparent 48%),
+    linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0) 42%),
+    linear-gradient(135deg, #2A1C0C, #160D06);
+  border-radius: 6px;
   padding: 52px 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 22px;
-  border: 1px solid rgba(196,146,42,0.1);
+  border: 1px solid rgba(196,146,42,0.16);
+  box-shadow: 0 18px 42px rgba(14,8,4,0.14);
 }
 
 .vision-point {
@@ -315,109 +395,274 @@ html, body {
 
 .vpoint-content p { font-size: 13px; color: var(--fog); line-height: 1.65; }
 
-/* ── EXPANDED TIER TABLES ── */
-.tier-tables {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  margin-top: 6px;
+/* Founding membership tier cards */
+.founder-section {
+  margin-top: 42px;
 }
 
-.tier-table-card {
-  background: var(--ash);
-  border-radius: 4px;
-  padding: 36px 32px;
-  border: 1px solid rgba(196,146,42,0.1);
-}
-
-.tier-table-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 20px;
-}
-
-.tier-entry {
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(196,146,42,0.1);
-}
-
-.tier-entry:last-child { border-bottom: none; }
-
-.tier-entry-header {
+.founder-section-header {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 6px;
+  gap: 32px;
+  margin-bottom: 22px;
 }
 
-.tier-entry-name {
+.founder-section-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-size: clamp(26px, 3vw, 42px);
   font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  color: var(--white);
 }
 
-.tier-entry-price {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  font-weight: 900;
+.founder-section-title em {
+  font-style: normal;
   color: var(--gold);
 }
 
-.tier-entry-benefits {
-  font-size: 12px;
+.founder-section-subtitle {
+  max-width: 440px;
+  font-size: 14px;
+  line-height: 1.7;
   color: var(--fog);
-  line-height: 1.6;
-  font-style: italic;
 }
 
-.tier-earth-name  { color: #C4922A; }
-.tier-water-name  { color: #4A9FD4; }
-.tier-fire-name   { color: #CC3322; }
-.tier-air-name    { color: #9AABAA; }
-
-/* ── EXPANDED TIER TABLES ── */
-
-/* ── TIER PAYMENT BUTTONS ── */
-.tier-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.founder-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
-  margin-top: 12px;
-  padding: 13px 18px;
-  border-radius: 3px;
+}
+
+.founder-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 8%, rgba(196,146,42,0.12), transparent 36%),
+    linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0) 44%),
+    linear-gradient(180deg, #2A1C0C, #160D06);
+  border: 1px solid rgba(196,146,42,0.16);
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: 0 18px 44px rgba(14,8,4,0.18);
+}
+
+.founder-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255,255,255,0.018) 0px,
+    rgba(255,255,255,0.018) 1px,
+    transparent 1px,
+    transparent 70px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.founder-panel > * {
+  position: relative;
+  z-index: 2;
+}
+
+.founder-panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(196,146,42,0.14);
+}
+
+.founder-panel-kicker {
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.founder-panel-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.founder-panel-note {
+  max-width: 180px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--fog);
+  text-align: right;
+}
+
+.founder-tier-list {
+  display: grid;
+  gap: 12px;
+}
+
+.founder-tier-card {
+  --tier-color: var(--gold);
+  --tier-button-bg: var(--gold);
+  --tier-button-text: var(--dark);
+  --tier-wash: rgba(196,146,42,0.18);
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 82%, var(--tier-wash), transparent 52%),
+    linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, #1E1309, #100905);
+  border: 1px solid rgba(196,146,42,0.14);
+  border-top: 4px solid var(--tier-color);
+  border-radius: 7px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.founder-tier-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--tier-color);
+  box-shadow: 0 18px 36px rgba(14,8,4,0.24);
+}
+
+.founder-tier-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.founder-tier-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--tier-color);
+  line-height: 1;
+}
+
+.founder-tier-best {
+  margin-top: 7px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.founder-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 900;
+  line-height: 0.95;
+  color: var(--white);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.founder-benefits {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.founder-benefits li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--fog);
+}
+
+.founder-benefits li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--tier-color);
+  box-shadow: 0 0 12px var(--tier-wash);
+}
+
+.founder-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-top: auto;
+  padding: 10px 15px;
+  border-radius: 3px;
+  background: var(--tier-button-bg);
+  color: var(--tier-button-text);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: filter 0.2s, transform 0.15s;
+  box-shadow: 0 10px 22px rgba(14,8,4,0.18);
+  transition: filter 0.2s, transform 0.18s, box-shadow 0.18s;
 }
 
-.tier-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.founder-cta:hover {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(14,8,4,0.24), 0 0 20px var(--tier-wash);
+}
 
-.tier-btn-earth  { background: #C4922A; color: var(--dark); }
-.tier-btn-water  { background: #4A9FD4; color: var(--white); }
-.tier-btn-fire   { background: #CC3322; color: var(--white); }
-.tier-btn-air    { background: #9AABAA; color: var(--dark); }
+.founder-tier-earth {
+  --tier-color: #C4922A;
+  --tier-button-bg: #C4922A;
+  --tier-button-text: var(--dark);
+  --tier-wash: rgba(196,146,42,0.18);
+}
 
-.tier-btn-amount {
-  font-size: 13px;
-  font-weight: 900;
-  opacity: 0.8;
+.founder-tier-water {
+  --tier-color: #4A9FD4;
+  --tier-button-bg: #2F80C0;
+  --tier-button-text: var(--white);
+  --tier-wash: rgba(74,159,212,0.18);
+}
+
+.founder-tier-fire {
+  --tier-color: #CC3322;
+  --tier-button-bg: #B82D20;
+  --tier-button-text: var(--white);
+  --tier-wash: rgba(204,51,34,0.18);
+}
+
+.founder-tier-air {
+  --tier-color: #9AABAA;
+  --tier-button-bg: #9AABAA;
+  --tier-button-text: var(--dark);
+  --tier-wash: rgba(154,171,170,0.2);
 }
 
 /* Mid-page conversion trigger */
 .conversion-trigger {
-  background: var(--fire);
-  border-radius: 4px;
+  background:
+    radial-gradient(circle at 88% 84%, rgba(196,146,42,0.16), transparent 48%),
+    linear-gradient(135deg, #E8621A, #CC3A0A 52%, #8F2208);
+  border-radius: 6px;
   padding: 32px 40px;
   display: flex;
   align-items: center;
@@ -427,6 +672,7 @@ html, body {
   flex-wrap: wrap;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 20px 44px rgba(14,8,4,0.18);
 }
 
 .conversion-trigger::before {
@@ -477,23 +723,27 @@ html, body {
   flex-shrink: 0;
   position: relative;
   z-index: 1;
-  transition: background 0.2s;
+  box-shadow: 0 12px 24px rgba(14,8,4,0.18);
+  transition: background 0.2s, transform 0.18s, box-shadow 0.18s;
 }
 
-.conversion-trigger-btn:hover { background: var(--ember); }
+.conversion-trigger-btn:hover { background: var(--ember); transform: translateY(-2px); box-shadow: 0 18px 32px rgba(14,8,4,0.24); }
 
 /* Custom contribution */
 .custom-contrib {
-  background: var(--ash);
-  border-radius: 4px;
+  background:
+    radial-gradient(circle at 92% 50%, rgba(196,146,42,0.1), transparent 44%),
+    linear-gradient(135deg, #2A1C0C, #160D06);
+  border-radius: 6px;
   padding: 28px 32px;
-  border: 1px solid rgba(196,146,42,0.2);
+  border: 1px solid rgba(196,146,42,0.22);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
-  margin-top: 6px;
+  margin-top: 12px;
+  box-shadow: 0 14px 30px rgba(14,8,4,0.12);
 }
 
 .custom-contrib p {
@@ -530,7 +780,10 @@ html, body {
 /* ── FOUNDING MEMBERSHIP ── */
 .founding-section {
   width: 100%;
-  background: var(--dark);
+  background:
+    radial-gradient(circle at 12% 16%, rgba(204,58,10,0.1), transparent 34%),
+    radial-gradient(circle at 86% 12%, rgba(196,146,42,0.1), transparent 34%),
+    linear-gradient(135deg, #0E0804, #120B06);
   padding: 80px 72px;
 }
 
@@ -542,8 +795,11 @@ html, body {
 }
 
 .founding-cta {
-  background: var(--fire);
-  border-radius: 4px;
+  background:
+    radial-gradient(circle at 88% 84%, rgba(196,146,42,0.18), transparent 48%),
+    radial-gradient(circle at 14% 14%, rgba(255,255,255,0.14), transparent 30%),
+    linear-gradient(135deg, #E8621A, #CC3A0A 54%, #8F2208);
+  border-radius: 6px;
   padding: 52px 48px;
   display: flex;
   flex-direction: column;
@@ -551,6 +807,7 @@ html, body {
   gap: 20px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 20px 46px rgba(14,8,4,0.2);
 }
 
 .founding-cta::before {
@@ -611,18 +868,23 @@ html, body {
   border-radius: 3px;
   text-decoration: none;
   width: fit-content;
-  transition: background 0.2s;
+  box-shadow: 0 12px 26px rgba(14,8,4,0.18);
+  transition: background 0.2s, transform 0.18s, box-shadow 0.18s;
   position: relative; z-index: 1;
 }
 
-.founding-btn:hover { background: var(--cream); }
+.founding-btn:hover { background: var(--cream); transform: translateY(-2px); box-shadow: 0 18px 34px rgba(14,8,4,0.24); }
 
 /* Tiers card */
 .tiers-card {
-  background: var(--ash);
-  border-radius: 4px;
+  background:
+    radial-gradient(circle at 88% 84%, rgba(196,146,42,0.12), transparent 52%),
+    linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0) 44%),
+    linear-gradient(180deg, #2A1C0C, #160D06);
+  border-radius: 6px;
   padding: 52px 48px;
-  border: 1px solid rgba(196,146,42,0.12);
+  border: 1px solid rgba(196,146,42,0.16);
+  box-shadow: 0 18px 42px rgba(14,8,4,0.14);
 }
 
 .tiers-eyebrow {
@@ -703,7 +965,10 @@ html, body {
 /* ── DONATE / SUPPORT ── */
 .support-section {
   width: 100%;
-  background: var(--char);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(196,146,42,0.1), transparent 34%),
+    radial-gradient(circle at 92% 24%, rgba(204,58,10,0.08), transparent 34%),
+    linear-gradient(135deg, #1A1008, #120B06);
   padding: 80px 72px;
 }
 
@@ -715,17 +980,25 @@ html, body {
 }
 
 .support-card {
-  background: var(--ash);
-  border-radius: 4px;
+  background:
+    radial-gradient(circle at 88% 84%, rgba(196,146,42,0.1), transparent 52%),
+    linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0) 44%),
+    linear-gradient(180deg, #2A1C0C, #160D06);
+  border-radius: 6px;
   padding: 36px 32px;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  border: 1px solid rgba(196,146,42,0.08);
-  transition: border-color 0.2s;
+  border: 1px solid rgba(196,146,42,0.14);
+  box-shadow: 0 14px 32px rgba(14,8,4,0.12);
+  transition: border-color 0.2s, transform 0.18s, box-shadow 0.18s;
 }
 
-.support-card:hover { border-color: rgba(196,146,42,0.25); }
+.support-card:hover {
+  border-color: rgba(196,146,42,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(14,8,4,0.18);
+}
 
 .support-card h4 {
   font-family: 'Montserrat', sans-serif;
@@ -761,23 +1034,57 @@ html, body {
 .support-link:hover { gap: 12px; color: var(--amber); }
 
 .support-link.paypal {
-  background: var(--gold);
+  background: linear-gradient(135deg, var(--amber), var(--gold));
   color: var(--dark);
   padding: 12px 20px;
   border-radius: 3px;
   width: fit-content;
-  transition: background 0.2s;
+  box-shadow: 0 10px 22px rgba(14,8,4,0.18);
+  transition: background 0.2s, transform 0.18s, box-shadow 0.18s;
 }
 
-.support-link.paypal:hover { background: var(--amber); gap: 12px; }
+.support-link.paypal:hover {
+  background: linear-gradient(135deg, var(--ember), var(--amber));
+  gap: 12px;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(14,8,4,0.24);
+}
 
 /* ── FUNDING TRACKER ── */
 .tracker-section {
   width: 100%;
-  background: var(--ash);
+  background:
+    radial-gradient(circle at 84% 28%, rgba(196,146,42,0.18), transparent 38%),
+    radial-gradient(circle at 16% 72%, rgba(204,58,10,0.14), transparent 40%),
+    linear-gradient(135deg, #160D06, #090604);
   padding: 72px 72px;
-  border-top: 1px solid rgba(196,146,42,0.1);
-  border-bottom: 1px solid rgba(196,146,42,0.1);
+  border-top: 1px solid rgba(196,146,42,0.18);
+  border-bottom: 1px solid rgba(196,146,42,0.18);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.tracker-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0) 42%),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.024) 0px,
+      rgba(255,255,255,0.024) 1px,
+      transparent 1px,
+      transparent 76px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tracker-section > * {
+  position: relative;
+  z-index: 2;
 }
 
 .tracker-top {
@@ -808,14 +1115,18 @@ html, body {
 }
 
 .tracker-stat {
-  background: var(--char);
-  border: 1px solid rgba(196,146,42,0.15);
-  border-radius: 4px;
+  background:
+    radial-gradient(circle at 88% 84%, rgba(196,146,42,0.1), transparent 52%),
+    linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0) 44%),
+    linear-gradient(180deg, #1A1008, #0E0804);
+  border: 1px solid rgba(196,146,42,0.2);
+  border-radius: 6px;
   padding: 14px 22px;
   display: flex;
   flex-direction: column;
   gap: 4px;
   min-width: 120px;
+  box-shadow: 0 14px 30px rgba(14,8,4,0.2);
 }
 
 .tracker-stat-label {
@@ -851,6 +1162,7 @@ html, body {
   font-weight: 900;
   color: var(--white);
   line-height: 1;
+  text-shadow: 0 0 34px rgba(196,146,42,0.2);
 }
 
 .tracker-pct-sym {
@@ -869,20 +1181,29 @@ html, body {
 /* Progress bar */
 .tracker-bar-wrap {
   width: 100%;
-  height: 12px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 6px;
+  height: 24px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+    rgba(255,255,255,0.05);
+  border-radius: 999px;
   overflow: hidden;
   margin-bottom: 12px;
   position: relative;
+  border: 1px solid rgba(196,146,42,0.22);
+  box-shadow:
+    inset 0 2px 8px rgba(0,0,0,0.34),
+    0 14px 32px rgba(14,8,4,0.18);
 }
 
 .tracker-bar-fill {
   height: 100%;
-  border-radius: 6px;
+  border-radius: 999px;
   background: linear-gradient(90deg, var(--fire), var(--gold), var(--amber));
   transition: width 1.2s ease;
   position: relative;
+  box-shadow:
+    0 0 24px rgba(196,146,42,0.42),
+    0 0 44px rgba(204,58,10,0.22);
 }
 
 /* Glow on fill end */
@@ -890,10 +1211,10 @@ html, body {
   content: '';
   position: absolute;
   right: -2px; top: -2px; bottom: -2px;
-  width: 16px;
+  width: 24px;
   background: var(--amber);
-  filter: blur(4px);
-  opacity: 0.8;
+  filter: blur(7px);
+  opacity: 0.9;
   border-radius: 50%;
 }
 
@@ -937,9 +1258,27 @@ html, body {
   .hero-right { border-radius: 4px; border-left: 1px solid rgba(196,146,42,0.12); }
   .support-grid { grid-template-columns: 1fr; }
   .vision-statement, .vision-points, .founding-cta, .tiers-card { padding: 40px 28px; }
-  .tier-tables { grid-template-columns: 1fr; }
+  .founder-section-header, .founder-panel-heading { flex-direction: column; align-items: flex-start; }
+  .founder-section-subtitle, .founder-panel-note { max-width: 100%; text-align: left; }
+  .founder-grid { grid-template-columns: 1fr; }
+  .founder-panel { padding: 22px; }
   .tracker-top { flex-direction: column; align-items: flex-start; }
   .tracker-stats { flex-direction: row; flex-wrap: wrap; }
+}
+
+@media (max-width: 560px) {
+  .founder-tier-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .founder-price {
+    text-align: left;
+  }
+
+  .founder-cta {
+    width: 100%;
+  }
 }
 </style>
 </head>
@@ -1033,7 +1372,7 @@ html, body {
     <div class="tracker-stats">
       <div class="tracker-stat">
         <span class="tracker-stat-label">Raised So Far</span>
-        <span class="tracker-stat-value raised">$29,000</span>
+        <span class="tracker-stat-value raised">$30,000</span>
       </div>
       <div class="tracker-stat">
         <span class="tracker-stat-label">Total Goal</span>
@@ -1041,19 +1380,19 @@ html, body {
       </div>
       <div class="tracker-stat">
         <span class="tracker-stat-label">Still Needed</span>
-        <span class="tracker-stat-value">$59,739</span>
+        <span class="tracker-stat-value">$56,739</span>
       </div>
     </div>
   </div>
 
   <div class="tracker-pct-row">
-    <span class="tracker-pct-num">33</span>
+    <span class="tracker-pct-num">35</span>
     <span class="tracker-pct-sym">%</span>
     <span class="tracker-pct-label">of total<br>project funded</span>
   </div>
 
   <div class="tracker-bar-wrap">
-    <div class="tracker-bar-fill" style="width: 30%;"></div>
+    <div class="tracker-bar-fill" style="width: 34.59%;"></div>
   </div>
 
   <div class="tracker-bar-meta">
@@ -1165,118 +1504,171 @@ html, body {
 
   </div>
 
-  <!-- TIER TABLES -->
-  <div class="tier-tables">
-
-    <!-- FAMILY TIERS -->
-    <div class="tier-table-card">
-      <p class="tier-table-label">Family Founding Membership</p>
-
-      <div class="tier-entry">
-        <div class="tier-entry-header">
-          <span class="tier-entry-name tier-air-name">Air</span>
-          <span class="tier-entry-price">$5,000</span>
-        </div>
-        <p class="tier-entry-benefits">Fire benefits + Unlimited open gym 2 years (2 athletes) · Special Founders T-shirts for the whole family</p>
-        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-3546d132a73e44fd9951af51ac7d318bde5e21a3fe7542549ebf327e49118418a3815e6829d94e17ad20413efeb95a16?locale=EN_US" target="_blank" class="tier-btn tier-btn-air">
-          <span>Join as Air · Family</span>
-          <span class="tier-btn-amount">$5,000</span>
-        </a>
+  <div class="founder-section">
+    <div class="founder-section-header">
+      <div>
+        <p class="section-label">Founding Tiers</p>
+        <h3 class="founder-section-title">Founding Membership<br><em>Opportunities</em></h3>
       </div>
-
-      <div class="tier-entry">
-        <div class="tier-entry-header">
-          <span class="tier-entry-name tier-fire-name">Fire</span>
-          <span class="tier-entry-price">$2,500</span>
-        </div>
-        <p class="tier-entry-benefits">Water benefits + Unlimited open gym 2 years (1 athlete) · 1 Classic E5 Hoodie</p>
-        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-1019ca3b9874433787c286909575e51cccf2a37cd3a34dfca592d1fac7a097ed079f8151f2a24ebcaa58685e4bd63f9d?locale=EN_US" target="_blank" class="tier-btn tier-btn-fire">
-          <span>Join as Fire · Family</span>
-          <span class="tier-btn-amount">$2,500</span>
-        </a>
-      </div>
-
-      <div class="tier-entry">
-        <div class="tier-entry-header">
-          <span class="tier-entry-name tier-water-name">Water</span>
-          <span class="tier-entry-price">$1,000</span>
-        </div>
-        <p class="tier-entry-benefits">Earth benefits + 1 free birthday party · Priority summer camp booking · 10% off for 5 years · 1 Special Founders T-shirt</p>
-        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-75551c5791594299a2e77444d9fe7ce922f9fbc101f44027ae6713cd859aa4a5febe52cda3d44defb81c141320370685?locale=EN_US" target="_blank" class="tier-btn tier-btn-water">
-          <span>Join as Water · Family</span>
-          <span class="tier-btn-amount">$1,000</span>
-        </a>
-      </div>
-
-      <div class="tier-entry">
-        <div class="tier-entry-header">
-          <span class="tier-entry-name tier-earth-name">Earth</span>
-          <span class="tier-entry-price">$500</span>
-        </div>
-        <p class="tier-entry-benefits">Name on Founding Member plaque · Current rate locked 2 years ($79/mo)</p>
-        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-29ab21a210e0480eb72f5566f576d66baaf019746bce49ec8f29439e4419b7839ff9b234097a486a9172af8dde2ef440?locale=EN_US" target="_blank" class="tier-btn tier-btn-earth">
-          <span>Join as Earth · Family</span>
-          <span class="tier-btn-amount">$500</span>
-        </a>
-      </div>
-
+      <p class="founder-section-subtitle">Help build the next home for Elemental 5 while receiving lifetime recognition and founder perks.</p>
     </div>
 
-    <!-- BUSINESS TIERS -->
-    <div class="tier-table-card">
-      <p class="tier-table-label">Business Founding Membership · Put Your Name on What Salida Builds</p>
-
-      <div class="tier-entry">
-        <div class="tier-entry-header">
-          <span class="tier-entry-name tier-air-name">Air</span>
-          <span class="tier-entry-price">$10,000</span>
+    <div class="founder-grid">
+      <div class="founder-panel">
+        <div class="founder-panel-heading">
+          <div>
+            <p class="founder-panel-kicker">For E5 families</p>
+            <h4 class="founder-panel-title">Family Founding Membership</h4>
+          </div>
+          <p class="founder-panel-note">Lock in rates, claim founder perks, and put your family name in the new facility.</p>
         </div>
-        <p class="tier-entry-benefits">Fire benefits + Logo on Echo materials · Named in all major announcements for 2 years · Employees receive 10% off all programs for 2 years</p>
-        <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Business%20Air%20Founding%20Membership%20%E2%80%94%20%2410%2C000" target="_blank" class="tier-btn tier-btn-air">
-          <span>Join as Air · Let's Talk</span>
-          <span class="tier-btn-amount">$10,000</span>
-        </a>
+
+        <div class="founder-tier-list">
+          <article class="founder-tier-card founder-tier-air">
+            <div class="founder-tier-header">
+              <div>
+                <h5 class="founder-tier-name">Air</h5>
+                <p class="founder-tier-best">Full family founder package</p>
+              </div>
+              <p class="founder-price">$5,000</p>
+            </div>
+            <ul class="founder-benefits">
+              <li>Includes Fire benefits</li>
+              <li>Unlimited open gym 2 years, 2 athletes</li>
+              <li>Special Founders T-shirts for the whole family</li>
+            </ul>
+            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-3546d132a73e44fd9951af51ac7d318bde5e21a3fe7542549ebf327e49118418a3815e6829d94e17ad20413efeb95a16?locale=EN_US" target="_blank" class="founder-cta">Join Air Family</a>
+          </article>
+
+          <article class="founder-tier-card founder-tier-fire">
+            <div class="founder-tier-header">
+              <div>
+                <h5 class="founder-tier-name">Fire</h5>
+                <p class="founder-tier-best">Committed E5 athletes</p>
+              </div>
+              <p class="founder-price">$2,500</p>
+            </div>
+            <ul class="founder-benefits">
+              <li>Includes Water benefits</li>
+              <li>Unlimited open gym 2 years, 1 athlete</li>
+              <li>1 Classic E5 Hoodie</li>
+            </ul>
+            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-1019ca3b9874433787c286909575e51cccf2a37cd3a34dfca592d1fac7a097ed079f8151f2a24ebcaa58685e4bd63f9d?locale=EN_US" target="_blank" class="founder-cta">Join Fire Family</a>
+          </article>
+
+          <article class="founder-tier-card founder-tier-water">
+            <div class="founder-tier-header">
+              <div>
+                <h5 class="founder-tier-name">Water</h5>
+                <p class="founder-tier-best">Family perks and priority</p>
+              </div>
+              <p class="founder-price">$1,000</p>
+            </div>
+            <ul class="founder-benefits">
+              <li>Includes Earth benefits</li>
+              <li>1 free birthday party</li>
+              <li>Priority summer camp booking</li>
+              <li>10% off for 5 years and 1 Special Founders T-shirt</li>
+            </ul>
+            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-75551c5791594299a2e77444d9fe7ce922f9fbc101f44027ae6713cd859aa4a5febe52cda3d44defb81c141320370685?locale=EN_US" target="_blank" class="founder-cta">Join Water Family</a>
+          </article>
+
+          <article class="founder-tier-card founder-tier-earth">
+            <div class="founder-tier-header">
+              <div>
+                <h5 class="founder-tier-name">Earth</h5>
+                <p class="founder-tier-best">Founding recognition</p>
+              </div>
+              <p class="founder-price">$500</p>
+            </div>
+            <ul class="founder-benefits">
+              <li>Name on Founding Member plaque</li>
+              <li>Current rate locked 2 years, $79/mo</li>
+            </ul>
+            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-29ab21a210e0480eb72f5566f576d66baaf019746bce49ec8f29439e4419b7839ff9b234097a486a9172af8dde2ef440?locale=EN_US" target="_blank" class="founder-cta">Join Earth Family</a>
+          </article>
+        </div>
       </div>
 
-      <div class="tier-entry">
-        <div class="tier-entry-header">
-          <span class="tier-entry-name tier-fire-name">Fire</span>
-          <span class="tier-entry-price">$5,000</span>
+      <div class="founder-panel">
+        <div class="founder-panel-heading">
+          <div>
+            <p class="founder-panel-kicker">For local businesses</p>
+            <h4 class="founder-panel-title">Business Founding Membership</h4>
+          </div>
+          <p class="founder-panel-note">Put your name on what Salida builds and support a facility families will use for years.</p>
         </div>
-        <p class="tier-entry-benefits">Water benefits + Logo on Founding Wall · 1 sponsored E5 event · 5 total T-shirts</p>
-        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-6b8dac17021b4b84a300ce9865dee0e883a16e745daf4693a012c12e521dd63a5435fb5bf20841a0bb5f66987fa7b3f3?locale=EN_US" target="_blank" class="tier-btn tier-btn-fire">
-          <span>Join as Fire · Business</span>
-          <span class="tier-btn-amount">$5,000</span>
-        </a>
-      </div>
 
-      <div class="tier-entry">
-        <div class="tier-entry-header">
-          <span class="tier-entry-name tier-water-name">Water</span>
-          <span class="tier-entry-price">$2,500</span>
+        <div class="founder-tier-list">
+          <article class="founder-tier-card founder-tier-air">
+            <div class="founder-tier-header">
+              <div>
+                <h5 class="founder-tier-name">Air</h5>
+                <p class="founder-tier-best">Lead business recognition</p>
+              </div>
+              <p class="founder-price">$10,000</p>
+            </div>
+            <ul class="founder-benefits">
+              <li>Includes Fire benefits</li>
+              <li>Logo on Echo materials</li>
+              <li>Named in all major announcements for 2 years</li>
+              <li>Employees receive 10% off all programs for 2 years</li>
+            </ul>
+            <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Business%20Air%20Founding%20Membership%20%E2%80%94%20%2410%2C000" target="_blank" class="founder-cta">Talk About Air</a>
+          </article>
+
+          <article class="founder-tier-card founder-tier-fire">
+            <div class="founder-tier-header">
+              <div>
+                <h5 class="founder-tier-name">Fire</h5>
+                <p class="founder-tier-best">Visible community support</p>
+              </div>
+              <p class="founder-price">$5,000</p>
+            </div>
+            <ul class="founder-benefits">
+              <li>Includes Water benefits</li>
+              <li>Logo on Founding Wall</li>
+              <li>1 sponsored E5 event</li>
+              <li>5 total T-shirts</li>
+            </ul>
+            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-6b8dac17021b4b84a300ce9865dee0e883a16e745daf4693a012c12e521dd63a5435fb5bf20841a0bb5f66987fa7b3f3?locale=EN_US" target="_blank" class="founder-cta">Join Fire Business</a>
+          </article>
+
+          <article class="founder-tier-card founder-tier-water">
+            <div class="founder-tier-header">
+              <div>
+                <h5 class="founder-tier-name">Water</h5>
+                <p class="founder-tier-best">Ongoing recognition</p>
+              </div>
+              <p class="founder-price">$2,500</p>
+            </div>
+            <ul class="founder-benefits">
+              <li>Includes Earth benefits</li>
+              <li>Featured lobby placement</li>
+              <li>Social media and website recognition</li>
+            </ul>
+            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-ee09265ba27543ff91981fb4980b83d043379c28053c4b75915bbe38d3fa620dbf0ad6e23c5c46a19ce5a1a01d91c643?locale=EN_US" target="_blank" class="founder-cta">Join Water Business</a>
+          </article>
+
+          <article class="founder-tier-card founder-tier-earth">
+            <div class="founder-tier-header">
+              <div>
+                <h5 class="founder-tier-name">Earth</h5>
+                <p class="founder-tier-best">Business founder name</p>
+              </div>
+              <p class="founder-price">$1,000</p>
+            </div>
+            <ul class="founder-benefits">
+              <li>Name on Founding Wall</li>
+              <li>1 Special Founders T-shirt with your business listed on the back</li>
+            </ul>
+            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-31700014db9d47cda081428fd7da18f4a3e739f027cb4657a31410933892d5fa93c0ba3d346b4f21b151f5685b00e056?locale=EN_US" target="_blank" class="founder-cta">Join Earth Business</a>
+          </article>
         </div>
-        <p class="tier-entry-benefits">Earth benefits + Featured lobby placement · Social media and website recognition</p>
-        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-ee09265ba27543ff91981fb4980b83d043379c28053c4b75915bbe38d3fa620dbf0ad6e23c5c46a19ce5a1a01d91c643?locale=EN_US" target="_blank" class="tier-btn tier-btn-water">
-          <span>Join as Water · Business</span>
-          <span class="tier-btn-amount">$2,500</span>
-        </a>
       </div>
-
-      <div class="tier-entry">
-        <div class="tier-entry-header">
-          <span class="tier-entry-name tier-earth-name">Earth</span>
-          <span class="tier-entry-price">$1,000</span>
-        </div>
-        <p class="tier-entry-benefits">Name on Founding Wall · 1 Special Founders T-shirt with your business listed on the back</p>
-        <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-31700014db9d47cda081428fd7da18f4a3e739f027cb4657a31410933892d5fa93c0ba3d346b4f21b151f5685b00e056?locale=EN_US" target="_blank" class="tier-btn tier-btn-earth">
-          <span>Join as Earth · Business</span>
-          <span class="tier-btn-amount">$1,000</span>
-        </a>
-      </div>
-
     </div>
-
   </div>
+
 
   <!-- CUSTOM CONTRIBUTION -->
   <div class="custom-contrib">
