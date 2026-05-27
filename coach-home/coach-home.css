@@ -725,7 +725,7 @@ a { color: inherit; }
   padding-top: 12px;
 }
 
-.virtue-element-block {
+.word-bank-element-block {
   border: 1px solid rgba(242,233,216,0.15);
   border-top: 3px solid var(--accent, var(--coach-gold));
   border-radius: 6px;
@@ -735,34 +735,34 @@ a { color: inherit; }
     rgba(33,23,16,0.78);
 }
 
-.virtue-element-head {
+.word-bank-element-head {
   max-width: 760px;
   margin-bottom: 22px;
 }
 
-.virtue-element-head .coach-kicker {
+.word-bank-element-head .coach-kicker {
   color: var(--accent, var(--coach-gold));
 }
 
-.virtue-element-head p:not(.coach-kicker) {
+.word-bank-element-head p:not(.coach-kicker) {
   color: var(--coach-muted);
   font-size: 16px;
 }
 
-.virtue-word-grid {
+.word-bank-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
-.virtue-word-grid article {
+.word-bank-grid article {
   border: 1px solid rgba(242,233,216,0.12);
   border-radius: 6px;
   padding: 18px;
   background: rgba(14,8,4,0.28);
 }
 
-.virtue-word-grid h3 {
+.word-bank-grid h3 {
   color: var(--accent, var(--coach-gold));
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
@@ -771,13 +771,13 @@ a { color: inherit; }
   margin-bottom: 8px;
 }
 
-.virtue-word-grid p {
+.word-bank-grid p {
   color: var(--coach-muted);
   font-size: 14px;
   line-height: 1.55;
 }
 
-.virtue-word-grid p + p {
+.word-bank-grid p + p {
   margin-top: 8px;
 }
 
@@ -1178,7 +1178,7 @@ a { color: inherit; }
   .coach-action-grid,
   .coach-step-grid,
   .coach-element-prompt-grid,
-  .virtue-word-grid {
+  .word-bank-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1253,7 +1253,7 @@ a { color: inherit; }
   .coach-priority-card,
   .coach-action-card,
   .coach-step-card,
-  .virtue-element-block,
+  .word-bank-element-block,
   .mat-builder-control,
   .mat-builder-output,
   .quick-response-panel,
@@ -1267,7 +1267,7 @@ a { color: inherit; }
   .coach-action-grid,
   .coach-step-grid,
   .coach-element-prompt-grid,
-  .virtue-word-grid,
+  .word-bank-grid,
   .scenario-detail-grid,
   .phrase-bank {
     grid-template-columns: 1fr;

@@ -4,25 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Mat Chat Builder | Elemental 5</title>
-<meta name="description" content="A discovery-based E5 coach tool for building mat chats where students find the idea before the word is named.">
+<title>Mat Chat Prompt Bank | Elemental 5</title>
+<meta name="description" content="A quick Elemental 5 coach prompt bank for framing mat chats around the official 24 Mat Chat Words.">
 <link rel="canonical" href="https://www.elementalfive.com/mat-chat-builder.html">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/coach-home/coach-home.css">
+<link rel="stylesheet" href="coach-home/coach-home.css">
 <style>
-  .sim-hero-note strong,
-  .sim-warning strong {
-    color: var(--coach-cream);
+  :root {
+    --coach-bg: #0E0804;
+    --coach-panel: #17100B;
+    --coach-panel-2: #211710;
+    --coach-cream: #F2E9D8;
+    --coach-muted: rgba(242,233,216,0.68);
+    --coach-soft: rgba(242,233,216,0.12);
+    --coach-line: rgba(242,233,216,0.16);
+    --coach-gold: #C4922A;
+    --coach-fire: #C4622D;
+    --coach-water: #2A7AB8;
+    --coach-earth: #8FA765;
+    --coach-air: #C8D9E3;
+    --coach-void: #8B7FB8;
   }
 
-  .sim-word-board {
+  .prompt-hero-note strong { color: var(--coach-cream); }
+
+  .prompt-word-board {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 14px;
     margin-top: 24px;
   }
 
-  .sim-element-card {
+  .prompt-element-card {
     --element-accent: var(--coach-gold);
     position: relative;
     overflow: hidden;
@@ -37,7 +51,7 @@
     box-shadow: 0 18px 44px rgba(0,0,0,0.22);
   }
 
-  .sim-element-card h3 {
+  .prompt-element-card h3 {
     color: var(--element-accent);
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
@@ -46,18 +60,18 @@
     margin-bottom: 4px;
   }
 
-  .sim-element-card p {
+  .prompt-element-card p {
     color: var(--coach-muted);
     font-size: 13px;
     margin-bottom: 14px;
   }
 
-  .sim-word-buttons {
+  .prompt-word-buttons {
     display: grid;
     gap: 8px;
   }
 
-  .sim-word-button {
+  .prompt-word-button {
     color: rgba(242,233,216,0.82);
     background: rgba(14,8,4,0.38);
     border: 1px solid rgba(242,233,216,0.12);
@@ -74,8 +88,8 @@
     transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
   }
 
-  .sim-word-button:hover,
-  .sim-word-button.active {
+  .prompt-word-button:hover,
+  .prompt-word-button.active {
     color: var(--coach-cream);
     border-color: rgba(242,233,216,0.22);
     border-left-color: var(--element-accent);
@@ -83,56 +97,47 @@
     transform: translateY(-1px);
   }
 
-  .sim-workspace {
+  .prompt-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(330px, 0.95fr);
-    gap: 20px;
+    grid-template-columns: minmax(0, 0.88fr) minmax(430px, 1.12fr);
+    gap: 22px;
     align-items: start;
     margin-top: 24px;
   }
 
-  .sim-builder-panel,
-  .sim-preview-panel,
-  .sim-check-panel,
-  .sim-example-panel {
+  .prompt-card {
+    --active-accent: var(--coach-gold);
+    --active-wash: rgba(196,146,42,0.14);
     border: 1px solid rgba(242,233,216,0.15);
+    border-top: 4px solid var(--active-accent);
     border-radius: 6px;
     background:
+      radial-gradient(circle at 88% 12%, var(--active-wash), transparent 38%),
       linear-gradient(160deg, rgba(242,233,216,0.08), transparent 42%),
       linear-gradient(180deg, rgba(33,23,16,0.96), rgba(14,8,4,0.94));
-    box-shadow: 0 18px 44px rgba(0,0,0,0.24);
+    box-shadow: 0 22px 56px rgba(0,0,0,0.28);
     overflow: hidden;
   }
 
-  .sim-builder-panel {
+  .prompt-card-head {
     display: grid;
     gap: 12px;
-    padding: 18px;
+    padding: 28px 28px 22px;
+    border-bottom: 1px solid rgba(242,233,216,0.12);
   }
 
-  .sim-preview-panel,
-  .sim-check-panel,
-  .sim-example-panel {
-    padding: 24px;
-  }
-
-  .sim-selected-word {
+  .prompt-card-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
     align-items: center;
-    padding: 16px 18px;
-    border: 1px solid rgba(242,233,216,0.12);
-    border-left: 4px solid var(--active-accent, var(--coach-gold));
-    border-radius: 5px;
-    background: rgba(14,8,4,0.35);
   }
 
-  .sim-selected-word span {
+  .prompt-pill {
     color: var(--coach-bg);
-    background: var(--active-accent, var(--coach-gold));
+    background: var(--active-accent);
     border-radius: 99px;
-    padding: 5px 10px;
+    padding: 6px 11px;
     font-family: 'Montserrat', sans-serif;
     font-size: 10px;
     font-weight: 900;
@@ -140,277 +145,112 @@
     text-transform: uppercase;
   }
 
-  .sim-selected-word strong {
+  .prompt-card h2 {
     color: var(--coach-cream);
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(22px, 3vw, 32px);
+    font-size: clamp(38px, 6vw, 72px);
     font-weight: 900;
+    line-height: 0.94;
+    letter-spacing: -0.03em;
     text-transform: uppercase;
   }
 
-  .sim-step {
-    border: 1px solid rgba(242,233,216,0.11);
-    border-radius: 5px;
-    padding: 16px;
-    background: rgba(14,8,4,0.28);
-  }
-
-  .sim-step-head {
-    display: grid;
-    grid-template-columns: 34px 1fr;
-    gap: 12px;
-    align-items: start;
-    margin-bottom: 12px;
-  }
-
-  .sim-step-num {
-    display: grid;
-    place-items: center;
-    width: 30px;
-    height: 30px;
-    color: var(--coach-bg);
-    background: var(--active-accent, var(--coach-gold));
-    border-radius: 50%;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    font-weight: 900;
-  }
-
-  .sim-step h3 {
-    color: var(--coach-cream);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    font-weight: 900;
-    line-height: 1.2;
-    text-transform: uppercase;
-  }
-
-  .sim-step p {
-    color: var(--coach-muted);
-    font-size: 14px;
-    line-height: 1.55;
-  }
-
-  .sim-step textarea {
-    width: 100%;
-    min-height: 92px;
-    margin-top: 12px;
-    color: var(--coach-cream);
-    background: rgba(8,5,3,0.72);
-    border: 1px solid rgba(242,233,216,0.18);
-    border-radius: 4px;
-    padding: 12px;
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    resize: vertical;
-  }
-
-  .sim-step textarea:focus {
-    outline: 2px solid rgba(196,146,42,0.42);
-    outline-offset: 2px;
-  }
-
-  .sim-examples {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-top: 10px;
-  }
-
-  .sim-example-chip {
+  .prompt-framing {
+    max-width: 780px;
     color: rgba(242,233,216,0.78);
-    background: rgba(242,233,216,0.06);
-    border: 1px solid rgba(242,233,216,0.1);
-    border-radius: 99px;
-    padding: 5px 9px;
-    font-size: 12px;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.65;
   }
 
-  .sim-warning {
-    margin-top: 10px;
-    color: rgba(242,233,216,0.82);
-    background: rgba(196,98,45,0.14);
-    border: 1px solid rgba(196,98,45,0.3);
-    border-left: 3px solid var(--coach-fire);
-    border-radius: 4px;
-    padding: 10px 12px;
-    font-size: 14px;
-  }
-
-  .sim-preview-sticky {
-    position: sticky;
-    top: 138px;
+  .prompt-angle-list {
     display: grid;
-    gap: 16px;
+    gap: 12px;
+    padding: 22px;
   }
 
-  .sim-preview-panel h3,
-  .sim-check-panel h3,
-  .sim-example-panel h3 {
+  .prompt-angle {
+    border: 1px solid rgba(242,233,216,0.12);
+    border-left: 4px solid var(--active-accent);
+    border-radius: 5px;
+    background: rgba(14,8,4,0.34);
+    padding: 18px;
+  }
+
+  .prompt-angle h3 {
     color: var(--coach-cream);
     font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 900;
-    line-height: 1.05;
     text-transform: uppercase;
     margin-bottom: 12px;
   }
 
-  .sim-preview-list {
+  .prompt-angle-row {
     display: grid;
-    gap: 10px;
+    gap: 5px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(242,233,216,0.1);
   }
 
-  .sim-preview-item {
-    border: 1px solid rgba(242,233,216,0.1);
-    border-left: 3px solid var(--active-accent, var(--coach-gold));
-    border-radius: 4px;
-    padding: 12px 13px;
-    background: rgba(14,8,4,0.3);
-  }
+  .prompt-angle-row + .prompt-angle-row { margin-top: 10px; }
 
-  .sim-preview-item b {
-    display: block;
-    color: var(--coach-gold);
+  .prompt-angle-row b {
+    color: var(--active-accent);
     font-family: 'Montserrat', sans-serif;
     font-size: 10px;
     font-weight: 900;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    margin-bottom: 4px;
   }
 
-  .sim-preview-item span {
-    color: var(--coach-muted);
-    font-size: 14px;
-  }
-
-  .sim-checklist {
-    display: grid;
-    gap: 9px;
-    list-style: none;
-  }
-
-  .sim-checklist label {
-    display: grid;
-    grid-template-columns: 22px 1fr;
-    gap: 10px;
-    align-items: start;
-    color: var(--coach-muted);
-    background: rgba(14,8,4,0.3);
-    border: 1px solid rgba(242,233,216,0.1);
-    border-radius: 4px;
-    padding: 10px 12px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-
-  .sim-checklist input {
-    accent-color: var(--coach-gold);
-    margin-top: 4px;
-  }
-
-  .sim-score {
-    margin-top: 16px;
-    border: 1px solid rgba(196,146,42,0.32);
-    border-left: 4px solid var(--coach-gold);
-    border-radius: 5px;
-    padding: 14px;
-    background: rgba(196,146,42,0.1);
-  }
-
-  .sim-score strong {
-    display: block;
-    color: var(--coach-cream);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    font-weight: 900;
-    text-transform: uppercase;
-  }
-
-  .sim-score span {
-    color: var(--coach-muted);
-    font-size: 14px;
-  }
-
-  .sim-copy-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-    margin-top: 14px;
-  }
-
-  .sim-copy-status {
-    min-height: 20px;
-    color: var(--coach-gold);
-    font-size: 14px;
-    font-weight: 700;
-  }
-
-  .sim-example-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    gap: 18px;
-    align-items: start;
-  }
-
-  .sim-do-not {
-    border: 1px solid rgba(196,98,45,0.3);
-    border-left: 4px solid var(--coach-fire);
-    border-radius: 5px;
-    padding: 18px;
-    background: rgba(196,98,45,0.12);
-  }
-
-  .sim-example-flow {
-    display: grid;
-    gap: 10px;
-  }
-
-  .sim-example-flow p,
-  .sim-do-not p {
+  .prompt-angle-row span {
     color: var(--coach-muted);
     font-size: 15px;
+    line-height: 1.58;
   }
 
-  .sim-example-flow b,
-  .sim-do-not b {
-    display: block;
-    color: var(--coach-gold);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 5px;
+  .prompt-note {
+    border: 1px solid rgba(242,233,216,0.14);
+    border-radius: 6px;
+    padding: 22px;
+    background:
+      linear-gradient(160deg, rgba(242,233,216,0.08), transparent 42%),
+      rgba(33,23,16,0.72);
+    box-shadow: 0 18px 44px rgba(0,0,0,0.22);
   }
+
+  .prompt-note h3 {
+    color: var(--coach-cream);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .prompt-note p {
+    color: var(--coach-muted);
+    line-height: 1.7;
+  }
+
+  .prompt-note p + p { margin-top: 10px; }
 
   @media (max-width: 980px) {
-    .sim-word-board,
-    .sim-workspace,
-    .sim-example-grid {
+    .prompt-word-board,
+    .prompt-layout {
       grid-template-columns: 1fr;
-    }
-
-    .sim-preview-sticky {
-      position: static;
     }
   }
 
   @media (max-width: 640px) {
-    .sim-element-card,
-    .sim-builder-panel,
-    .sim-preview-panel,
-    .sim-check-panel,
-    .sim-example-panel {
+    .prompt-card-head,
+    .prompt-angle-list,
+    .prompt-note {
       padding: 18px;
     }
 
-    .sim-step-head {
-      grid-template-columns: 1fr;
-      gap: 8px;
+    .prompt-angle {
+      padding: 16px;
     }
   }
 </style>
@@ -424,11 +264,11 @@
 <main class="coach-page">
   <section class="coach-hero">
     <div class="coach-wrap">
-      <a class="coach-back-link" href="/coach-home/mat-chat-tools.html">&larr; Back to Mat Chat Tools</a>
+      <a class="coach-back-link" href="/coach-home/mat-chat-tools.html" data-local-href="coach-home/mat-chat-tools.html">&larr; Back to Mat Chat Tools</a>
       <p class="coach-eyebrow">Coach Portal Tool</p>
-      <h1>Mat Chat <span>Simulator</span></h1>
-      <p class="coach-subhead">Build discovery-based mat chats using the Elemental 5 delivery framework.</p>
-      <p class="coach-hero-note sim-hero-note">This tool helps coaches build mat chats where students discover the lesson before the word is named. <strong>The word should feel earned, not announced.</strong></p>
+      <h1>Mat Chat <span>Prompt Bank</span></h1>
+      <p class="coach-subhead">Choose a word and get three simple ways to frame the conversation.</p>
+      <p class="coach-hero-note prompt-hero-note">These prompts are not scripts. They are starting points to help coaches turn movement, choices, habits, and everyday life into short mat chat discussions. <strong>Start with the moment, not the word.</strong></p>
     </div>
   </section>
 
@@ -449,114 +289,35 @@
   <div class="coach-shell">
     <section class="coach-section coach-section-tight">
       <div class="coach-wrap">
-        <p class="coach-kicker">Step One</p>
-        <h2>Choose the word, but do not lead with it.</h2>
-        <p class="coach-section-intro">Select the character trait you are aiming toward. The simulator will help you build a story, moment, or scenario that lets students arrive at the idea first.</p>
-        <div class="sim-word-board" id="wordBoard" aria-label="Select an Elemental 5 character trait"></div>
-      </div>
-    </section>
-
-    <section class="coach-section">
-      <div class="coach-wrap">
-        <p class="coach-kicker">Simulator Builder</p>
-        <h2>Build the discovery path.</h2>
-        <div class="sim-workspace">
-          <div class="sim-builder-panel" id="simBuilder">
-            <div class="sim-selected-word" id="selectedWordCard">
-              <span id="selectedElement">Earth</span>
-              <strong id="selectedWord">Integrity</strong>
-            </div>
-
-            <article class="sim-step">
-              <div class="sim-step-head"><div class="sim-step-num">1</div><div><h3>Concrete Class Moment</h3><p>What happened in class today that could connect to this word?</p></div></div>
-              <div class="sim-examples"><span class="sim-example-chip">A student got frustrated</span><span class="sim-example-chip">Someone helped a teammate</span><span class="sim-example-chip">Someone rushed a skill</span><span class="sim-example-chip">Someone kept trying after failing</span><span class="sim-example-chip">Someone avoided a harder rep</span><span class="sim-example-chip">Someone showed focus when others were distracted</span></div>
-              <textarea id="grounding" data-preview="grounding" placeholder="Example: A student almost landed a skill, but the coach did not see it."></textarea>
-            </article>
-
-            <article class="sim-step">
-              <div class="sim-step-head"><div class="sim-step-num">2</div><div><h3>Fork in the Road</h3><p>What choice does the student or character have to make?</p></div></div>
-              <textarea id="fork" data-preview="fork" placeholder="Example: They can say they got it and move on, or ask for another rep."></textarea>
-            </article>
-
-            <article class="sim-step">
-              <div class="sim-step-head"><div class="sim-step-num">3</div><div><h3>Defensible Easy Choice</h3><p>Why would the easier or weaker choice make sense?</p></div></div>
-              <p class="sim-warning"><strong>Critical:</strong> If the wrong choice is too obviously wrong, the mat chat becomes fake.</p>
-              <textarea id="easyChoice" data-preview="easyChoice" placeholder="Example: They are tired, class is almost over, and they did feel it once."></textarea>
-            </article>
-
-            <article class="sim-step">
-              <div class="sim-step-head"><div class="sim-step-num">4</div><div><h3>Discovery Question</h3><p>What question helps students find the truth themselves?</p></div></div>
-              <div class="sim-examples"><span class="sim-example-chip">What would make someone choose the harder path?</span><span class="sim-example-chip">What does that show about who they are becoming?</span><span class="sim-example-chip">Why does this matter if nobody is watching?</span><span class="sim-example-chip">What happens if they keep choosing the easy path?</span></div>
-              <textarea id="question" data-preview="question" placeholder="Example: What makes someone choose the harder path even when no one would know?"></textarea>
-            </article>
-
-            <article class="sim-step">
-              <div class="sim-step-head"><div class="sim-step-num">5</div><div><h3>Student Thesis Moment</h3><p>What are you hoping a student eventually says?</p></div></div>
-              <p class="sim-warning"><strong>Do not say this for them.</strong> Ask the next question until a student lands here.</p>
-              <textarea id="thesis" data-preview="thesis" placeholder="Example: They care about actually being good, not just looking good."></textarea>
-            </article>
-
-            <article class="sim-step">
-              <div class="sim-step-head"><div class="sim-step-num">6</div><div><h3>Late Word Reveal</h3><p>Once students have discovered the idea, how will you name the word?</p></div></div>
-              <p class="sim-warning"><strong>Do not reveal the word too early.</strong> The word should arrive after the idea, not before it.</p>
-              <textarea id="reveal" data-preview="reveal" placeholder="Example: What you just described has a name. That is integrity."></textarea>
-            </article>
-
-            <article class="sim-step">
-              <div class="sim-step-head"><div class="sim-step-num">7</div><div><h3>Element Anchor</h3><p>How does this word connect to its element functionally?</p></div></div>
-              <p class="sim-warning" id="elementLogic">Earth holds, grounds, stabilizes, and builds the foundation.</p>
-              <textarea id="anchor" data-preview="anchor" placeholder="Example: Integrity is an Earth word because it becomes part of what you stand on."></textarea>
-            </article>
-
-            <article class="sim-step">
-              <div class="sim-step-head"><div class="sim-step-num">8</div><div><h3>Personal Close</h3><p>What did you actually see in class today that proves this word matters?</p></div></div>
-              <p class="sim-warning"><strong>Bad:</strong> So remember, integrity is important. <br><strong>Good:</strong> I watched three of you choose the harder rep today when nobody was counting. That is already integrity.</p>
-              <textarea id="close" data-preview="close" placeholder="Example: I watched several of you choose the harder rep today when I was not looking. That is already integrity."></textarea>
-            </article>
+        <p class="coach-kicker">Mat Chat Words</p>
+        <h2>Pick the word you want students to discover.</h2>
+        <p class="coach-section-intro">Each word gives you three short angles. Read one, adapt it to what actually happened in class, and lead the conversation in your own voice.</p>
+        <div class="prompt-layout">
+          <div>
+            <div class="prompt-word-board" id="wordBoard" aria-label="Select an Elemental 5 Mat Chat Word"></div>
           </div>
-
-          <aside class="sim-preview-sticky">
-            <article class="sim-preview-panel">
-              <p class="coach-kicker">Generated Preview</p>
-              <h3>Coach Outline</h3>
-              <div class="sim-preview-list" id="previewList"></div>
-              <div class="sim-copy-row">
-                <button class="coach-copy-button" type="button" id="copyPreview">Copy Mat Chat</button>
-                <span class="sim-copy-status" id="copyStatus" role="status"></span>
+          <article class="prompt-card" id="promptCard" aria-live="polite">
+            <div class="prompt-card-head">
+              <div class="prompt-card-meta">
+                <span class="prompt-pill" id="selectedElement">Fire</span>
+                <span class="prompt-pill" id="selectedFunction">Power + Drive</span>
               </div>
-            </article>
-
-            <article class="sim-check-panel">
-              <p class="coach-kicker">Quality Score</p>
-              <h3>Does it work?</h3>
-              <div class="sim-checklist" id="qualityChecklist"></div>
-              <div class="sim-score"><strong id="scoreText">0/8</strong><span id="scoreMeaning">Rebuild the scenario.</span></div>
-            </article>
-          </aside>
+              <h2 id="selectedWord">Courage</h2>
+              <p class="prompt-framing" id="selectedFraming">Courage is moving forward even when part of you feels nervous.</p>
+            </div>
+            <div class="prompt-angle-list" id="angleList"></div>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="coach-section coach-footer-space">
       <div class="coach-wrap">
-        <p class="coach-kicker">Full Example</p>
-        <h2>Integrity done as discovery, not lecture.</h2>
-        <div class="sim-example-panel">
-          <div class="sim-example-grid">
-            <div class="sim-do-not">
-              <b>Do not start here</b>
-              <p>Do not announce the word before students have discovered the idea.</p>
-            </div>
-            <div class="sim-example-flow">
-              <p><b>Start concrete</b>Imagine you almost landed a skill, but the coach did not see it. You could say you got it and move on, or you could ask for another rep.</p>
-              <p><b>Create tension</b>You are tired. Class is almost over. And honestly, you did feel it once. Is it really wrong to move on?</p>
-              <p><b>Ask</b>What makes someone choose the harder path even when no one would know?</p>
-              <p><b>Student thesis target</b>They care about actually being good, not just looking good.</p>
-              <p><b>Reveal late</b>What you just described has a name. That is integrity.</p>
-              <p><b>Anchor to Fire</b>Integrity is a Fire word because Fire reveals what is underneath. You can look disciplined when someone is watching. Integrity is what remains when they are not.</p>
-              <p><b>Close personally</b>I watched several of you choose the harder rep today when I was not looking. That is already integrity.</p>
-            </div>
-          </div>
+        <div class="prompt-note">
+          <p class="coach-kicker">Coach Reminder</p>
+          <h3>Do not announce the lesson too early.</h3>
+          <p>A mat chat lands better when students find the idea before the coach names it. Use the angle as a doorway: tell the setup, ask the question, listen, then give them the word once the meaning has started to appear.</p>
+          <p>Short is good. Specific is better. Connected to today's class is best.</p>
         </div>
       </div>
     </section>
@@ -577,182 +338,254 @@
   });
 </script>
 <script>
-  const elementData = [
-    {
-      element: 'Earth',
-      label: 'Foundation',
-      accent: 'var(--coach-gold)',
-      wash: 'rgba(196,146,42,0.16)',
-      logic: 'Earth holds, grounds, stabilizes, and builds the foundation.',
-      words: ['Discipline', 'Fitness', 'Responsibility', 'Nutrition', 'Integrity', 'Community']
-    },
-    {
-      element: 'Water',
-      label: 'Skill + Adaptability',
-      accent: 'var(--coach-water)',
-      wash: 'rgba(42,122,184,0.16)',
-      logic: 'Water adapts, receives, responds, and flows.',
-      words: ['Respect', 'Humility', 'Kindness', 'Self-Control', 'Empathy', 'Adaptability']
-    },
-    {
-      element: 'Fire',
-      label: 'Power + Drive',
-      accent: 'var(--coach-fire)',
-      wash: 'rgba(196,98,45,0.18)',
-      logic: 'Fire reveals, intensifies, tests, and brings power.',
-      words: ['Courage', 'Confidence', 'Determination', 'Goal Setting', 'Focus', 'Passion']
-    },
-    {
-      element: 'Air',
-      label: 'Awareness + Mindset',
-      accent: 'var(--coach-air)',
-      wash: 'rgba(200,217,227,0.14)',
-      logic: 'Air opens awareness, perspective, breath, patience, and lightness.',
-      words: ['Perseverance', 'Patience', 'Knowledge', 'Mindfulness', 'Gratitude', 'Playfulness']
-    }
+  if (window.location.protocol === 'file:') {
+    document.querySelectorAll('[data-local-href]').forEach(function(link) {
+      link.setAttribute('href', link.getAttribute('data-local-href'));
+    });
+  }
+</script>
+<script>
+  const groups = [
+    { element: 'Earth', label: 'Foundation', accent: 'var(--coach-gold)', wash: 'rgba(196,146,42,0.16)', words: ['Discipline', 'Fitness', 'Responsibility', 'Nutrition', 'Integrity', 'Community'] },
+    { element: 'Water', label: 'Skill + Adaptability', accent: 'var(--coach-water)', wash: 'rgba(42,122,184,0.16)', words: ['Respect', 'Humility', 'Kindness', 'Self-Control', 'Empathy', 'Adaptability'] },
+    { element: 'Fire', label: 'Power + Drive', accent: 'var(--coach-fire)', wash: 'rgba(196,98,45,0.18)', words: ['Courage', 'Confidence', 'Determination', 'Goal Setting', 'Focus', 'Passion'] },
+    { element: 'Air', label: 'Awareness + Mindset', accent: 'var(--coach-air)', wash: 'rgba(200,217,227,0.14)', words: ['Perseverance', 'Patience', 'Knowledge', 'Mindfulness', 'Gratitude', 'Playfulness'] }
   ];
 
-  const previewFields = [
-    ['grounding', 'Grounding moment'],
-    ['scenario', 'Scenario'],
-    ['fork', 'Fork in the road'],
-    ['easyChoice', 'Defensible easy choice'],
-    ['question', 'Discovery question'],
-    ['thesis', 'Student thesis target'],
-    ['reveal', 'Late word reveal'],
-    ['anchor', 'Element anchor'],
-    ['close', 'Personal close']
-  ];
-
-  const checklistItems = [
-    'Did it start with something concrete?',
-    'Was there a real choice or tension?',
-    'Was the easy/wrong choice made understandable?',
-    'Did the coach ask instead of explain?',
-    'Did a student get the chance to say the main idea?',
-    'Was the word named late?',
-    'Was the element connection functional, not decorative?',
-    'Did the close connect to today\'s class?'
-  ];
-
-  const sampleByWord = {
+  const promptData = {
+    Discipline: {
+      framing: 'Discipline is choosing the small right action again and again.',
+      angles: [
+        { title: 'The Boring Rep', setup: 'A student wants to skip the basic drill and get to the exciting skill.', question: 'Why do the boring reps matter if nobody came here just to do basics?', reminder: 'Help students see discipline as freedom later, not punishment now.' },
+        { title: 'When Motivation Leaves', setup: 'Some days a student feels tired, distracted, or not in the mood to train.', question: 'What helps someone do good work even when they do not feel excited?', reminder: 'Do not make discipline sound harsh. Make it sound steady.' },
+        { title: 'Clean Before Fast', setup: 'A student can do a skill quickly, but the shape, landing, or safety cue is messy.', question: 'Why might a coach slow you down before letting you go bigger?', reminder: 'Connect discipline to quality and safety, not obedience for its own sake.' }
+      ]
+    },
+    Fitness: {
+      framing: 'Fitness means building a body that supports your training and your life.',
+      angles: [
+        { title: 'Ready Body', setup: 'Ask students what it feels like when their body is strong enough to keep up with what they want to do.', question: 'How does a stronger, healthier body change what you are able to try?', reminder: 'Keep fitness about capability, energy, and confidence, not appearance.' },
+        { title: 'The Last Round', setup: 'The class is tired during conditioning and the fun skill work is already over.', question: 'Why do athletes train strength even when there is no cool trick happening?', reminder: 'Frame fitness as preparation for future choices.' },
+        { title: 'More Than Class', setup: 'Connect training to hiking, biking, playing, carrying things, recovering, and feeling good outside the gym.', question: 'Where else does your body help you show up in life?', reminder: 'Let students connect fitness to real life, not just gym performance.' }
+      ]
+    },
+    Responsibility: {
+      framing: 'Responsibility is owning your choices and helping take care of the room.',
+      angles: [
+        { title: 'The Mat Nobody Reset', setup: 'A station gets left messy or unsafe after a turn.', question: 'Whose job is it to make the station ready for the next person?', reminder: 'Guide them toward shared ownership instead of blame.' },
+        { title: 'Owning the Mistake', setup: 'A student makes a mistake and wants to blame the mat, the line, or someone nearby.', question: 'What changes when someone can say, “That one was on me”?', reminder: 'Make responsibility feel strong, not shameful.' },
+        { title: 'The Room We Share', setup: 'Everyone wants their own turn, but the class only works if students watch spacing and equipment.', question: 'What choices help the whole group train better?', reminder: 'Use this when the room needs more awareness and care.' }
+      ]
+    },
+    Nutrition: {
+      framing: 'Nutrition means learning how to fuel your body so it has energy to grow, train, think, and recover.',
+      angles: [
+        { title: 'Food as Fuel', setup: 'Ask students what happens when they come to class tired, hungry, or full of junk.', question: 'How does what we eat change the way our body feels during training?', reminder: 'Keep this positive. Do not shame food choices or bodies.' },
+        { title: 'Taking Care of Future You', setup: 'Talk about how choices before class affect what your body can do later.', question: 'What is one thing you can do before training that helps your future self?', reminder: 'Frame nutrition as self-respect, not restriction.' },
+        { title: 'Energy, Recovery, Growth', setup: 'Connect food, water, sleep, and recovery to getting stronger.', question: 'Why does training not end when class ends?', reminder: 'Help students see that progress comes from both work and recovery.' }
+      ]
+    },
     Integrity: {
-      grounding: 'A student almost landed a skill, but the coach did not see it.',
-      fork: 'They can say they got it and move on, or ask for another rep.',
-      easyChoice: 'They are tired, class is almost over, and they did feel it once.',
-      question: 'What makes someone choose the harder path even when no one would know?',
-      thesis: 'They care about actually being good, not just looking good.',
-      reveal: 'What you just described has a name. That is integrity.',
-      anchor: 'Integrity is an Earth word because it becomes part of what you stand on. If your training is built on truth, the whole structure gets stronger.',
-      close: 'I watched several of you choose the harder rep today when I was not looking. That is already integrity.'
+      framing: 'Integrity is being truthful about your work, even when nobody would know.',
+      angles: [
+        { title: 'The Almost Skill', setup: 'A student almost lands a skill when the coach does not see it.', question: 'Why would someone ask for another rep instead of saying they got it?', reminder: 'Let students discover that real progress matters more than looking done.' },
+        { title: 'Counting Your Own Reps', setup: 'A coach asks for ten clean reps while helping another station.', question: 'What does it show when someone does the real number without being watched?', reminder: 'Do not turn this into “don’t lie.” Aim at becoming trustworthy.' },
+        { title: 'Clean or Close Enough', setup: 'A student knows a landing was messy but wants to move on anyway.', question: 'What is the difference between almost clean and truly clean?', reminder: 'Integrity is about honesty with yourself first.' }
+      ]
+    },
+    Community: {
+      framing: 'Community means being part of a group where everyone helps the room get better.',
+      angles: [
+        { title: 'The Shared Room', setup: 'A busy class needs students to share space, turns, mats, and attention.', question: 'What makes a group feel safe and strong instead of crowded and chaotic?', reminder: 'Point toward contribution, not just friendliness.' },
+        { title: 'Cheering the Teammate', setup: 'One student is struggling while others are waiting for their own turn.', question: 'What can you do while someone else is having a hard rep?', reminder: 'Community shows up when attention moves beyond “my turn.”' },
+        { title: 'Cleaning Up Together', setup: 'At the end of class, equipment needs to be put back before anyone leaves.', question: 'Why does helping with the small stuff matter?', reminder: 'Use this to make service feel normal and honorable.' }
+      ]
+    },
+    Respect: {
+      framing: 'Respect is treating people, equipment, and coaching like they matter.',
+      angles: [
+        { title: 'The Safety Cue', setup: 'A student is excited to go but the coach is giving one important correction.', question: 'What changes when someone stops long enough to really receive coaching?', reminder: 'Respect is attention in action.' },
+        { title: 'Equipment Has a Job', setup: 'Mats, silks, bars, and trampolines help keep students safe when used correctly.', question: 'How do we show respect for equipment that protects us?', reminder: 'Make respect concrete: hands, eyes, spacing, cleanup.' },
+        { title: 'The Person in Front of You', setup: 'A teammate is nervous, slower, younger, or learning differently.', question: 'What does respect look like when someone moves differently than you?', reminder: 'Keep the focus on behavior students can practice today.' }
+      ]
+    },
+    Humility: {
+      framing: 'Humility is staying teachable, even when you are already good.',
+      angles: [
+        { title: 'Back to Basics', setup: 'An advanced student is asked to return to a simple drill.', question: 'Why would a strong athlete still need basic work?', reminder: 'Humility is not thinking less of yourself. It is staying open to growth.' },
+        { title: 'The Correction You Did Not Want', setup: 'A student thinks they already know the skill, then receives a small correction.', question: 'What makes it hard to accept coaching when you feel good at something?', reminder: 'Invite honesty. Everyone dislikes correction sometimes.' },
+        { title: 'Learning From Anyone', setup: 'A younger or newer student notices something helpful.', question: 'Can someone less experienced still teach us something?', reminder: 'Use this to soften ego without embarrassing anyone.' }
+      ]
+    },
+    Kindness: {
+      framing: 'Kindness is using your words and actions to help someone feel safe enough to keep trying.',
+      angles: [
+        { title: 'After the Miss', setup: 'A student misses a skill several times and looks embarrassed.', question: 'What can someone say that makes it easier to try again?', reminder: 'Keep kindness active. It is something students do, not just feel.' },
+        { title: 'The New Student', setup: 'Someone new does not know the stations, rules, or names yet.', question: 'What would help a new person feel like they belong here?', reminder: 'Let students remember what it felt like to be new.' },
+        { title: 'Big Energy, Soft Words', setup: 'A high-energy class can accidentally become teasing or impatient.', question: 'How can we keep energy high without making someone feel small?', reminder: 'Kindness does not mean quiet. It means careful with people.' }
+      ]
+    },
+    'Self-Control': {
+      framing: 'Self-Control is being in charge of your body and choices when your energy is big.',
+      angles: [
+        { title: 'Waiting on the Trampoline', setup: 'A student is excited and wants to bounce, talk, or rush before their turn.', question: 'What does it take to hold your energy until it is actually your turn?', reminder: 'Self-control is not having less energy. It is steering it.' },
+        { title: 'The Angry Miss', setup: 'A student misses a skill and wants to stomp, yell, or quit.', question: 'What choices help you reset when your feelings get loud?', reminder: 'Normalize big feelings while guiding better responses.' },
+        { title: 'Safe Power', setup: 'A strong student has enough power to do something big, but the setup is not ready.', question: 'Why is power only useful when you can control it?', reminder: 'Connect self-control directly to safety and trust.' }
+      ]
+    },
+    Empathy: {
+      framing: 'Empathy is remembering what a moment might feel like for someone else.',
+      angles: [
+        { title: 'Remember Your First Day', setup: 'A newer student is nervous around a skill that now feels easy to others.', question: 'What do you wish someone understood when you were first learning?', reminder: 'Help students use memory to create compassion.' },
+        { title: 'The Quiet Teammate', setup: 'Someone is not asking for help, but their face or body language shows they might need it.', question: 'What can you notice before someone says they are struggling?', reminder: 'Empathy starts with paying attention.' },
+        { title: 'Different Hard Things', setup: 'One skill feels easy to one student and scary to another.', question: 'Why is it unfair to decide something is easy for everyone just because it is easy for you?', reminder: 'Use this when comparison or teasing appears.' }
+      ]
+    },
+    Adaptability: {
+      framing: 'Adaptability is changing your plan when the first plan does not work.',
+      angles: [
+        { title: 'Changed Station', setup: 'A familiar setup changes because of space, equipment, or safety.', question: 'What helps an athlete keep training when the plan changes?', reminder: 'Make adaptability feel like intelligence, not settling.' },
+        { title: 'The Correction That Changes Everything', setup: 'A coach gives a cue that makes the old way stop working for a while.', question: 'Why can getting better feel worse at first?', reminder: 'Use this when students are frustrated by new technique.' },
+        { title: 'Blocked Path', setup: 'A parkour line or skill path is not available, so students need a new route.', question: 'How do you know when to push through and when to adjust?', reminder: 'Adaptability is not quitting. It is finding a workable path.' }
+      ]
+    },
+    Courage: {
+      framing: 'Courage is moving forward even when part of you feels nervous.',
+      angles: [
+        { title: 'The Safe Attempt', setup: 'A student is ready for a skill, the coach is there, the setup is safe, but they still feel scared.', question: 'What makes someone try even when their body feels nervous?', reminder: 'Do not tell them courage means “not being scared.” Help them see that courage happens while fear is still present.' },
+        { title: 'Speaking Up', setup: 'Sometimes courage is telling a coach you are confused, scared, or need help.', question: 'Why can it be hard to speak up when you need something?', reminder: 'Courage is not always loud. Sometimes it is honest communication.' },
+        { title: 'Trying Again After Embarrassment', setup: 'A student messes up in front of the group and has to decide whether to hide or try again.', question: 'What helps someone take another turn after they feel embarrassed?', reminder: 'Use this angle when the class energy includes mistakes, nervousness, or hesitation.' }
+      ]
+    },
+    Confidence: {
+      framing: 'Confidence is trusting your preparation enough to try.',
+      angles: [
+        { title: 'Evidence, Not Hype', setup: 'A student says they cannot do something even after practicing the pieces.', question: 'What evidence might show you are more ready than you feel?', reminder: 'Confidence grows from proof, not empty cheering.' },
+        { title: 'Borrowed Belief', setup: 'A coach or teammate believes a student is ready before the student believes it.', question: 'When is it okay to borrow someone else’s belief in you for one rep?', reminder: 'Use this when students need support without pressure.' },
+        { title: 'Quiet Confidence', setup: 'A student does not brag, but they step up and do the work.', question: 'Can confidence be quiet? What would that look like?', reminder: 'Separate confidence from showing off.' }
+      ]
+    },
+    Determination: {
+      framing: 'Determination is keeping your effort pointed at the work when it gets hard.',
+      angles: [
+        { title: 'One More Better Rep', setup: 'A student misses several times and wants to be done.', question: 'What changes if the goal is not “get it now,” but “make the next rep better”?', reminder: 'Determination needs direction, not just stubbornness.' },
+        { title: 'Stuck on the Same Cue', setup: 'The same correction keeps coming up again and again.', question: 'What helps someone keep working when progress feels slow?', reminder: 'Use this when frustration is visible.' },
+        { title: 'Finish the Set', setup: 'A student starts strong but fades before the work is complete.', question: 'What does finishing teach us that starting does not?', reminder: 'Keep the tone encouraging, not guilt-based.' }
+      ]
+    },
+    'Goal Setting': {
+      framing: 'Goal Setting is choosing a target small enough to act on today.',
+      angles: [
+        { title: 'One Target Today', setup: 'A student wanders between stations, trying everything but improving very little.', question: 'How does choosing one target change the way you train?', reminder: 'Help students make goals specific and immediate.' },
+        { title: 'Too Big, Too Vague', setup: 'A student says, “I want to get better at flips,” but does not know the next step.', question: 'What makes a goal useful instead of just exciting?', reminder: 'Guide them toward one clear action.' },
+        { title: 'The Tiny Win', setup: 'A student wants the big skill, but today’s goal is just a cleaner shape, jump, or landing.', question: 'Why do small goals matter if the dream is big?', reminder: 'Connect small targets to long-term progress.' }
+      ]
+    },
+    Focus: {
+      framing: 'Focus is putting your attention where it belongs right now.',
+      angles: [
+        { title: 'One Cue', setup: 'A coach gives one correction before the next rep.', question: 'What happens when you try to remember everything instead of one important cue?', reminder: 'Make focus feel doable: one cue, one rep.' },
+        { title: 'Noise Around You', setup: 'The room is loud, friends are nearby, and attention starts drifting.', question: 'How can you bring your attention back without needing the room to be perfect?', reminder: 'Focus is a skill students can practice in messy environments.' },
+        { title: 'Before You Move', setup: 'A student rushes before looking at spacing, setup, or instructions.', question: 'What should your eyes and mind check before your body goes?', reminder: 'Connect focus to safety.' }
+      ]
+    },
+    Passion: {
+      framing: 'Passion is loving something enough to bring energy and care to it.',
+      angles: [
+        { title: 'Excited Without Chaos', setup: 'A student loves a skill so much they want to rush, interrupt, or ignore the setup.', question: 'How can excitement help your training instead of taking over?', reminder: 'Passion needs direction or it becomes noise.' },
+        { title: 'What Pulls You Back', setup: 'Ask students what kind of movement makes them want to keep learning.', question: 'What is something here that makes you want to come back and get better?', reminder: 'Let students name joy, not just achievement.' },
+        { title: 'Care Shows Up in Work', setup: 'A student says they love a skill but avoids the boring prep for it.', question: 'How do you know when someone really cares about something?', reminder: 'Connect passion to care, patience, and effort.' }
+      ]
+    },
+    Perseverance: {
+      framing: 'Perseverance is returning to a hard thing long enough to grow.',
+      angles: [
+        { title: 'Still Not There Yet', setup: 'A student is better than before but still has not landed the skill.', question: 'How can you tell progress is happening before the final result shows up?', reminder: 'Help students notice growth in the middle.' },
+        { title: 'The Skill That Keeps Winning', setup: 'One skill keeps beating a student rep after rep.', question: 'What makes someone come back to a hard skill instead of avoiding it?', reminder: 'Use this when students are tempted to drift away from challenge.' },
+        { title: 'Long Game', setup: 'A student expects a skill to happen quickly, but it takes weeks or months.', question: 'What kind of person do you become when you stay with something hard?', reminder: 'Perseverance is identity-forming, not just result-chasing.' }
+      ]
+    },
+    Patience: {
+      framing: 'Patience is giving the process enough time to work.',
+      angles: [
+        { title: 'Foundation First', setup: 'A student wants the advanced version before the prep skill is ready.', question: 'Why might waiting actually help you get there faster later?', reminder: 'Patience is not doing nothing. It is doing the right next thing.' },
+        { title: 'Waiting Your Turn', setup: 'Students are in line and energy starts building before their turn.', question: 'How can waiting become part of training instead of wasted time?', reminder: 'Connect patience to observation and readiness.' },
+        { title: 'Slow Progress', setup: 'A student feels frustrated because improvement is not happening as fast as they want.', question: 'What helps you trust the process when you cannot see change yet?', reminder: 'Use this to calm urgency without killing ambition.' }
+      ]
+    },
+    Knowledge: {
+      framing: 'Knowledge is learning why something works, not just copying it.',
+      angles: [
+        { title: 'Why the Cue Matters', setup: 'A student knows the cue but does not understand why the coach keeps saying it.', question: 'How does knowing the reason change the way you train?', reminder: 'Invite curiosity about technique.' },
+        { title: 'Copying vs Understanding', setup: 'A student copies a shape from another athlete but misses the purpose behind it.', question: 'What is the difference between copying a move and understanding it?', reminder: 'Knowledge helps students become self-correcting.' },
+        { title: 'Ask Better Questions', setup: 'A student is confused but stays quiet, then keeps repeating the mistake.', question: 'What question could help you understand the skill better?', reminder: 'Make asking questions feel like strength.' }
+      ]
+    },
+    Mindfulness: {
+      framing: 'Mindfulness is noticing what is happening in your body and mind before you react.',
+      angles: [
+        { title: 'One Breath After a Miss', setup: 'A student misses a rep and wants to rush immediately into the next one.', question: 'What can you notice in one breath before you try again?', reminder: 'Mindfulness should feel practical, not mystical.' },
+        { title: 'Body Signals', setup: 'Students feel tight, tired, nervous, excited, or distracted before a skill.', question: 'What is your body telling you before this rep?', reminder: 'Help them listen without judging the signal.' },
+        { title: 'Reaction or Response', setup: 'Something goes wrong and a student has a choice between reacting fast or responding well.', question: 'What changes when you pause before choosing what to do next?', reminder: 'Use this after emotional moments.' }
+      ]
+    },
+    Gratitude: {
+      framing: 'Gratitude is noticing and appreciating what helps you train.',
+      angles: [
+        { title: 'Invisible Help', setup: 'A single turn depends on coaches, parents, teammates, equipment, and a shared space.', question: 'What made your training possible today that you might not usually notice?', reminder: 'Keep gratitude concrete.' },
+        { title: 'Your Body Can Learn', setup: 'Students often focus on what their body cannot do yet.', question: 'What is one thing your body let you practice today?', reminder: 'Gratitude can include the body without comparison or appearance talk.' },
+        { title: 'Thank the Support', setup: 'A spotter, teammate, parent, or coach helped make progress possible.', question: 'How does thanking people change the way a team feels?', reminder: 'Make gratitude active through words and actions.' }
+      ]
+    },
+    Playfulness: {
+      framing: 'Playfulness is staying curious and joyful while still being safe.',
+      angles: [
+        { title: 'Creative Line', setup: 'Students explore a parkour line with different routes and ideas.', question: 'How can play help you discover something new?', reminder: 'Playfulness still needs boundaries and safety.' },
+        { title: 'Too Perfect', setup: 'A student gets stiff because they are trying so hard to be perfect.', question: 'What changes when you let yourself experiment a little?', reminder: 'Use this to loosen fear of mistakes.' },
+        { title: 'Joy With Control', setup: 'The class is energetic and fun, but the coach still needs safe choices.', question: 'How can we keep the joy without losing control?', reminder: 'Playfulness is not chaos. It is creative, awake, and alive.' }
+      ]
     }
   };
 
-  let selected = { element: 'Earth', word: 'Integrity', accent: 'var(--coach-gold)', logic: elementData[0].logic };
-
   const wordBoard = document.getElementById('wordBoard');
+  const promptCard = document.getElementById('promptCard');
   const selectedElement = document.getElementById('selectedElement');
+  const selectedFunction = document.getElementById('selectedFunction');
   const selectedWord = document.getElementById('selectedWord');
-  const selectedWordCard = document.getElementById('selectedWordCard');
-  const elementLogic = document.getElementById('elementLogic');
-  const previewList = document.getElementById('previewList');
-  const checklist = document.getElementById('qualityChecklist');
-  const scoreText = document.getElementById('scoreText');
-  const scoreMeaning = document.getElementById('scoreMeaning');
-  const copyStatus = document.getElementById('copyStatus');
-  const fields = Array.from(document.querySelectorAll('[data-preview]'));
+  const selectedFraming = document.getElementById('selectedFraming');
+  const angleList = document.getElementById('angleList');
 
-  function getElementForWord(word) {
-    for (const group of elementData) {
-      if (group.words.includes(word)) return group;
-    }
-    return elementData[0];
+  function getGroupForWord(word) {
+    return groups.find(group => group.words.includes(word)) || groups[2];
   }
 
-  function renderWordBoard() {
-    wordBoard.innerHTML = elementData.map(group => {
-      const buttons = group.words.map(word => {
-        return `<button class="sim-word-button${word === selected.word ? ' active' : ''}" type="button" data-word="${word}" style="--element-accent:${group.accent};">${word}</button>`;
-      }).join('');
-      return `<article class="sim-element-card" style="--element-accent:${group.accent};--element-wash:${group.wash};"><h3>${group.element}</h3><p>${group.label}</p><div class="sim-word-buttons">${buttons}</div></article>`;
+  function renderWordBoard(currentWord) {
+    wordBoard.innerHTML = groups.map(group => {
+      const buttons = group.words.map(word => `<button class="prompt-word-button${word === currentWord ? ' active' : ''}" type="button" data-word="${word}" style="--element-accent:${group.accent};">${word}</button>`).join('');
+      return `<article class="prompt-element-card" style="--element-accent:${group.accent};--element-wash:${group.wash};"><h3>${group.element}</h3><p>${group.label}</p><div class="prompt-word-buttons">${buttons}</div></article>`;
     }).join('');
   }
 
-  function setSelected(word, shouldLoadSample) {
-    const group = getElementForWord(word);
-    selected = { element: group.element, word: word, accent: group.accent, logic: group.logic };
+  function setSelected(word) {
+    const data = promptData[word] || promptData.Courage;
+    const group = getGroupForWord(word);
+    promptCard.style.setProperty('--active-accent', group.accent);
+    promptCard.style.setProperty('--active-wash', group.wash);
     selectedElement.textContent = group.element;
+    selectedFunction.textContent = group.label;
     selectedWord.textContent = word;
-    selectedWordCard.style.setProperty('--active-accent', group.accent);
-    document.querySelector('.sim-workspace').style.setProperty('--active-accent', group.accent);
-    elementLogic.textContent = group.logic;
-
-    document.querySelectorAll('.sim-word-button').forEach(button => {
+    selectedFraming.textContent = data.framing;
+    angleList.innerHTML = data.angles.map(angle => `
+      <article class="prompt-angle">
+        <h3>${escapeHtml(angle.title)}</h3>
+        <div class="prompt-angle-row"><b>Setup</b><span>${escapeHtml(angle.setup)}</span></div>
+        <div class="prompt-angle-row"><b>Question</b><span>${escapeHtml(angle.question)}</span></div>
+        <div class="prompt-angle-row"><b>Coach Reminder</b><span>${escapeHtml(angle.reminder)}</span></div>
+      </article>
+    `).join('');
+    document.querySelectorAll('.prompt-word-button').forEach(button => {
       button.classList.toggle('active', button.dataset.word === word);
     });
-
-    if (shouldLoadSample && sampleByWord[word]) {
-      Object.entries(sampleByWord[word]).forEach(([id, value]) => {
-        const input = document.getElementById(id);
-        if (input) input.value = value;
-      });
-    } else if (shouldLoadSample) {
-      fields.forEach(input => input.value = '');
-      document.getElementById('reveal').value = `What you just described has a name. That is ${word.toLowerCase()}.`;
-      document.getElementById('anchor').value = `${word} connects to ${group.element} because ${group.logic.toLowerCase()}`;
-    }
-
-    renderPreview();
-  }
-
-  function renderPreview() {
-    previewList.innerHTML = previewFields.map(([id, label]) => {
-      const value = getPreviewValue(id);
-      return `<div class="sim-preview-item"><b>${label}</b><span>${escapeHtml(value)}</span></div>`;
-    }).join('');
-    copyStatus.textContent = '';
-  }
-
-  function getPreviewValue(id) {
-    if (id === 'scenario') {
-      const grounding = document.getElementById('grounding').value.trim();
-      const fork = document.getElementById('fork').value.trim();
-      if (grounding && fork) return `${grounding} ${fork}`;
-      if (grounding) return grounding;
-      if (fork) return fork;
-      return 'Fill this in as you build.';
-    }
-    const input = document.getElementById(id);
-    return input && input.value.trim() ? input.value.trim() : 'Fill this in as you build.';
-  }
-
-  function renderChecklist() {
-    checklist.innerHTML = checklistItems.map((item, index) => {
-      return `<label><input type="checkbox" data-check="${index}"><span>${item}</span></label>`;
-    }).join('');
-  }
-
-  function updateScore() {
-    const score = checklist.querySelectorAll('input:checked').length;
-    scoreText.textContent = `${score}/8`;
-    if (score === 8) {
-      scoreMeaning.textContent = 'Strong mat chat.';
-    } else if (score >= 6) {
-      scoreMeaning.textContent = 'Usable, but refine it.';
-    } else if (score >= 4) {
-      scoreMeaning.textContent = 'Too lecture-based or too vague.';
-    } else {
-      scoreMeaning.textContent = 'Rebuild the scenario.';
-    }
-  }
-
-  function getPreviewText() {
-    const lines = [`Mat Chat: ${selected.word} (${selected.element})`, ''];
-    previewFields.forEach(([id, label]) => {
-      const value = getPreviewValue(id);
-      lines.push(`${label}: ${value}`);
-    });
-    return lines.join('\n');
   }
 
   function escapeHtml(value) {
@@ -765,46 +598,16 @@
     }[char]));
   }
 
-  function fallbackCopy(text) {
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-    textArea.setAttribute('readonly', '');
-    textArea.style.position = 'fixed';
-    textArea.style.left = '-999px';
-    document.body.appendChild(textArea);
-    textArea.select();
-    const copied = document.execCommand('copy');
-    document.body.removeChild(textArea);
-    return copied;
-  }
-
   wordBoard.addEventListener('click', event => {
     const button = event.target.closest('[data-word]');
     if (!button) return;
-    setSelected(button.dataset.word, true);
+    setSelected(button.dataset.word);
   });
 
-  fields.forEach(input => input.addEventListener('input', renderPreview));
-
-  checklist.addEventListener('change', updateScore);
-
-  document.getElementById('copyPreview').addEventListener('click', async () => {
-    try {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(getPreviewText());
-      } else if (!fallbackCopy(getPreviewText())) {
-        throw new Error('Copy unavailable');
-      }
-      copyStatus.textContent = 'Copied.';
-    } catch (error) {
-      copyStatus.textContent = 'Copy failed. Select the preview and copy manually.';
-    }
-  });
-
-  renderWordBoard();
-  renderChecklist();
-  setSelected('Integrity', true);
-  updateScore();
+  const requestedWord = new URLSearchParams(window.location.search).get('word');
+  const initialWord = requestedWord && promptData[requestedWord] ? requestedWord : 'Courage';
+  renderWordBoard(initialWord);
+  setSelected(initialWord);
 </script>
 </body>
 </html>
