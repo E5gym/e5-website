@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Mat Chat Framework | Elemental 5</title>
+<meta name="description" content="The simple delivery framework behind an effective E5 mat chat.">
+<link rel="canonical" href="https://www.elementalfive.com/mat-chat-framework.html">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/coach-home/coach-home.css">
+</head>
+<body>
+<div id="site-nav"></div>
+<script>
+  fetch('/Partials/nav.html').then(r => r.text()).then(html => document.getElementById('site-nav').innerHTML = html);
+</script>
+
+<main class="coach-page">
+  <section class="coach-hero">
+    <div class="coach-wrap">
+      <a class="coach-back-link" href="/coach-home/mat-chat-tools.html">&larr; Back to Mat Chat Tools</a>
+      <p class="coach-eyebrow">The Science</p>
+      <h1>The Mat Chat <span>Framework</span></h1>
+      <p class="coach-subhead">Mat chats are short conversations that connect character to training. They should not become lectures. A good mat chat is clear, real, and tied to what is happening in class.</p>
+      <p class="coach-hero-note">A mat chat works best when the coach uses something real from class, asks one useful question, and sends students back into training with a challenge.</p>
+    </div>
+  </section>
+
+  <div class="coach-shell">
+    <section class="coach-section coach-section-tight">
+      <div class="coach-wrap">
+        <p class="coach-kicker">The 4-Step Formula</p>
+        <h2>Keep it short enough to use.</h2>
+        <div class="coach-step-grid">
+          <article class="coach-step-card"><span>1</span><h3>Name the idea</h3><p>Example: "Today we're talking about courage."</p></article>
+          <article class="coach-step-card"><span>2</span><h3>Connect it to training</h3><p>Example: "Courage shows up when you try something even though you feel nervous."</p></article>
+          <article class="coach-step-card"><span>3</span><h3>Ask one question</h3><p>Example: "Where might you need courage today?"</p></article>
+          <article class="coach-step-card"><span>4</span><h3>Give a challenge</h3><p>Example: "When something feels hard today, take one breath and try again."</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="coach-section">
+      <div class="coach-wrap">
+        <div class="coach-split">
+          <div>
+            <p class="coach-kicker">The Coach's Compass</p>
+            <h2>Before speaking, take 60 seconds to answer.</h2>
+          </div>
+          <div class="coach-question-list">
+            <p>What actually happened in class today that connects to this word?</p>
+            <p>What do I want students to notice?</p>
+            <p>What question will make them think?</p>
+            <p>What simple challenge can they carry back into training?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="coach-section">
+      <div class="coach-wrap">
+        <p class="coach-kicker">Common Mistakes</p>
+        <h2>What weakens a mat chat.</h2>
+        <div class="coach-grid two">
+          <article class="coach-note"><h3>Talking too long</h3><p>If students are waiting too long, the point gets weaker.</p></article>
+          <article class="coach-note"><h3>Teaching it like school</h3><p>Do not explain the word like a vocabulary lesson.</p></article>
+          <article class="coach-note"><h3>Too many questions</h3><p>One useful question is stronger than five scattered ones.</p></article>
+          <article class="coach-note"><h3>Too abstract</h3><p>Connect the word to a real moment students can see.</p></article>
+          <article class="coach-note"><h3>Disconnected examples</h3><p>Use examples from class, not random stories.</p></article>
+          <article class="coach-note"><h3>No challenge</h3><p>End by giving students one simple way to practice the idea.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="coach-section coach-footer-space">
+      <div class="coach-wrap">
+        <div class="coach-callout coach-home-callout">
+          <strong>The Rule</strong>
+          <p>Keep it under 3 minutes. One idea. One question. One challenge. Then get back to training.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<script>
+  fetch('/Partials/footer.html').then(r => r.text()).then(function(html) {
+    var el = document.getElementById('site-footer');
+    el.innerHTML = html;
+    el.querySelectorAll('script').forEach(function(s) {
+      var ns = document.createElement('script');
+      if (s.src) { ns.src = s.src; ns.type = s.type || 'text/javascript'; }
+      else { ns.textContent = s.textContent; }
+      document.body.appendChild(ns);
+    });
+  });
+</script>
+</body>
+</html>

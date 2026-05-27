@@ -44,6 +44,8 @@ for (const partial of ['nav.html', 'footer.html']) {
 // Publish hidden/internal static experiences that live outside the root page list.
 copyDir(path.join(ROOT, 'kiosk'), path.join(OUT, 'kiosk'));
 console.log('copied  kiosk/');
+copyDir(path.join(ROOT, 'coach-home'), path.join(OUT, 'coach-home'));
+console.log('copied  coach-home/');
 
 for (const entry of entries) {
   if (!entry.isFile()) continue;
