@@ -5,10 +5,415 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Mat Chat Builder | Elemental 5</title>
-<meta name="description" content="A simple E5 coach tool for creating a mat chat outline.">
+<meta name="description" content="A discovery-based E5 coach tool for building mat chats where students find the idea before the word is named.">
 <link rel="canonical" href="https://www.elementalfive.com/mat-chat-builder.html">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/coach-home/coach-home.css">
+<style>
+  .sim-hero-note strong,
+  .sim-warning strong {
+    color: var(--coach-cream);
+  }
+
+  .sim-word-board {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .sim-element-card {
+    --element-accent: var(--coach-gold);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(242,233,216,0.15);
+    border-top: 3px solid var(--element-accent);
+    border-radius: 6px;
+    padding: 18px;
+    background:
+      radial-gradient(circle at 88% 84%, var(--element-wash, rgba(196,146,42,0.14)), transparent 54%),
+      linear-gradient(160deg, rgba(242,233,216,0.08), transparent 42%),
+      rgba(33,23,16,0.82);
+    box-shadow: 0 18px 44px rgba(0,0,0,0.22);
+  }
+
+  .sim-element-card h3 {
+    color: var(--element-accent);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .sim-element-card p {
+    color: var(--coach-muted);
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  .sim-word-buttons {
+    display: grid;
+    gap: 8px;
+  }
+
+  .sim-word-button {
+    color: rgba(242,233,216,0.82);
+    background: rgba(14,8,4,0.38);
+    border: 1px solid rgba(242,233,216,0.12);
+    border-left: 3px solid transparent;
+    border-radius: 4px;
+    padding: 10px 11px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-align: left;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  }
+
+  .sim-word-button:hover,
+  .sim-word-button.active {
+    color: var(--coach-cream);
+    border-color: rgba(242,233,216,0.22);
+    border-left-color: var(--element-accent);
+    background: rgba(196,146,42,0.12);
+    transform: translateY(-1px);
+  }
+
+  .sim-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(330px, 0.95fr);
+    gap: 20px;
+    align-items: start;
+    margin-top: 24px;
+  }
+
+  .sim-builder-panel,
+  .sim-preview-panel,
+  .sim-check-panel,
+  .sim-example-panel {
+    border: 1px solid rgba(242,233,216,0.15);
+    border-radius: 6px;
+    background:
+      linear-gradient(160deg, rgba(242,233,216,0.08), transparent 42%),
+      linear-gradient(180deg, rgba(33,23,16,0.96), rgba(14,8,4,0.94));
+    box-shadow: 0 18px 44px rgba(0,0,0,0.24);
+    overflow: hidden;
+  }
+
+  .sim-builder-panel {
+    display: grid;
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .sim-preview-panel,
+  .sim-check-panel,
+  .sim-example-panel {
+    padding: 24px;
+  }
+
+  .sim-selected-word {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    padding: 16px 18px;
+    border: 1px solid rgba(242,233,216,0.12);
+    border-left: 4px solid var(--active-accent, var(--coach-gold));
+    border-radius: 5px;
+    background: rgba(14,8,4,0.35);
+  }
+
+  .sim-selected-word span {
+    color: var(--coach-bg);
+    background: var(--active-accent, var(--coach-gold));
+    border-radius: 99px;
+    padding: 5px 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .sim-selected-word strong {
+    color: var(--coach-cream);
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .sim-step {
+    border: 1px solid rgba(242,233,216,0.11);
+    border-radius: 5px;
+    padding: 16px;
+    background: rgba(14,8,4,0.28);
+  }
+
+  .sim-step-head {
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 12px;
+    align-items: start;
+    margin-bottom: 12px;
+  }
+
+  .sim-step-num {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    color: var(--coach-bg);
+    background: var(--active-accent, var(--coach-gold));
+    border-radius: 50%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+  }
+
+  .sim-step h3 {
+    color: var(--coach-cream);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .sim-step p {
+    color: var(--coach-muted);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .sim-step textarea {
+    width: 100%;
+    min-height: 92px;
+    margin-top: 12px;
+    color: var(--coach-cream);
+    background: rgba(8,5,3,0.72);
+    border: 1px solid rgba(242,233,216,0.18);
+    border-radius: 4px;
+    padding: 12px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    resize: vertical;
+  }
+
+  .sim-step textarea:focus {
+    outline: 2px solid rgba(196,146,42,0.42);
+    outline-offset: 2px;
+  }
+
+  .sim-examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 10px;
+  }
+
+  .sim-example-chip {
+    color: rgba(242,233,216,0.78);
+    background: rgba(242,233,216,0.06);
+    border: 1px solid rgba(242,233,216,0.1);
+    border-radius: 99px;
+    padding: 5px 9px;
+    font-size: 12px;
+  }
+
+  .sim-warning {
+    margin-top: 10px;
+    color: rgba(242,233,216,0.82);
+    background: rgba(196,98,45,0.14);
+    border: 1px solid rgba(196,98,45,0.3);
+    border-left: 3px solid var(--coach-fire);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .sim-preview-sticky {
+    position: sticky;
+    top: 138px;
+    display: grid;
+    gap: 16px;
+  }
+
+  .sim-preview-panel h3,
+  .sim-check-panel h3,
+  .sim-example-panel h3 {
+    color: var(--coach-cream);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .sim-preview-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .sim-preview-item {
+    border: 1px solid rgba(242,233,216,0.1);
+    border-left: 3px solid var(--active-accent, var(--coach-gold));
+    border-radius: 4px;
+    padding: 12px 13px;
+    background: rgba(14,8,4,0.3);
+  }
+
+  .sim-preview-item b {
+    display: block;
+    color: var(--coach-gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .sim-preview-item span {
+    color: var(--coach-muted);
+    font-size: 14px;
+  }
+
+  .sim-checklist {
+    display: grid;
+    gap: 9px;
+    list-style: none;
+  }
+
+  .sim-checklist label {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 10px;
+    align-items: start;
+    color: var(--coach-muted);
+    background: rgba(14,8,4,0.3);
+    border: 1px solid rgba(242,233,216,0.1);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .sim-checklist input {
+    accent-color: var(--coach-gold);
+    margin-top: 4px;
+  }
+
+  .sim-score {
+    margin-top: 16px;
+    border: 1px solid rgba(196,146,42,0.32);
+    border-left: 4px solid var(--coach-gold);
+    border-radius: 5px;
+    padding: 14px;
+    background: rgba(196,146,42,0.1);
+  }
+
+  .sim-score strong {
+    display: block;
+    color: var(--coach-cream);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .sim-score span {
+    color: var(--coach-muted);
+    font-size: 14px;
+  }
+
+  .sim-copy-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: 14px;
+  }
+
+  .sim-copy-status {
+    min-height: 20px;
+    color: var(--coach-gold);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .sim-example-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 18px;
+    align-items: start;
+  }
+
+  .sim-do-not {
+    border: 1px solid rgba(196,98,45,0.3);
+    border-left: 4px solid var(--coach-fire);
+    border-radius: 5px;
+    padding: 18px;
+    background: rgba(196,98,45,0.12);
+  }
+
+  .sim-example-flow {
+    display: grid;
+    gap: 10px;
+  }
+
+  .sim-example-flow p,
+  .sim-do-not p {
+    color: var(--coach-muted);
+    font-size: 15px;
+  }
+
+  .sim-example-flow b,
+  .sim-do-not b {
+    display: block;
+    color: var(--coach-gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  @media (max-width: 980px) {
+    .sim-word-board,
+    .sim-workspace,
+    .sim-example-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sim-preview-sticky {
+      position: static;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .sim-element-card,
+    .sim-builder-panel,
+    .sim-preview-panel,
+    .sim-check-panel,
+    .sim-example-panel {
+      padding: 18px;
+    }
+
+    .sim-step-head {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>
 </head>
 <body>
 <div id="site-nav"></div>
@@ -20,36 +425,138 @@
   <section class="coach-hero">
     <div class="coach-wrap">
       <a class="coach-back-link" href="/coach-home/mat-chat-tools.html">&larr; Back to Mat Chat Tools</a>
-      <p class="coach-eyebrow">The Simulator</p>
-      <h1>Mat Chat <span>Builder</span></h1>
-      <p class="coach-subhead">Choose a virtue word and generate a short outline you can use before or after class.</p>
+      <p class="coach-eyebrow">Coach Portal Tool</p>
+      <h1>Mat Chat <span>Simulator</span></h1>
+      <p class="coach-subhead">Build discovery-based mat chats using the Elemental 5 delivery framework.</p>
+      <p class="coach-hero-note sim-hero-note">This tool helps coaches build mat chats where students discover the lesson before the word is named. <strong>The word should feel earned, not announced.</strong></p>
     </div>
   </section>
 
+  <nav class="coach-local-nav" aria-label="Coach Home navigation">
+    <div class="coach-local-nav-inner">
+      <a href="/coach-home/">Home</a>
+      <a href="/coach-home/start-here.html">Start Here</a>
+      <a class="active" href="/coach-home/mat-chat-tools.html">Mat Chats</a>
+      <a href="/coach-home/skill-library.html">Skill Library</a>
+      <a href="/coach-home/class-management.html">Class Management</a>
+      <a href="/coach-home/program-standards.html">Standards</a>
+      <a href="/coach-home/warm-ups.html">Warm-Ups</a>
+      <a href="/coach-home/elements-of-coaching.html">Elements</a>
+      <a href="/">Main Site</a>
+    </div>
+  </nav>
+
   <div class="coach-shell">
-    <section class="coach-section coach-section-tight coach-footer-space">
+    <section class="coach-section coach-section-tight">
       <div class="coach-wrap">
-        <div class="mat-builder">
-          <div class="mat-builder-control">
-            <label for="virtueSelect">Choose a virtue word</label>
-            <select id="virtueSelect"></select>
+        <p class="coach-kicker">Step One</p>
+        <h2>Choose the word, but do not lead with it.</h2>
+        <p class="coach-section-intro">Select the character trait you are aiming toward. The simulator will help you build a story, moment, or scenario that lets students arrive at the idea first.</p>
+        <div class="sim-word-board" id="wordBoard" aria-label="Select an Elemental 5 character trait"></div>
+      </div>
+    </section>
+
+    <section class="coach-section">
+      <div class="coach-wrap">
+        <p class="coach-kicker">Simulator Builder</p>
+        <h2>Build the discovery path.</h2>
+        <div class="sim-workspace">
+          <div class="sim-builder-panel" id="simBuilder">
+            <div class="sim-selected-word" id="selectedWordCard">
+              <span id="selectedElement">Earth</span>
+              <strong id="selectedWord">Integrity</strong>
+            </div>
+
+            <article class="sim-step">
+              <div class="sim-step-head"><div class="sim-step-num">1</div><div><h3>Concrete Class Moment</h3><p>What happened in class today that could connect to this word?</p></div></div>
+              <div class="sim-examples"><span class="sim-example-chip">A student got frustrated</span><span class="sim-example-chip">Someone helped a teammate</span><span class="sim-example-chip">Someone rushed a skill</span><span class="sim-example-chip">Someone kept trying after failing</span><span class="sim-example-chip">Someone avoided a harder rep</span><span class="sim-example-chip">Someone showed focus when others were distracted</span></div>
+              <textarea id="grounding" data-preview="grounding" placeholder="Example: A student almost landed a skill, but the coach did not see it."></textarea>
+            </article>
+
+            <article class="sim-step">
+              <div class="sim-step-head"><div class="sim-step-num">2</div><div><h3>Fork in the Road</h3><p>What choice does the student or character have to make?</p></div></div>
+              <textarea id="fork" data-preview="fork" placeholder="Example: They can say they got it and move on, or ask for another rep."></textarea>
+            </article>
+
+            <article class="sim-step">
+              <div class="sim-step-head"><div class="sim-step-num">3</div><div><h3>Defensible Easy Choice</h3><p>Why would the easier or weaker choice make sense?</p></div></div>
+              <p class="sim-warning"><strong>Critical:</strong> If the wrong choice is too obviously wrong, the mat chat becomes fake.</p>
+              <textarea id="easyChoice" data-preview="easyChoice" placeholder="Example: They are tired, class is almost over, and they did feel it once."></textarea>
+            </article>
+
+            <article class="sim-step">
+              <div class="sim-step-head"><div class="sim-step-num">4</div><div><h3>Discovery Question</h3><p>What question helps students find the truth themselves?</p></div></div>
+              <div class="sim-examples"><span class="sim-example-chip">What would make someone choose the harder path?</span><span class="sim-example-chip">What does that show about who they are becoming?</span><span class="sim-example-chip">Why does this matter if nobody is watching?</span><span class="sim-example-chip">What happens if they keep choosing the easy path?</span></div>
+              <textarea id="question" data-preview="question" placeholder="Example: What makes someone choose the harder path even when no one would know?"></textarea>
+            </article>
+
+            <article class="sim-step">
+              <div class="sim-step-head"><div class="sim-step-num">5</div><div><h3>Student Thesis Moment</h3><p>What are you hoping a student eventually says?</p></div></div>
+              <p class="sim-warning"><strong>Do not say this for them.</strong> Ask the next question until a student lands here.</p>
+              <textarea id="thesis" data-preview="thesis" placeholder="Example: They care about actually being good, not just looking good."></textarea>
+            </article>
+
+            <article class="sim-step">
+              <div class="sim-step-head"><div class="sim-step-num">6</div><div><h3>Late Word Reveal</h3><p>Once students have discovered the idea, how will you name the word?</p></div></div>
+              <p class="sim-warning"><strong>Do not reveal the word too early.</strong> The word should arrive after the idea, not before it.</p>
+              <textarea id="reveal" data-preview="reveal" placeholder="Example: What you just described has a name. That is integrity."></textarea>
+            </article>
+
+            <article class="sim-step">
+              <div class="sim-step-head"><div class="sim-step-num">7</div><div><h3>Element Anchor</h3><p>How does this word connect to its element functionally?</p></div></div>
+              <p class="sim-warning" id="elementLogic">Earth holds, grounds, stabilizes, and builds the foundation.</p>
+              <textarea id="anchor" data-preview="anchor" placeholder="Example: Integrity is an Earth word because it becomes part of what you stand on."></textarea>
+            </article>
+
+            <article class="sim-step">
+              <div class="sim-step-head"><div class="sim-step-num">8</div><div><h3>Personal Close</h3><p>What did you actually see in class today that proves this word matters?</p></div></div>
+              <p class="sim-warning"><strong>Bad:</strong> So remember, integrity is important. <br><strong>Good:</strong> I watched three of you choose the harder rep today when nobody was counting. That is already integrity.</p>
+              <textarea id="close" data-preview="close" placeholder="Example: I watched several of you choose the harder rep today when I was not looking. That is already integrity."></textarea>
+            </article>
           </div>
 
-          <article class="mat-builder-output" id="builderOutput" aria-live="polite">
-            <div class="mat-builder-meta">
-              <span id="builderElement"></span>
-              <strong id="builderWord"></strong>
+          <aside class="sim-preview-sticky">
+            <article class="sim-preview-panel">
+              <p class="coach-kicker">Generated Preview</p>
+              <h3>Coach Outline</h3>
+              <div class="sim-preview-list" id="previewList"></div>
+              <div class="sim-copy-row">
+                <button class="coach-copy-button" type="button" id="copyPreview">Copy Mat Chat</button>
+                <span class="sim-copy-status" id="copyStatus" role="status"></span>
+              </div>
+            </article>
+
+            <article class="sim-check-panel">
+              <p class="coach-kicker">Quality Score</p>
+              <h3>Does it work?</h3>
+              <div class="sim-checklist" id="qualityChecklist"></div>
+              <div class="sim-score"><strong id="scoreText">0/8</strong><span id="scoreMeaning">Rebuild the scenario.</span></div>
+            </article>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="coach-section coach-footer-space">
+      <div class="coach-wrap">
+        <p class="coach-kicker">Full Example</p>
+        <h2>Integrity done as discovery, not lecture.</h2>
+        <div class="sim-example-panel">
+          <div class="sim-example-grid">
+            <div class="sim-do-not">
+              <b>Do not start here</b>
+              <p>Do not announce the word before students have discovered the idea.</p>
             </div>
-            <div class="coach-fields">
-              <p class="coach-field"><b>Word definition</b><span id="builderDefinition"></span></p>
-              <p class="coach-field"><b>Training connection</b><span id="builderConnection"></span></p>
-              <p class="coach-field"><b>Opening line</b><span id="builderOpening"></span></p>
-              <p class="coach-field"><b>Question</b><span id="builderQuestion"></span></p>
-              <p class="coach-field"><b>Challenge</b><span id="builderChallenge"></span></p>
+            <div class="sim-example-flow">
+              <p><b>Start concrete</b>Imagine you almost landed a skill, but the coach did not see it. You could say you got it and move on, or you could ask for another rep.</p>
+              <p><b>Create tension</b>You are tired. Class is almost over. And honestly, you did feel it once. Is it really wrong to move on?</p>
+              <p><b>Ask</b>What makes someone choose the harder path even when no one would know?</p>
+              <p><b>Student thesis target</b>They care about actually being good, not just looking good.</p>
+              <p><b>Reveal late</b>What you just described has a name. That is integrity.</p>
+              <p><b>Anchor to Fire</b>Integrity is a Fire word because Fire reveals what is underneath. You can look disciplined when someone is watching. Integrity is what remains when they are not.</p>
+              <p><b>Close personally</b>I watched several of you choose the harder rep today when I was not looking. That is already integrity.</p>
             </div>
-            <button class="coach-copy-button" id="copyMatChat" type="button">Copy Outline</button>
-            <p class="copy-status" id="copyStatus" role="status"></p>
-          </article>
+          </div>
         </div>
       </div>
     </section>
@@ -70,97 +577,192 @@
   });
 </script>
 <script>
-  const virtueWords = [
+  const elementData = [
     {
-      word: 'Courage',
-      element: 'Fire',
-      definition: 'Doing something even when you feel nervous.',
-      connection: 'Courage shows up when a student tries a skill even though they are unsure.',
-      opening: 'Today we are talking about courage.',
-      question: 'Where might you need courage in training today?',
-      challenge: 'When something feels hard, take one breath and try again.'
-    },
-    {
-      word: 'Responsibility',
       element: 'Earth',
-      definition: 'Owning your choices instead of blaming someone else.',
-      connection: 'Responsibility shows up when a student owns a mistake and tries to fix it.',
-      opening: 'Today we are talking about responsibility.',
-      question: 'What does it look like to own your training today?',
-      challenge: 'When you make a mistake, do not blame the mat, the line, or the person before you. Own it and adjust.'
+      label: 'Foundation',
+      accent: 'var(--coach-gold)',
+      wash: 'rgba(196,146,42,0.16)',
+      logic: 'Earth holds, grounds, stabilizes, and builds the foundation.',
+      words: ['Discipline', 'Fitness', 'Responsibility', 'Nutrition', 'Integrity', 'Community']
     },
     {
-      word: 'Patience',
-      element: 'Earth',
-      definition: 'Staying calm when progress takes longer than you want.',
-      connection: 'Patience shows up when a student keeps working even when the skill does not come quickly.',
-      opening: 'Today we are talking about patience.',
-      question: 'What skill is teaching you patience right now?',
-      challenge: 'Stay with the process today. Do not rush past the foundation.'
-    },
-    {
-      word: 'Empathy',
       element: 'Water',
-      definition: 'Remembering what something feels like for someone else.',
-      connection: 'Empathy shows up when a student supports someone who is scared or struggling.',
-      opening: 'Today we are talking about empathy.',
-      question: 'How can you support someone who is having a harder time than you?',
-      challenge: 'Look for one person today who needs encouragement, not pressure.'
+      label: 'Skill + Adaptability',
+      accent: 'var(--coach-water)',
+      wash: 'rgba(42,122,184,0.16)',
+      logic: 'Water adapts, receives, responds, and flows.',
+      words: ['Respect', 'Humility', 'Kindness', 'Self-Control', 'Empathy', 'Adaptability']
     },
     {
-      word: 'Focus',
+      element: 'Fire',
+      label: 'Power + Drive',
+      accent: 'var(--coach-fire)',
+      wash: 'rgba(196,98,45,0.18)',
+      logic: 'Fire reveals, intensifies, tests, and brings power.',
+      words: ['Courage', 'Confidence', 'Determination', 'Goal Setting', 'Focus', 'Passion']
+    },
+    {
       element: 'Air',
-      definition: 'Putting your attention where it belongs.',
-      connection: 'Focus shows up when a student listens, watches, and commits to one correction.',
-      opening: 'Today we are talking about focus.',
-      question: 'What is one thing you need to pay attention to today?',
-      challenge: 'Pick one correction and stay with it for the whole station.'
-    },
-    {
-      word: 'Mastery',
-      element: 'Void',
-      definition: 'Bringing skill, control, awareness, and calm together.',
-      connection: 'Mastery shows up when a student does the simple things well, even under pressure.',
-      opening: 'Today we are talking about mastery.',
-      question: 'What does mastery look like before a skill is advanced?',
-      challenge: 'Today, make one basic skill cleaner than usual.'
+      label: 'Awareness + Mindset',
+      accent: 'var(--coach-air)',
+      wash: 'rgba(200,217,227,0.14)',
+      logic: 'Air opens awareness, perspective, breath, patience, and lightness.',
+      words: ['Perseverance', 'Patience', 'Knowledge', 'Mindfulness', 'Gratitude', 'Playfulness']
     }
   ];
 
-  const select = document.getElementById('virtueSelect');
-  const fields = {
-    element: document.getElementById('builderElement'),
-    word: document.getElementById('builderWord'),
-    definition: document.getElementById('builderDefinition'),
-    connection: document.getElementById('builderConnection'),
-    opening: document.getElementById('builderOpening'),
-    question: document.getElementById('builderQuestion'),
-    challenge: document.getElementById('builderChallenge'),
-    status: document.getElementById('copyStatus')
+  const previewFields = [
+    ['grounding', 'Grounding moment'],
+    ['scenario', 'Scenario'],
+    ['fork', 'Fork in the road'],
+    ['easyChoice', 'Defensible easy choice'],
+    ['question', 'Discovery question'],
+    ['thesis', 'Student thesis target'],
+    ['reveal', 'Late word reveal'],
+    ['anchor', 'Element anchor'],
+    ['close', 'Personal close']
+  ];
+
+  const checklistItems = [
+    'Did it start with something concrete?',
+    'Was there a real choice or tension?',
+    'Was the easy/wrong choice made understandable?',
+    'Did the coach ask instead of explain?',
+    'Did a student get the chance to say the main idea?',
+    'Was the word named late?',
+    'Was the element connection functional, not decorative?',
+    'Did the close connect to today\'s class?'
+  ];
+
+  const sampleByWord = {
+    Integrity: {
+      grounding: 'A student almost landed a skill, but the coach did not see it.',
+      fork: 'They can say they got it and move on, or ask for another rep.',
+      easyChoice: 'They are tired, class is almost over, and they did feel it once.',
+      question: 'What makes someone choose the harder path even when no one would know?',
+      thesis: 'They care about actually being good, not just looking good.',
+      reveal: 'What you just described has a name. That is integrity.',
+      anchor: 'Integrity is an Earth word because it becomes part of what you stand on. If your training is built on truth, the whole structure gets stronger.',
+      close: 'I watched several of you choose the harder rep today when I was not looking. That is already integrity.'
+    }
   };
 
-  function renderMatChat(index) {
-    const item = virtueWords[index];
-    fields.element.textContent = item.element;
-    fields.word.textContent = item.word;
-    fields.definition.textContent = item.definition;
-    fields.connection.textContent = item.connection;
-    fields.opening.textContent = item.opening;
-    fields.question.textContent = item.question;
-    fields.challenge.textContent = item.challenge;
-    fields.status.textContent = '';
+  let selected = { element: 'Earth', word: 'Integrity', accent: 'var(--coach-gold)', logic: elementData[0].logic };
+
+  const wordBoard = document.getElementById('wordBoard');
+  const selectedElement = document.getElementById('selectedElement');
+  const selectedWord = document.getElementById('selectedWord');
+  const selectedWordCard = document.getElementById('selectedWordCard');
+  const elementLogic = document.getElementById('elementLogic');
+  const previewList = document.getElementById('previewList');
+  const checklist = document.getElementById('qualityChecklist');
+  const scoreText = document.getElementById('scoreText');
+  const scoreMeaning = document.getElementById('scoreMeaning');
+  const copyStatus = document.getElementById('copyStatus');
+  const fields = Array.from(document.querySelectorAll('[data-preview]'));
+
+  function getElementForWord(word) {
+    for (const group of elementData) {
+      if (group.words.includes(word)) return group;
+    }
+    return elementData[0];
   }
 
-  function getOutlineText() {
-    return [
-      `Element: ${fields.element.textContent}`,
-      `Word: ${fields.word.textContent}`,
-      `Definition: ${fields.definition.textContent}`,
-      `Training connection: ${fields.connection.textContent}`,
-      `Opening: ${fields.opening.textContent}`,
-      `Question: ${fields.question.textContent}`,
-      `Challenge: ${fields.challenge.textContent}`
-    ].join('\n');
+  function renderWordBoard() {
+    wordBoard.innerHTML = elementData.map(group => {
+      const buttons = group.words.map(word => {
+        return `<button class="sim-word-button${word === selected.word ? ' active' : ''}" type="button" data-word="${word}" style="--element-accent:${group.accent};">${word}</button>`;
+      }).join('');
+      return `<article class="sim-element-card" style="--element-accent:${group.accent};--element-wash:${group.wash};"><h3>${group.element}</h3><p>${group.label}</p><div class="sim-word-buttons">${buttons}</div></article>`;
+    }).join('');
+  }
+
+  function setSelected(word, shouldLoadSample) {
+    const group = getElementForWord(word);
+    selected = { element: group.element, word: word, accent: group.accent, logic: group.logic };
+    selectedElement.textContent = group.element;
+    selectedWord.textContent = word;
+    selectedWordCard.style.setProperty('--active-accent', group.accent);
+    document.querySelector('.sim-workspace').style.setProperty('--active-accent', group.accent);
+    elementLogic.textContent = group.logic;
+
+    document.querySelectorAll('.sim-word-button').forEach(button => {
+      button.classList.toggle('active', button.dataset.word === word);
+    });
+
+    if (shouldLoadSample && sampleByWord[word]) {
+      Object.entries(sampleByWord[word]).forEach(([id, value]) => {
+        const input = document.getElementById(id);
+        if (input) input.value = value;
+      });
+    } else if (shouldLoadSample) {
+      fields.forEach(input => input.value = '');
+      document.getElementById('reveal').value = `What you just described has a name. That is ${word.toLowerCase()}.`;
+      document.getElementById('anchor').value = `${word} connects to ${group.element} because ${group.logic.toLowerCase()}`;
+    }
+
+    renderPreview();
+  }
+
+  function renderPreview() {
+    previewList.innerHTML = previewFields.map(([id, label]) => {
+      const value = getPreviewValue(id);
+      return `<div class="sim-preview-item"><b>${label}</b><span>${escapeHtml(value)}</span></div>`;
+    }).join('');
+    copyStatus.textContent = '';
+  }
+
+  function getPreviewValue(id) {
+    if (id === 'scenario') {
+      const grounding = document.getElementById('grounding').value.trim();
+      const fork = document.getElementById('fork').value.trim();
+      if (grounding && fork) return `${grounding} ${fork}`;
+      if (grounding) return grounding;
+      if (fork) return fork;
+      return 'Fill this in as you build.';
+    }
+    const input = document.getElementById(id);
+    return input && input.value.trim() ? input.value.trim() : 'Fill this in as you build.';
+  }
+
+  function renderChecklist() {
+    checklist.innerHTML = checklistItems.map((item, index) => {
+      return `<label><input type="checkbox" data-check="${index}"><span>${item}</span></label>`;
+    }).join('');
+  }
+
+  function updateScore() {
+    const score = checklist.querySelectorAll('input:checked').length;
+    scoreText.textContent = `${score}/8`;
+    if (score === 8) {
+      scoreMeaning.textContent = 'Strong mat chat.';
+    } else if (score >= 6) {
+      scoreMeaning.textContent = 'Usable, but refine it.';
+    } else if (score >= 4) {
+      scoreMeaning.textContent = 'Too lecture-based or too vague.';
+    } else {
+      scoreMeaning.textContent = 'Rebuild the scenario.';
+    }
+  }
+
+  function getPreviewText() {
+    const lines = [`Mat Chat: ${selected.word} (${selected.element})`, ''];
+    previewFields.forEach(([id, label]) => {
+      const value = getPreviewValue(id);
+      lines.push(`${label}: ${value}`);
+    });
+    return lines.join('\n');
+  }
+
+  function escapeHtml(value) {
+    return value.replace(/[&<>"']/g, char => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;'
+    }[char]));
   }
 
   function fallbackCopy(text) {
@@ -176,32 +778,33 @@
     return copied;
   }
 
-  virtueWords.forEach(function(item, index) {
-    const option = document.createElement('option');
-    option.value = String(index);
-    option.textContent = `${item.word} - ${item.element}`;
-    select.appendChild(option);
+  wordBoard.addEventListener('click', event => {
+    const button = event.target.closest('[data-word]');
+    if (!button) return;
+    setSelected(button.dataset.word, true);
   });
 
-  select.addEventListener('change', function() {
-    renderMatChat(Number(select.value));
-  });
+  fields.forEach(input => input.addEventListener('input', renderPreview));
 
-  document.getElementById('copyMatChat').addEventListener('click', async function() {
-    const text = getOutlineText();
+  checklist.addEventListener('change', updateScore);
+
+  document.getElementById('copyPreview').addEventListener('click', async () => {
     try {
       if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(text);
-      } else if (!fallbackCopy(text)) {
+        await navigator.clipboard.writeText(getPreviewText());
+      } else if (!fallbackCopy(getPreviewText())) {
         throw new Error('Copy unavailable');
       }
-      fields.status.textContent = 'Copied.';
+      copyStatus.textContent = 'Copied.';
     } catch (error) {
-      fields.status.textContent = 'Copy failed. Select the outline and copy manually.';
+      copyStatus.textContent = 'Copy failed. Select the preview and copy manually.';
     }
   });
 
-  renderMatChat(0);
+  renderWordBoard();
+  renderChecklist();
+  setSelected('Integrity', true);
+  updateScore();
 </script>
 </body>
 </html>
