@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Mat Chat Builder | Elemental 5</title>
+<meta name="description" content="A simple E5 coach tool for creating a mat chat outline.">
+<link rel="canonical" href="https://www.elementalfive.com/mat-chat-builder.html">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/coach-home/coach-home.css">
+</head>
+<body>
+<div id="site-nav"></div>
+<script>
+  fetch('/Partials/nav.html').then(r => r.text()).then(html => document.getElementById('site-nav').innerHTML = html);
+</script>
+
+<main class="coach-page">
+  <section class="coach-hero">
+    <div class="coach-wrap">
+      <a class="coach-back-link" href="/coach-home/mat-chat-tools.html">&larr; Back to Mat Chat Tools</a>
+      <p class="coach-eyebrow">The Simulator</p>
+      <h1>Mat Chat <span>Builder</span></h1>
+      <p class="coach-subhead">Choose a virtue word and generate a short outline you can use before or after class.</p>
+    </div>
+  </section>
+
+  <div class="coach-shell">
+    <section class="coach-section coach-section-tight coach-footer-space">
+      <div class="coach-wrap">
+        <div class="mat-builder">
+          <div class="mat-builder-control">
+            <label for="virtueSelect">Choose a virtue word</label>
+            <select id="virtueSelect"></select>
+          </div>
+
+          <article class="mat-builder-output" id="builderOutput" aria-live="polite">
+            <div class="mat-builder-meta">
+              <span id="builderElement"></span>
+              <strong id="builderWord"></strong>
+            </div>
+            <div class="coach-fields">
+              <p class="coach-field"><b>Word definition</b><span id="builderDefinition"></span></p>
+              <p class="coach-field"><b>Training connection</b><span id="builderConnection"></span></p>
+              <p class="coach-field"><b>Opening line</b><span id="builderOpening"></span></p>
+              <p class="coach-field"><b>Question</b><span id="builderQuestion"></span></p>
+              <p class="coach-field"><b>Challenge</b><span id="builderChallenge"></span></p>
+            </div>
+            <button class="coach-copy-button" id="copyMatChat" type="button">Copy Outline</button>
+            <p class="copy-status" id="copyStatus" role="status"></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<script>
+  fetch('/Partials/footer.html').then(r => r.text()).then(function(html) {
+    var el = document.getElementById('site-footer');
+    el.innerHTML = html;
+    el.querySelectorAll('script').forEach(function(s) {
+      var ns = document.createElement('script');
+      if (s.src) { ns.src = s.src; ns.type = s.type || 'text/javascript'; }
+      else { ns.textContent = s.textContent; }
+      document.body.appendChild(ns);
+    });
+  });
+</script>
+<script>
+  const virtueWords = [
+    {
+      word: 'Courage',
+      element: 'Fire',
+      definition: 'Doing something even when you feel nervous.',
+      connection: 'Courage shows up when a student tries a skill even though they are unsure.',
+      opening: 'Today we are talking about courage.',
+      question: 'Where might you need courage in training today?',
+      challenge: 'When something feels hard, take one breath and try again.'
+    },
+    {
+      word: 'Responsibility',
+      element: 'Earth',
+      definition: 'Owning your choices instead of blaming someone else.',
+      connection: 'Responsibility shows up when a student owns a mistake and tries to fix it.',
+      opening: 'Today we are talking about responsibility.',
+      question: 'What does it look like to own your training today?',
+      challenge: 'When you make a mistake, do not blame the mat, the line, or the person before you. Own it and adjust.'
+    },
+    {
+      word: 'Patience',
+      element: 'Earth',
+      definition: 'Staying calm when progress takes longer than you want.',
+      connection: 'Patience shows up when a student keeps working even when the skill does not come quickly.',
+      opening: 'Today we are talking about patience.',
+      question: 'What skill is teaching you patience right now?',
+      challenge: 'Stay with the process today. Do not rush past the foundation.'
+    },
+    {
+      word: 'Empathy',
+      element: 'Water',
+      definition: 'Remembering what something feels like for someone else.',
+      connection: 'Empathy shows up when a student supports someone who is scared or struggling.',
+      opening: 'Today we are talking about empathy.',
+      question: 'How can you support someone who is having a harder time than you?',
+      challenge: 'Look for one person today who needs encouragement, not pressure.'
+    },
+    {
+      word: 'Focus',
+      element: 'Air',
+      definition: 'Putting your attention where it belongs.',
+      connection: 'Focus shows up when a student listens, watches, and commits to one correction.',
+      opening: 'Today we are talking about focus.',
+      question: 'What is one thing you need to pay attention to today?',
+      challenge: 'Pick one correction and stay with it for the whole station.'
+    },
+    {
+      word: 'Mastery',
+      element: 'Void',
+      definition: 'Bringing skill, control, awareness, and calm together.',
+      connection: 'Mastery shows up when a student does the simple things well, even under pressure.',
+      opening: 'Today we are talking about mastery.',
+      question: 'What does mastery look like before a skill is advanced?',
+      challenge: 'Today, make one basic skill cleaner than usual.'
+    }
+  ];
+
+  const select = document.getElementById('virtueSelect');
+  const fields = {
+    element: document.getElementById('builderElement'),
+    word: document.getElementById('builderWord'),
+    definition: document.getElementById('builderDefinition'),
+    connection: document.getElementById('builderConnection'),
+    opening: document.getElementById('builderOpening'),
+    question: document.getElementById('builderQuestion'),
+    challenge: document.getElementById('builderChallenge'),
+    status: document.getElementById('copyStatus')
+  };
+
+  function renderMatChat(index) {
+    const item = virtueWords[index];
+    fields.element.textContent = item.element;
+    fields.word.textContent = item.word;
+    fields.definition.textContent = item.definition;
+    fields.connection.textContent = item.connection;
+    fields.opening.textContent = item.opening;
+    fields.question.textContent = item.question;
+    fields.challenge.textContent = item.challenge;
+    fields.status.textContent = '';
+  }
+
+  function getOutlineText() {
+    return [
+      `Element: ${fields.element.textContent}`,
+      `Word: ${fields.word.textContent}`,
+      `Definition: ${fields.definition.textContent}`,
+      `Training connection: ${fields.connection.textContent}`,
+      `Opening: ${fields.opening.textContent}`,
+      `Question: ${fields.question.textContent}`,
+      `Challenge: ${fields.challenge.textContent}`
+    ].join('\n');
+  }
+
+  function fallbackCopy(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.setAttribute('readonly', '');
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999px';
+    document.body.appendChild(textArea);
+    textArea.select();
+    const copied = document.execCommand('copy');
+    document.body.removeChild(textArea);
+    return copied;
+  }
+
+  virtueWords.forEach(function(item, index) {
+    const option = document.createElement('option');
+    option.value = String(index);
+    option.textContent = `${item.word} - ${item.element}`;
+    select.appendChild(option);
+  });
+
+  select.addEventListener('change', function() {
+    renderMatChat(Number(select.value));
+  });
+
+  document.getElementById('copyMatChat').addEventListener('click', async function() {
+    const text = getOutlineText();
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+      } else if (!fallbackCopy(text)) {
+        throw new Error('Copy unavailable');
+      }
+      fields.status.textContent = 'Copied.';
+    } catch (error) {
+      fields.status.textContent = 'Copy failed. Select the outline and copy manually.';
+    }
+  });
+
+  renderMatChat(0);
+</script>
+</body>
+</html>

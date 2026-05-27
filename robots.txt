@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
 Disallow: /kiosk/
+Disallow: /coach-home/
+Disallow: /mat-chat-framework.html
+Disallow: /mat-chat-virtue-words.html
+Disallow: /mat-chat-builder.html
 
 Sitemap: https://www.elementalfive.com/sitemap.xml

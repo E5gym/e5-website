@@ -35,6 +35,7 @@ These are supporting pages that may be reached after forms or from special-purpo
 - `feedback-thank-you.html` - feedback confirmation page
 - `juniorcoach-thank-you.html` - Junior Coach application confirmation page
 - `kiosk/index.html` - separate kiosk-style experience; blocked from indexing in `robots.txt`
+- `coach-home/index.html` and related `coach-home/*.html` pages - semi-private internal coach resource hub; static, no auth yet, blocked from indexing in `robots.txt`
 
 ## Shared Partials
 
