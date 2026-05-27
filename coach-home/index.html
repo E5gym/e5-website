@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="coach-gate-pending">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +9,10 @@
 <link rel="canonical" href="https://www.elementalfive.com/coach-home/">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/coach-home/coach-home.css">
+<script defer src="coach-gate.js"></script>
 </head>
 <body>
+<div data-coach-protected>
 <div id="site-nav"></div>
 <script>
   fetch('/Partials/nav.html').then(r => r.text()).then(html => document.getElementById('site-nav').innerHTML = html);
@@ -154,5 +156,6 @@
     });
   });
 </script>
+</div>
 </body>
 </html>

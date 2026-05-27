@@ -270,7 +270,7 @@
 
       <div>
         <p class="e5-footer-col-title">Coaches</p>
-        <a href="https://coach.elementalfive.com/portal" target="_blank" class="e5-footer-portal-btn">Coaches Portal &rarr;</a>
+        <a href="coach-home/index.html" class="e5-footer-portal-btn" data-coach-portal-link>Coaches Portal &rarr;</a>
       </div>
 
       <div class="e5-footer-newsletter">
@@ -325,6 +325,20 @@
     </div>
   </div>
 </footer>
+
+<script>
+  (function () {
+    var links = document.querySelectorAll('[data-coach-portal-link]');
+    var isFilePreview = window.location.protocol === 'file:';
+    var isNestedPreview = window.location.pathname.indexOf('/blog/') !== -1 || window.location.pathname.indexOf('\\blog\\') !== -1;
+
+    links.forEach(function (link) {
+      link.href = isFilePreview
+        ? (isNestedPreview ? '../coach-home/index.html' : 'coach-home/index.html')
+        : '/coach-home/index.html';
+    });
+  }());
+</script>
 
 <script>
   function ml_webform_success_40872834() {
