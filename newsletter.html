@@ -19,7 +19,7 @@
 <meta property="og:url" content="https://www.elementalfive.com/newsletter.html">
 <meta property="og:title" content="Elemental 5 Summer Newsletter">
 <meta property="og:description" content="Summer is here at Elemental 5: price updates, new gym sponsorship, Hill Climb, camp spots, Summer Showcase, and Farmers Market dates.">
-<meta property="og:image" content="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f506275f81f9391d9d1c7f_summer%20showcase%202026%20(2).png">
+<meta property="og:image" content="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a1ddad33154549e0064faf1_summer%20showcase%202026%20(3).png">
 <meta property="og:site_name" content="Elemental 5">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Elemental 5 Summer Newsletter">
@@ -453,6 +453,27 @@ img { max-width: 100%; height: auto; display: block; }
 
 .event-image img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.event-gallery figure {
+  min-height: 190px;
+  overflow: hidden;
+  border-radius: 7px;
+  box-shadow: 0 14px 38px rgba(0,0,0,0.22);
+}
+
+.event-gallery img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -523,6 +544,26 @@ img { max-width: 100%; height: auto; display: block; }
   box-shadow: 0 16px 42px rgba(0,0,0,0.16);
 }
 
+.inline-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.inline-image {
+  min-height: 260px;
+  overflow: hidden;
+  border-radius: 7px;
+  box-shadow: 0 16px 42px rgba(0,0,0,0.16);
+}
+
+.inline-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .mini-footer {
   padding: 38px 58px 48px;
   text-align: center;
@@ -564,7 +605,9 @@ img { max-width: 100%; height: auto; display: block; }
   .nl-stat-row,
   .dates-grid,
   .event-layout,
-  .market-feature { grid-template-columns: 1fr; }
+  .market-feature,
+  .inline-feature { grid-template-columns: 1fr; }
+  .event-gallery { grid-template-columns: 1fr; }
   .nl-hero-note span {
     border-right: 0;
     border-bottom: 1px solid rgba(248,241,230,0.12);
@@ -589,6 +632,7 @@ img { max-width: 100%; height: auto; display: block; }
   .event-meta div { flex-direction: column; gap: 3px; }
   .event-meta b { text-align: left; }
   .market-image { min-height: 240px; }
+  .inline-image { min-height: 220px; }
 }
 </style>
 </head>
@@ -701,7 +745,7 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="price-row"><span>Mini Ninja drop-in</span><b>$30 card / $25 cash</b></div>
         <div class="price-row"><span>60-minute class drop-in</span><b>$35 credit card / $30 cash</b></div>
         <div class="price-row"><span>90-minute class drop-in</span><b>$45 credit card / $40 cash</b></div>
-        <div class="price-row"><span>Ninja Tot Unlimited</span><b>$40/month</b></div>
+        <div class="price-row"><span>Ninja Tot Unlimited</span><b>$40/month - varies by season</b></div>
         <div class="price-row"><span>1 hour/week tuition</span><b>$97/month</b></div>
         <div class="price-row"><span>1.5 hour/week tuition</span><b>$141/month</b></div>
         <div class="price-row"><span>Performance Crew</span><b>$425/month</b></div>
@@ -726,6 +770,10 @@ img { max-width: 100%; height: auto; display: block; }
           <div class="date-copy"><h3>FibArk Hill Climb</h3><p>6pm start. All evening classes are canceled so families can run, cheer, and support the E5 crew.</p></div>
         </article>
         <article class="date-card">
+          <div class="date-badge"><span>Jul</span><b>4</b></div>
+          <div class="date-copy"><h3>Riverside Park Show</h3><p>Join us at Riverside Park on July 4 for a community performance with the E5 crew.</p></div>
+        </article>
+        <article class="date-card">
           <div class="date-badge"><span>Jul</span><b>13</b></div>
           <div class="date-copy"><h3>E5 Ninja Camp</h3><p>July 13-17. Limited spots are still available for this summer camp week.</p></div>
         </article>
@@ -734,8 +782,8 @@ img { max-width: 100%; height: auto; display: block; }
           <div class="date-copy"><h3>Farmers Market Dates</h3><p>June 6, June 20, July 25, August 29, and September 26.</p></div>
         </article>
         <article class="date-card">
-          <div class="date-badge"><span>Jul</span><b>4</b></div>
-          <div class="date-copy"><h3>Riverside Park Show</h3><p>Planned shows with the Salida Community Center at Riverside Park.</p></div>
+          <div class="date-badge"><span>Sep</span><b>7</b></div>
+          <div class="date-copy"><h3>Gym Closed for Labor Day</h3><p>Elemental 5 is closed on September 7.</p></div>
         </article>
         <article class="date-card">
           <div class="date-badge"><span>Oct</span><b>24</b></div>
@@ -760,6 +808,24 @@ img { max-width: 100%; height: auto; display: block; }
           <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f50626cfd080fae3b5be7c_Hill%20Climb%202026%20(1).png" alt="FibArk Hill Climb 2026 flyer">
         </div>
       </div>
+      <div class="event-gallery" aria-label="FibArk Hill Climb photos">
+        <figure><img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a1ddc3c813f040a39bbc05f_714736101_1656234556112123_8283771452300986293_n.jpg" alt="E5 crew at the FibArk Hill Climb"></figure>
+        <figure><img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a1ddc3cdb2bb1cd8083cb75_710572443_2217382402406057_3193111956971193210_n.jpg" alt="Runners and supporters at the FibArk Hill Climb"></figure>
+        <figure><img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a1ddc3c0b9297720de8a845_710174388_2000190333919020_3074919472447249760_n.jpg" alt="Community gathering for the FibArk Hill Climb"></figure>
+      </div>
+    </section>
+
+    <section class="nl-section" id="riverside-park">
+      <div class="inline-feature">
+        <div>
+          <p class="nl-kicker">July 4 - Riverside Park</p>
+          <h2>Community performance in the park.</h2>
+          <p>Join us at Riverside Park on July 4 for a community performance with the E5 crew.</p>
+        </div>
+        <div class="inline-image">
+          <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a1ddc3d8ce8c61b5267117b_711005168_997567836356301_7193600624725384180_n.jpg" alt="E5 community performance at Riverside Park">
+        </div>
+      </div>
     </section>
 
     <section class="nl-section dark" id="showcase">
@@ -778,7 +844,7 @@ img { max-width: 100%; height: auto; display: block; }
           </div>
         </div>
         <div class="event-image">
-          <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f506275f81f9391d9d1c7f_summer%20showcase%202026%20(2).png" alt="Summer Showcase 2026 poster">
+          <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a1ddad33154549e0064faf1_summer%20showcase%202026%20(3).png" alt="Summer Showcase 2026 poster">
         </div>
       </div>
     </section>
@@ -800,7 +866,7 @@ img { max-width: 100%; height: auto; display: block; }
         <div>
           <p class="nl-kicker">Farmers Market</p>
           <h2>Bounce house season.</h2>
-          <p>Our inflatable bounce house will be the main feature of our Farmers Market presence this summer. Stop by, let the kids move, and say hi to the E5 team.</p>
+          <p>Our inflatable bounce house will be the main feature of our Farmers Market presence this summer. Stop by, let the kids move, and say hi to the E5 team. These market dates will also help support and complement aerial demonstrations by E5 Echo.</p>
           <div class="market-dates">
             <span>June 6</span>
             <span>June 20</span>
