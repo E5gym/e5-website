@@ -8,23 +8,110 @@
 <link rel="canonical" href="https://www.elementalfive.com/coach-home/elements-of-coaching.html">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/coach-home/coach-home.css">
+<link rel="stylesheet" href="coach-home.css">
+<script defer src="/coach-home/coach-gate.js"></script>
 <script defer src="coach-gate.js"></script>
 </head>
-<body>
+<body class="coach-page">
 <div data-coach-protected>
-<div id="site-nav"></div><script>fetch('/Partials/nav.html').then(r=>r.text()).then(html=>document.getElementById('site-nav').innerHTML=html);</script>
-<main class="coach-page">
-  <section class="coach-hero"><div class="coach-wrap"><p class="coach-eyebrow">The Elements of Coaching</p><h1>Five Elements. <span>One Coach.</span></h1><p class="coach-subhead">The elemental framework gives coaches a shared language for leading the room in real time.</p></div></section>
-  <nav class="coach-local-nav" aria-label="Coach Home navigation"><div class="coach-local-nav-inner"><a href="/coach-home/">Home</a><a href="/coach-home/start-here.html">Start Here</a><a href="/coach-home/mat-chat-tools.html">Mat Chats</a><a href="/coach-home/skill-library.html">Skill Library</a><a href="/coach-home/class-management.html">Class Management</a><a href="/coach-home/program-standards.html">Standards</a><a href="/coach-home/warm-ups.html">Warm-Ups</a><a class="active" href="/coach-home/elements-of-coaching.html">Elements</a><a href="/">Main Site</a></div></nav>
-  <div class="coach-shell"><section class="coach-section"><div class="coach-wrap"><div class="element-stack">
-    <article class="element-card" style="--accent: var(--coach-earth);"><div class="element-name">Earth</div><div><h3>Structure</h3><p>Safety, consistency, boundaries, rhythm, and trust.</p></div></article>
-    <article class="element-card" style="--accent: var(--coach-water);"><div class="element-name">Water</div><div><h3>Adaptability</h3><p>Patience, responsiveness, scaling, and meeting the student where they are.</p></div></article>
-    <article class="element-card" style="--accent: var(--coach-fire);"><div class="element-name">Fire</div><div><h3>Presence</h3><p>Energy, courage, leadership, voice, and conviction.</p></div></article>
-    <article class="element-card" style="--accent: var(--coach-air);"><div class="element-name">Air</div><div><h3>Awareness</h3><p>Observation, timing, communication, and seeing the whole room.</p></div></article>
-    <article class="element-card" style="--accent: var(--coach-void);"><div class="element-name">Void</div><div><h3>Integration</h3><p>Bringing the elements together in real time until coaching becomes embodied.</p></div></article>
-  </div></div></section></div>
-</main>
-<div id="site-footer"></div><script>fetch('/Partials/footer.html').then(r=>r.text()).then(function(html){var el=document.getElementById('site-footer');el.innerHTML=html;el.querySelectorAll('script').forEach(function(s){var ns=document.createElement('script');if(s.src){ns.src=s.src;ns.type=s.type||'text/javascript';}else{ns.textContent=s.textContent;}document.body.appendChild(ns);});});</script>
+  <div id="site-nav"></div>
+  <script>
+    fetch('/Partials/nav.html').then(r => r.text()).then(html => document.getElementById('site-nav').innerHTML = html);
+  </script>
+
+  <header class="coach-hero">
+    <div class="coach-wrap">
+      <p class="coach-eyebrow">The Elements of Coaching</p>
+      <h1>Five Elements. <span>One Coach.</span></h1>
+      <p class="coach-subhead">The elemental framework gives coaches a shared language for leading the room in real time.</p>
+    </div>
+  </header>
+
+  <nav class="coach-local-nav" aria-label="Coach Home navigation">
+    <div class="coach-local-nav-inner">
+      <a href="/coach-home/">Home</a>
+      <a href="/coach-home/start-here.html">Start Here</a>
+      <a href="/coach-home/mat-chat-tools.html">Mat Chats</a>
+      <a href="/coach-home/skill-library.html">Skill Library</a>
+      <a href="/coach-home/class-management.html">Class Management</a>
+      <a href="/coach-home/program-standards.html">Standards</a>
+      <a href="/coach-home/warm-ups.html">Warm-Ups</a>
+      <a class="active" href="/coach-home/elements-of-coaching.html">Elements</a>
+      <a href="/">Main Site</a>
+    </div>
+  </nav>
+
+  <main class="coach-shell">
+    <section class="coach-section coach-section-tight">
+      <div class="coach-wrap">
+        <div class="element-stack">
+          <article class="element-card element-earth">
+            <div class="element-label">Earth</div>
+            <div>
+              <h2>Structure</h2>
+              <p class="element-summary">Safety, consistency, boundaries, rhythm, and trust.</p>
+              <p>Earth is the foundation of the room: safety, consistency, boundaries, class rhythm, clear expectations, and trust. A coach uses Earth when students need to know where to stand, what the rules are, what happens next, and what standard they are being held to.</p>
+              <p>Earth coaching sounds calm, direct, and repeatable. It creates enough structure for students to take risks without the class becoming chaotic.</p>
+            </div>
+          </article>
+
+          <article class="element-card element-water">
+            <div class="element-label">Water</div>
+            <div>
+              <h2>Adaptability</h2>
+              <p class="element-summary">Patience, responsiveness, scaling, and meeting the student where they are.</p>
+              <p>Water is the coach's ability to adjust without losing the purpose of class. It shows up in patience, responsiveness, scaling skills, changing a station, reading a student's nervous system, and meeting the athlete where they are that day.</p>
+              <p>Water coaching does not mean lowering the standard. It means finding the right path to the standard for the student in front of you.</p>
+            </div>
+          </article>
+
+          <article class="element-card element-fire">
+            <div class="element-label">Fire</div>
+            <div>
+              <h2>Presence</h2>
+              <p class="element-summary">Energy, courage, leadership, voice, and conviction.</p>
+              <p>Fire is the energy that brings the room alive: leadership, voice, conviction, courage, urgency, and the ability to call students into effort. A coach uses Fire when the class needs momentum, confidence, accountability, or a clear reset.</p>
+              <p>Fire coaching should feel strong without becoming harsh. It gives students the feeling that the coach believes the work matters right now.</p>
+            </div>
+          </article>
+
+          <article class="element-card element-air">
+            <div class="element-label">Air</div>
+            <div>
+              <h2>Awareness</h2>
+              <p class="element-summary">Observation, timing, communication, and seeing the whole room.</p>
+              <p>Air is the coach's ability to see the whole room while still noticing the individual student. It includes observation, timing, communication, spacing, tone, listening, and knowing when to speak less so students can think.</p>
+              <p>Air coaching helps the coach anticipate problems before they become problems. It keeps the class responsive, thoughtful, and connected.</p>
+            </div>
+          </article>
+
+          <article class="element-card element-void">
+            <div class="element-label">Void</div>
+            <div>
+              <h2>Integration</h2>
+              <p class="element-summary">Bringing the elements together in real time until coaching becomes embodied.</p>
+              <p>Void is what happens when the coach can bring all four elements together in real time. It is the ability to hold structure, adapt to the moment, bring energy, and stay aware without overthinking each move separately.</p>
+              <p>Void coaching is embodied coaching. The coach is present enough to choose what the room needs next instead of reacting from habit or emotion.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script>
+    fetch('/Partials/footer.html').then(r => r.text()).then(function(html) {
+      var el = document.getElementById('site-footer');
+      el.innerHTML = html;
+      el.querySelectorAll('script').forEach(function(s) {
+        var ns = document.createElement('script');
+        if (s.src) { ns.src = s.src; ns.type = s.type || 'text/javascript'; }
+        else { ns.textContent = s.textContent; }
+        document.body.appendChild(ns);
+      });
+    });
+  </script>
 </div>
 </body>
 </html>
