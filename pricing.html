@@ -221,11 +221,22 @@ html, body {
   margin-bottom: 12px;
 }
 
+.quick-group-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
 .quick-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 13px 16px;
+  padding: 10px 14px;
   background: rgba(255,255,255,0.58);
   border: 1px solid rgba(16,37,27,0.05);
   box-shadow: 0 8px 18px rgba(16,37,27,0.045);
@@ -242,12 +253,25 @@ html, body {
   color: var(--dark);
 }
 
+.quick-detail {
+  display: block;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(31,41,55,0.62);
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
 .quick-price {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 900;
   color: var(--green);
   white-space: nowrap;
+  text-align: right;
 }
 
 /* ── MONTHLY TUITION ── */
@@ -979,6 +1003,15 @@ html, body {
 
 @media (max-width: 560px) {
   .tuition-grid { grid-template-columns: 1fr; }
+  .quick-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .quick-price {
+    text-align: left;
+    white-space: normal;
+  }
 }
 </style>
 </head>
@@ -1002,8 +1035,8 @@ html, body {
       </h1>
       <div>
         <p class="hero-subhead">
-          Transparent pricing, sibling discounts, and flexible options.
-          <strong>Updated rates take effect June 1, 2026.</strong>
+          Transparent pricing, sibling discounts, drop-ins, open gym, and seasonal camp options.
+          <strong>Updated rates effective June 1, 2026.</strong>
         </p>
       </div>
       <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="enroll-btn">Enroll Today →</a>
@@ -1012,17 +1045,14 @@ html, body {
     <div class="hero-right">
       <p class="quick-label">Quick Reference · Effective June 1, 2026</p>
 
+      <p class="quick-group-title">Monthly Tuition</p>
       <div class="quick-row">
         <span class="quick-name">1-hr class / week</span>
         <span class="quick-price">$97/mo</span>
       </div>
       <div class="quick-row">
-        <span class="quick-name">Mini Ninjas (1-hr)</span>
+        <span class="quick-name">Mini Ninjas 1-hr</span>
         <span class="quick-price">$79/mo</span>
-      </div>
-      <div class="quick-row">
-        <span class="quick-name">Mini Ninjas Drop-In</span>
-        <span class="quick-price">$25-30</span>
       </div>
       <div class="quick-row">
         <span class="quick-name">1.5-hr class / week</span>
@@ -1032,25 +1062,43 @@ html, body {
         <span class="quick-name">Performance Crew</span>
         <span class="quick-price">$250/mo</span>
       </div>
+
+      <p class="quick-group-title">Open Gym</p>
       <div class="quick-row">
-        <span class="quick-name">Open Gym</span>
+        <span class="quick-name">Open Gym Unlimited</span>
         <span class="quick-price">$40/mo</span>
       </div>
       <div class="quick-row">
-        <span class="quick-name">Open Gym add-on (enrolled)</span>
+        <span class="quick-name">Open Gym Add-On<span class="quick-detail">For enrolled students</span></span>
         <span class="quick-price">$30/mo</span>
       </div>
       <div class="quick-row">
         <span class="quick-name">Open Gym Drop-In</span>
-        <span class="quick-price">$20–25</span>
+        <span class="quick-price">$25 card / $20 cash</span>
+      </div>
+
+      <p class="quick-group-title">Drop-Ins</p>
+      <div class="quick-row">
+        <span class="quick-name">Mini Ninja Drop-In</span>
+        <span class="quick-price">$30 card / $25 cash</span>
       </div>
       <div class="quick-row">
-        <span class="quick-name">Class Drop-In</span>
-        <span class="quick-price">$30–35</span>
+        <span class="quick-name">60-min class drop-in</span>
+        <span class="quick-price">$35 card / $30 cash</span>
       </div>
       <div class="quick-row">
-        <span class="quick-name">90-min Class Drop-In</span>
-        <span class="quick-price">$40–45</span>
+        <span class="quick-name">90-min class drop-in</span>
+        <span class="quick-price">$45 card / $40 cash</span>
+      </div>
+
+      <p class="quick-group-title">Camps</p>
+      <div class="quick-row">
+        <span class="quick-name">2026 Ninja Summer Camp<span class="quick-detail">July 13-17 currently available. Other sessions full with waitlist.</span></span>
+        <span class="quick-price">$425 session / $90 day</span>
+      </div>
+      <div class="quick-row">
+        <span class="quick-name">Week-prior camp rate</span>
+        <span class="quick-price">$475 session / $95 day</span>
       </div>
     </div>
 
