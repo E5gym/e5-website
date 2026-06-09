@@ -547,15 +547,16 @@ html, body {
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
   margin-top: 40px;
+  align-items: start;
 }
 
 .extra-card {
   background: var(--bg3);
   border-radius: 4px;
-  padding: 32px 28px 36px;
+  padding: 26px 24px 28px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 0;
   transition: background 0.2s;
 }
 
@@ -574,7 +575,8 @@ html, body {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--dark);
-  padding-bottom: 12px;
+  padding-bottom: 10px;
+  margin-bottom: 4px;
   border-bottom: 2px solid var(--blue);
 }
 
@@ -585,7 +587,11 @@ html, body {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(14,26,36,0.08);
 }
+
+.extra-row:last-of-type { border-bottom: none; }
 
 .extra-label {
   font-size: 13px;
@@ -594,6 +600,12 @@ html, body {
 }
 
 .extra-card.dark .extra-label { color: rgba(255,255,255,0.6); }
+
+.extra-card.dark .extra-row,
+.extra-card.blue-card .extra-row,
+.extra-card[style*="var(--dark)"] .extra-row {
+  border-bottom-color: rgba(255,255,255,0.08);
+}
 
 .extra-price {
   font-family: 'Montserrat', sans-serif;
@@ -608,10 +620,10 @@ html, body {
 .extra-note {
   font-size: 11px;
   color: var(--soft);
-  line-height: 1.6;
-  padding-top: 8px;
+  line-height: 1.5;
+  padding-top: 10px;
   border-top: 1px solid rgba(14,26,36,0.08);
-  margin-top: auto;
+  margin-top: 8px;
 }
 
 .extra-card.dark .extra-note { color: rgba(255,255,255,0.3); border-top-color: rgba(255,255,255,0.06); }
@@ -717,6 +729,15 @@ html, body {
   .quick-price {
     text-align: left;
     white-space: normal;
+  }
+  .extra-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .extra-price {
+    white-space: normal;
+    text-align: left;
   }
 }
 </style>
@@ -1063,44 +1084,28 @@ html, body {
         <span class="extra-price">$20</span>
       </div>
       <div class="extra-row">
-        <span class="extra-label">Mini Ninjas drop-in (Card)</span>
-        <span class="extra-price">$30</span>
+        <span class="extra-label">Mini Ninjas drop-in</span>
+        <span class="extra-price">$30 card / $25 cash</span>
       </div>
       <div class="extra-row">
-        <span class="extra-label">Mini Ninjas drop-in (Cash)</span>
-        <span class="extra-price">$25</span>
+        <span class="extra-label">60-minute class drop-in</span>
+        <span class="extra-price">$35 card / $30 cash</span>
       </div>
       <div class="extra-row">
-        <span class="extra-label">Single class drop-in (Card)</span>
-        <span class="extra-price">$35</span>
+        <span class="extra-label">90-minute class drop-in</span>
+        <span class="extra-price">$45 card / $40 cash</span>
       </div>
       <div class="extra-row">
-        <span class="extra-label">Single class drop-in (Cash)</span>
-        <span class="extra-price">$30</span>
+        <span class="extra-label">Open Gym drop-in</span>
+        <span class="extra-price">$25 card / $20 cash</span>
       </div>
-      <div class="extra-row">
-        <span class="extra-label">90-minute class drop-in (Card)</span>
-        <span class="extra-price">$45</span>
-      </div>
-      <div class="extra-row">
-        <span class="extra-label">90-minute class drop-in (Cash)</span>
-        <span class="extra-price">$40</span>
-      </div>
-      <div class="extra-row">
-        <span class="extra-label">Open gym drop-in (Card)</span>
-        <span class="extra-price">$25</span>
-      </div>
-      <div class="extra-row">
-        <span class="extra-label">Open gym drop-in (Cash)</span>
-        <span class="extra-price">$20</span>
-      </div>
-      <p class="extra-note">Drop-in rates effective June 1, 2026.</p>
+      <p class="extra-note">Rates effective June 1, 2026.</p>
     </div>
 
     <div class="extra-card blue-card" style="background:var(--dark);">
       <p class="extra-title" style="color:var(--white);border-bottom-color:rgba(42,122,184,0.35);">Open Gym Membership</p>
       <div class="extra-row">
-        <span class="extra-label" style="color:rgba(255,255,255,0.6);">Summer 2026 (June – Aug)</span>
+        <span class="extra-label" style="color:rgba(255,255,255,0.6);">Summer 2026 (June-Aug)</span>
         <span class="extra-price" style="color:rgba(42,122,184,0.9);">$40/mo</span>
       </div>
       <div class="extra-row">
@@ -1113,7 +1118,7 @@ html, body {
       </div>
       <p class="extra-note" style="color:rgba(255,255,255,0.35);border-top-color:rgba(255,255,255,0.06);">
         Open Gym availability changes seasonally. Check the schedule or student portal for current times.
-        Students enrolled in at least one weekly class can add unlimited open gym for $30/month year-round regardless of seasonal rate.
+        Enrolled weekly students can add unlimited open gym for $30/month year-round, regardless of seasonal rate.
       </p>
     </div>
 
