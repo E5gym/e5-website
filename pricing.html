@@ -278,14 +278,14 @@ html, body {
 .tuition-section {
   width: 100%;
   background: var(--bg2);
-  padding: 80px 72px;
+  padding: 72px 72px 64px;
 }
 
 .tuition-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
-  margin-top: 40px;
+  margin-top: 32px;
   align-items: start;
 }
 
@@ -416,7 +416,7 @@ html, body {
 .membership-section {
   width: 100%;
   background: var(--bg1);
-  padding: 80px 72px;
+  padding: 68px 72px;
 }
 
 .membership-grid {
@@ -602,7 +602,7 @@ html, body {
 .discounts-section {
   width: 100%;
   background: var(--bg2);
-  padding: 80px 72px;
+  padding: 68px 72px;
 }
 
 .discounts-grid {
@@ -690,14 +690,14 @@ html, body {
 .extras-section {
   width: 100%;
   background: var(--bg1);
-  padding: 80px 72px;
+  padding: 68px 72px;
 }
 
 .extras-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 6px;
-  margin-top: 40px;
+  margin-top: 32px;
   align-items: start;
 }
 
@@ -1006,7 +1006,7 @@ html, body {
   .tuition-grid { grid-template-columns: 1fr 1fr; }
   .membership-grid { grid-template-columns: 1fr; }
   .discounts-grid { grid-template-columns: 1fr; }
-  .extras-grid { grid-template-columns: 1fr; }
+  .extras-grid { grid-template-columns: 1fr 1fr; }
   .cta-section { flex-direction: column; align-items: flex-start; }
   .mem-rates { flex-direction: column; }
   .founding-grid { grid-template-columns: 1fr; }
@@ -1014,6 +1014,7 @@ html, body {
 
 @media (max-width: 560px) {
   .tuition-grid { grid-template-columns: 1fr; }
+  .extras-grid { grid-template-columns: 1fr; }
   .quick-row {
     align-items: flex-start;
     flex-direction: column;
@@ -1079,8 +1080,8 @@ html, body {
         <span class="quick-price">$141/mo</span>
       </div>
       <div class="quick-row">
-        <span class="quick-name">Performance Crew</span>
-        <span class="quick-price">$250/mo</span>
+        <span class="quick-name">E5 Echo<span class="quick-detail">4 days per week plus unlimited open gym access. Advanced training by invitation.</span></span>
+        <span class="quick-price">$425/mo</span>
       </div>
 
       <p class="quick-group-title">Open Gym</p>
@@ -1173,10 +1174,10 @@ html, body {
     <div class="price-card featured">
       <div class="card-top-bar"></div>
       <div class="price-card-body">
-        <p class="price-card-name">Performance Crew</p>
-        <p class="price-amount">$250</p>
-        <p class="price-period">per month</p>
-        <p class="price-includes">4 days per week plus unlimited open gym access. E5 Echo and advanced training. By invitation only.</p>
+        <p class="price-card-name">E5 Echo</p>
+        <p class="price-amount">$425/mo</p>
+        <p class="price-period">invitation-based</p>
+        <p class="price-includes">4 days per week plus unlimited open gym access. Advanced training by invitation.</p>
       </div>
     </div>
 
@@ -1219,20 +1220,6 @@ html, body {
         <a href="https://portal.iclasspro.com/elemental5/booking/wizard-question-01?typeId=1&next=camps&nextTitle=Ninja%20Summer%20Camp&pluralTitle=Ninja%20Summer%20Camps&sortBy=name" target="_blank"
            style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;">
           Join waitlist or register →
-        </a>
-      </div>
-    </div>
-
-    <div class="price-card">
-      <div class="card-top-bar"></div>
-      <div class="price-card-body">
-        <p class="price-card-name">Camp Fridays</p>
-        <p class="price-amount">$50</p>
-        <p class="price-period">per session when active</p>
-        <p class="price-includes">Camp Fridays return during the school season. When active, single-session and sibling discount options are available through the student portal.</p>
-        <a href="https://www.elementalfive.com/_files/ugd/221b20_cbde5c0f9b8141908ca809cc823a4dfa.pdf" target="_blank"
-           style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);text-decoration:none;">
-          Full pricing PDF →
         </a>
       </div>
     </div>
@@ -1437,6 +1424,19 @@ html, body {
         <span class="extra-price">+$10</span>
       </div>
       <p class="extra-note">Saturday slots at 10 AM, 12:30 PM, and 3 PM. Sundays by inquiry. Book through the portal or contact us directly.</p>
+    </div>
+
+    <div class="extra-card">
+      <p class="extra-title">Camp Fridays</p>
+      <div class="extra-row">
+        <span class="extra-label">School-season session</span>
+        <span class="extra-price">$50</span>
+      </div>
+      <p class="extra-note">Camp Fridays return during the school season. When active, single-session and sibling discount options are available through the student portal.</p>
+      <a href="https://www.elementalfive.com/_files/ugd/221b20_cbde5c0f9b8141908ca809cc823a4dfa.pdf" target="_blank"
+         style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);text-decoration:none;">
+        Full pricing PDF →
+      </a>
     </div>
 
   </div>
