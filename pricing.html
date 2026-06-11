@@ -1015,6 +1015,7 @@ html, body {
 @media (max-width: 560px) {
   .tuition-grid { grid-template-columns: 1fr; }
   .extras-grid { grid-template-columns: 1fr; }
+  .founding-savings-row { grid-template-columns: 1fr !important; }
   .quick-row {
     align-items: flex-start;
     flex-direction: column;
@@ -1135,7 +1136,7 @@ html, body {
   <div style="margin-top:28px;margin-bottom:0;background:var(--dark);border-radius:4px;padding:20px 28px;display:flex;align-items:flex-start;gap:16px;border-left:4px solid var(--red);">
     <div>
       <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);margin-bottom:5px;">Effective June 1, 2026</p>
-      <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;">Tuition rates have been updated to help support the new facility and continued investment in coaching and programming. <strong style="color:rgba(255,255,255,0.85);">Mini Ninjas monthly tuition is unchanged at $79/month. Mini Ninjas drop-ins are $30 by card or $25 cash.</strong> To lock in current pricing for two years, ask us about Founding Membership.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;">Tuition rates have been updated to help support the new facility and continued investment in coaching and programming. <strong style="color:rgba(255,255,255,0.85);">Mini Ninjas monthly tuition is unchanged at $79/month. Mini Ninjas drop-ins are $30 by card or $25 cash.</strong> To access previous tuition rates for two years, ask us about Founding Membership.</p>
     </div>
   </div>
 
@@ -1444,7 +1445,7 @@ html, body {
 
 <!-- ── FOUNDING MEMBERSHIP ── -->
 <section class="founding-section" style="width:100%;background:var(--bg1);padding:80px 72px;">
-  <p class="section-label">Lock In Current Pricing</p>
+  <p class="section-label">Founding Membership</p>
   <h2 class="section-headline" style="font-size:clamp(32px,4vw,54px);margin-bottom:40px;">Founding<br><em>membership.</em></h2>
 
   <div class="founding-grid" style="display:grid;gap:6px;">
@@ -1452,22 +1453,42 @@ html, body {
     <div style="background:var(--dark);border-radius:4px;padding:52px 48px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;position:relative;overflow:hidden;">
       <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(255,255,255,0.02) 40px,rgba(255,255,255,0.02) 41px);pointer-events:none;"></div>
       <div style="position:relative;z-index:1;">
-        <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--red);opacity:0.8;margin-bottom:16px;">The only way to keep today's rates</p>
-        <h3 style="font-family:'Montserrat',sans-serif;font-size:clamp(22px,2.8vw,34px);font-weight:900;text-transform:uppercase;line-height:1.1;letter-spacing:-0.01em;color:var(--white);margin-bottom:18px;">Two years. Today's pricing. Permanently part of the story.</h3>
-        <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.65);">Founding members lock in current tuition rates for two full years and become a permanent part of the new facility and E5's next chapter. Spots are limited and this offer closes before we open.</p>
+        <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:16px;">Previous Rate Access</p>
+        <h3 style="font-family:'Montserrat',sans-serif;font-size:clamp(22px,2.8vw,34px);font-weight:900;text-transform:uppercase;line-height:1.1;letter-spacing:-0.01em;color:var(--white);margin-bottom:18px;">Access our previous tuition rates for two full years.</h3>
+        <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.65);">Elemental 5's updated tuition rates are now active. Founding Membership is the only way for families to access our previous tuition model while helping support the next chapter of E5 and the new facility.</p>
+      </div>
+      <div style="position:relative;z-index:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.09);border-radius:4px;padding:20px;">
+        <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">What Founding Members Can Save</p>
+        <div style="display:grid;gap:10px;">
+          <div class="founding-savings-row" style="display:grid;grid-template-columns:minmax(130px,1.1fr) repeat(3,minmax(80px,1fr));gap:8px 12px;align-items:center;border-bottom:1px solid rgba(255,255,255,0.09);padding-bottom:10px;">
+            <p style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--white);">1 Hour / Week Class</p>
+            <p style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.62);">Previous rate:<br><strong style="color:rgba(255,255,255,0.9);">$79/month</strong></p>
+            <p style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.62);">Current rate:<br><strong style="color:rgba(255,255,255,0.9);">$97/month</strong></p>
+            <p style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.62);">Founding savings:<br><strong style="color:var(--gold);">$18/month</strong></p>
+          </div>
+          <div class="founding-savings-row" style="display:grid;grid-template-columns:minmax(130px,1.1fr) repeat(3,minmax(80px,1fr));gap:8px 12px;align-items:center;">
+            <p style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--white);">1.5 Hour / Week Class</p>
+            <p style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.62);">Previous rate:<br><strong style="color:rgba(255,255,255,0.9);">$118/month</strong></p>
+            <p style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.62);">Current rate:<br><strong style="color:rgba(255,255,255,0.9);">$141/month</strong></p>
+            <p style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.62);">Founding savings:<br><strong style="color:var(--gold);">$23/month</strong></p>
+          </div>
+        </div>
+        <p style="font-size:12px;line-height:1.65;color:rgba(255,255,255,0.55);margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);">Founding rates are protected for two years as long as enrollment remains active. If enrollment is canceled, future enrollment returns to the current standard pricing.</p>
+        <p style="font-size:12px;line-height:1.65;color:rgba(255,255,255,0.55);margin-top:8px;">Open Gym is no longer included in tuition. Registered students may add Unlimited Open Gym for $30/month when available.</p>
       </div>
       <div style="position:relative;z-index:1;">
-        <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;">Family tiers start at</p>
+        <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;">Founding access starts at</p>
         <p style="font-family:'Montserrat',sans-serif;font-size:48px;font-weight:900;color:var(--white);line-height:1;">$500</p>
       </div>
       <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Founding%20Membership%20Inquiry" target="_blank"
          style="display:inline-flex;align-items:center;gap:10px;background:var(--red);color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:15px 28px;border-radius:3px;text-decoration:none;width:fit-content;position:relative;z-index:1;transition:background 0.2s;">
-        Ask us about founding membership →
+        Ask About Previous Rate Access →
       </a>
     </div>
 
     <div style="background:var(--bg3);border-radius:4px;padding:52px 48px;display:flex;flex-direction:column;justify-content:center;gap:0;">
-      <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--soft);margin-bottom:20px;">Founding Tiers</p>
+      <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--soft);margin-bottom:14px;">Founding Tiers</p>
+      <p style="font-size:13px;color:var(--body);line-height:1.7;margin-bottom:18px;">Choose your level of founding support. Every tier helps build the new facility and gives your family access to protected founding tuition benefits.</p>
 
       <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(26,26,24,0.08);">
         <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Earth</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">Individual founding support</p></div>
@@ -1485,13 +1506,6 @@ html, body {
         <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Void</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">By conversation only</p></div>
       </div>
 
-      <div style="margin-top:20px;padding-top:18px;border-top:1px solid rgba(26,26,24,0.08);">
-        <p style="font-size:13px;color:var(--body);line-height:1.7;margin-bottom:12px;">Full tier investment levels, naming rights, and benefits are in our facility expansion overview.</p>
-        <a href="https://67b7281f-1abe-4e28-913a-475047794dcc.usrfiles.com/ugd/221b20_8e6ef64e825649d79928980b3a37257b.pdf" target="_blank"
-           style="display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);text-decoration:none;">
-          Download facility overview PDF →
-        </a>
-      </div>
     </div>
 
   </div>
