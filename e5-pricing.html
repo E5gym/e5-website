@@ -150,11 +150,22 @@ html, body {
   margin-bottom: 12px;
 }
 
+.quick-group-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
 .quick-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 13px 16px;
+  padding: 10px 14px;
   background: rgba(255,255,255,0.55);
   border-radius: 3px;
   gap: 12px;
@@ -169,26 +180,40 @@ html, body {
   color: var(--dark);
 }
 
+.quick-detail {
+  display: block;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(31,41,55,0.62);
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
 .quick-price {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 900;
   color: var(--blue);
   white-space: nowrap;
+  text-align: right;
 }
 
 /* ── MONTHLY TUITION ── */
 .tuition-section {
   width: 100%;
   background: var(--bg2);
-  padding: 80px 72px;
+  padding: 72px 72px 64px;
 }
 
 .tuition-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
-  margin-top: 40px;
+  margin-top: 32px;
+  align-items: start;
 }
 
 .price-card {
@@ -273,7 +298,7 @@ html, body {
 .membership-section {
   width: 100%;
   background: var(--bg1);
-  padding: 80px 72px;
+  padding: 68px 72px;
 }
 
 .membership-grid {
@@ -458,7 +483,7 @@ html, body {
 .discounts-section {
   width: 100%;
   background: var(--bg2);
-  padding: 80px 72px;
+  padding: 68px 72px;
 }
 
 .discounts-grid {
@@ -540,23 +565,24 @@ html, body {
 .extras-section {
   width: 100%;
   background: var(--bg1);
-  padding: 80px 72px;
+  padding: 68px 72px;
 }
 
 .extras-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 6px;
-  margin-top: 40px;
+  margin-top: 32px;
+  align-items: start;
 }
 
 .extra-card {
   background: var(--bg3);
   border-radius: 4px;
-  padding: 32px 28px 36px;
+  padding: 26px 24px 28px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 0;
   transition: background 0.2s;
 }
 
@@ -575,7 +601,8 @@ html, body {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--dark);
-  padding-bottom: 12px;
+  padding-bottom: 10px;
+  margin-bottom: 4px;
   border-bottom: 2px solid var(--blue);
 }
 
@@ -586,7 +613,11 @@ html, body {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(14,26,36,0.08);
 }
+
+.extra-row:last-of-type { border-bottom: none; }
 
 .extra-label {
   font-size: 13px;
@@ -595,6 +626,12 @@ html, body {
 }
 
 .extra-card.dark .extra-label { color: rgba(255,255,255,0.6); }
+
+.extra-card.dark .extra-row,
+.extra-card.blue-card .extra-row,
+.extra-card[style*="var(--dark)"] .extra-row {
+  border-bottom-color: rgba(255,255,255,0.08);
+}
 
 .extra-price {
   font-family: 'Montserrat', sans-serif;
@@ -609,10 +646,10 @@ html, body {
 .extra-note {
   font-size: 11px;
   color: var(--soft);
-  line-height: 1.6;
-  padding-top: 8px;
+  line-height: 1.5;
+  padding-top: 10px;
   border-top: 1px solid rgba(14,26,36,0.08);
-  margin-top: auto;
+  margin-top: 8px;
 }
 
 .extra-card.dark .extra-note { color: rgba(255,255,255,0.3); border-top-color: rgba(255,255,255,0.06); }
@@ -702,7 +739,7 @@ html, body {
   .tuition-grid { grid-template-columns: 1fr 1fr; }
   .membership-grid { grid-template-columns: 1fr; }
   .discounts-grid { grid-template-columns: 1fr; }
-  .extras-grid { grid-template-columns: 1fr; }
+  .extras-grid { grid-template-columns: 1fr 1fr; }
   .cta-section { flex-direction: column; align-items: flex-start; }
   .mem-rates { flex-direction: column; }
   .founding-grid { grid-template-columns: 1fr; }
@@ -710,6 +747,26 @@ html, body {
 
 @media (max-width: 560px) {
   .tuition-grid { grid-template-columns: 1fr; }
+  .extras-grid { grid-template-columns: 1fr; }
+  .founding-savings-row { grid-template-columns: 1fr !important; }
+  .quick-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .quick-price {
+    text-align: left;
+    white-space: normal;
+  }
+  .extra-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .extra-price {
+    white-space: normal;
+    text-align: left;
+  }
 }
 </style>
 </head>
@@ -726,8 +783,8 @@ html, body {
       </h1>
       <div>
         <p class="hero-subhead">
-          Transparent pricing, sibling discounts, and flexible options.
-          <strong>Updated rates take effect June 1, 2026.</strong>
+          Transparent pricing, sibling discounts, drop-ins, open gym, and seasonal camp options.
+          <strong>Updated rates effective June 1, 2026.</strong>
         </p>
       </div>
       <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="enroll-btn">Enroll Today →</a>
@@ -736,41 +793,60 @@ html, body {
     <div class="hero-right">
       <p class="quick-label">Quick Reference · Effective June 1, 2026</p>
 
+      <p class="quick-group-title">Monthly Tuition</p>
       <div class="quick-row">
         <span class="quick-name">1-hr class / week</span>
         <span class="quick-price">$97/mo</span>
       </div>
       <div class="quick-row">
-        <span class="quick-name">Mini Ninjas (1-hr)</span>
+        <span class="quick-name">Mini Ninjas 1-hr</span>
         <span class="quick-price">$79/mo</span>
-      </div>
-      <div class="quick-row">
-        <span class="quick-name">Mini Ninjas Drop-In</span>
-        <span class="quick-price">$25-30</span>
       </div>
       <div class="quick-row">
         <span class="quick-name">1.5-hr class / week</span>
         <span class="quick-price">$141/mo</span>
       </div>
       <div class="quick-row">
-        <span class="quick-name">Performance Crew</span>
-        <span class="quick-price">$250/mo</span>
+        <span class="quick-name">E5 Echo<span class="quick-detail">4 days per week. Advanced training by invitation.</span></span>
+        <span class="quick-price">$425/mo</span>
       </div>
+
+      <p class="quick-group-title">Open Gym</p>
       <div class="quick-row">
-        <span class="quick-name">Open Gym</span>
+        <span class="quick-name">Open Gym Unlimited</span>
         <span class="quick-price">$40/mo</span>
       </div>
       <div class="quick-row">
-        <span class="quick-name">Open Gym add-on (enrolled)</span>
+        <span class="quick-name">Open Gym Add-On<span class="quick-detail">For enrolled students</span></span>
         <span class="quick-price">$30/mo</span>
       </div>
       <div class="quick-row">
         <span class="quick-name">Open Gym Drop-In</span>
-        <span class="quick-price">$20–25</span>
+        <span class="quick-price">$25 card / $20 cash</span>
+      </div>
+
+      <p class="quick-group-title">Drop-Ins</p>
+      <div class="quick-row">
+        <span class="quick-name">Mini Ninja Drop-In</span>
+        <span class="quick-price">$30 card / $25 cash</span>
       </div>
       <div class="quick-row">
-        <span class="quick-name">Class Drop-In</span>
-        <span class="quick-price">$30–35</span>
+        <span class="quick-name">60-min class drop-in</span>
+        <span class="quick-price">$35 card / $30 cash</span>
+      </div>
+      <div class="quick-row">
+        <span class="quick-name">90-min class drop-in</span>
+        <span class="quick-price">$45 card / $40 cash</span>
+      </div>
+
+      <p class="quick-group-title">Camps</p>
+      <div class="quick-row">
+        <span class="quick-name">2026 Ninja Summer Camp<span class="quick-detail">July 13-17 currently available. Other sessions full with waitlist.</span></span>
+        <span class="quick-price">$425 session / $90 day</span>
+      </div>
+      <div class="quick-row">
+        <span class="quick-name">Week-prior camp rate</span>
+        <span class="quick-price">$475 session / $95 day</span>
       </div>
     </div>
 
@@ -786,7 +862,7 @@ html, body {
   <div style="margin-top:28px;margin-bottom:0;background:var(--dark);border-radius:4px;padding:20px 28px;display:flex;align-items:flex-start;gap:16px;border-left:4px solid var(--red);">
     <div>
       <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);margin-bottom:5px;">Effective June 1, 2026</p>
-      <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;">Tuition rates have been updated to help support the new facility and continued investment in coaching and programming. <strong style="color:rgba(255,255,255,0.85);">Mini Ninjas monthly tuition is unchanged at $79/month. Mini Ninjas drop-ins are $30 by card or $25 cash.</strong> To lock in current pricing for two years, ask us about Founding Membership.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;">Tuition rates have been updated to help support the new facility and continued investment in coaching and programming. <strong style="color:rgba(255,255,255,0.85);">Mini Ninjas monthly tuition is unchanged at $79/month. Mini Ninjas drop-ins are $30 by card or $25 cash.</strong> To access previous tuition rates for two years, ask us about Founding Membership.</p>
     </div>
   </div>
 
@@ -825,10 +901,10 @@ html, body {
     <div class="price-card featured">
       <div class="card-top-bar"></div>
       <div class="price-card-body">
-        <p class="price-card-name">Performance Crew</p>
-        <p class="price-amount">$250</p>
-        <p class="price-period">per month</p>
-        <p class="price-includes">4 days per week plus unlimited open gym access. E5 Echo and advanced training. By invitation only.</p>
+        <p class="price-card-name">E5 Echo</p>
+        <p class="price-amount">$425/mo</p>
+        <p class="price-period">invitation-based</p>
+        <p class="price-includes">4 days per week. Advanced training by invitation.</p>
       </div>
     </div>
 
@@ -842,16 +918,35 @@ html, body {
       </div>
     </div>
 
-    <div class="price-card">
+    <div class="price-card featured">
       <div class="card-top-bar"></div>
       <div class="price-card-body">
-        <p class="price-card-name">Camp Fridays</p>
-        <p class="price-amount">$50</p>
-        <p class="price-period">per session when active</p>
-        <p class="price-includes">Camp Fridays return during the school season. When active, single-session and sibling discount options are available through the student portal.</p>
-        <a href="https://www.elementalfive.com/_files/ugd/221b20_cbde5c0f9b8141908ca809cc823a4dfa.pdf" target="_blank"
-           style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);text-decoration:none;">
-          Full pricing PDF →
+        <p class="price-card-name">2026 Ninja Summer Camp</p>
+        <p class="price-amount">$425</p>
+        <p class="price-period">current full session price</p>
+        <p class="price-includes">Most 2026 Summer Camps are full. Families may join the waitlist for full camps. The July 13-17 camp is currently open for registration.</p>
+        <div style="display:grid;gap:8px;margin-top:10px;">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 14px;border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:10px 12px;">
+            <span style="font-size:12px;font-weight:800;color:rgba(255,255,255,0.78);">Current price</span>
+            <span style="font-size:12px;font-weight:900;color:rgba(255,255,255,0.92);">$425 full session / $90 per day</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 14px;border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:10px 12px;">
+            <span style="font-size:12px;font-weight:800;color:rgba(255,255,255,0.78);">A week prior to each camp</span>
+            <span style="font-size:12px;font-weight:900;color:rgba(255,255,255,0.92);">$475 full session / $95 per day</span>
+          </div>
+        </div>
+        <p class="price-includes" style="margin-top:10px;">Camp time is 9:00 AM-3:00 PM. Early drop-off and late pickup are available for an additional fee. Sibling discount included.</p>
+        <div style="display:grid;gap:6px;margin-top:10px;">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 14px;border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:9px 10px;"><span style="font-size:12px;font-weight:800;color:rgba(255,255,255,0.78);">June 8-12</span><span style="font-size:12px;font-weight:900;color:rgba(255,255,255,0.72);">Full / Waitlist available</span></div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 14px;border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:9px 10px;"><span style="font-size:12px;font-weight:800;color:rgba(255,255,255,0.78);">June 22-26</span><span style="font-size:12px;font-weight:900;color:rgba(255,255,255,0.72);">Full / Waitlist available</span></div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 14px;border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:9px 10px;"><span style="font-size:12px;font-weight:800;color:rgba(255,255,255,0.78);">July 6-10</span><span style="font-size:12px;font-weight:900;color:rgba(255,255,255,0.72);">Full / Waitlist available</span></div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 14px;border:1px solid rgba(196,146,42,0.55);background:rgba(196,146,42,0.12);border-radius:4px;padding:9px 10px;"><span style="font-size:12px;font-weight:800;color:rgba(255,255,255,0.9);">July 13-17</span><span style="font-size:12px;font-weight:900;color:var(--gold);">Open / Register Now</span></div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 14px;border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:9px 10px;"><span style="font-size:12px;font-weight:800;color:rgba(255,255,255,0.78);">July 27-31</span><span style="font-size:12px;font-weight:900;color:rgba(255,255,255,0.72);">Full / Waitlist available</span></div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 14px;border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:9px 10px;"><span style="font-size:12px;font-weight:800;color:rgba(255,255,255,0.78);">August 3-7</span><span style="font-size:12px;font-weight:900;color:rgba(255,255,255,0.72);">Full / Waitlist available</span></div>
+        </div>
+        <a href="https://portal.iclasspro.com/elemental5/booking/wizard-question-01?typeId=1&next=camps&nextTitle=Ninja%20Summer%20Camp&pluralTitle=Ninja%20Summer%20Camps&sortBy=name" target="_blank"
+           style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;">
+          Join waitlist or register →
         </a>
       </div>
     </div>
@@ -1007,36 +1102,28 @@ html, body {
         <span class="extra-price">$20</span>
       </div>
       <div class="extra-row">
-        <span class="extra-label">Mini Ninjas drop-in (Card)</span>
-        <span class="extra-price">$30</span>
+        <span class="extra-label">Mini Ninjas drop-in</span>
+        <span class="extra-price">$30 card / $25 cash</span>
       </div>
       <div class="extra-row">
-        <span class="extra-label">Mini Ninjas drop-in (Cash)</span>
-        <span class="extra-price">$25</span>
+        <span class="extra-label">60-minute class drop-in</span>
+        <span class="extra-price">$35 card / $30 cash</span>
       </div>
       <div class="extra-row">
-        <span class="extra-label">Single class drop-in (Card)</span>
-        <span class="extra-price">$35</span>
+        <span class="extra-label">90-minute class drop-in</span>
+        <span class="extra-price">$45 card / $40 cash</span>
       </div>
       <div class="extra-row">
-        <span class="extra-label">Single class drop-in (Cash)</span>
-        <span class="extra-price">$30</span>
+        <span class="extra-label">Open Gym drop-in</span>
+        <span class="extra-price">$25 card / $20 cash</span>
       </div>
-      <div class="extra-row">
-        <span class="extra-label">Open gym drop-in (Card)</span>
-        <span class="extra-price">$25</span>
-      </div>
-      <div class="extra-row">
-        <span class="extra-label">Open gym drop-in (Cash)</span>
-        <span class="extra-price">$20</span>
-      </div>
-      <p class="extra-note">Drop-in rates effective June 1, 2026.</p>
+      <p class="extra-note">Rates effective June 1, 2026.</p>
     </div>
 
     <div class="extra-card blue-card" style="background:var(--dark);">
       <p class="extra-title" style="color:var(--white);border-bottom-color:rgba(42,122,184,0.35);">Open Gym Membership</p>
       <div class="extra-row">
-        <span class="extra-label" style="color:rgba(255,255,255,0.6);">Summer 2026 (June – Aug)</span>
+        <span class="extra-label" style="color:rgba(255,255,255,0.6);">Summer 2026 (June-Aug)</span>
         <span class="extra-price" style="color:rgba(42,122,184,0.9);">$40/mo</span>
       </div>
       <div class="extra-row">
@@ -1049,7 +1136,7 @@ html, body {
       </div>
       <p class="extra-note" style="color:rgba(255,255,255,0.35);border-top-color:rgba(255,255,255,0.06);">
         Open Gym availability changes seasonally. Check the schedule or student portal for current times.
-        Students enrolled in at least one weekly class can add unlimited open gym for $30/month year-round regardless of seasonal rate.
+        Enrolled weekly students can add unlimited open gym for $30/month year-round, regardless of seasonal rate.
       </p>
     </div>
 
@@ -1070,12 +1157,25 @@ html, body {
       <p class="extra-note">Saturday slots at 10 AM, 12:30 PM, and 3 PM. Sundays by inquiry. Book through the portal or contact us directly.</p>
     </div>
 
+    <div class="extra-card">
+      <p class="extra-title">Camp Fridays</p>
+      <div class="extra-row">
+        <span class="extra-label">School-season session</span>
+        <span class="extra-price">$50</span>
+      </div>
+      <p class="extra-note">Camp Fridays return during the school season. When active, single-session and sibling discount options are available through the student portal.</p>
+      <a href="https://www.elementalfive.com/_files/ugd/221b20_cbde5c0f9b8141908ca809cc823a4dfa.pdf" target="_blank"
+         style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);text-decoration:none;">
+        Full pricing PDF →
+      </a>
+    </div>
+
   </div>
 </section>
 
 <!-- ── FOUNDING MEMBERSHIP ── -->
 <section class="founding-section" style="width:100%;background:var(--bg1);padding:80px 72px;">
-  <p class="section-label">Lock In Current Pricing</p>
+  <p class="section-label">Founding Membership</p>
   <h2 class="section-headline" style="font-size:clamp(32px,4vw,54px);margin-bottom:40px;">Founding<br><em>membership.</em></h2>
 
   <div class="founding-grid" style="display:grid;gap:6px;">
@@ -1083,44 +1183,71 @@ html, body {
     <div style="background:var(--dark);border-radius:4px;padding:52px 48px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;position:relative;overflow:hidden;">
       <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(255,255,255,0.02) 40px,rgba(255,255,255,0.02) 41px);pointer-events:none;"></div>
       <div style="position:relative;z-index:1;">
-        <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--red);opacity:0.8;margin-bottom:16px;">The only way to keep today's rates</p>
-        <h3 style="font-family:'Montserrat',sans-serif;font-size:clamp(22px,2.8vw,34px);font-weight:900;text-transform:uppercase;line-height:1.1;letter-spacing:-0.01em;color:var(--white);margin-bottom:18px;">Two years. Today's pricing. Permanently part of the story.</h3>
-        <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.65);">Founding members lock in current tuition rates for two full years and become a permanent part of the new facility and E5's next chapter. Spots are limited and this offer closes before we open.</p>
+        <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--red);opacity:0.85;margin-bottom:16px;">Previous Rate Access</p>
+        <h3 style="font-family:'Montserrat',sans-serif;font-size:clamp(22px,2.8vw,34px);font-weight:900;text-transform:uppercase;line-height:1.1;letter-spacing:-0.01em;color:var(--white);margin-bottom:18px;">Access our previous tuition rates for two full years.</h3>
+        <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.65);">Elemental 5's updated tuition rates are now active. Founding Membership is the only way for families to access our previous tuition model while helping support the next chapter of E5 and the new facility.</p>
+      </div>
+      <div style="position:relative;z-index:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.09);border-radius:4px;padding:20px;">
+        <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:12px;">What Founding Members Can Save</p>
+        <div style="display:grid;gap:10px;">
+          <div class="founding-savings-row" style="display:grid;grid-template-columns:minmax(130px,1.1fr) repeat(3,minmax(80px,1fr));gap:8px 12px;align-items:center;border-bottom:1px solid rgba(255,255,255,0.09);padding-bottom:10px;">
+            <p style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--white);">1 Hour / Week Class</p>
+            <p style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.62);">Previous rate:<br><strong style="color:rgba(255,255,255,0.9);">$79/month</strong></p>
+            <p style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.62);">Current rate:<br><strong style="color:rgba(255,255,255,0.9);">$97/month</strong></p>
+            <p style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.62);">Founding savings:<br><strong style="color:var(--red);">about 19%</strong></p>
+          </div>
+          <div class="founding-savings-row" style="display:grid;grid-template-columns:minmax(130px,1.1fr) repeat(3,minmax(80px,1fr));gap:8px 12px;align-items:center;">
+            <p style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--white);">1.5 Hour / Week Class</p>
+            <p style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.62);">Previous rate:<br><strong style="color:rgba(255,255,255,0.9);">$118/month</strong></p>
+            <p style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.62);">Current rate:<br><strong style="color:rgba(255,255,255,0.9);">$141/month</strong></p>
+            <p style="font-size:12px;line-height:1.45;color:rgba(255,255,255,0.62);">Founding savings:<br><strong style="color:var(--red);">about 16%</strong></p>
+          </div>
+        </div>
       </div>
       <div style="position:relative;z-index:1;">
-        <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;">Family tiers start at</p>
+        <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;">Founding access starts at</p>
         <p style="font-family:'Montserrat',sans-serif;font-size:48px;font-weight:900;color:var(--white);line-height:1;">$500</p>
       </div>
       <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Founding%20Membership%20Inquiry" target="_blank"
          style="display:inline-flex;align-items:center;gap:10px;background:var(--red);color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:15px 28px;border-radius:3px;text-decoration:none;width:fit-content;position:relative;z-index:1;transition:background 0.2s;">
-        Ask us about founding membership →
+        Ask About Previous Rate Access →
       </a>
     </div>
 
-    <div style="background:var(--bg3);border-radius:4px;padding:52px 48px;display:flex;flex-direction:column;justify-content:center;gap:0;">
-      <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--soft);margin-bottom:20px;">Founding Tiers</p>
-
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(26,26,24,0.08);">
-        <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Earth</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">Individual founding support</p></div>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(26,26,24,0.08);">
-        <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Water</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">Family founding support</p></div>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(26,26,24,0.08);">
-        <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Fire</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">Community champion</p></div>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(26,26,24,0.08);">
-        <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Air</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">Lead sponsor recognition</p></div>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;">
-        <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Void</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">By conversation only</p></div>
+    <div style="background:linear-gradient(135deg,rgba(255,255,255,0.48),rgba(255,255,255,0.12) 45%),var(--bg3);border:1px solid rgba(14,26,36,0.08);border-radius:4px;padding:42px 40px;display:flex;flex-direction:column;justify-content:center;gap:18px;box-shadow:0 18px 38px rgba(14,26,36,0.08);">
+      <div>
+        <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);margin-bottom:12px;">Founding Tiers</p>
+        <p style="font-size:13px;color:var(--body);line-height:1.7;">Choose your level of founding support. Every tier helps build the new facility and gives your family access to protected founding tuition benefits.</p>
       </div>
 
-      <div style="margin-top:20px;padding-top:18px;border-top:1px solid rgba(26,26,24,0.08);">
-        <p style="font-size:13px;color:var(--body);line-height:1.7;margin-bottom:12px;">Full tier investment levels, naming rights, and benefits are in our facility expansion overview.</p>
+      <div style="display:grid;gap:8px;">
+        <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.52);border:1px solid rgba(14,26,36,0.08);border-radius:4px;padding:12px 14px;">
+          <span style="width:28px;height:28px;border-radius:50%;background:rgba(42,122,184,0.12);color:var(--blue);display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:900;">E</span>
+          <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Earth</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">Individual founding support</p></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.52);border:1px solid rgba(14,26,36,0.08);border-radius:4px;padding:12px 14px;">
+          <span style="width:28px;height:28px;border-radius:50%;background:rgba(42,122,184,0.12);color:var(--blue);display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:900;">W</span>
+          <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Water</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">Family founding support</p></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.52);border:1px solid rgba(14,26,36,0.08);border-radius:4px;padding:12px 14px;">
+          <span style="width:28px;height:28px;border-radius:50%;background:rgba(192,30,30,0.12);color:var(--red);display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:900;">F</span>
+          <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Fire</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">Community champion</p></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.52);border:1px solid rgba(14,26,36,0.08);border-radius:4px;padding:12px 14px;">
+          <span style="width:28px;height:28px;border-radius:50%;background:rgba(42,122,184,0.12);color:var(--blue);display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:900;">A</span>
+          <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Air</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">Lead sponsor recognition</p></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;background:rgba(14,26,36,0.05);border:1px solid rgba(14,26,36,0.08);border-radius:4px;padding:12px 14px;">
+          <span style="width:28px;height:28px;border-radius:50%;background:rgba(14,26,36,0.1);color:var(--dark);display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:900;">V</span>
+          <div><p style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:0.06em;color:var(--dark);">Void</p><p style="font-size:11px;color:var(--mid);margin-top:2px;">By conversation only</p></div>
+        </div>
+      </div>
+
+      <div style="margin-top:4px;background:var(--dark);border-radius:4px;padding:18px;border:1px solid rgba(14,26,36,0.12);">
+        <p style="font-size:13px;color:rgba(255,255,255,0.68);line-height:1.65;margin-bottom:12px;">Full tier investment levels, naming rights, and benefits are in our facility expansion overview.</p>
         <a href="https://67b7281f-1abe-4e28-913a-475047794dcc.usrfiles.com/ugd/221b20_8e6ef64e825649d79928980b3a37257b.pdf" target="_blank"
-           style="display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);text-decoration:none;">
-          Download facility overview PDF →
+           style="display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--red);color:var(--white);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase;padding:13px 16px;border-radius:3px;text-decoration:none;">
+          Download Facility Overview PDF →
         </a>
       </div>
     </div>

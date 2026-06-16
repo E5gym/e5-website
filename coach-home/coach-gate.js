@@ -1,4 +1,7 @@
 (function () {
+  if (window.__e5CoachGateLoaded) return;
+  window.__e5CoachGateLoaded = true;
+
   var PASSWORD = 'NinjaCoach';
   var STORAGE_KEY = 'coachHomeUnlocked';
 
