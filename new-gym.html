@@ -246,6 +246,79 @@ html, body {
   z-index: 2;
 }
 
+/* ── MOVEMENT ARTS POSITIONING ── */
+.movement-arts-section {
+  width: 100%;
+  padding: 58px 72px 64px;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(196,146,42,0.13), transparent 34%),
+    radial-gradient(circle at 84% 72%, rgba(204,58,10,0.1), transparent 38%),
+    linear-gradient(135deg, #120B06, #0E0804 62%, #090604);
+}
+
+.movement-arts-panel {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 42px 48px;
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.012) 44%),
+    rgba(20,12,6,0.78);
+  border: 1px solid rgba(196,146,42,0.18);
+  border-left: 4px solid var(--gold);
+  box-shadow: 0 22px 54px rgba(14,8,4,0.22);
+  position: relative;
+  overflow: hidden;
+}
+
+.movement-arts-panel::after {
+  content: '';
+  position: absolute;
+  left: 48px;
+  right: 48px;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(196,146,42,0.72), rgba(204,58,10,0.58), transparent);
+  opacity: 0.7;
+}
+
+.movement-arts-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(232,168,48,0.68);
+  margin-bottom: 14px;
+}
+
+.movement-arts-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 3.1vw, 44px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 22px;
+}
+
+.movement-arts-copy {
+  max-width: 800px;
+  display: grid;
+  gap: 14px;
+}
+
+.movement-arts-copy p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(240,210,160,0.78);
+}
+
+.movement-arts-copy p:first-child {
+  color: rgba(255,255,255,0.84);
+}
+
 .stat-row {
   background:
     linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0) 42%),
@@ -875,6 +948,79 @@ html, body {
 
 .founding-btn:hover { background: var(--cream); transform: translateY(-2px); box-shadow: 0 18px 34px rgba(14,8,4,0.24); }
 
+/* Founders Wall feature */
+.founders-wall-feature {
+  margin-top: 42px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 6px;
+  align-items: stretch;
+}
+
+.founders-wall-copy {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(196,146,42,0.14), transparent 34%),
+    linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0) 46%),
+    linear-gradient(180deg, #2A1C0C, #160D06);
+  border: 1px solid rgba(196,146,42,0.16);
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  padding: 40px 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.founders-wall-kicker {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(232,168,48,0.68);
+  margin-bottom: 14px;
+}
+
+.founders-wall-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 2.8vw, 38px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+
+.founders-wall-copy p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(240,210,160,0.76);
+}
+
+.founders-wall-visual {
+  background:
+    radial-gradient(circle at 82% 16%, rgba(204,58,10,0.16), transparent 34%),
+    linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0) 48%),
+    #0E0804;
+  border: 1px solid rgba(196,146,42,0.16);
+  border-radius: 0 6px 6px 0;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.founders-wall-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  border-radius: 5px;
+  box-shadow: 0 20px 48px rgba(14,8,4,0.34);
+}
+
 /* Tiers card */
 .tiers-card {
   background:
@@ -1249,15 +1395,27 @@ html, body {
 
 /* ── FUNDING TRACKER ── */
 @media (max-width: 900px) {
-  .gym-hero, .vision-section, .founding-section, .support-section, .tracker-section {
+  .gym-hero, .movement-arts-section, .vision-section, .founding-section, .support-section, .tracker-section {
     padding-left: 28px; padding-right: 28px;
   }
   .gym-hero { padding-bottom: 0; }
-  .hero-grid, .vision-grid, .founding-grid { grid-template-columns: 1fr; }
+  .hero-grid, .vision-grid, .founding-grid, .founders-wall-feature { grid-template-columns: 1fr; }
   .hero-left { border-radius: 4px; }
   .hero-right { border-radius: 4px; border-left: 1px solid rgba(196,146,42,0.12); }
   .support-grid { grid-template-columns: 1fr; }
+  .movement-arts-section { padding-top: 44px; padding-bottom: 48px; }
+  .movement-arts-panel { padding: 34px 28px; }
+  .movement-arts-panel::after { left: 28px; right: 28px; }
   .vision-statement, .vision-points, .founding-cta, .tiers-card { padding: 40px 28px; }
+  .founders-wall-copy {
+    border-right: 1px solid rgba(196,146,42,0.16);
+    border-radius: 6px 6px 0 0;
+    padding: 34px 28px;
+  }
+  .founders-wall-visual {
+    border-radius: 0 0 6px 6px;
+    padding: 12px;
+  }
   .founder-section-header, .founder-panel-heading { flex-direction: column; align-items: flex-start; }
   .founder-section-subtitle, .founder-panel-note { max-width: 100%; text-align: left; }
   .founder-grid { grid-template-columns: 1fr; }
@@ -1356,6 +1514,19 @@ html, body {
 
     </div>
 
+  </div>
+</section>
+
+<!-- ── MOVEMENT ARTS POSITIONING ── -->
+<section class="movement-arts-section">
+  <div class="movement-arts-panel">
+    <p class="movement-arts-label">Elemental 5 Evolution</p>
+    <h2 class="movement-arts-title">A Movement Arts Center for Salida</h2>
+    <div class="movement-arts-copy">
+      <p>Elemental 5 is expanding into a Movement Arts Center for Salida — a home for acrobatics, circus, martial arts, dance, tumbling, performing arts, and adult movement.</p>
+      <p>The new facility is being built to support every stage of development, from early childhood movement and youth athletics to advanced training, performance pathways, and lifelong physical practice.</p>
+      <p>This is more than a larger gym. It is a space for strength, skill, artistry, confidence, discipline, and community — where movement becomes a way to grow.</p>
+    </div>
   </div>
 </section>
 
@@ -1502,6 +1673,17 @@ html, body {
       </div>
     </div>
 
+  </div>
+
+  <div class="founders-wall-feature">
+    <div class="founders-wall-copy">
+      <p class="founders-wall-kicker">Permanent Recognition</p>
+      <h3 class="founders-wall-title">Founding Members Wall</h3>
+      <p>The new gym will include a Founding Members Wall recognizing the families, individuals, and local businesses who help bring this vision to life. This display will become a permanent part of the facility — a visual reminder of the community that helped build the future of movement arts in Salida.</p>
+    </div>
+    <div class="founders-wall-visual">
+      <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a4561ffb07f8f6a5d00ae37_ChatGPT%20Image%20Jul%201%2C%202026%2C%2012_41_36%20PM.png" alt="Founding Members Wall mockup for the new Elemental 5 gym">
+    </div>
   </div>
 
   <div class="founder-section">
