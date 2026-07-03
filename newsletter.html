@@ -12,18 +12,18 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Elemental 5 Summer Newsletter</title>
-<meta name="description" content="The Elemental 5 summer newsletter: price updates, the new gym sponsorship campaign, Hill Climb, 2026 Ninja Summer Camp availability and pricing, Summer Showcase, and Farmers Market dates.">
+<title>Elemental 5 July Newsletter</title>
+<meta name="description" content="The Elemental 5 July newsletter: July 4 performances, Founding Members Campaign, new gym progress, summer camps, Hill Climb highlights, coaching news, and important dates.">
 <link rel="canonical" href="https://www.elementalfive.com/newsletter.html">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.elementalfive.com/newsletter.html">
-<meta property="og:title" content="Elemental 5 Summer Newsletter">
-<meta property="og:description" content="Summer is here at Elemental 5: price updates, new gym sponsorship, Hill Climb, 2026 Ninja Summer Camp availability and pricing, Summer Showcase, and Farmers Market dates.">
-<meta property="og:image" content="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a1ddad33154549e0064faf1_summer%20showcase%202026%20(3).png">
+<meta property="og:title" content="Elemental 5 July Newsletter">
+<meta property="og:description" content="July is moving fast at E5 with performances, camps, new gym progress, Founding Member updates, Hill Climb highlights, and coaching announcements.">
+<meta property="og:image" content="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a480adcab4461f3f19ec2a0_1000002542.jpg">
 <meta property="og:site_name" content="Elemental 5">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Elemental 5 Summer Newsletter">
-<meta name="twitter:description" content="Price updates, new gym sponsorship, Hill Climb, 2026 Ninja Summer Camp availability and pricing, Summer Showcase, and Farmers Market dates from Elemental 5.">
+<meta name="twitter:title" content="Elemental 5 July Newsletter">
+<meta name="twitter:description" content="July performances, camps, new gym progress, Founding Members, Hill Climb highlights, and important dates from Elemental 5.">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,6 +36,9 @@
   --flame: #E8843A;
   --gold: #C4922A;
   --red: #CC1F1F;
+  --earth: #8FA765;
+  --water: #2A7AB8;
+  --air: #9EC9DA;
   --cream: #F8F1E6;
   --paper: #FFF8EC;
   --paper-2: #F5EADC;
@@ -66,7 +69,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .newsletter-paper {
-  width: min(960px, calc(100vw - 36px));
+  width: min(1040px, calc(100vw - 36px));
   margin: 0 auto 56px;
   background: var(--paper);
   border: 1px solid rgba(88, 59, 35, 0.18);
@@ -75,12 +78,46 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .nl-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  min-height: 620px;
+  background: var(--black);
+  color: var(--cream);
+}
+
+.nl-hero-copy {
+  padding: 68px 58px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background:
-    linear-gradient(135deg, rgba(196,98,45,0.24), transparent 42%),
+    linear-gradient(135deg, rgba(196,98,45,0.25), transparent 44%),
     repeating-linear-gradient(-45deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 72px),
     var(--black);
-  color: var(--cream);
-  padding: 68px 58px 54px;
+}
+
+.nl-hero-media {
+  min-height: 460px;
+  position: relative;
+  overflow: hidden;
+  background: #120B07;
+}
+
+.nl-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.02) contrast(1.04);
+}
+
+.nl-hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(28,17,8,0.72), transparent 34%),
+    linear-gradient(0deg, rgba(13,11,8,0.28), transparent 48%);
 }
 
 .nl-kicker {
@@ -95,9 +132,9 @@ img { max-width: 100%; height: auto; display: block; }
 
 .nl-hero h1 {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(46px, 8vw, 92px);
+  font-size: clamp(42px, 6.5vw, 86px);
   font-weight: 900;
-  line-height: 0.92;
+  line-height: 0.94;
   letter-spacing: 0;
   text-transform: uppercase;
   margin-bottom: 24px;
@@ -106,35 +143,36 @@ img { max-width: 100%; height: auto; display: block; }
 .nl-hero h1 span { color: var(--flame); }
 
 .nl-hero-sub {
-  max-width: 720px;
-  color: rgba(248,241,230,0.78);
-  font-size: clamp(17px, 2vw, 21px);
+  max-width: 640px;
+  color: rgba(248,241,230,0.8);
+  font-size: clamp(16px, 1.8vw, 20px);
   line-height: 1.62;
 }
 
-.nl-hero-note {
-  margin-top: 28px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border: 1px solid rgba(248,241,230,0.14);
-  background: rgba(0,0,0,0.16);
+.nl-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 30px;
 }
 
-.nl-hero-note span {
-  padding: 15px 16px;
-  color: rgba(248,241,230,0.72);
+.nl-tag-row a,
+.nl-tag-row span {
+  color: rgba(248,241,230,0.82);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(248,241,230,0.14);
+  border-radius: 999px;
+  padding: 9px 12px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 800;
+  font-size: 10px;
+  font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-right: 1px solid rgba(248,241,230,0.12);
+  text-decoration: none;
 }
 
-.nl-hero-note span:last-child { border-right: 0; }
-
 .nl-section {
-  padding: 50px 58px;
+  padding: 54px 58px;
   border-top: 1px solid var(--line);
 }
 
@@ -151,8 +189,14 @@ img { max-width: 100%; height: auto; display: block; }
     #FFF4E2;
 }
 
+.nl-section.callout {
+  background:
+    linear-gradient(135deg, rgba(204,31,31,0.1), transparent 46%),
+    #FFF4E2;
+}
+
 .nl-section h2 {
-  max-width: 760px;
+  max-width: 780px;
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(28px, 4vw, 48px);
   font-weight: 900;
@@ -160,12 +204,26 @@ img { max-width: 100%; height: auto; display: block; }
   letter-spacing: 0;
   text-transform: uppercase;
   color: var(--ink);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+}
+
+.nl-section h2 + .nl-subtitle,
+.nl-subtitle {
+  max-width: 720px;
+  color: var(--ember);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(17px, 2vw, 23px);
+  font-weight: 900;
+  line-height: 1.25;
+  text-transform: uppercase;
+  margin-bottom: 18px;
 }
 
 .nl-section.dark h2,
 .nl-section.dark h3,
 .nl-section.dark .nl-card h3 { color: var(--cream); }
+
+.nl-section.dark .nl-subtitle { color: var(--flame); }
 
 .nl-section p {
   color: var(--muted);
@@ -179,8 +237,19 @@ img { max-width: 100%; height: auto; display: block; }
 .nl-section.dark strong { color: var(--cream); }
 
 .nl-intro {
-  max-width: 720px;
+  max-width: 760px;
   margin-bottom: 26px;
+}
+
+.nl-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.86fr);
+  gap: 30px;
+  align-items: center;
+}
+
+.nl-split.reverse {
+  grid-template-columns: minmax(300px, 0.86fr) minmax(0, 1fr);
 }
 
 .nl-grid {
@@ -192,7 +261,7 @@ img { max-width: 100%; height: auto; display: block; }
 .nl-grid.three { grid-template-columns: repeat(3, 1fr); }
 
 .nl-card {
-  background: rgba(255,255,255,0.72);
+  background: rgba(255,255,255,0.74);
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 22px;
@@ -213,18 +282,39 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 9px;
 }
 
-.nl-card p,
-.nl-card li {
+.nl-card p {
   font-size: 14px;
   line-height: 1.62;
 }
 
-.nl-card ul {
-  padding-left: 18px;
-  margin-top: 10px;
+.feature-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 160px;
 }
 
-.nl-card li + li { margin-top: 6px; }
+.feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: var(--accent, var(--ember));
+}
+
+.feature-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  color: var(--cream);
+  background: var(--black);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
 
 .nl-btn-row {
   display: flex;
@@ -264,93 +354,163 @@ img { max-width: 100%; height: auto; display: block; }
   border-color: rgba(248,241,230,0.28);
 }
 
-.nl-stat-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  margin: 26px 0 18px;
+.image-card {
+  overflow: hidden;
+  border-radius: 7px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.2);
+  background: var(--black);
 }
 
-.nl-stat {
+.image-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 310px;
+  object-fit: cover;
+}
+
+.photo-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.photo-pair .image-card:first-child { min-height: 380px; }
+.photo-pair .image-card:last-child { min-height: 300px; align-self: end; }
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.photo-gallery figure {
+  min-height: 210px;
+  overflow: hidden;
+  border-radius: 7px;
+  box-shadow: 0 14px 38px rgba(0,0,0,0.18);
+  background: var(--black);
+}
+
+.photo-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-time-card {
+  display: grid;
+  gap: 8px;
+  margin-top: 24px;
+  max-width: 410px;
+}
+
+.event-time-card div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(33,23,15,0.12);
+}
+
+.event-time-card span {
+  color: var(--ember);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.event-time-card b {
+  color: var(--ink);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-align: right;
+}
+
+.founder-wall {
+  min-height: 420px;
+  position: relative;
+}
+
+.founder-wall img {
+  min-height: 420px;
+  object-position: center;
+}
+
+.founder-wall::after {
+  content: "Founders Wall";
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  color: var(--cream);
+  background: rgba(13,11,8,0.72);
+  border: 1px solid rgba(248,241,230,0.18);
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.profile-card {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.profile-photo {
+  overflow: hidden;
+  border-radius: 7px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.24);
+}
+
+.profile-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.winner-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.winner-card {
   background: var(--black);
   color: var(--cream);
   border-radius: 6px;
-  padding: 20px 16px;
+  padding: 22px;
+  border-left: 5px solid var(--accent, var(--ember));
 }
 
-.nl-stat b {
+.winner-card span {
+  display: block;
+  color: rgba(248,241,230,0.66);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.winner-card b {
   display: block;
   color: var(--flame);
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(22px, 3vw, 34px);
+  font-size: clamp(24px, 3vw, 34px);
   font-weight: 900;
-  line-height: 1;
-  margin-bottom: 7px;
-}
-
-.nl-stat span {
-  color: rgba(248,241,230,0.68);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.11em;
   text-transform: uppercase;
-}
-
-.nl-progress {
-  height: 12px;
-  background: rgba(33,23,15,0.12);
-  border-radius: 999px;
-  overflow: hidden;
-  margin: 18px 0 10px;
-}
-
-.nl-progress span {
-  display: block;
-  width: 35%;
-  height: 100%;
-  background: linear-gradient(90deg, var(--ember), var(--gold));
-}
-
-.nl-note {
-  background: rgba(196,98,45,0.1);
-  border-left: 4px solid var(--ember);
-  border-radius: 0 6px 6px 0;
-  padding: 18px 20px;
-  margin-top: 22px;
-}
-
-.nl-note p { font-size: 15px; }
-
-.tier-heading {
-  margin: 34px 0 14px;
-  color: var(--ember);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.tier-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.tier-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 4px;
-  background: var(--tier, var(--ember));
-}
-
-.tier-card .price {
-  color: var(--ember);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  font-weight: 900;
-  margin-bottom: 7px;
 }
 
 .dates-grid {
@@ -362,7 +522,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .date-card {
   display: grid;
-  grid-template-columns: 74px 1fr;
+  grid-template-columns: 86px 1fr;
   gap: 16px;
   align-items: start;
   background: rgba(255,255,255,0.76);
@@ -410,162 +570,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 .date-copy p { font-size: 14px; line-height: 1.5; }
 
-.price-list {
-  display: grid;
-  gap: 8px;
-  margin-top: 24px;
-}
-
-.price-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  align-items: baseline;
-  padding: 13px 0;
-  border-bottom: 1px solid rgba(33,23,15,0.12);
-}
-
-.price-row span {
-  color: var(--muted);
-  font-size: 15px;
-}
-
-.price-row b {
-  color: var(--ink);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 900;
-  text-align: right;
-}
-
-.event-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
-  gap: 28px;
-  align-items: start;
-}
-
-.event-image {
-  overflow: hidden;
-  border-radius: 7px;
-  box-shadow: 0 18px 50px rgba(0,0,0,0.26);
-}
-
-.event-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.event-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 28px;
-}
-
-.event-gallery figure {
-  min-height: 190px;
-  overflow: hidden;
-  border-radius: 7px;
-  box-shadow: 0 14px 38px rgba(0,0,0,0.22);
-}
-
-.event-gallery img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.event-meta {
-  display: grid;
-  gap: 10px;
-  margin: 24px 0 0;
-}
-
-.event-meta div {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  border-top: 1px solid rgba(248,241,230,0.14);
-  padding-top: 10px;
-}
-
-.event-meta span {
-  color: var(--flame);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.event-meta b {
-  color: var(--cream);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 900;
-  text-align: right;
-}
-
-.market-dates {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 24px 0;
-}
-
-.market-dates span {
-  background: var(--ember);
-  color: var(--white);
-  border-radius: 4px;
-  padding: 9px 14px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-}
-
-.market-feature {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 24px;
-  align-items: center;
-}
-
-.market-image {
-  min-height: 300px;
-  border-radius: 7px;
-  overflow: hidden;
-  background-image: linear-gradient(rgba(20,20,20,0.04), rgba(20,20,20,0.18)), url("https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a0dac83680de26ee5057b9b_E5-inflatable2.jpg");
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 16px 42px rgba(0,0,0,0.16);
-}
-
-.inline-feature {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
-  gap: 24px;
-  align-items: center;
-}
-
-.inline-image {
-  min-height: 260px;
-  overflow: hidden;
-  border-radius: 7px;
-  box-shadow: 0 16px 42px rgba(0,0,0,0.16);
-}
-
-.inline-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .mini-footer {
-  padding: 38px 58px 48px;
+  padding: 44px 58px 52px;
   text-align: center;
   background: #F2E3CE;
   border-top: 1px solid var(--line);
@@ -574,20 +580,32 @@ img { max-width: 100%; height: auto; display: block; }
 .mini-footer h2 {
   color: var(--ink);
   font-family: 'Montserrat', sans-serif;
-  font-size: 23px;
+  font-size: clamp(24px, 4vw, 42px);
   font-weight: 900;
-  letter-spacing: 0.06em;
+  line-height: 1;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .mini-footer p {
+  max-width: 720px;
+  margin: 0 auto;
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
-@media (max-width: 860px) {
+.mini-footer .signoff {
+  margin-top: 18px;
+  color: var(--ink);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
   .newsletter-page { padding: 18px 0 0; }
   .newsletter-paper {
     width: 100vw;
@@ -597,23 +615,21 @@ img { max-width: 100%; height: auto; display: block; }
     margin-bottom: 28px;
   }
   .nl-hero,
-  .nl-section,
-  .mini-footer { padding-left: 24px; padding-right: 24px; }
-  .nl-hero-note,
+  .nl-split,
+  .nl-split.reverse,
   .nl-grid,
   .nl-grid.three,
-  .nl-stat-row,
   .dates-grid,
-  .event-layout,
-  .market-feature,
-  .inline-feature { grid-template-columns: 1fr; }
-  .event-gallery { grid-template-columns: 1fr; }
-  .camp-price-grid { grid-template-columns: 1fr !important; }
-  .nl-hero-note span {
-    border-right: 0;
-    border-bottom: 1px solid rgba(248,241,230,0.12);
-  }
-  .nl-hero-note span:last-child { border-bottom: 0; }
+  .profile-card { grid-template-columns: 1fr; }
+  .nl-hero { min-height: 0; }
+  .nl-hero-copy,
+  .nl-section,
+  .mini-footer { padding-left: 24px; padding-right: 24px; }
+  .nl-hero-media { min-height: 360px; order: -1; }
+  .nl-hero-media::after { background: linear-gradient(0deg, rgba(28,17,8,0.5), transparent 55%); }
+  .photo-gallery { grid-template-columns: 1fr; }
+  .photo-pair { grid-template-columns: 1fr; }
+  .profile-photo { max-width: 320px; }
 }
 
 @media (max-width: 560px) {
@@ -623,17 +639,20 @@ img { max-width: 100%; height: auto; display: block; }
     margin-left: 0;
     margin-right: 0;
   }
-  .nl-hero { padding-top: 44px; padding-bottom: 42px; }
+  .nl-hero-copy { padding-top: 42px; padding-bottom: 42px; }
   .nl-section { padding-top: 40px; padding-bottom: 40px; }
-  .date-card { grid-template-columns: 1fr; }
-  .date-badge { width: 88px; }
-  .price-row { flex-direction: column; gap: 4px; }
-  .price-row b { text-align: left; }
+  .nl-hero-media { min-height: 300px; }
+  .date-card,
+  .winner-grid { grid-template-columns: 1fr; }
+  .date-badge { width: 94px; }
+  .event-time-card div { flex-direction: column; gap: 3px; }
+  .event-time-card b { text-align: left; }
   .nl-btn { width: 100%; white-space: normal; text-align: center; }
-  .event-meta div { flex-direction: column; gap: 3px; }
-  .event-meta b { text-align: left; }
-  .market-image { min-height: 240px; }
-  .inline-image { min-height: 220px; }
+  .image-card img,
+  .photo-pair .image-card:first-child,
+  .photo-pair .image-card:last-child,
+  .founder-wall,
+  .founder-wall img { min-height: 260px; }
 }
 </style>
 </head>
@@ -649,259 +668,250 @@ img { max-width: 100%; height: auto; display: block; }
 <main class="newsletter-page">
   <article class="newsletter-paper">
     <header class="nl-hero">
-      <p class="nl-kicker">Elemental 5 Summer Newsletter</p>
-      <h1>Summer <span>Is Here!</span></h1>
-      <p class="nl-hero-sub">
-        Price updates, the new gym sponsorship campaign, FibArk Hill Climb, 2026 Ninja Summer Camp availability and pricing, E5 Echo Summer Showcase, and Farmers Market dates for the season ahead.
-      </p>
-      <div class="nl-hero-note" aria-label="Newsletter highlights">
-        <span>New Gym Campaign</span>
-        <span>June Pricing Update</span>
-        <span>Summer Events</span>
+      <div class="nl-hero-copy">
+        <p class="nl-kicker">Elemental 5 July Newsletter</p>
+        <h1>July Is Moving <span>Fast at E5</span></h1>
+        <p class="nl-hero-sub">
+          July is packed with community performances, summer camps, new gym progress, Founding Member updates, Hill Climb highlights, and a few exciting coaching announcements.
+        </p>
+        <div class="nl-tag-row" aria-label="Newsletter highlights">
+          <a href="#july-4">July 4 Performances</a>
+          <a href="#founding-members">Founding Members</a>
+          <a href="#new-gym-progress">New Gym Progress</a>
+          <a href="#summer-camp">Summer Camps</a>
+          <a href="#hill-climb">Hill Climb</a>
+          <a href="#important-dates">Important Dates</a>
+        </div>
+      </div>
+      <div class="nl-hero-media">
+        <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a480adcab4461f3f19ec2a0_1000002542.jpg" alt="Elemental 5 students and coaches in an active community moment">
       </div>
     </header>
 
-    <section class="nl-section priority" id="sponsorship">
-      <p class="nl-kicker">Founding Membership Campaign</p>
-      <h2>Help build the next E5 home.</h2>
-      <p class="nl-intro">
-        Elemental 5 is building a new <strong>6,000 sq ft facility</strong> behind our current location with a target opening of <strong>Fall 2026.</strong> The new gym gives our students a larger training space, a 42x42 spring floor, 25 ft rig points, tramp wall and hot bed, parkour, Elemental Martial Arts, and more room for every E5 program to grow.
-      </p>
-
-      <div class="nl-stat-row">
-        <div class="nl-stat"><b>$86,739</b><span>Campaign Goal</span></div>
-        <div class="nl-stat"><b>$30,500</b><span>Raised So Far</span></div>
-        <div class="nl-stat"><b>$56,239</b><span>Still Needed</span></div>
-        <div class="nl-stat"><b>35%</b><span>Funded</span></div>
-      </div>
-      <div class="nl-progress" aria-label="35 percent funded"><span></span></div>
-
-      <div class="nl-note">
-        <p><strong>Sponsors receive legacy pricing as a thank-you for helping build the new gym.</strong> The campaign also includes a <strong>$25,000 CCCF Enterprise Fund Grant</strong> toward the new facility buildout.</p>
-      </div>
-
-      <h3 class="tier-heading">Family Sponsor Pathway</h3>
-      <div class="nl-grid">
-        <article class="nl-card tier-card" style="--tier:#8FA765;">
-          <h3>Earth Family</h3>
-          <p class="price">$500</p>
-          <p>Name on Founding Member plaque and current rate locked for 2 years at $79/month.</p>
-        </article>
-        <article class="nl-card tier-card" style="--tier:#2A7AB8;">
-          <h3>Water Family</h3>
-          <p class="price">$1,000</p>
-          <p>Includes Earth benefits, 1 free birthday party, priority summer camp booking, 10% off for 5 years, and 1 Special Founders T-shirt.</p>
-        </article>
-        <article class="nl-card tier-card" style="--tier:#C4622D;">
-          <h3>Fire Family</h3>
-          <p class="price">$2,500</p>
-          <p>Includes Water benefits, unlimited open gym for 2 years for 1 athlete, and 1 Classic E5 Hoodie.</p>
-        </article>
-        <article class="nl-card tier-card" style="--tier:#9EC9DA;">
-          <h3>Air Family</h3>
-          <p class="price">$5,000</p>
-          <p>Includes Fire benefits, unlimited open gym for 2 years for 2 athletes, and Special Founders T-shirts for the whole family.</p>
-        </article>
-      </div>
-
-      <h3 class="tier-heading">Business Sponsor Pathway</h3>
-      <div class="nl-grid">
-        <article class="nl-card tier-card" style="--tier:#8FA765;">
-          <h3>Earth Business</h3>
-          <p class="price">$1,000</p>
-          <p>Name on Founding Wall and 1 Special Founders T-shirt with business listed on the back.</p>
-        </article>
-        <article class="nl-card tier-card" style="--tier:#2A7AB8;">
-          <h3>Water Business</h3>
-          <p class="price">$2,500</p>
-          <p>Includes Earth benefits, featured lobby placement, plus social media and website recognition.</p>
-        </article>
-        <article class="nl-card tier-card" style="--tier:#C4622D;">
-          <h3>Fire Business</h3>
-          <p class="price">$5,000</p>
-          <p>Includes Water benefits, logo on Founding Wall, 1 sponsored E5 event, and 5 total T-shirts.</p>
-        </article>
-        <article class="nl-card tier-card" style="--tier:#9EC9DA;">
-          <h3>Air Business</h3>
-          <p class="price">$10,000</p>
-          <p>Includes Fire benefits, logo on Echo materials, named in major announcements for 2 years, and employees receive 10% off all programs for 2 years.</p>
-        </article>
-      </div>
-
-      <div class="nl-btn-row">
-        <a href="/new-gym.html" class="nl-btn">Become a Founding Member</a>
-        <a href="mailto:gym@elementalfive.com?subject=E5%20Sponsorship%20Inquiry" class="nl-btn ghost">Ask About Sponsorship</a>
-      </div>
-    </section>
-
-    <section class="nl-section" id="pricing">
-      <p class="nl-kicker">Pricing Update</p>
-      <h2>Updated pricing is now in effect.</h2>
-      <p class="nl-intro">
-        <strong>As of June 1, our updated pricing is now in effect.</strong> These updates support coaching quality, program development, equipment needs, and the long-term buildout of Elemental 5.
-      </p>
-
-      <div class="price-list">
-        <div class="price-row"><span>Open Gym drop-in</span><b>$25 credit card / $20 cash</b></div>
-        <div class="price-row"><span>Mini Ninja drop-in</span><b>$30 card / $25 cash</b></div>
-        <div class="price-row"><span>60-minute class drop-in</span><b>$35 credit card / $30 cash</b></div>
-        <div class="price-row"><span>90-minute class drop-in</span><b>$45 credit card / $40 cash</b></div>
-        <div class="price-row"><span>Ninja Tot Unlimited</span><b>Varies by season - summer is $40/month</b></div>
-        <div class="price-row"><span>1 hour/week tuition</span><b>$97/month</b></div>
-        <div class="price-row"><span>1.5 hour/week tuition</span><b>$141/month</b></div>
-        <div class="price-row"><span>E5 Echo</span><b>$425/mo</b></div>
-        <div class="price-row"><span>Unlimited Open Gym</span><b>Varies by season - summer is $40/month</b></div>
-      </div>
-
-      <div class="nl-btn-row">
-        <a href="/pricing.html" class="nl-btn alt">View Pricing Page</a>
-      </div>
-    </section>
-
-    <section class="nl-section tinted" id="dates">
+    <section class="nl-section" id="important-dates">
       <p class="nl-kicker">Important Dates</p>
-      <h2>Keep these on the family calendar.</h2>
+      <h2>Important Dates</h2>
       <div class="dates-grid">
         <article class="date-card">
-          <div class="date-badge"><span>Jun</span><b>13</b></div>
-          <div class="date-copy"><h3>Summer Showcase</h3><p>June 13 at 5pm and June 14 at 2pm. Come support E5 Echo and our student performers. Suggested $5 donation.</p></div>
-        </article>
-        <article class="date-card">
-          <div class="date-badge"><span>Jun</span><b>18</b></div>
-          <div class="date-copy"><h3>FibArk Hill Climb</h3><p>6pm start. All evening classes are canceled so families can run, cheer, and support the E5 crew.</p></div>
-        </article>
-        <article class="date-card">
           <div class="date-badge"><span>Jul</span><b>4</b></div>
-          <div class="date-copy"><h3>Riverside Park Show</h3><p>Join us at Riverside Park on July 4 for a community performance with the E5 crew.</p></div>
+          <div class="date-copy"><h3>Parade + Performances</h3><p>Parade plus E5 performances at 2:00 PM and 4:00 PM.</p></div>
         </article>
         <article class="date-card">
-          <div class="date-badge"><span>Jun</span><b>8</b></div>
-          <div class="date-copy"><h3>2026 Ninja Summer Camp</h3><p>Most 2026 Summer Camps are full. Join the waitlist for full sessions or register for the July 13-17 camp while spots remain.</p></div>
+          <div class="date-badge"><span>Jul</span><b>13</b></div>
+          <div class="date-copy"><h3>Summer Camp</h3><p>July 13-17 Summer Camp with open spots available.</p></div>
         </article>
         <article class="date-card">
-          <div class="date-badge"><span>Market</span><b>5</b></div>
-          <div class="date-copy"><h3>Farmers Market Dates</h3><p>June 6, June 20, July 25, August 29, and September 26.</p></div>
+          <div class="date-badge"><span>Jul</span><b>25</b></div>
+          <div class="date-copy"><h3>Farmers Market</h3><p>Find the E5 team at the Farmers Market.</p></div>
+        </article>
+        <article class="date-card">
+          <div class="date-badge"><span>Aug</span><b>29</b></div>
+          <div class="date-copy"><h3>Farmers Market</h3><p>Late-summer Farmers Market appearance.</p></div>
         </article>
         <article class="date-card">
           <div class="date-badge"><span>Sep</span><b>7</b></div>
-          <div class="date-copy"><h3>Gym Closed for Labor Day</h3><p>Elemental 5 is closed on September 7.</p></div>
+          <div class="date-copy"><h3>Labor Day Closure</h3><p>Gym closed for Labor Day.</p></div>
+        </article>
+        <article class="date-card">
+          <div class="date-badge"><span>Sep</span><b>26</b></div>
+          <div class="date-copy"><h3>Farmers Market</h3><p>Fall Farmers Market date with Elemental 5.</p></div>
         </article>
         <article class="date-card">
           <div class="date-badge"><span>Oct</span><b>24</b></div>
-          <div class="date-copy"><h3>Shedfest</h3><p>Performance is tentative while we wait for approval.</p></div>
+          <div class="date-copy"><h3>ShedFest</h3><p>Performance and details are tentative.</p></div>
         </article>
+      </div>
+    </section>
+
+    <section class="nl-section priority" id="july-4">
+      <div class="nl-split">
+        <div>
+          <p class="nl-kicker">July 4 Festivities</p>
+          <h2>Celebrate July 4th with Elemental 5</h2>
+          <p class="nl-intro">
+            Elemental 5 will be part of the July 4th festivities this year. Come cheer on our students and coaches during the parade, then join us for two afternoon performances.
+          </p>
+          <div class="event-time-card" aria-label="July 4 performance times">
+            <div><span>July 4th Performances</span><b>2:00 PM Show</b></div>
+            <div><span>July 4th Performances</span><b>4:00 PM Show</b></div>
+          </div>
+          <p class="nl-intro" style="margin-top:18px;margin-bottom:0;">Expect acrobatics, aerial, tumbling, ninja, and plenty of E5 energy.</p>
+        </div>
+        <figure class="image-card">
+          <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a480a3f115a5163fb2a21f3_4th%20of%20july.png" alt="Elemental 5 July 4 festive community graphic">
+        </figure>
+      </div>
+    </section>
+
+    <section class="nl-section dark" id="founding-members">
+      <div class="nl-split reverse">
+        <figure class="image-card founder-wall">
+          <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a4561ffb07f8f6a5d00ae37_ChatGPT%20Image%20Jul%201%2C%202026%2C%2012_41_36%20PM.png" alt="Founders wall concept for the new Elemental 5 gym">
+        </figure>
+        <div>
+          <p class="nl-kicker">Founding Members Campaign</p>
+          <h2>Founding Members Campaign</h2>
+          <p class="nl-subtitle">Help build the next chapter of Elemental 5.</p>
+          <p class="nl-intro">
+            As we continue preparing for the new Elemental 5 facility, we are launching our Founding Members Campaign to help support the buildout of the new gym.
+          </p>
+          <p class="nl-intro">
+            This campaign gives families, individuals, and local businesses a chance to be permanently recognized as part of the foundation of the new Elemental 5 space.
+          </p>
+          <p>
+            Our goal is not just to build a bigger gym. It is to create a true movement arts center for Salida and Chaffee County, a place where kids train, families gather, performers grow, and the community has access to something truly unique.
+          </p>
+          <div class="nl-btn-row">
+            <a href="/new-gym.html" class="nl-btn">Become a Founding Member</a>
+            <a href="mailto:gym@elementalfive.com?subject=E5%20Sponsorship%20Inquiry" class="nl-btn ghost">Ask About Sponsorship</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="nl-section" id="new-gym-progress">
+      <p class="nl-kicker">New Gym Progress</p>
+      <h2>New Gym Progress</h2>
+      <p class="nl-subtitle">A movement arts center is taking shape.</p>
+      <p class="nl-intro">
+        The new Elemental 5 facility is being designed to support a much wider range of training, performance, and community programming.
+      </p>
+
+      <div class="nl-grid three">
+        <article class="nl-card feature-card" style="--accent:var(--air);">
+          <span class="feature-mark">10</span>
+          <h3>10 Aerial Rig Points</h3>
+          <p>For silks, trapeze, lyra, straps, double trapeze, and more.</p>
+        </article>
+        <article class="nl-card feature-card" style="--accent:var(--earth);">
+          <span class="feature-mark">MA</span>
+          <h3>Dedicated Martial Arts Studio</h3>
+          <p>A studio space above the lobby for a family-friendly mixed martial arts program rooted in Japanese martial traditions. More info coming soon.</p>
+        </article>
+        <article class="nl-card feature-card" style="--accent:var(--water);">
+          <span class="feature-mark">2</span>
+          <h3>Two Trampolines</h3>
+          <p>Including one string-bed trampoline designed for trampoline wall training.</p>
+        </article>
+        <article class="nl-card feature-card" style="--accent:var(--gold);">
+          <span class="feature-mark">PT</span>
+          <h3>Outdoor Parent Patio</h3>
+          <p>An outdoor seating and patio area where parents can relax while kids train.</p>
+        </article>
+        <article class="nl-card feature-card" style="--accent:var(--ember);">
+          <span class="feature-mark">EV</span>
+          <h3>Shows, Competitions & Events</h3>
+          <p>The new gym will become home to dynamic shows, performances, competitions, workshops, and special events.</p>
+        </article>
+        <article class="nl-card feature-card" style="--accent:var(--red);">
+          <span class="feature-mark">TW</span>
+          <h3>Trampoline Wall</h3>
+          <p>Curious what this training style looks like?</p>
+          <div class="nl-btn-row" style="margin-top:16px;">
+            <a href="https://www.youtube.com/watch?v=BIlZz0pQP2Q" target="_blank" rel="noopener" class="nl-btn ghost">What is trampoline wall?</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="photo-gallery" aria-label="New gym progress photos">
+        <figure><img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a4561ffa8db2b1a41c363dd_1000002428.png" alt="Dedicated martial arts studio concept for the new Elemental 5 facility"></figure>
+        <figure><img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a456200bb40835e4e4d065b_1000002374.jpg" alt="New Elemental 5 aerial rig point buildout progress"></figure>
+        <figure><img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a456200f57bcc9bafaa4eae_1000002431.jpg" alt="New Elemental 5 facility framing progress"></figure>
+        <figure><img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a456201d632ae605e0b07be_1000002433.jpg" alt="New gym framing and lobby buildout progress"></figure>
+        <figure><img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a456201c1305307e108156d_1000002426.jpg" alt="Upstairs studio space progress in the new Elemental 5 facility"></figure>
+      </div>
+    </section>
+
+    <section class="nl-section tinted" id="emily-barber">
+      <div class="profile-card">
+        <figure class="profile-photo">
+          <img src="https://cdn.prod.website-files.com/69f8e3496acc67ab27f136aa/69fb7058d7de5624e6cec4f9_Emily%20Headshot-new.jpg" alt="Emily Barber, new aerial coach at Elemental 5">
+        </figure>
+        <div>
+          <p class="nl-kicker">Coach Announcement</p>
+          <h2>Welcome Emily Barber</h2>
+          <p class="nl-subtitle">New Aerial Coach at Elemental 5</p>
+          <p class="nl-intro">
+            We are excited to welcome Emily Barber to the Elemental 5 coaching team as a new aerial coach.
+          </p>
+          <p class="nl-intro">
+            Emily is an international aerial performer and instructor with deep experience in aerial arts, youth coaching, and performance training. She is also the founder of Aerial Aura and Staging Her, a nonprofit dedicated to creating opportunities for women in the global performance community.
+          </p>
+          <p>
+            Emily brings technical knowledge, professionalism, and artistry to the aerial program, and we are excited for our students to learn from her.
+          </p>
+        </div>
       </div>
     </section>
 
     <section class="nl-section dark" id="hill-climb">
-      <div class="event-layout">
-        <div>
-          <p class="nl-kicker">June 18, 2026 - 6pm</p>
-          <h2>FibArk Hill Climb</h2>
-          <p>The Hill Climb is one of our favorite community challenges of the summer. Come run, cheer, or support the E5 crew as we take on the hill together.</p>
-          <div class="event-meta">
-            <div><span>Date</span><b>June 18, 2026</b></div>
-            <div><span>Start Time</span><b>6:00 PM</b></div>
-            <div><span>Classes</span><b>All evening classes canceled</b></div>
-          </div>
-        </div>
-        <div class="event-image">
-          <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/69f50626cfd080fae3b5be7c_Hill%20Climb%202026%20(1).png" alt="FibArk Hill Climb 2026 flyer">
-        </div>
-      </div>
-      <div class="event-gallery" aria-label="FibArk Hill Climb photos">
-        <figure><img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a1ddc3c813f040a39bbc05f_714736101_1656234556112123_8283771452300986293_n.jpg" alt="E5 crew at the FibArk Hill Climb"></figure>
-        <figure><img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a1ddc3cdb2bb1cd8083cb75_710572443_2217382402406057_3193111956971193210_n.jpg" alt="Runners and supporters at the FibArk Hill Climb"></figure>
-        <figure><img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a1ddc3c0b9297720de8a845_710174388_2000190333919020_3074919472447249760_n.jpg" alt="Community gathering for the FibArk Hill Climb"></figure>
-      </div>
-    </section>
-
-    <section class="nl-section" id="riverside-park">
-      <div class="inline-feature">
-        <div>
-          <p class="nl-kicker">July 4 - Riverside Park</p>
-          <h2>Community performance in the park.</h2>
-          <p>Join us at Riverside Park on July 4 for a community performance with the E5 crew.</p>
-        </div>
-        <div class="inline-image">
-          <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a1ddc3d8ce8c61b5267117b_711005168_997567836356301_7193600624725384180_n.jpg" alt="E5 community performance at Riverside Park">
-        </div>
-      </div>
-    </section>
-
-    <section class="nl-section dark" id="showcase">
-      <div class="event-layout">
-        <div>
-          <p class="nl-kicker">E5 Echo - Summer Showcase</p>
-          <h2>Support our student performers.</h2>
-          <p>Come support <strong>E5 Echo</strong> and our student performers at the Summer Showcase.</p>
-          <div class="event-meta">
-            <div><span>Show 1</span><b>June 13 at 5pm</b></div>
-            <div><span>Show 2</span><b>June 14 at 2pm</b></div>
-            <div><span>Admission</span><b>Suggested $5 donation</b></div>
-          </div>
-          <div class="nl-btn-row">
-            <a href="/echo-performance-troupe.html" class="nl-btn ghost">Support E5 Echo</a>
-          </div>
-        </div>
-        <div class="event-image">
-          <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a1ddad33154549e0064faf1_summer%20showcase%202026%20(3).png" alt="Summer Showcase 2026 poster">
-        </div>
-      </div>
-    </section>
-
-    <section class="nl-section" id="camp">
-      <p class="nl-kicker">Summer Camp</p>
-      <h2>2026 Ninja Summer Camp availability.</h2>
+      <p class="nl-kicker">Community Highlight</p>
+      <h2>2026 Hill Climb Highlight</h2>
       <p class="nl-intro">
-        Most 2026 Summer Camps are full. Families may join the waitlist for full camps, and the <strong>July 13-17 camp</strong> is currently open for registration.
+        Elemental 5 had a great time being part of the 2026 Hill Climb energy this year.
       </p>
-      <div style="border:1px solid rgba(31,41,55,0.12);border-radius:6px;padding:18px;margin:20px 0;display:grid;gap:10px;">
-        <div>
-          <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;color:#8A6416;margin-bottom:6px;">Current Pricing</p>
-          <p style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#1F2937;margin-bottom:3px;">$425 full session / $90 per day</p>
-          <p style="font-size:14px;color:rgba(31,41,55,0.72);">A week prior to each camp: $475 full session / $95 per day. Sibling discount included.</p>
-        </div>
-        <div>
-          <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;color:#8A6416;margin-bottom:6px;">Camp Time</p>
-          <p style="font-size:14px;color:rgba(31,41,55,0.72);">9:00 AM-3:00 PM. Early drop-off and late pickup available for an additional fee.</p>
-        </div>
-      </div>
-      <div class="event-meta">
-        <div><span>June 8-12</span><b>Full / Waitlist available</b></div>
-        <div><span>June 22-26</span><b>Full / Waitlist available</b></div>
-        <div><span>July 6-10</span><b>Full / Waitlist available</b></div>
-        <div style="border-color:rgba(47,107,79,0.35);background:rgba(47,107,79,0.08);"><span>July 13-17</span><b>Open / Register Now</b></div>
-        <div><span>July 27-31</span><b>Full / Waitlist available</b></div>
-        <div><span>August 3-7</span><b>Full / Waitlist available</b></div>
-      </div>
-      <div class="nl-btn-row">
-        <a href="https://portal.iclasspro.com/elemental5/booking/wizard-question-01?typeId=1&next=camps&nextTitle=Ninja%20Summer%20Camp&pluralTitle=Ninja%20Summer%20Camps&sortBy=name" target="_blank" class="nl-btn">Join Waitlist or Register</a>
+      <p class="nl-intro">
+        Events like this remind us how much movement, grit, and community spirit exist in Salida. We love seeing our students and families participate in local events that celebrate challenge, courage, and the outdoors.
+      </p>
+      <div class="photo-gallery" aria-label="2026 Hill Climb photo gallery">
+        <figure><img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a4561fec15c3dd5fe0772e9_1000002614.jpg" alt="Elemental 5 families and coaches at the 2026 Hill Climb"></figure>
+        <figure><img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a4561fe8bc91efbd77e16c2_1000002613.jpg" alt="Elemental 5 movement moment during the 2026 Hill Climb event"></figure>
       </div>
     </section>
 
-    <section class="nl-section tinted" id="farmers-market">
-      <div class="market-feature">
-        <div class="market-image" role="img" aria-label="E5 inflatable bounce house at a community event"></div>
+    <section class="nl-section" id="summer-camp">
+      <div class="nl-split">
         <div>
-          <p class="nl-kicker">Farmers Market</p>
-          <h2>Bounce house season.</h2>
-          <p>Our inflatable bounce house will be the main feature of our Farmers Market presence this summer. Stop by, let the kids move, and say hi to the E5 team. These market dates will also help support and complement aerial demonstrations by E5 Echo.</p>
-          <div class="market-dates">
-            <span>June 6</span>
-            <span>June 20</span>
-            <span>July 25</span>
-            <span>August 29</span>
-            <span>September 26</span>
+          <p class="nl-kicker">Summer Camp Update</p>
+          <h2>Summer Camp Update</h2>
+          <p class="nl-subtitle">Teamwork, points, movement, and a lot of E5 energy.</p>
+          <p class="nl-intro">
+            Our summer camps have been full of movement, teamwork, challenges, and a lot of fun.
+          </p>
+          <p class="nl-intro">
+            Each camp session is built around team-based points that encourage students to stay engaged throughout the day. Campers earn points through games, challenges, effort, teamwork, obstacle courses, speed rounds, and positive participation.
+          </p>
+          <p>
+            The goal is healthy competition, not just winning, but learning how to support a team, stay involved, and keep showing up with energy.
+          </p>
+          <div class="winner-grid">
+            <div class="winner-card" style="--accent:var(--red);"><span>Session 1 Winner</span><b>Fire Team</b></div>
+            <div class="winner-card" style="--accent:var(--air);"><span>Session 2 Winner</span><b>Air Team</b></div>
           </div>
-          <p>Donations are welcome and help support the new facility and equipment campaign.</p>
         </div>
+        <figure class="image-card">
+          <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a4562001f90379654844b97_1000002587.jpg" alt="Elemental 5 summer camp students celebrating a team challenge">
+        </figure>
+      </div>
+    </section>
+
+    <section class="nl-section callout" id="camp-openings">
+      <p class="nl-kicker">Registration Callout</p>
+      <h2>Summer Camp Spots Still Open</h2>
+      <p class="nl-intro">
+        We still have open spots for our <strong>July 13-17 Summer Camp</strong>.
+      </p>
+      <p class="nl-intro">
+        This is a great option for kids who want a full week of movement, games, ninja, tumbling, teamwork, and E5-style challenges.
+      </p>
+      <p>
+        Spots are limited, so families should register soon if they want to join.
+      </p>
+      <div class="nl-btn-row">
+        <a href="https://portal.iclasspro.com/elemental5/booking/wizard-question-01?typeId=1&next=camps&nextTitle=Ninja%20Summer%20Camp&pluralTitle=Ninja%20Summer%20Camps&sortBy=name" target="_blank" rel="noopener" class="nl-btn">Register for July 13-17 Camp</a>
       </div>
     </section>
 
     <footer class="mini-footer">
-      <h2>Stronger bodies. Sharper minds. Better people.</h2>
-      <p>Thank you for helping build the summer rhythm, the new facility, and the next chapter of Elemental 5.</p>
+      <h2>Thank You, E5 Families</h2>
+      <p>
+        Every camp, class, show, and event reminds us that Elemental 5 is becoming something bigger than a weekly activity.
+      </p>
+      <p>
+        It is a training ground, a community, and a place where kids learn to become stronger, braver, more focused, and more connected.
+      </p>
+      <p>Thank you for being part of it.</p>
+      <p class="signoff">The Elemental 5 Team</p>
     </footer>
   </article>
 </main>
