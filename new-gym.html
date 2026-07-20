@@ -12,18 +12,18 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>New Facility and Founding Membership | Elemental 5 Salida</title>
-<meta name="description" content="Elemental 5 is building a new 6,000 sq ft facility in Salida, CO opening Fall 2026. Become a founding member and lock in your rate before we open.">
+<title>New Facility Sponsorship | Elemental 5 Salida</title>
+<meta name="description" content="Help Elemental 5 build a new 6,000 sq ft movement arts facility in Salida. Explore Family Founder and Business Sponsor opportunities.">
 <link rel="canonical" href="https://www.elementalfive.com/new-gym.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.elementalfive.com/new-gym.html">
-<meta property="og:title" content="New Facility and Founding Membership | Elemental 5 Salida">
-<meta property="og:description" content="Elemental 5 is building a new 6,000 sq ft facility in Salida, CO opening Fall 2026. Become a founding member and lock in your rate before we open.">
+<meta property="og:title" content="New Facility Sponsorship | Elemental 5 Salida">
+<meta property="og:description" content="Help Elemental 5 build a new 6,000 sq ft movement arts facility in Salida. Explore Family Founder and Business Sponsor opportunities.">
 <meta property="og:image" content="https://lh3.googleusercontent.com/d/155o1BEs3LapebHNoTRi36Gy9b83IJTIa">
 <meta property="og:site_name" content="Elemental 5">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="New Facility and Founding Membership | Elemental 5 Salida">
-<meta name="twitter:description" content="Elemental 5 is building a new 6,000 sq ft facility in Salida, CO opening Fall 2026. Become a founding member and lock in your rate before we open.">
+<meta name="twitter:title" content="New Facility Sponsorship | Elemental 5 Salida">
+<meta name="twitter:description" content="Help Elemental 5 build a new 6,000 sq ft movement arts facility in Salida. Explore Family Founder and Business Sponsor opportunities.">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -802,6 +802,49 @@ html, body {
 
 .conversion-trigger-btn:hover { background: var(--ember); transform: translateY(-2px); box-shadow: 0 18px 32px rgba(14,8,4,0.24); }
 
+.sponsor-paths {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.sponsor-path {
+  padding: 18px 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 5px;
+  background: rgba(14,8,4,0.2);
+}
+
+.sponsor-path p {
+  min-height: 62px;
+  margin-bottom: 14px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.84);
+}
+
+.sponsor-path .conversion-trigger-btn { width: 100%; }
+
+.benefit-note {
+  margin-top: 12px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--gold);
+  background: rgba(196,146,42,0.08);
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--fog);
+}
+
+.permanence-note {
+  margin-top: 14px;
+  font-size: 11px !important;
+  color: rgba(240,210,160,0.62) !important;
+}
+
 /* Custom contribution */
 .custom-contrib {
   background:
@@ -1425,6 +1468,8 @@ html, body {
 }
 
 @media (max-width: 560px) {
+  .sponsor-paths { grid-template-columns: 1fr; }
+  .sponsor-path p { min-height: 0; }
   .founder-tier-header {
     flex-direction: column;
     gap: 12px;
@@ -1578,9 +1623,18 @@ html, body {
   <div class="conversion-trigger">
     <div class="conversion-trigger-text">
       <h3>Help us reach 50% funded.</h3>
-      <p>Founding members are how we get there. Founding Member and sponsorship opportunities remain open as we build toward the new facility.</p>
+      <p>Founding Supporters are how we get there. Choose the path that fits you.</p>
     </div>
-    <a href="#founding" class="conversion-trigger-btn">Become a Founding Member →</a>
+    <div class="sponsor-paths" aria-label="Sponsorship paths">
+      <div class="sponsor-path">
+        <p><strong>Family Founders</strong> receive discounted programming, permanent founding recognition, and additional member benefits.</p>
+        <a href="#family-founders" class="conversion-trigger-btn">Become a Family Founder</a>
+      </div>
+      <div class="sponsor-path">
+        <p><strong>Business Sponsors</strong> receive permanent founding recognition, promotional visibility, and community sponsorship benefits.</p>
+        <a href="#business-sponsors" class="conversion-trigger-btn">Become a Business Sponsor</a>
+      </div>
+    </div>
   </div>
 
 </section>
@@ -1635,9 +1689,9 @@ html, body {
 
 <div class="section-divider"></div>
 
-<!-- ── FOUNDING MEMBERSHIP ── -->
+<!-- ── FOUNDING SUPPORTERS ── -->
 <section class="founding-section" id="founding">
-  <p class="section-label">Founding Membership · Limited Spots Available</p>
+  <p class="section-label">Founding Supporters · Limited Opportunities Available</p>
   <h2 class="section-headline" style="font-size:clamp(32px,4vw,56px);">Join what<br><em>Salida builds.</em></h2>
 
   <div class="founding-grid">
@@ -1647,11 +1701,11 @@ html, body {
       <h3 class="founding-headline">Become part of it — permanently.</h3>
       <p class="founding-desc">
         E5 is not a gym. It is a development system — one that uses movement as the vehicle and character as the destination. The new facility is where that system runs at full scale.
-        <strong>Founding members don't just support this. They become part of it — permanently.</strong>
+        <strong>Founding Supporters don't just support this. They become part of it — permanently.</strong>
       </p>
       <p class="founding-desc" style="margin-top:8px;">
-        Sponsors receive legacy pricing as a thank-you for helping build the new gym. Their names stay in this building.
-        <strong>Families and businesses can become sponsors at any point during the campaign.</strong>
+        <strong>Family Founders receive discounted programming and permanent founding recognition. Business Sponsors receive founding recognition, promotional visibility, and community partnership benefits.</strong>
+        Both paths remain open throughout the campaign.
       </p>
     </div>
 
@@ -1664,12 +1718,12 @@ html, body {
         <em style="color:var(--cream);">"Stronger bodies. Sharper minds. Better people."</em>
       </p>
       <p style="font-size:13px;color:var(--fog);line-height:1.75;margin-bottom:20px;">
-        No facility like this exists within driving distance of Salida. When it opens, it becomes a regional asset — the kind of infrastructure families consider when deciding where to plant roots.
+        The new Elemental 5 facility will bring acrobatics, aerial arts, trampoline, tumbling, parkour, martial arts, performance training, and community programming together in one dedicated movement arts center serving the Upper Arkansas Valley.
       </p>
       <div class="pdf-link-row">
-        <p>Full tier details, naming rights, and the complete case for this facility are in our overview document.</p>
+        <p>Review the itemized project and equipment costs behind the facility expansion.</p>
         <a href="https://67b7281f-1abe-4e28-913a-475047794dcc.usrfiles.com/ugd/221b20_8e6ef64e825649d79928980b3a37257b.pdf"
-           target="_blank" class="pdf-link">Download Facility Overview PDF →</a>
+           target="_blank" class="pdf-link">View the Facility Expansion Budget →</a>
       </div>
     </div>
 
@@ -1677,32 +1731,33 @@ html, body {
 
   <div class="founders-wall-feature">
     <div class="founders-wall-copy">
-      <p class="founders-wall-kicker">Permanent Recognition</p>
-      <h3 class="founders-wall-title">Founding Members Wall</h3>
-      <p>The new gym will include a Founding Members Wall recognizing the families, individuals, and local businesses who help bring this vision to life. This display will become a permanent part of the facility — a visual reminder of the community that helped build the future of movement arts in Salida.</p>
+      <p class="founders-wall-kicker">See Your Impact</p>
+      <h3 class="founders-wall-title">Become Part of the New Facility</h3>
+      <p>Founding Supporters will be recognized through permanent displays, custom placards, business signage, and other visible placements throughout the new gym.</p>
+      <p class="permanence-note">Permanent recognition refers to placement on the original Founding Wall or designated founding display for the life of this facility.</p>
     </div>
     <div class="founders-wall-visual">
-      <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a4561ffb07f8f6a5d00ae37_ChatGPT%20Image%20Jul%201%2C%202026%2C%2012_41_36%20PM.png" alt="Founding Members Wall mockup for the new Elemental 5 gym">
+      <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a4561ffb07f8f6a5d00ae37_ChatGPT%20Image%20Jul%201%2C%202026%2C%2012_41_36%20PM.png" alt="Founding Wall recognition concept for the new Elemental 5 facility">
     </div>
   </div>
 
   <div class="founder-section">
     <div class="founder-section-header">
       <div>
-        <p class="section-label">Founding Tiers</p>
-        <h3 class="founder-section-title">Founding Membership<br><em>Opportunities</em></h3>
+        <p class="section-label">Supporter Tiers</p>
+        <h3 class="founder-section-title">Choose Your<br><em>Path</em></h3>
       </div>
-      <p class="founder-section-subtitle">Help build the next home for Elemental 5 while receiving lifetime recognition and founder perks.</p>
+      <p class="founder-section-subtitle">Help build the next home for Elemental 5 and see clearly what your support receives in return.</p>
     </div>
 
     <div class="founder-grid">
-      <div class="founder-panel">
+      <div class="founder-panel" id="family-founders">
         <div class="founder-panel-heading">
           <div>
             <p class="founder-panel-kicker">For E5 families</p>
-            <h4 class="founder-panel-title">Family Founding Membership</h4>
+            <h4 class="founder-panel-title">Family Founders</h4>
           </div>
-          <p class="founder-panel-note">Lock in rates, claim founder perks, and put your family name in the new facility.</p>
+          <p class="founder-panel-note">Access former tuition rates, receive family benefits, and put your family name in the new facility.</p>
         </div>
 
         <div class="founder-tier-list">
@@ -1719,7 +1774,7 @@ html, body {
               <li>Unlimited open gym 2 years, 2 athletes</li>
               <li>Special Founders T-shirts for the whole family</li>
             </ul>
-            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-3546d132a73e44fd9951af51ac7d318bde5e21a3fe7542549ebf327e49118418a3815e6829d94e17ad20413efeb95a16?locale=EN_US" target="_blank" class="founder-cta">Join Air Family</a>
+            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-3546d132a73e44fd9951af51ac7d318bde5e21a3fe7542549ebf327e49118418a3815e6829d94e17ad20413efeb95a16?locale=EN_US" target="_blank" class="founder-cta">Become an Air Family Founder</a>
           </article>
 
           <article class="founder-tier-card founder-tier-fire">
@@ -1735,7 +1790,7 @@ html, body {
               <li>Unlimited open gym 2 years, 1 athlete</li>
               <li>1 Classic E5 Hoodie</li>
             </ul>
-            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-1019ca3b9874433787c286909575e51cccf2a37cd3a34dfca592d1fac7a097ed079f8151f2a24ebcaa58685e4bd63f9d?locale=EN_US" target="_blank" class="founder-cta">Join Fire Family</a>
+            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-1019ca3b9874433787c286909575e51cccf2a37cd3a34dfca592d1fac7a097ed079f8151f2a24ebcaa58685e4bd63f9d?locale=EN_US" target="_blank" class="founder-cta">Become a Fire Family Founder</a>
           </article>
 
           <article class="founder-tier-card founder-tier-water">
@@ -1750,9 +1805,10 @@ html, body {
               <li>Includes Earth benefits</li>
               <li>1 free birthday party</li>
               <li>Priority summer camp booking</li>
-              <li>10% off for 5 years and 1 Special Founders T-shirt</li>
+              <li>Approximately 20% off eligible E5 programming for 2 years through access to former tuition rates</li>
+              <li>1 Special Founders T-shirt</li>
             </ul>
-            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-75551c5791594299a2e77444d9fe7ce922f9fbc101f44027ae6713cd859aa4a5febe52cda3d44defb81c141320370685?locale=EN_US" target="_blank" class="founder-cta">Join Water Family</a>
+            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-75551c5791594299a2e77444d9fe7ce922f9fbc101f44027ae6713cd859aa4a5febe52cda3d44defb81c141320370685?locale=EN_US" target="_blank" class="founder-cta">Become a Water Family Founder</a>
           </article>
 
           <article class="founder-tier-card founder-tier-earth">
@@ -1764,22 +1820,25 @@ html, body {
               <p class="founder-price">$500</p>
             </div>
             <ul class="founder-benefits">
-              <li>Name on Founding Member plaque</li>
-              <li>Current rate locked 2 years, $79/mo</li>
+              <li>Family name on the original Founding Wall or founding display for the life of this facility</li>
+              <li>Approximately 20% off eligible E5 programming for 2 years from the date of donation through access to E5's former tuition rates</li>
+              <li>Former one-hour weekly tuition was $79/month</li>
             </ul>
-            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-29ab21a210e0480eb72f5566f576d66baaf019746bce49ec8f29439e4419b7839ff9b234097a486a9172af8dde2ef440?locale=EN_US" target="_blank" class="founder-cta">Join Earth Family</a>
+            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-29ab21a210e0480eb72f5566f576d66baaf019746bce49ec8f29439e4419b7839ff9b234097a486a9172af8dde2ef440?locale=EN_US" target="_blank" class="founder-cta">Become an Earth Family Founder</a>
           </article>
         </div>
+        <p class="benefit-note">Family Founder pricing begins on the date of donation and applies according to the structure and tuition level of the selected eligible program. The $79/month rate is an example of former one-hour weekly tuition, not a universal program price.</p>
       </div>
 
-      <div class="founder-panel">
+      <div class="founder-panel" id="business-sponsors">
         <div class="founder-panel-heading">
           <div>
             <p class="founder-panel-kicker">For local businesses</p>
-            <h4 class="founder-panel-title">Business Founding Membership</h4>
+            <h4 class="founder-panel-title">Business Sponsorship Opportunities</h4>
           </div>
-          <p class="founder-panel-note">Put your name on what Salida builds and support a facility families will use for years.</p>
+          <p class="founder-panel-note">Build a long-term association with a facility Upper Arkansas Valley families will use for years.</p>
         </div>
+        <p class="benefit-note" style="margin-top:0;margin-bottom:20px;">Local businesses can help build a permanent movement arts facility for the Upper Arkansas Valley while receiving meaningful recognition inside the new gym and throughout the E5 community.</p>
 
         <div class="founder-tier-list">
           <article class="founder-tier-card founder-tier-air">
@@ -1794,9 +1853,10 @@ html, body {
               <li>Includes Fire benefits</li>
               <li>Logo on Echo materials</li>
               <li>Named in all major announcements for 2 years</li>
-              <li>Employees receive 10% off all programs for 2 years</li>
+              <li>Premier website, social media, and event recognition</li>
+              <li>Custom facility or program sponsorship opportunity</li>
             </ul>
-            <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Business%20Air%20Founding%20Membership%20%E2%80%94%20%2410%2C000" target="_blank" class="founder-cta">Talk About Air</a>
+            <a href="mailto:gym@elementalfive.com?subject=Air%20Business%20Sponsorship%20Inquiry%20%E2%80%94%20%2410%2C000" class="founder-cta">Discuss Air Sponsorship</a>
           </article>
 
           <article class="founder-tier-card founder-tier-fire">
@@ -1813,7 +1873,7 @@ html, body {
               <li>1 sponsored E5 event</li>
               <li>5 total T-shirts</li>
             </ul>
-            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-6b8dac17021b4b84a300ce9865dee0e883a16e745daf4693a012c12e521dd63a5435fb5bf20841a0bb5f66987fa7b3f3?locale=EN_US" target="_blank" class="founder-cta">Join Fire Business</a>
+            <a href="mailto:gym@elementalfive.com?subject=Fire%20Business%20Sponsorship%20Inquiry%20%E2%80%94%20%245%2C000" class="founder-cta">Discuss Fire Sponsorship</a>
           </article>
 
           <article class="founder-tier-card founder-tier-water">
@@ -1829,22 +1889,22 @@ html, body {
               <li>Featured lobby placement</li>
               <li>Social media and website recognition</li>
             </ul>
-            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-ee09265ba27543ff91981fb4980b83d043379c28053c4b75915bbe38d3fa620dbf0ad6e23c5c46a19ce5a1a01d91c643?locale=EN_US" target="_blank" class="founder-cta">Join Water Business</a>
+            <a href="mailto:gym@elementalfive.com?subject=Water%20Business%20Sponsorship%20Inquiry%20%E2%80%94%20%242%2C500" class="founder-cta">Discuss Water Sponsorship</a>
           </article>
 
           <article class="founder-tier-card founder-tier-earth">
             <div class="founder-tier-header">
               <div>
                 <h5 class="founder-tier-name">Earth</h5>
-                <p class="founder-tier-best">Business founder name</p>
+                <p class="founder-tier-best">Business Sponsor recognition</p>
               </div>
               <p class="founder-price">$1,000</p>
             </div>
             <ul class="founder-benefits">
-              <li>Name on Founding Wall</li>
+              <li>Business name on the original Founding Wall or founding display for the life of this facility</li>
               <li>1 Special Founders T-shirt with your business listed on the back</li>
             </ul>
-            <a href="https://connect.intuit.com/portal/app/CommerceNetwork/view/scs-v1-31700014db9d47cda081428fd7da18f4a3e739f027cb4657a31410933892d5fa93c0ba3d346b4f21b151f5685b00e056?locale=EN_US" target="_blank" class="founder-cta">Join Earth Business</a>
+            <a href="mailto:gym@elementalfive.com?subject=Earth%20Business%20Sponsorship%20Inquiry%20%E2%80%94%20%241%2C000" class="founder-cta">Discuss Earth Sponsorship</a>
           </article>
         </div>
       </div>
@@ -1858,7 +1918,7 @@ html, body {
       <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Not sure which tier is right?</p>
       <p><strong>Make a custom contribution.</strong> Any amount moves this forward. Reach out and we'll find the right fit together.</p>
     </div>
-    <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Custom%20Contribution%20%E2%80%94%20E5%20New%20Facility" target="_blank" class="custom-contrib-btn">Contribute Any Amount →</a>
+    <a href="mailto:gym@elementalfive.com?subject=Custom%20Contribution%20%E2%80%94%20E5%20New%20Facility" class="custom-contrib-btn">Contribute a Custom Amount →</a>
   </div>
 
 </section>
@@ -1875,18 +1935,18 @@ html, body {
     <div class="support-card">
       <h4>Make a custom contribution</h4>
       <p>Not ready to commit to a tier? Any contribution directly supports the new facility build. Reach out and we'll make it work.</p>
-      <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Custom%20Contribution%20%E2%80%94%20E5%20New%20Facility" target="_blank" class="support-link">Get in touch →</a>
+      <a href="mailto:gym@elementalfive.com?subject=Custom%20Contribution%20%E2%80%94%20E5%20New%20Facility" class="support-link">Contribute a Custom Amount →</a>
     </div>
 
     <div class="support-card">
       <h4>Sponsor a space</h4>
       <p>Businesses can sponsor naming rights, equipment, or program spaces in the new facility. Custom packages available beyond the founding tiers.</p>
-      <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com&su=Sponsorship%20Inquiry" target="_blank" class="support-link">Start the conversation →</a>
+      <a href="mailto:gym@elementalfive.com?subject=Business%20Sponsorship%20Inquiry" class="support-link">Discuss a Business Sponsorship →</a>
     </div>
 
     <div class="support-card">
       <h4>Spread the word</h4>
-      <p>Share what E5 is building with your community. Every family who hears about this is a potential founding member.</p>
+      <p>Share what E5 is building with your community. Every family who hears about this is a potential Family Founder.</p>
       <div style="display:flex;gap:12px;margin-top:4px;">
         <a href="https://www.facebook.com/elemental5.ninfit" target="_blank" class="support-link">Facebook →</a>
         <a href="https://www.instagram.com/elemental5_ninja/#" target="_blank" class="support-link">Instagram →</a>
