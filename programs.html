@@ -575,11 +575,29 @@
     padding: 80px 72px;
   }
 
-  .supp-grid {
+  .supplemental-inner {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .events-layout {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-    margin-top: 40px;
+    grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+    align-items: start;
+  }
+
+  .events-left-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+  }
+
+  .events-right {
+    display: grid;
     align-items: start;
   }
 
@@ -591,7 +609,7 @@
       linear-gradient(135deg, rgba(255,255,255,0.38), rgba(255,255,255,0.08) 46%),
       linear-gradient(180deg, #D6E2EA, #C5D7E0);
     border-radius: 4px;
-    padding: 28px 28px 32px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -619,25 +637,25 @@
     box-shadow: 0 16px 32px rgba(14,26,36,0.1);
   }
 
-  .supp-card:nth-child(2) {
+  .supp-homeschool {
     background:
       linear-gradient(135deg, rgba(255,255,255,0.38), rgba(255,255,255,0.08) 46%),
       linear-gradient(180deg, #D8D9C8, #C7D0B9);
   }
 
-  .supp-card:nth-child(3) {
+  .supp-camp {
     background:
       linear-gradient(135deg, rgba(255,255,255,0.38), rgba(255,255,255,0.08) 46%),
       linear-gradient(180deg, #DDD2B8, #D1BD8F);
   }
 
-  .supp-card:nth-child(4) {
+  .supp-parties {
     background:
       linear-gradient(135deg, rgba(255,255,255,0.38), rgba(255,255,255,0.08) 46%),
       linear-gradient(180deg, #DECBC3, #D8B8AD);
   }
 
-  .supp-card:nth-child(5) {
+  .supp-showcase {
     background:
       linear-gradient(135deg, rgba(255,255,255,0.38), rgba(255,255,255,0.08) 46%),
       linear-gradient(180deg, #DBDAD4, #C9CBC7);
@@ -866,10 +884,22 @@
     .hero-right { border-radius: 4px; }
     .programs-grid { grid-template-columns: 1fr; }
     .advanced-grid { grid-template-columns: 1fr; }
-    .supp-grid { grid-template-columns: 1fr; }
+    .events-layout { grid-template-columns: 1fr; }
     .section-header { flex-direction: column; align-items: flex-start; }
     .header-note { text-align: left; max-width: 100%; }
     .cta-section { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 640px) {
+    .supplemental-section { padding-top: 56px; padding-bottom: 56px; }
+    .events-layout { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
+    .events-left-grid, .events-right { display: contents; }
+    .supp-card { width: 100%; padding: 24px; }
+    .supp-open { order: 1; }
+    .supp-homeschool { order: 2; }
+    .supp-camp { order: 3; }
+    .supp-parties { order: 4; }
+    .supp-showcase { order: 5; }
   }
 </style>
 </head>
@@ -1139,23 +1169,53 @@
 
 <!-- 4. SUPPLEMENTAL -->
 <section class="supplemental-section">
-  <p class="section-label">More Ways to Train</p>
-  <h2 class="section-headline" style="font-size: clamp(28px, 3.5vw, 48px);">Open gym, camps,<br><em>and events.</em></h2>
+  <div class="supplemental-inner">
+    <p class="section-label">More Ways to Train</p>
+    <h2 class="section-headline" style="font-size: clamp(28px, 3.5vw, 48px);">Open gym, camps,<br><em>and events.</em></h2>
 
-  <div class="supp-grid">
+    <div class="events-layout">
+      <div class="events-left-grid">
 
-    <div class="supp-card">
-      <h4 class="supp-name">Open Gym</h4>
-      <p class="supp-desc">Open Gym availability changes seasonally. Check the schedule or student portal for current times.</p>
-    </div>
+        <div class="supp-card supp-open">
+          <h4 class="supp-name">Open Gym</h4>
+          <p class="supp-desc">Open Gym availability changes seasonally. Check the schedule or student portal for current times.</p>
+        </div>
 
-    <div class="supp-card">
-      <h4 class="supp-name">Homeschool and Specialty</h4>
-      <p class="supp-desc">Specialized group programs tailored for homeschool co-ops and other groups based on interest and availability. Contact us to learn more about scheduling and options.</p>
-      <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com" target="_blank" class="supp-link">Contact us →</a>
-    </div>
+        <div class="supp-card supp-homeschool">
+          <h4 class="supp-name">Homeschool and Specialty</h4>
+          <p class="supp-desc">Specialized group programs tailored for homeschool co-ops and other groups based on interest and availability. Contact us to learn more about scheduling and options.</p>
+          <a href="https://mail.google.com/mail/?view=cm&to=gym@elementalfive.com" target="_blank" class="supp-link">Contact us →</a>
+        </div>
 
-    <div class="supp-card">
+        <div class="supp-card supp-parties">
+          <h4 class="supp-name">Birthday Parties and Special Events</h4>
+          <p class="supp-desc">Let us help you celebrate. Our basic party package includes gym rental, equipment access, and a coached experience your guests will not forget.</p>
+          <div class="party-pricing">
+            <div class="pricing-row">
+              <span class="pricing-label">Base package (1.5 hrs, up to 15 guests)</span>
+              <span class="pricing-val">$200</span>
+            </div>
+            <div class="pricing-row">
+              <span class="pricing-label">Additional time (per extra half hour)</span>
+              <span class="pricing-val">$50</span>
+            </div>
+            <div class="pricing-row">
+              <span class="pricing-label">Additional guests (per person, max 25 total)</span>
+              <span class="pricing-val">$10</span>
+            </div>
+            <p class="party-note">Tables and chairs included. Special requests considered. Parents assisting or observing are not counted as guests.</p>
+          </div>
+          <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="supp-link">Book your party →</a>
+        </div>
+
+        <div class="supp-card supp-showcase">
+          <h4 class="supp-name">E5 Echo Showcase</h4>
+          <p class="supp-desc">Join us June 13 and 14 to watch our performance troupe take the floor. Two nights of movement, artistry, and everything E5 has been building toward.</p>
+        </div>
+      </div>
+
+      <div class="events-right">
+        <div class="supp-card supp-camp">
       <h4 class="supp-name">2026 Ninja Summer Camp</h4>
       <p class="supp-desc">Most camps are full, but waitlists are open. The July 13-17 camp still has available spots.</p>
       <div class="party-pricing" style="margin-top:10px;">
@@ -1182,34 +1242,9 @@
         </div>
       </div>
       <a href="https://portal.iclasspro.com/elemental5/booking/wizard-question-01?typeId=1&next=camps&nextTitle=Ninja%20Summer%20Camp&pluralTitle=Ninja%20Summer%20Camps&sortBy=name" target="_blank" class="supp-link">Join waitlist or register →</a>
-    </div>
-
-    <div class="supp-card">
-      <h4 class="supp-name">Birthday Parties and Special Events</h4>
-      <p class="supp-desc">Let us help you celebrate. Our basic party package includes gym rental, equipment access, and a coached experience your guests will not forget.</p>
-      <div class="party-pricing">
-        <div class="pricing-row">
-          <span class="pricing-label">Base package (1.5 hrs, up to 15 guests)</span>
-          <span class="pricing-val">$200</span>
         </div>
-        <div class="pricing-row">
-          <span class="pricing-label">Additional time (per extra half hour)</span>
-          <span class="pricing-val">$50</span>
-        </div>
-        <div class="pricing-row">
-          <span class="pricing-label">Additional guests (per person, max 25 total)</span>
-          <span class="pricing-val">$10</span>
-        </div>
-        <p class="party-note">Tables and chairs included. Special requests considered. Parents assisting or observing are not counted as guests.</p>
       </div>
-      <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="supp-link">Book your party →</a>
     </div>
-
-    <div class="supp-card">
-      <h4 class="supp-name">E5 Echo Showcase</h4>
-      <p class="supp-desc">Join us June 13 and 14 to watch our performance troupe take the floor. Two nights of movement, artistry, and everything E5 has been building toward.</p>
-    </div>
-
   </div>
 </section>
 
