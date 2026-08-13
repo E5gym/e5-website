@@ -140,7 +140,13 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 24px;
 }
 
-.nl-hero h1 span { color: var(--flame); display: block; }
+.nl-hero h1 span {
+  display: block;
+  color: var(--flame);
+  font-size: clamp(38px, 0.78em, 68px);
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
 
 .nl-hero-sub {
   max-width: 640px;
@@ -972,7 +978,7 @@ img { max-width: 100%; height: auto; display: block; }
     <header class="nl-hero">
       <div class="nl-hero-copy">
         <p class="nl-kicker">Elemental 5 August 2026 Newsletter</p>
-        <h1>Summer Energy. <span>Fall Momentum.</span></h1>
+        <h1>Summer Energy. <span>Fall Momentum</span></h1>
         <p class="nl-hero-sub">As we wrap up a summer full of movement, we’re looking ahead to fall, welcoming Abby to the E5 team, and approaching the transition into our new home.</p>
         <div class="nl-tag-row" aria-label="Newsletter highlights">
           <a href="#important-dates-august">Important Dates</a><a href="#september-schedule">September Schedule</a><a href="#summer-highlights">Summer Highlights</a><a href="#abby-armstrong">Meet Abby</a><a href="#new-e5">New Gym</a>
