@@ -64,6 +64,8 @@ h1 em, .headline em { font-style:normal; color:var(--flame); }
 .relationship .card:nth-child(2) { border-top-color:var(--gold); }
 .relationship .card h3 { color:#fff; }
 .relationship .card p, .relationship .card li { color:rgba(255,255,255,0.72); }
+.relationship .card .partner-logo { display:block; max-width:260px; height:auto; margin-bottom:12px; }
+.relationship .card .partner-logo-wrap { display:flex; align-items:center; }
 .cta { background:#CC1F1F; color:#fff; padding:72px; display:flex; justify-content:space-between; align-items:center; gap:32px; flex-wrap:wrap; }
 .cta h2 { font-family:'Montserrat',sans-serif; font-size:clamp(30px,4vw,50px); font-weight:900; text-transform:uppercase; line-height:1; }
 .cta p { color:rgba(255,255,255,0.82); max-width:560px; margin-top:14px; }
@@ -159,10 +161,16 @@ h1 em, .headline em { font-style:normal; color:var(--flame); }
       <p class="body-copy" style="margin-top:16px;">Salida Circus is our nonprofit community partner, helping expand access and create additional circus opportunities through scholarships, grants, performances, visiting artists, cultural exchange, and community connections.</p>
       <div class="relationship">
         <article class="card">
+          <div class="partner-logo-wrap">
+            <img src="/E5_Logo_FullLockUp_021224%20(2).png" alt="Elemental 5 logo" class="partner-logo">
+          </div>
           <h3>Elemental 5</h3>
           <p>Facility, coaches, curriculum, instruction, safety systems, programming, and student development.</p>
         </article>
         <article class="card">
+          <div class="partner-logo-wrap">
+            <img src="https://cdn.prod.website-files.com/67fdb9edc1258cf350f79d05/6a87425e13872fb426e49dfe_Salida%20Circus%20logo.jpeg" alt="Salida Circus logo" class="partner-logo">
+          </div>
           <h3>Salida Circus</h3>
           <p>Scholarships, grants, expanded access, performance opportunities, visiting artists, and community connections.</p>
         </article>
