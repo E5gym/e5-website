@@ -55,6 +55,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.elementalfive.com/circus-fridays.html</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.elementalfive.com/contact.html</loc>
     <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
