@@ -41,6 +41,10 @@ for (const partial of ['nav.html', 'footer.html']) {
   console.log(`copied  Partials/${partial}`);
 }
 
+// Publish image assets referenced by the site pages.
+copyDir(path.join(ROOT, 'assets'), path.join(OUT, 'assets'));
+console.log('copied  assets/');
+
 // Publish hidden/internal static experiences that live outside the root page list.
 copyDir(path.join(ROOT, 'kiosk'), path.join(OUT, 'kiosk'));
 console.log('copied  kiosk/');
