@@ -68,6 +68,7 @@ let htmlTotal = 0;
 
 for (const entry of entries) {
   if (!entry.isFile() || !entry.name.endsWith('.html')) continue;
+  if (entry.name === 'store.html') continue;
 
   htmlTotal++;
   let src = fs.readFileSync(path.join(ROOT, entry.name), 'utf8');
