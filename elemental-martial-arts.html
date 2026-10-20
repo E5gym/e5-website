@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Elemental Martial Arts | Elemental 5 Movement Arts Center</title>
-<meta name="description" content="Elemental Martial Arts at Elemental 5 is a practical martial arts program for youth, teens, and adults, combining physical training with judgment, composure, discipline, and responsibility.">
+<meta name="description" content="Elemental Martial Arts at Elemental 5 is an integrated program for youth, teens, and adults, combining practical self-defense, disciplined training, and character development.">
 <link rel="canonical" href="https://www.elementalfive.com/elemental-martial-arts.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.elementalfive.com/elemental-martial-arts.html">
@@ -485,39 +485,11 @@ h1 {
   margin: 0;
 }
 .roots-card p + p { margin-top: 10px; }
-.schedule {
-  background: var(--paper);
-}
-.schedule-panel {
-  align-items: center;
-  background: #F8F5ED;
-  border-left: 5px solid var(--fire);
-  display: grid;
-  gap: 24px;
-  grid-template-columns: minmax(0, 1fr) auto;
-  padding: clamp(24px, 4vw, 42px);
-}
-.schedule-panel h2 {
-  color: var(--ink);
-  font-size: clamp(24px, 3vw, 34px);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 1.08;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-}
-.schedule-copy {
-  color: var(--ink-soft);
-  margin: 0;
-  max-width: 760px;
-}
 .schedule-note {
   color: var(--ink-muted);
   font-size: 13px;
   margin: 12px 0 0;
 }
-.button-dark { background: var(--ink); border-color: var(--ink); color: var(--paper); white-space: nowrap; }
-.button-dark:hover { background: #303A34; border-color: #303A34; }
 .contact {
   background: var(--ink);
   color: var(--paper);
@@ -540,7 +512,6 @@ h1 {
 .button-outline:hover { border-color: var(--paper); }
 @media (max-width: 850px) {
   .hero-inner { grid-template-columns: minmax(0, 1fr) minmax(240px, 0.82fr); }
-  .schedule-panel { grid-template-columns: minmax(0, 1fr); }
   .contact-inner { align-items: flex-start; flex-direction: column; }
 }
 @media (max-width: 620px) {
@@ -555,9 +526,7 @@ h1 {
   .pathway-card ul { grid-template-columns: minmax(0, 1fr); }
   .fire-layout { gap: 28px; }
   .element-mark { max-width: 190px; }
-  .schedule-panel { align-items: stretch; }
   .contact-actions, .contact-actions .button { width: 100%; }
-  .button-dark { white-space: normal; }
 }
 @media (max-width: 420px) {
   .domain-grid, .pathway-grid, .roots-grid, .framework-list { grid-template-columns: minmax(0, 1fr); }
@@ -584,7 +553,7 @@ fetch('/Partials/nav.html').then(response => response.text()).then(html => { doc
       <div class="hero-content">
         <p class="eyebrow">Elemental Martial Arts · Fire Element</p>
         <h1 id="page-title">Elemental<br>Martial Arts<span class="hero-title-line">Learn to Act.</span></h1>
-        <p class="hero-copy"><strong>Practical self-defense. Disciplined training. Character through action.</strong> Elemental Martial Arts (EMA) is one unified program with distinct youth and teen/adult pathways—developing physical capability alongside judgment, composure, and responsibility.</p>
+        <p class="hero-copy"><strong>Practical self-defense. Disciplined training. Character through action.</strong></p>
         <div class="hero-actions">
           <a class="button button-light" href="/schedule.html">View the schedule</a>
           <a class="button button-outline-light" href="/contact.html">Contact E5</a>
@@ -602,9 +571,10 @@ fetch('/Partials/nav.html').then(response => response.text()).then(html => { doc
     <div class="section-inner philosophy-layout">
       <div class="philosophy-copy">
         <p class="section-kicker">Skill with purpose</p>
-        <h2 class="section-heading" id="philosophy-title">A practical art. A deeper practice.</h2>
-        <p>EMA approaches martial arts as practical, disciplined training—not a conventional competitive karate program. Students explore useful movement and self-defense concepts while learning to make thoughtful choices under pressure.</p>
-        <p>Physical capability is only part of the work. Judgment, composure, respect, and responsibility matter in how skills are practiced and how they are used. Training emphasizes control and care for training partners alongside personal development.</p>
+        <h2 class="section-heading" id="philosophy-title">More than techniques.</h2>
+        <p>Elemental Martial Arts (EMA) is a modern practical program bringing together striking, grappling, takedowns, ground skills, and practical self-defense within a progressive martial arts system.</p>
+        <p>Rooted in Japanese martial traditions and informed by modern combatives, EMA develops capable, confident students who understand that physical skill carries responsibility.</p>
+        <p>Our goal isn't simply to teach people how to fight. It's to develop the ability, awareness, and judgment to act appropriately when it matters.</p>
       </div>
       <div class="principle-mark" role="img" aria-label="Elemental Martial Arts principle: skill with responsibility">
         Skill
@@ -615,36 +585,32 @@ fetch('/Partials/nav.html').then(response => response.text()).then(html => { doc
 
   <section class="section domains" aria-labelledby="domains-title">
     <div class="section-inner">
-      <p class="section-kicker">Progressive training domains</p>
-      <h2 class="section-heading" id="domains-title">What we train</h2>
-      <p class="section-intro">Across the program, students are introduced to a range of martial movement and self-protection concepts. These are areas of progressive study, not guarantees of proficiency or a fixed checklist.</p>
+      <p class="section-kicker">One integrated program</p>
+      <h2 class="section-heading" id="domains-title">Rooted in tradition. Built for practical training.</h2>
+      <p class="section-intro">Elemental Martial Arts draws from several martial arts disciplines, combining traditional knowledge with modern approaches to self-defense. These are curriculum influences and training areas—not separate style-specific classes.</p>
       <div class="domain-grid">
         <article class="domain">
-          <h3>Striking</h3>
-          <p>Developing awareness of distance, timing, posture, and controlled striking mechanics.</p>
+          <h3>Budo Taijutsu (Ninjutsu)</h3>
+          <p>An important foundation in Japanese martial movement, evasion, striking, grappling, and the relationship between balance and technique.</p>
         </article>
         <article class="domain">
-          <h3>Defensive movement</h3>
-          <p>Exploring positioning, movement, and ways to respond to changing situations.</p>
+          <h3>Jujutsu, Judo &amp; Aikijutsu</h3>
+          <p>Principles of leverage, throws, takedowns, joint control, and standing grappling.</p>
         </article>
         <article class="domain">
-          <h3>Grappling</h3>
-          <p>Learning foundational movement and control concepts with training partners.</p>
+          <h3>Karate &amp; Kickboxing</h3>
+          <p>Striking fundamentals, footwork, combinations, timing, and defensive responses.</p>
         </article>
         <article class="domain">
-          <h3>Throws &amp; takedowns</h3>
-          <p>Progressive study of balance, safe movement, and partner-based technique.</p>
+          <h3>Ground Fighting &amp; Wrestling</h3>
+          <p>Positional control, escapes, transitions, and grappling under pressure.</p>
         </article>
         <article class="domain">
-          <h3>Escapes</h3>
-          <p>Practicing awareness and movement options for getting free from challenging positions.</p>
-        </article>
-        <article class="domain">
-          <h3>Groundwork</h3>
-          <p>Exploring position, movement, and control while working on the ground.</p>
+          <h3>Krav Maga &amp; Modern Combatives</h3>
+          <p>Practical self-defense, awareness, decisive responses, and opportunities to escape dangerous situations.</p>
         </article>
       </div>
-      <p class="domain-note">Training develops over time and is guided by instructors, the student's readiness, and the needs of the group.</p>
+      <p class="domain-note">Rather than separating these disciplines into unrelated classes, EMA integrates their techniques and principles into one progressive training system. Students develop striking, standing grappling, ground skills, and practical self-defense over time; these are progressive areas of study, not guarantees of proficiency.</p>
     </div>
   </section>
 
@@ -652,62 +618,96 @@ fetch('/Partials/nav.html').then(response => response.text()).then(html => { doc
     <div class="section-inner">
       <p class="section-kicker">One program · Two pathways</p>
       <h2 class="section-heading" id="pathways-title">Training for each stage</h2>
-      <p class="section-intro">Youth and teen/adult training share EMA's core values while allowing instruction and practice to suit the people in the room.</p>
+      <p class="section-intro">EMA is one integrated program with youth and teen/adult pathways. Shared principles guide training while instruction and challenges suit the people in the room.</p>
       <div class="pathway-grid">
         <article class="pathway-card" aria-labelledby="youth-title">
           <p class="pathway-label">Youth pathway</p>
-          <h3 id="youth-title">Build strong foundations</h3>
-          <p>Young students explore physical skills and martial arts concepts in an age-appropriate way. Lessons center on learning to move with awareness and treating others with care.</p>
+          <h3 id="youth-title">Confidence built through discipline.</h3>
+          <p>Structured, age-appropriate training challenges students physically and mentally. They develop coordination, balance, defensive movement, and foundational martial arts skills while practicing respect, patience, cooperation, and self-control.</p>
+          <p>As students mature, training becomes progressively more technical, encouraging independence, perseverance, and thoughtful decision-making.</p>
           <ul>
-            <li>Physical skills and coordination</li>
-            <li>Awareness and listening</li>
+            <li>Coordination and balance</li>
+            <li>Defensive movement</li>
             <li>Respect and cooperation</li>
-            <li>Confidence and self-control</li>
+            <li>Perseverance and self-control</li>
           </ul>
         </article>
         <article class="pathway-card" aria-labelledby="teen-adult-title">
           <p class="pathway-label">Teen &amp; adult pathway</p>
-          <h3 id="teen-adult-title">Develop capable responses</h3>
-          <p>Teens and adults work with practical self-defense ideas, composure, and progressively more sophisticated martial movement, developing fundamentals through consistent practice.</p>
+          <h3 id="teen-adult-title">Practical skills. Meaningful challenges.</h3>
+          <p>Teen and adult training explores practical self-defense through striking, grappling, takedowns, escapes, and progressively more complex technical challenges.</p>
+          <p>Students learn to manage distance, maintain balance, recognize opportunities, and respond with greater composure under pressure. Consistent practice develops physical capability alongside awareness, restraint, and confidence.</p>
           <ul>
-            <li>Striking and grappling fundamentals</li>
-            <li>Escapes and defensive movement</li>
-            <li>Composure under pressure</li>
-            <li>Judgment and responsible action</li>
+            <li>Striking and grappling</li>
+            <li>Takedowns and escapes</li>
+            <li>Composure and awareness</li>
+            <li>Restraint and judgment</li>
           </ul>
         </article>
       </div>
     </div>
   </section>
 
+  <section class="section domains" aria-labelledby="principles-title">
+    <div class="section-inner">
+      <p class="section-kicker">Understand movement</p>
+      <h2 class="section-heading" id="principles-title">Principles before complexity.</h2>
+      <p class="section-intro"><strong>Learn how movement works, not just what to do.</strong></p>
+      <p class="section-intro">Good martial arts training develops understanding as well as technique. Throughout EMA, students explore structure, balance, distance, timing, leverage, positioning, control, and adaptation.</p>
+      <div class="domain-grid">
+        <article class="domain">
+          <h3>Structure &amp; balance</h3>
+          <p>Build stable, adaptable movement and understand how balance shapes a response.</p>
+        </article>
+        <article class="domain">
+          <h3>Distance &amp; timing</h3>
+          <p>Notice space and opportunity as situations and movement change.</p>
+        </article>
+        <article class="domain">
+          <h3>Leverage &amp; positioning</h3>
+          <p>Explore how placement and efficient movement influence control.</p>
+        </article>
+        <article class="domain">
+          <h3>Control</h3>
+          <p>Practice deliberate movement with care for training partners and others.</p>
+        </article>
+        <article class="domain">
+          <h3>Adaptation</h3>
+          <p>Connect principles to changing circumstances instead of relying on a single response.</p>
+        </article>
+      </div>
+      <p class="domain-note">These principles connect individual techniques into a broader understanding of movement and self-defense. They also encourage patience, awareness, and deliberate action.</p>
+    </div>
+  </section>
+
   <section class="section progression" aria-labelledby="progression-title">
     <div class="section-inner">
       <p class="section-kicker">A cumulative learning process</p>
-      <h2 class="section-heading" id="progression-title">Progress through practice</h2>
-      <p class="section-intro">Progress is represented through ongoing practice, demonstrations, and cumulative testing—not a promised timetable.</p>
+      <h2 class="section-heading" id="progression-title">Earned through practice. Demonstrated through skill.</h2>
+      <p class="section-intro">EMA uses a structured progression system that encourages students to build skills over time through progressive technical expectations, skill demonstrations, and cumulative evaluations.</p>
       <div class="progression-grid">
         <article class="progression-step">
           <span class="step-number">01 · Practice</span>
-          <h3>Build skills</h3>
-          <p>Students work with techniques and concepts appropriate to their stage of learning.</p>
+          <h3>Build understanding</h3>
+          <p>Students develop physical capability and technical knowledge over time.</p>
         </article>
         <article class="progression-step">
-          <span class="step-number">02 · Stripes</span>
-          <h3>Four per belt</h3>
-          <p>Each belt has four stripes marking steps within that level of practice.</p>
+          <span class="step-number">02 · Planned model</span>
+          <h3>Four stripes per belt</h3>
+          <p>The intended four-stripe belt model would recognize development along the way; the model is planned and subject to final confirmation.</p>
         </article>
         <article class="progression-step">
           <span class="step-number">03 · Demonstrate</span>
-          <h3>Show learning</h3>
-          <p>Skill demonstrations provide opportunities to show developing understanding.</p>
+          <h3>Demonstrate skill</h3>
+          <p>Skill demonstrations offer opportunities to show developing understanding.</p>
         </article>
         <article class="progression-step">
-          <span class="step-number">04 · Test</span>
-          <h3>Cumulative testing</h3>
-          <p>Belt testing is cumulative, drawing on skills learned across the student's training.</p>
+          <span class="step-number">04 · Evaluate</span>
+          <h3>Cumulative evaluations</h3>
+          <p>Evaluations consider skills and understanding built across a student's training.</p>
         </article>
       </div>
-      <p class="domain-note">Belt colors, rank requirements, and promotion timelines are not listed here; no progression schedule is implied.</p>
+      <p class="domain-note">Progress reflects more than memorizing techniques. It includes growing understanding, physical capability, consistency, and responsibility. No belt colors, timelines, or rank requirements are specified here.</p>
     </div>
   </section>
 
@@ -716,8 +716,10 @@ fetch('/Partials/nav.html').then(response => response.text()).then(html => { doc
       <div class="element-mark" aria-hidden="true">Fire</div>
       <div>
         <p class="section-kicker">One of E5's five elements</p>
-        <h2 class="section-heading" id="fire-title">The E5 philosophy</h2>
-        <p class="section-intro">At E5, Fire represents learning to act: bringing courage and will to a moment, while accepting responsibility for what follows. EMA puts that idea into practice through disciplined action guided by judgment and composure.</p>
+        <h2 class="section-heading" id="fire-title">Fire: learning to act.</h2>
+        <p class="section-intro">Within the Elemental 5 philosophy, Fire represents courage, effort, discipline, and the willingness to act. Martial arts gives those qualities a physical expression.</p>
+        <p class="section-intro">Students learn to meet challenges, manage discomfort, exercise restraint, and recognize that strength is most meaningful when guided by good judgment.</p>
+        <p class="section-intro">We train to become capable. We practice to become disciplined. We develop character through how we choose to act.</p>
         <ul class="framework-list" aria-label="The five E5 elements">
           <li>Earth · Build your body</li>
           <li>Water · Learn to move</li>
@@ -733,11 +735,11 @@ fetch('/Partials/nav.html').then(response => response.text()).then(html => { doc
     <div class="section-inner">
       <p class="section-kicker">Tradition · Practice · Place</p>
       <h2 class="section-heading" id="roots-title">Roots and dojo</h2>
-      <p class="section-intro">EMA looks forward: a practical martial arts program shaped by respect for the traditions that inform its practice.</p>
+      <p class="section-intro">EMA brings traditional knowledge and modern approaches together in one practical training program.</p>
       <div class="roots-grid">
         <article class="roots-card">
           <h3>Historical roots</h3>
-          <p>The program has historical roots in Bujinkan Budo Taijutsu and is influenced by Japanese martial traditions. This is context for EMA's history, not a claim of formal affiliation or certification.</p>
+          <p>The program has historical roots in Bujinkan Budo Taijutsu and draws on Japanese martial traditions. This acknowledges historical influence; it does not claim formal affiliation or certification.</p>
         </article>
         <article class="roots-card">
           <h3>A dojo in the planned facility</h3>
@@ -747,28 +749,16 @@ fetch('/Partials/nav.html').then(response => response.text()).then(html => { doc
     </div>
   </section>
 
-  <section class="section schedule" aria-labelledby="schedule-title">
-    <div class="section-inner schedule-panel">
-      <div>
-        <p class="section-kicker">Stay connected</p>
-        <h2 id="schedule-title">Schedule &amp; next steps</h2>
-        <p class="schedule-copy">EMA is part of E5's planned martial arts pathway. Visit the current schedule for published class information and contact the team with questions.</p>
-        <p class="schedule-note">No enrollment link or availability is being offered here.</p>
-      </div>
-      <a class="button button-dark" href="/schedule.html">View the schedule</a>
-    </div>
-  </section>
-
   <section class="contact" aria-labelledby="contact-title">
     <div class="contact-inner">
       <div>
-        <p class="section-kicker">Questions about Elemental Martial Arts?</p>
-        <h2 class="section-heading" id="contact-title">Start a conversation.</h2>
-        <p class="contact-copy">Reach out to the E5 team for information about the planned EMA pathway and dojo.</p>
+        <p class="section-kicker">Take the next step</p>
+        <h2 class="section-heading" id="contact-title">Discover Elemental Martial Arts.</h2>
+        <p class="contact-copy">Whether you're exploring martial arts for your child or beginning your own training, EMA offers a place to develop practical skills, confidence, and character.</p>
       </div>
       <div class="contact-actions">
-        <a class="button button-fire" href="/contact.html">Contact E5</a>
-        <a class="button button-outline" href="/programs.html">Explore all programs</a>
+        <a class="button button-fire" href="/schedule.html">Explore the schedule</a>
+        <a class="button button-outline" href="/contact.html">Contact E5</a>
       </div>
     </div>
   </section>
