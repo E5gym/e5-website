@@ -6,9 +6,105 @@ const path = require('path');
 const ROOT = __dirname;
 const OUT = path.join(ROOT, '_site');
 const PARTIALS = path.join(ROOT, 'Partials');
+const CONFIG_PATH = path.join(ROOT, 'launch.config.js');
 
-const navContent = fs.readFileSync(path.join(PARTIALS, 'nav.html'), 'utf8');
-const footerContent = fs.readFileSync(path.join(PARTIALS, 'footer.html'), 'utf8');
+const launchConfig = require(CONFIG_PATH);
+const allowedLaunchPhases = new Set(['current', 'enrolling']);
+
+function failBuild(message) {
+  throw new Error(`Launch config error: ${message}`);
+}
+
+function readLaunchConfig(config) {
+  if (!config || typeof config !== 'object') {
+    failBuild('launch.config.js must export an object.');
+  }
+
+  const phase = config.launchPhase;
+  if (!allowedLaunchPhases.has(phase)) {
+    failBuild(`launchPhase must be one of: ${Array.from(allowedLaunchPhases).join(', ')}.`);
+  }
+
+  if (!config.phases || typeof config.phases !== 'object') {
+    failBuild('phases must be defined.');
+  }
+
+  const values = config.phases[phase];
+  if (!values || typeof values !== 'object') {
+    failBuild(`phases.${phase} must be defined.`);
+  }
+
+  const launch = {
+    launchPhase: phase,
+    openingDateDisplay: values.openingDateDisplay || '',
+    enrollmentLaunchDateDisplay: values.enrollmentLaunchDateDisplay || '',
+    enrollmentCtaLabel: values.enrollmentCtaLabel || '',
+    enrollmentCtaUrl: values.enrollmentCtaUrl || '',
+    showJanuaryEnrollmentSections: Boolean(values.showJanuaryEnrollmentSections)
+  };
+
+  if (phase === 'enrolling') {
+    for (const key of [
+      'openingDateDisplay',
+      'enrollmentLaunchDateDisplay',
+      'enrollmentCtaLabel',
+      'enrollmentCtaUrl'
+    ]) {
+      if (!String(launch[key]).trim()) {
+        failBuild(`launchPhase "enrolling" requires ${key}.`);
+      }
+    }
+  }
+
+  return launch;
+}
+
+const launch = readLaunchConfig(launchConfig);
+const launchKeys = new Set(Object.keys(launch));
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function renderLaunchTemplate(src, sourceName) {
+  let rendered = src.replace(
+    /<!--\s*launch-if\s+([a-zA-Z0-9_]+)\s*-->([\s\S]*?)<!--\s*\/launch-if\s*-->/g,
+    function (_match, key, body) {
+      if (!launchKeys.has(key)) {
+        failBuild(`${sourceName} references unknown launch flag "${key}".`);
+      }
+      return launch[key] ? body : '';
+    }
+  );
+
+  rendered = rendered.replace(/\{\{\s*launch\.([a-zA-Z0-9_]+)\s*\}\}/g, function (_match, key) {
+    if (!launchKeys.has(key)) {
+      failBuild(`${sourceName} references unknown launch value "${key}".`);
+    }
+    return escapeHtml(launch[key]);
+  });
+
+  const unreplacedToken = rendered.match(/\{\{\s*launch\.[^}]+\}\}/);
+  if (unreplacedToken) {
+    failBuild(`${sourceName} contains an unresolved launch token: ${unreplacedToken[0]}`);
+  }
+
+  return rendered;
+}
+
+const navContent = renderLaunchTemplate(
+  fs.readFileSync(path.join(PARTIALS, 'nav.html'), 'utf8'),
+  'Partials/nav.html'
+);
+const footerContent = renderLaunchTemplate(
+  fs.readFileSync(path.join(PARTIALS, 'footer.html'), 'utf8'),
+  'Partials/footer.html'
+);
 
 const NAV_FETCH = /<div id=['"]site-nav['"]><\/div>[\s\S]*?<script>[\s\S]*?fetch\(['"][^'"]*nav\.html['"]\)[\s\S]*?<\/script>/;
 const FOOTER_FETCH = /<div id=['"]site-footer['"][^>]*><\/div>[\s\S]*?<script>[\s\S]*?fetch\(['"][^'"]*footer\.html['"]\)[\s\S]*?<\/script>/;
@@ -37,7 +133,8 @@ const entries = fs.readdirSync(ROOT, { withFileTypes: true });
 const outPartials = path.join(OUT, 'Partials');
 fs.mkdirSync(outPartials, { recursive: true });
 for (const partial of ['nav.html', 'footer.html']) {
-  fs.copyFileSync(path.join(PARTIALS, partial), path.join(outPartials, partial));
+  const content = partial === 'nav.html' ? navContent : footerContent;
+  fs.writeFileSync(path.join(outPartials, partial), content, 'utf8');
   console.log(`copied  Partials/${partial}`);
 }
 
@@ -50,7 +147,7 @@ console.log('copied  coach-home/');
 for (const entry of entries) {
   if (!entry.isFile()) continue;
   if (entry.name.startsWith('.')) continue;
-  if (['_site', 'Partials', 'build.js', 'netlify.toml', 'package.json'].includes(entry.name)) continue;
+  if (['_site', 'Partials', 'build.js', 'launch.config.js', 'netlify.toml', 'package.json'].includes(entry.name)) continue;
   if (entry.name.endsWith('.html')) continue;
 
   fs.copyFileSync(path.join(ROOT, entry.name), path.join(OUT, entry.name));
@@ -81,6 +178,8 @@ for (const entry of entries) {
     footerInjected++;
     console.log(`footer  ${entry.name}`);
   }
+
+  src = renderLaunchTemplate(src, entry.name);
 
   if (!hadNavFetch && !hadFooterFetch) {
     unchanged++;
