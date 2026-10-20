@@ -287,14 +287,124 @@
     padding: 14px 18px;
   }
   .availability-note strong { color: #171B1A; }
+  .more-pathways {
+    background: #E8E2D6;
+    padding: clamp(48px, 6vw, 72px) clamp(20px, 5vw, 72px);
+  }
+  .more-pathways-inner {
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+  .more-pathways h2,
+  .next-steps h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .pathway-links {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 24px;
+  }
+  .pathway-link {
+    align-items: center;
+    background: #F8F5ED;
+    border: 1px solid rgba(23, 27, 26, 0.1);
+    border-radius: 4px;
+    color: #171B1A;
+    display: flex;
+    justify-content: space-between;
+    min-height: 76px;
+    padding: 18px 20px;
+    text-decoration: none;
+    transition: border-color 160ms ease, transform 160ms ease;
+  }
+  .pathway-link:hover {
+    border-color: #B78B60;
+    transform: translateY(-2px);
+  }
+  .pathway-link strong {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .pathway-link span {
+    color: rgba(23, 27, 26, 0.65);
+    display: block;
+    font-size: 13px;
+    margin-top: 3px;
+  }
+  .pathway-link::after {
+    color: #B8422E;
+    content: "→";
+    font-size: 20px;
+    margin-left: 16px;
+  }
+  .next-steps {
+    background: #171B1A;
+    color: #F1EEE5;
+    padding: clamp(44px, 6vw, 70px) clamp(20px, 5vw, 72px);
+  }
+  .next-steps-inner {
+    align-items: center;
+    display: flex;
+    gap: 28px;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+  .next-steps h2 { color: #F1EEE5; }
+  .next-steps p {
+    color: rgba(241, 238, 229, 0.72);
+    font-size: 15px;
+    margin: 10px 0 0;
+    max-width: 620px;
+  }
+  .next-actions {
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .next-action {
+    align-items: center;
+    border: 1px solid rgba(241, 238, 229, 0.38);
+    border-radius: 3px;
+    color: #F1EEE5;
+    display: inline-flex;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    justify-content: center;
+    letter-spacing: 0.08em;
+    min-height: 44px;
+    padding: 10px 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 160ms ease, border-color 160ms ease;
+  }
+  .next-action:hover {
+    background: rgba(241, 238, 229, 0.1);
+    border-color: #F1EEE5;
+  }
   @media (max-width: 900px) {
     .directory-heading { align-items: flex-start; flex-direction: column; gap: 12px; }
     .directory-heading > p { max-width: 620px; }
     .program-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .next-steps-inner { align-items: flex-start; flex-direction: column; }
   }
   @media (max-width: 600px) {
     .program-hero { padding-bottom: 68px; padding-top: 72px; }
     .program-grid { grid-template-columns: minmax(0, 1fr); }
+    .pathway-links { grid-template-columns: minmax(0, 1fr); }
     .card-body { padding: 20px; }
     .directory { padding-bottom: 72px; }
   }
@@ -407,6 +517,41 @@ fetch('/Partials/nav.html').then(response => response.text()).then(html => { doc
     </div>
 
     <p class="availability-note"><strong>Looking for program details?</strong> Dedicated pages are available for NinFit, Tx3, and Aerial Silks. Contact us about Mini Ninjas or Teens &amp; Adults. Martial arts is a planned pathway; learn about its future dojo in the new facility.</p>
+  </section>
+
+  <section class="more-pathways" aria-labelledby="more-pathways-title">
+    <div class="more-pathways-inner">
+      <p class="eyebrow">More ways to participate</p>
+      <h2 id="more-pathways-title">Circus, performance &amp; community</h2>
+      <div class="pathway-links">
+        <a class="pathway-link" href="/circus-fridays.html">
+          <span><strong>Circus Fridays</strong><span>Explore the school-year circus program</span></span>
+        </a>
+        <a class="pathway-link" href="/echo-performance-troupe.html">
+          <span><strong>Echo Performance Troupe</strong><span>Learn about E5 performance training</span></span>
+        </a>
+        <a class="pathway-link" href="/parties-community-events.html">
+          <span><strong>Parties &amp; Community Events</strong><span>Explore E5 events and party options</span></span>
+        </a>
+        <a class="pathway-link" href="https://mail.google.com/mail/?view=cm&amp;to=gym@elementalfive.com" target="_blank" rel="noopener">
+          <span><strong>Ask our team</strong><span>Contact Elemental 5 with questions</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="next-steps" aria-labelledby="next-steps-title">
+    <div class="next-steps-inner">
+      <div>
+        <h2 id="next-steps-title">Ready for your next step?</h2>
+        <p>Explore current program information or open the existing Student Portal.</p>
+      </div>
+      <div class="next-actions">
+        <a class="next-action" href="/schedule.html">View Schedule</a>
+        <a class="next-action" href="/pricing.html">View Pricing</a>
+        <a class="next-action" href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" rel="noopener">Student Portal</a>
+      </div>
+    </div>
   </section>
 </main>
 
