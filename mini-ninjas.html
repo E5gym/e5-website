@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mini Ninjas | Elemental 5 Movement Arts Center</title>
+<meta name="description" content="Mini Ninjas at Elemental 5 is a coach-led movement program for ages 3–5, building coordination, confidence, body awareness, and character through playful physical exploration.">
+<link rel="canonical" href="https://www.elementalfive.com/mini-ninjas.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.elementalfive.com/mini-ninjas.html">
+<meta property="og:title" content="Mini Ninjas | Elemental 5 Movement Arts Center">
+<meta property="og:description" content="Big movement for little ninjas. Explore the coach-led early childhood movement program at Elemental 5.">
+<meta property="og:site_name" content="Elemental 5">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mini Ninjas | Elemental 5 Movement Arts Center">
+<meta name="twitter:description" content="Big movement for little ninjas. Explore the coach-led early childhood movement program at Elemental 5.">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+:root {
+  --paper: #F1EEE5;
+  --paper-2: #E8E2D6;
+  --ink: #171B1A;
+  --ink-soft: rgba(23, 27, 26, 0.72);
+  --ink-muted: rgba(23, 27, 26, 0.54);
+  --sage: #8A9987;
+  --earth: #B78B60;
+  --clay: #C4622D;
+  --line: rgba(23, 27, 26, 0.12);
+}
+html { background: var(--paper); scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Nunito Sans', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+a { -webkit-tap-highlight-color: transparent; }
+a:focus-visible {
+  outline: 3px solid var(--earth);
+  outline-offset: 4px;
+}
+img { display: block; max-width: 100%; }
+.skip-link {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  left: 16px;
+  padding: 10px 14px;
+  position: absolute;
+  top: 12px;
+  transform: translateY(-160%);
+  z-index: 2000;
+}
+.skip-link:focus { transform: translateY(0); }
+.hero {
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(92, 136, 150, 0.2), transparent 38%),
+    linear-gradient(120deg, #171B1A 0%, #242B28 68%, #303A34 100%);
+  color: var(--paper);
+  overflow: hidden;
+  padding: clamp(56px, 8vw, 104px) clamp(20px, 5vw, 72px);
+  position: relative;
+}
+.hero::after {
+  border: 1px solid rgba(241, 238, 229, 0.12);
+  border-radius: 50%;
+  content: "";
+  height: clamp(280px, 44vw, 600px);
+  pointer-events: none;
+  position: absolute;
+  right: -12%;
+  top: -42%;
+  width: clamp(280px, 44vw, 600px);
+}
+.hero-inner {
+  align-items: center;
+  display: grid;
+  gap: clamp(36px, 6vw, 84px);
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+  margin: 0 auto;
+  max-width: 1180px;
+  position: relative;
+  z-index: 1;
+}
+.eyebrow {
+  color: #C29A70;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  margin: 0 0 18px;
+  text-transform: uppercase;
+}
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 0;
+}
+h1 {
+  color: var(--paper);
+  font-size: clamp(44px, 7vw, 82px);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  margin-bottom: 0;
+}
+h1 span { color: #C29A70; display: block; }
+.hero-copy {
+  color: rgba(241, 238, 229, 0.78);
+  font-size: clamp(17px, 1.7vw, 20px);
+  line-height: 1.65;
+  margin: 24px 0 0;
+  max-width: 650px;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+.button {
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  display: inline-flex;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  justify-content: center;
+  letter-spacing: 0.09em;
+  min-height: 48px;
+  padding: 12px 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+.button:hover { transform: translateY(-1px); }
+.button-light { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+.button-light:hover { background: #fff; border-color: #fff; }
+.button-outline-light { background: transparent; border-color: rgba(241, 238, 229, 0.42); color: var(--paper); }
+.button-outline-light:hover { border-color: var(--paper); }
+.photo-placeholder {
+  align-items: center;
+  aspect-ratio: 4 / 3;
+  background:
+    radial-gradient(circle at 78% 22%, rgba(183, 139, 96, 0.3), transparent 34%),
+    linear-gradient(145deg, #36423A, #202723 70%);
+  border: 1px solid rgba(241, 238, 229, 0.24);
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 250px;
+  overflow: hidden;
+  padding: 28px;
+  position: relative;
+  text-align: center;
+}
+.photo-placeholder::before,
+.photo-placeholder::after {
+  border: 1px solid rgba(241, 238, 229, 0.16);
+  border-radius: 50%;
+  content: "";
+  height: 72%;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 72%;
+}
+.photo-placeholder::after { height: 92%; width: 92%; }
+.photo-placeholder > * { position: relative; z-index: 1; }
+.photo-placeholder-label {
+  color: #D4B58F;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.photo-placeholder-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(23px, 3vw, 36px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 12px 0;
+  text-transform: uppercase;
+}
+.photo-placeholder-note {
+  color: rgba(241, 238, 229, 0.68);
+  font-size: 13px;
+  margin: 0;
+}
+.section {
+  padding: clamp(58px, 7vw, 96px) clamp(20px, 5vw, 72px);
+}
+.section-inner { margin: 0 auto; max-width: 1180px; }
+.section-heading {
+  color: var(--ink);
+  font-size: clamp(29px, 4vw, 48px);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.section-intro {
+  color: var(--ink-soft);
+  font-size: clamp(16px, 1.5vw, 19px);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 760px;
+}
+.section-kicker {
+  color: #8A6A4E;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+.why { background: #F8F5ED; }
+.benefit-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 34px;
+}
+.benefit {
+  border-top: 3px solid var(--sage);
+  padding: 18px 16px 8px;
+}
+.benefit:nth-child(2n) { border-color: var(--earth); }
+.benefit h3 {
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  margin-bottom: 7px;
+  text-transform: uppercase;
+}
+.benefit p {
+  color: var(--ink-muted);
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0;
+}
+.class-section { background: var(--paper); }
+.class-layout {
+  align-items: center;
+  display: grid;
+  gap: clamp(36px, 6vw, 82px);
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 1.05fr);
+}
+.class-copy .section-intro { margin-bottom: 22px; }
+.movement-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.movement-list li {
+  background: rgba(138, 153, 135, 0.18);
+  border: 1px solid rgba(138, 153, 135, 0.3);
+  border-radius: 3px;
+  color: #405044;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 9px 11px;
+  text-transform: uppercase;
+}
+.class-note {
+  color: var(--ink-muted);
+  font-size: 14px;
+  margin: 18px 0 0;
+}
+.photo-placeholder--support {
+  aspect-ratio: 5 / 4;
+  background:
+    radial-gradient(circle at 24% 78%, rgba(138, 153, 135, 0.34), transparent 34%),
+    linear-gradient(145deg, #303A34, #171B1A);
+  min-height: 280px;
+}
+.character {
+  background:
+    radial-gradient(ellipse at 85% 20%, rgba(183, 139, 96, 0.16), transparent 38%),
+    var(--ink);
+  color: var(--paper);
+}
+.character .section-heading { color: var(--paper); }
+.character .section-intro { color: rgba(241, 238, 229, 0.74); }
+.character-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 32px;
+}
+.character-item {
+  border-left: 2px solid var(--earth);
+  color: rgba(241, 238, 229, 0.84);
+  font-size: 15px;
+  padding: 8px 0 8px 14px;
+}
+.growth-layout {
+  align-items: center;
+  display: grid;
+  gap: 36px;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+}
+.growth-mark {
+  align-items: center;
+  aspect-ratio: 1;
+  background:
+    radial-gradient(circle, rgba(183, 139, 96, 0.22) 0 28%, transparent 29%),
+    linear-gradient(145deg, #303A34, #171B1A);
+  border: 1px solid rgba(23, 27, 26, 0.12);
+  border-radius: 50%;
+  color: var(--paper);
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: 900;
+  justify-content: center;
+  letter-spacing: 0.1em;
+  max-width: 300px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+.growth-copy p {
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.75;
+}
+.growth-copy p:last-child { margin-bottom: 0; }
+.open-gym {
+  background: var(--paper-2);
+  border-top: 1px solid rgba(23, 27, 26, 0.08);
+}
+.open-gym-panel {
+  align-items: center;
+  background: #F8F5ED;
+  border-left: 5px solid var(--sage);
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: clamp(24px, 4vw, 42px);
+}
+.open-gym h2 {
+  color: var(--ink);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.open-gym-copy {
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 720px;
+}
+.schedule-facts {
+  color: var(--ink);
+  display: grid;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  gap: 6px;
+  letter-spacing: 0.04em;
+  margin: 18px 0 0;
+  text-transform: uppercase;
+}
+.schedule-note {
+  color: var(--ink-muted);
+  font-size: 13px;
+  margin: 12px 0 0;
+}
+.button-dark { background: var(--ink); border-color: var(--ink); color: var(--paper); white-space: nowrap; }
+.button-dark:hover { background: #303A34; border-color: #303A34; }
+.contact {
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(52px, 6vw, 78px) clamp(20px, 5vw, 72px);
+}
+.contact-inner {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1180px;
+}
+.contact .section-heading { color: var(--paper); font-size: clamp(28px, 3.5vw, 42px); margin-bottom: 10px; }
+.contact-copy { color: rgba(241, 238, 229, 0.72); margin: 0; max-width: 660px; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.button-earth { background: var(--earth); border-color: var(--earth); color: var(--ink); }
+.button-earth:hover { background: #C29A70; border-color: #C29A70; }
+.button-outline { background: transparent; border-color: rgba(241, 238, 229, 0.4); color: var(--paper); }
+.button-outline:hover { border-color: var(--paper); }
+@media (max-width: 850px) {
+  .hero-inner { grid-template-columns: minmax(0, 1fr) minmax(240px, 0.82fr); }
+  .benefit-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .open-gym-panel { grid-template-columns: minmax(0, 1fr); }
+  .contact-inner { align-items: flex-start; flex-direction: column; }
+}
+@media (max-width: 620px) {
+  .hero-inner, .class-layout, .growth-layout { grid-template-columns: minmax(0, 1fr); }
+  .hero { padding-bottom: 56px; padding-top: 64px; }
+  .hero-inner { gap: 34px; }
+  .hero h1 { font-size: clamp(42px, 13vw, 64px); }
+  .photo-placeholder { min-height: 220px; }
+  .benefit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .character-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .growth-mark { max-width: 200px; }
+  .contact-actions, .contact-actions .button { width: 100%; }
+  .button-dark { white-space: normal; }
+}
+@media (max-width: 380px) {
+  .benefit-grid, .character-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero-actions, .hero-actions .button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div id="site-nav"></div>
+<script>
+fetch('/Partials/nav.html').then(response => response.text()).then(html => { document.getElementById('site-nav').innerHTML = html; });
+</script>
+
+<main id="main-content">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="eyebrow">Mini Ninjas · Ages 3–5</p>
+        <h1 id="page-title">Big Movement.<span>Little Ninjas.</span></h1>
+        <p class="hero-copy">A welcoming, coach-led movement program where young children build coordination, confidence, and body awareness through joyful physical exploration.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="/schedule.html">View the schedule</a>
+          <a class="button button-outline-light" href="/contact.html">Contact E5</a>
+        </div>
+      </div>
+      <div class="photo-placeholder" role="img" aria-label="Placeholder for an authentic Elemental 5 Mini Ninjas photograph">
+        <span class="photo-placeholder-label">Future E5 photography</span>
+        <span class="photo-placeholder-title">Mini Ninjas<br>Photo</span>
+        <p class="photo-placeholder-note">Reserved for an authentic program image</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section why" aria-labelledby="why-title">
+    <div class="section-inner">
+      <p class="section-kicker">Strong starts through movement</p>
+      <h2 class="section-heading" id="why-title">Why movement matters</h2>
+      <p class="section-intro">In early childhood, trying new ways to move is a powerful way to learn. Mini Ninjas gives children space to explore, practice, and enjoy what their growing bodies can do.</p>
+      <div class="benefit-grid">
+        <article class="benefit">
+          <h3>Coordination</h3>
+          <p>Connect movement, timing, and attention through active play.</p>
+        </article>
+        <article class="benefit">
+          <h3>Balance</h3>
+          <p>Explore stability and control in changing positions and spaces.</p>
+        </article>
+        <article class="benefit">
+          <h3>Confidence</h3>
+          <p>Build trust in their abilities by trying achievable new challenges.</p>
+        </article>
+        <article class="benefit">
+          <h3>Body awareness</h3>
+          <p>Notice how the body moves, lands, reaches, and changes direction.</p>
+        </article>
+        <article class="benefit">
+          <h3>Joyful exploration</h3>
+          <p>Discover the fun of moving, imagining, and learning together.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section class-section" aria-labelledby="class-title">
+    <div class="section-inner class-layout">
+      <div class="class-copy">
+        <p class="section-kicker">Play with purpose</p>
+        <h2 class="section-heading" id="class-title">What happens in class</h2>
+        <p class="section-intro">E5 coaches lead playful, structured challenges that invite children to explore movement at their own pace. Children participate independently with coaches on the training floor; parents do not join the class on the floor.</p>
+        <ul class="movement-list" aria-label="Representative movement experiences">
+          <li>Climbing</li>
+          <li>Balancing</li>
+          <li>Jumping</li>
+          <li>Rolling</li>
+          <li>Obstacle play</li>
+          <li>Coordination</li>
+        </ul>
+        <p class="class-note">These are examples of the kinds of movement children may explore, not a fixed checklist or rigid curriculum.</p>
+      </div>
+      <div class="photo-placeholder photo-placeholder--support" role="img" aria-label="Placeholder for a supporting authentic Elemental 5 Mini Ninjas photograph">
+        <span class="photo-placeholder-label">Supporting E5 photo</span>
+        <span class="photo-placeholder-title">Movement<br>In Motion</span>
+        <p class="photo-placeholder-note">Replace with an approved Mini Ninjas image</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section character" aria-labelledby="character-title">
+    <div class="section-inner">
+      <p class="section-kicker">More than physical skills</p>
+      <h2 class="section-heading" id="character-title">Character begins early</h2>
+      <p class="section-intro">Character development is part of the experience. Coaches weave small, age-appropriate moments into movement, practice, and being part of a group.</p>
+      <div class="character-grid">
+        <div class="character-item">Listening to coaches and one another</div>
+        <div class="character-item">Practicing patience and taking turns</div>
+        <div class="character-item">Cooperating with the group</div>
+        <div class="character-item">Showing respect for people and shared spaces</div>
+        <div class="character-item">Growing independence</div>
+        <div class="character-item">Being willing to try a new challenge</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="growth-title">
+    <div class="section-inner growth-layout">
+      <div class="growth-mark" aria-hidden="true">Move<br>Grow</div>
+      <div class="growth-copy">
+        <p class="section-kicker">A place to begin, not a deadline</p>
+        <h2 class="section-heading" id="growth-title">Growing with E5</h2>
+        <p>Mini Ninjas is a standalone early childhood movement program. It offers young children a place to build comfort, coordination, and confidence through movement for its own value.</p>
+        <p>As children grow, the movement foundations they explore can connect naturally to NinFit. There is no pressure to advance on a timeline; each child can keep learning and enjoying their stage of development.</p>
+        <a class="button button-dark" href="/ninfit.html">Explore NinFit</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section open-gym" aria-labelledby="open-gym-title">
+    <div class="section-inner open-gym-panel">
+      <div>
+        <p class="section-kicker">A separate parent-child session</p>
+        <h2 id="open-gym-title">Friday Morning Minis Open Gym</h2>
+        <p class="open-gym-copy">This is different from coach-led Mini Ninjas class: parents participate alongside their children during open gym. The published schedule lists the session as “Ninja Tot Open Gym.”</p>
+        <p class="schedule-facts">
+          <span>Ages walking to 5 · Parent participation</span>
+          <span>Friday · 10:00 – 11:30 AM</span>
+        </p>
+        <p class="schedule-note">The schedule is subject to change. Check the current schedule and iClassPro for live availability.</p>
+      </div>
+      <a class="button button-dark" href="/schedule.html">Check the schedule</a>
+    </div>
+  </section>
+
+  <section class="contact" aria-labelledby="contact-title">
+    <div class="contact-inner">
+      <div>
+        <p class="section-kicker">Take the next step</p>
+        <h2 class="section-heading" id="contact-title">Curious about Mini Ninjas?</h2>
+        <p class="contact-copy">See the current schedule or reach out to the E5 team with questions about the program.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="button button-earth" href="/schedule.html">View the schedule</a>
+        <a class="button button-outline" href="/contact.html">Contact E5</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script>
+fetch('/Partials/footer.html').then(response => response.text()).then(html => { document.getElementById('site-footer').innerHTML = html; });
+</script>
+</body>
+</html>
