@@ -184,7 +184,15 @@
   .card-photo--ninfit img { object-position: center 34%; }
   .card-photo--tx3 img { object-position: center 20%; }
   .card-photo--silks img { object-position: center 35%; }
-  .card-photo--teens img { object-position: center 28%; }
+  .card-photo--earth {
+    background: linear-gradient(135deg, #D9C5A6, #B78B60);
+  }
+  .card-photo--earth::after { display: none; }
+  .card-photo--earth img {
+    height: 112px;
+    object-fit: contain;
+    width: 112px;
+  }
   .card-symbol {
     align-items: center;
     background:
@@ -504,8 +512,8 @@ fetch('/Partials/nav.html').then(response => response.text()).then(html => { doc
       </article>
 
       <article class="program-card" aria-labelledby="teens-adults-title">
-        <div class="card-photo card-photo--teens">
-          <img src="https://lh3.googleusercontent.com/d/1tM9uRmCx0pcSrX0wNCnkKJrWDC66Ii98" alt="Teen coach supporting a student during movement training at Elemental 5" loading="lazy">
+        <div class="card-photo card-photo--earth">
+          <img src="element-earth.png" alt="" loading="lazy">
         </div>
         <div class="card-body">
           <div class="card-meta"><span class="card-age">Teens &amp; Adults</span><span class="card-pathway">Strength · Acrobatics</span></div>
