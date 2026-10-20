@@ -1,149 +1,476 @@
 <style>
-.e5-nav { width:100%; background:#ffffff; border-bottom:1px solid rgba(14,8,4,0.12); position:-webkit-sticky; position:sticky; top:0; z-index:1000; font-family:'Montserrat',sans-serif; }
-.e5-nav-inner { max-width:1400px; margin:0 auto; padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:68px; }
-.e5-logo { display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0; }
-.e5-logo img { height:52px; width:auto; }
-.e5-nav-links { display:flex; align-items:center; gap:4px; list-style:none; }
-.e5-nav-links > li { position:relative; }
-.e5-nav-links a { font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:rgba(14,8,4,0.7); text-decoration:none; padding:8px 14px; border-radius:3px; transition:color 0.2s,background 0.2s; white-space:nowrap; }
-.e5-nav-links a:hover { color:#0E0804; background:rgba(14,8,4,0.06); }
-.e5-nav-links a.e5-active { color:#C4922A; }
-
-.e5-nav-links .dropdown { position:absolute; top:100%; left:0; background:#fff; min-width:180px; box-shadow:0 4px 12px rgba(0,0,0,0.15); border-radius:3px; display:none; flex-direction:column; padding:4px 0; z-index:100; }
-.e5-nav-links .dropdown a { font-size:11px; padding:10px 16px; border-radius:0; }
-.e5-nav-links li:hover > .dropdown { display:flex; }
-
-.dropdown-subitem { position:relative; }
-.dropdown-subitem > a { display:block; }
-.side-dropdown { display:none; position:absolute; top:0; left:100%; background:#fff; min-width:230px; box-shadow:0 4px 12px rgba(0,0,0,0.15); border-radius:3px; flex-direction:column; padding:4px 0; z-index:200; }
-.dropdown-subitem:hover .side-dropdown { display:flex; }
-.side-dropdown a { font-size:11px; padding:10px 16px; border-radius:0; line-height:1.3; }
-.side-dropdown a span { display:block; margin-top:2px; font-size:10px; font-weight:600; color:rgba(14,8,4,0.45); letter-spacing:0.04em; text-transform:none; }
-
-.e5-nav-btn { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:#fff; background:#CC1F1F; text-decoration:none; padding:10px 20px; border-radius:3px; white-space:nowrap; transition:background 0.2s; flex-shrink:0; }
-.e5-nav-btn:hover { background:#A51818; }
-
-.e5-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; background:none; border:none; }
-.e5-hamburger span { display:block; width:24px; height:2px; background:rgba(14,8,4,0.8); border-radius:2px; }
-
-.e5-mobile-menu { display:none; position:static; flex-direction:column; background:#f5f5f3; border-top:1px solid rgba(196,146,42,0.1); padding:14px 18px 22px; gap:6px; box-shadow:0 10px 24px rgba(14,8,4,0.08); }
-.e5-mobile-menu a { font-family:'Montserrat',sans-serif; font-size:12px; font-weight:800; letter-spacing:0.075em; text-transform:uppercase; color:#0E0804; text-decoration:none; padding:13px 14px; border:1px solid rgba(14,8,4,0.08); border-left:3px solid transparent; border-radius:4px; background:#ffffff; transition:color 0.2s,background 0.2s,border-color 0.2s; }
-.e5-mobile-menu a:hover { color:#0E0804; background:#fbfaf7; border-left-color:#C4622D; }
-.e5-mobile-menu a:last-child { border-bottom:1px solid rgba(14,8,4,0.08); }
-.e5-mobile-menu .e5-nav-btn { margin-top:12px; text-align:center; display:block; background:#CC1F1F; color:#fff; border-color:#CC1F1F; border-left-color:#CC1F1F; }
-.e5-mobile-menu .e5-nav-btn:hover { background:#A51818; color:#fff; border-color:#A51818; }
-.e5-mobile-menu.e5-open { display:flex; }
-
-.e5-mobile-menu .mobile-subitem {
-  margin-left: 18px;
-  padding: 10px 12px 10px 24px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.045em;
-  text-transform: none;
-  color: rgba(14,8,4,0.62);
-  background: rgba(255,255,255,0.5);
-  border-color: rgba(14,8,4,0.06);
-  border-left-color: rgba(196,98,45,0.45);
+.e5-nav {
+  background: rgba(241, 238, 229, 0.96);
+  border-bottom: 1px solid rgba(23, 27, 26, 0.1);
+  box-shadow: 0 8px 26px rgba(23, 27, 26, 0.06);
+  color: #171B1A;
+  font-family: 'Montserrat', sans-serif;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.e5-nav a,
+.e5-nav button,
+.e5-nav summary {
+  -webkit-tap-highlight-color: transparent;
+}
+.e5-nav a:focus-visible,
+.e5-nav button:focus-visible,
+.e5-nav summary:focus-visible {
+  outline: 3px solid rgba(183, 139, 96, 0.55);
+  outline-offset: 3px;
+}
+.e5-nav-inner {
+  align-items: center;
+  display: flex;
+  gap: 28px;
+  height: 76px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: 0 clamp(18px, 4vw, 44px);
+}
+.e5-logo {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.e5-logo img {
+  height: 54px;
+  width: auto;
+}
+.e5-nav-center {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: 6px;
+  justify-content: center;
+  list-style: none;
+}
+.e5-nav-center > li {
   position: relative;
 }
-
-.e5-mobile-menu .mobile-subitem::before {
+.e5-nav-link,
+.e5-dropdown-toggle {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  color: rgba(23, 27, 26, 0.76);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  gap: 7px;
+  letter-spacing: 0.07em;
+  min-height: 42px;
+  padding: 10px 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 160ms ease, color 160ms ease;
+  white-space: nowrap;
+}
+.e5-nav-link:hover,
+.e5-dropdown-toggle:hover,
+.e5-nav-center > li:focus-within > .e5-dropdown-toggle {
+  background: rgba(183, 139, 96, 0.12);
+  color: #171B1A;
+}
+.e5-dropdown-toggle::after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
   content: "";
+  margin-top: 2px;
+}
+.e5-dropdown {
+  background: #FCF8EF;
+  border: 1px solid rgba(23, 27, 26, 0.12);
+  box-shadow: 0 18px 40px rgba(23, 27, 26, 0.14);
+  display: grid;
+  gap: 4px;
+  left: 0;
+  min-width: 260px;
+  opacity: 0;
+  padding: 10px;
+  pointer-events: none;
   position: absolute;
-  left: 10px;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(196,98,45,0.55);
-  transform: translateY(-50%);
+  top: calc(100% + 8px);
+  transform: translateY(-4px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+.e5-nav-center > li:hover .e5-dropdown,
+.e5-nav-center > li:focus-within .e5-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.e5-dropdown a {
+  border-radius: 4px;
+  color: rgba(23, 27, 26, 0.78);
+  display: grid;
+  font-size: 12px;
+  font-weight: 800;
+  gap: 2px;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  padding: 11px 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 160ms ease, color 160ms ease;
+}
+.e5-dropdown a:hover,
+.e5-dropdown a:focus-visible {
+  background: rgba(138, 153, 135, 0.16);
+  color: #171B1A;
+}
+.e5-dropdown span {
+  color: rgba(23, 27, 26, 0.54);
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.e5-nav-actions {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 10px;
+}
+.e5-utility-link {
+  color: rgba(23, 27, 26, 0.62);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 8px 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.e5-utility-link:hover {
+  color: #171B1A;
+}
+.e5-primary-cta {
+  background: #171B1A;
+  border: 2px solid #171B1A;
+  border-radius: 4px;
+  color: #F1EEE5;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 900;
+  justify-content: center;
+  letter-spacing: 0.09em;
+  min-height: 42px;
+  padding: 11px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+  white-space: nowrap;
+}
+.e5-primary-cta:hover {
+  background: #B78B60;
+  border-color: #B78B60;
+  color: #171B1A;
+  transform: translateY(-1px);
+}
+.e5-hamburger {
+  align-items: center;
+  background: transparent;
+  border: 1px solid rgba(23, 27, 26, 0.18);
+  border-radius: 4px;
+  cursor: pointer;
+  display: none;
+  height: 44px;
+  justify-content: center;
+  width: 44px;
+}
+.e5-hamburger-lines,
+.e5-hamburger-lines::before,
+.e5-hamburger-lines::after {
+  background: #171B1A;
+  border-radius: 2px;
+  content: "";
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: transform 160ms ease, opacity 160ms ease;
+  width: 22px;
+}
+.e5-hamburger-lines::before { position: absolute; top: -7px; }
+.e5-hamburger-lines::after { position: absolute; top: 7px; }
+.e5-hamburger[aria-expanded="true"] .e5-hamburger-lines { background: transparent; }
+.e5-hamburger[aria-expanded="true"] .e5-hamburger-lines::before { transform: translateY(7px) rotate(45deg); }
+.e5-hamburger[aria-expanded="true"] .e5-hamburger-lines::after { transform: translateY(-7px) rotate(-45deg); }
+.e5-mobile-menu {
+  background: #F1EEE5;
+  border-top: 1px solid rgba(23, 27, 26, 0.1);
+  box-shadow: 0 18px 30px rgba(23, 27, 26, 0.08);
+  display: none;
+  padding: 12px clamp(18px, 4vw, 36px) 24px;
+}
+.e5-mobile-menu.e5-open {
+  display: block;
+}
+.e5-mobile-stack {
+  display: grid;
+  gap: 8px;
+  margin: 0 auto;
+  max-width: 720px;
+}
+.e5-mobile-menu details {
+  background: #FCF8EF;
+  border: 1px solid rgba(23, 27, 26, 0.1);
+  border-radius: 4px;
+}
+.e5-mobile-menu summary {
+  color: #171B1A;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  list-style: none;
+  padding: 15px 14px;
+  text-transform: uppercase;
+}
+.e5-mobile-menu summary::-webkit-details-marker { display: none; }
+.e5-mobile-menu summary::after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  content: "";
+  float: right;
+  margin-top: 6px;
+}
+.e5-mobile-menu details[open] summary::after {
+  transform: rotate(180deg);
+}
+.e5-mobile-menu a {
+  align-items: center;
+  background: #FCF8EF;
+  border: 1px solid rgba(23, 27, 26, 0.1);
+  border-radius: 4px;
+  color: #171B1A;
+  display: flex;
+  font-size: 12px;
+  font-weight: 900;
+  justify-content: space-between;
+  letter-spacing: 0.08em;
+  min-height: 48px;
+  padding: 13px 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.e5-mobile-menu a:hover,
+.e5-mobile-menu a:focus-visible {
+  background: rgba(138, 153, 135, 0.16);
+}
+.e5-mobile-submenu {
+  display: grid;
+  gap: 6px;
+  padding: 0 10px 10px;
+}
+.e5-mobile-submenu a {
+  background: rgba(255, 255, 255, 0.52);
+  color: rgba(23, 27, 26, 0.78);
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  min-height: 44px;
+  text-transform: none;
+}
+.e5-mobile-actions {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+.e5-mobile-actions .e5-primary-cta,
+.e5-mobile-actions .e5-utility-link {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 48px;
+  padding: 13px 14px;
+}
+.e5-mobile-actions .e5-utility-link {
+  background: transparent;
+  border: 1px solid rgba(23, 27, 26, 0.18);
 }
 
-@media(max-width:1100px) { 
-  .e5-nav-links, .e5-nav-btn { display:none; } 
-  .e5-hamburger { display:flex; } 
-  .e5-nav-inner { padding:0 20px; } 
+@media (max-width: 1120px) {
+  .e5-nav-center,
+  .e5-nav-actions {
+    display: none;
+  }
+  .e5-hamburger {
+    display: inline-flex;
+  }
+  .e5-nav-inner {
+    height: 70px;
+  }
+  .e5-logo img {
+    height: 50px;
+  }
 }
 </style>
 
-<nav class="e5-nav">
+<nav class="e5-nav" aria-label="Primary navigation">
   <div class="e5-nav-inner">
     <a href="/" class="e5-logo">
       <img src="/E5_Logo_FullLockUp_021224 (2).png" alt="Elemental 5">
     </a>
 
-    <ul class="e5-nav-links">
+    <ul class="e5-nav-center">
       <li>
-        <a href="/programs.html">Programs</a>
-
-        <div class="dropdown">
-          <a href="/programs.html">All Programs</a>
-
-          <div class="dropdown-subitem">
-            <a href="/ninfit-beginner.html">NinFit ▸</a>
-
-            <div class="side-dropdown">
-              <a href="/ninfit-beginner.html">
-                NinFit Beginner
-                <span>Levels 1–3</span>
-              </a>
-              <a href="/ninfit-intermediate-page.html">
-                NinFit Intermediate
-                <span>Levels 4–6</span>
-              </a>
-            </div>
-          </div>
-
-          <a href="/tx3-page.html">TX3</a>
-          <a href="/aerial-silks-page.html">Aerial Silks</a>
-          <a href="/circus-fridays.html">Circus Fridays</a>
-          <a href="/juniorcoach.html">Junior Coach</a>
-          <a href="/echo-performance-troupe.html">Echo Troupe</a>
+        <button class="e5-dropdown-toggle" type="button" aria-expanded="false">Programs</button>
+        <div class="e5-dropdown" aria-label="Programs">
+          <a href="/programs.html">Mini Ninjas<span>Ages 3-5</span></a>
+          <a href="/ninfit.html">NinFit<span>One pathway from Beginner to Advanced</span></a>
+          <a href="/tx3-page.html">Tumbling &amp; Trampoline<span>Existing TX3 program page</span></a>
+          <a href="/aerial-silks-page.html">Aerial Silks<span>Specialty training ages 8+</span></a>
+          <a href="/new-gym.html">Martial Arts<span>Coming with the new facility</span></a>
+          <a href="/programs.html">Teens &amp; Adults<span>See current pathways</span></a>
         </div>
       </li>
 
-      <li><a href="/pricing.html">Pricing</a></li>
-
       <li>
-        <a href="/about.html">About</a>
-        <div class="dropdown">
-          <a href="/about.html">About Us</a>
-          <a href="/policies.html">Policies</a>
-          <a href="/team.html">Team</a>
+        <button class="e5-dropdown-toggle" type="button" aria-expanded="false">Pricing &amp; Schedule</button>
+        <div class="e5-dropdown" aria-label="Pricing and schedule">
+          <a href="/pricing.html">Tuition &amp; Pricing<span>Current rates and class options</span></a>
+          <a href="/schedule.html">Schedule<span>Current class schedule resources</span></a>
         </div>
       </li>
 
-      <li><a href="/new-gym.html">New Facility</a></li>
-      <li><a href="/schedule.html">Schedule</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-      <li><a href="/newsletter.html">Newsletter</a></li>
+      <li><a class="e5-nav-link" href="/new-gym.html">New Facility</a></li>
+
+      <li>
+        <button class="e5-dropdown-toggle" type="button" aria-expanded="false">About</button>
+        <div class="e5-dropdown" aria-label="About Elemental 5">
+          <a href="/character.html">Our Approach<span>Purposeful training and character</span></a>
+          <a href="/team.html">Team<span>Meet the coaches</span></a>
+          <a href="/contact.html">Contact<span>Questions and next steps</span></a>
+          <a href="/newsletter.html">Newsletter<span>Updates and announcements</span></a>
+        </div>
+      </li>
     </ul>
 
-    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
+    <div class="e5-nav-actions">
+      <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" rel="noopener" class="e5-utility-link">Student Portal</a>
+      <a
+        href="/programs.html"
+        class="e5-primary-cta"
+        data-launch-phase="{{ launch.launchPhase }}"
+        data-enrolling-label="{{ launch.enrollmentCtaLabel }}"
+        data-enrolling-url="{{ launch.enrollmentCtaUrl }}">Explore Programs</a>
+    </div>
 
-    <button class="e5-hamburger" onclick="document.getElementById('e5mob').classList.toggle('e5-open')" aria-label="Menu">
-      <span></span><span></span><span></span>
+    <button class="e5-hamburger" type="button" aria-label="Open menu" aria-controls="e5mob" aria-expanded="false">
+      <span class="e5-hamburger-lines" aria-hidden="true"></span>
     </button>
   </div>
 
   <div class="e5-mobile-menu" id="e5mob">
-    <a href="/programs.html">Programs</a>
-    <a href="/ninfit-beginner.html" class="mobile-subitem">NinFit Beginner — Levels 1–3</a>
-    <a href="/ninfit-intermediate-page.html" class="mobile-subitem">NinFit Intermediate — Levels 4–6</a>
-    <a href="/tx3-page.html" class="mobile-subitem">TX3</a>
-    <a href="/aerial-silks-page.html" class="mobile-subitem">Aerial Silks</a>
-    <a href="/circus-fridays.html" class="mobile-subitem">Circus Fridays</a>
-    <a href="/juniorcoach.html" class="mobile-subitem">Junior Coach Apprenticeship</a>
-    <a href="/echo-performance-troupe.html" class="mobile-subitem">Echo Performance Troupe</a>
-    <a href="/pricing.html">Pricing</a>
-    <a href="/about.html">About Us</a>
-    <a href="/policies.html">Policies</a>
-    <a href="/team.html">Team</a>
-    <a href="/new-gym.html">New Facility</a>
-    <a href="/schedule.html">Schedule</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/newsletter.html">Newsletter</a>
-    <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" class="e5-nav-btn">Student Portal</a>
+    <div class="e5-mobile-stack">
+      <details>
+        <summary>Programs</summary>
+        <div class="e5-mobile-submenu">
+          <a href="/programs.html">Mini Ninjas</a>
+          <a href="/ninfit.html">NinFit</a>
+          <a href="/tx3-page.html">Tumbling &amp; Trampoline</a>
+          <a href="/aerial-silks-page.html">Aerial Silks</a>
+          <a href="/new-gym.html">Martial Arts</a>
+          <a href="/programs.html">Teens &amp; Adults</a>
+        </div>
+      </details>
+
+      <details>
+        <summary>Pricing &amp; Schedule</summary>
+        <div class="e5-mobile-submenu">
+          <a href="/pricing.html">Tuition &amp; Pricing</a>
+          <a href="/schedule.html">Schedule</a>
+        </div>
+      </details>
+
+      <a href="/new-gym.html">New Facility</a>
+
+      <details>
+        <summary>About</summary>
+        <div class="e5-mobile-submenu">
+          <a href="/character.html">Our Approach</a>
+          <a href="/team.html">Team</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/newsletter.html">Newsletter</a>
+        </div>
+      </details>
+
+      <div class="e5-mobile-actions">
+        <a
+          href="/programs.html"
+          class="e5-primary-cta"
+          data-launch-phase="{{ launch.launchPhase }}"
+          data-enrolling-label="{{ launch.enrollmentCtaLabel }}"
+          data-enrolling-url="{{ launch.enrollmentCtaUrl }}">Explore Programs</a>
+        <a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" rel="noopener" class="e5-utility-link">Student Portal</a>
+      </div>
+    </div>
   </div>
 </nav>
+
+<script>
+  (function () {
+    var nav = document.currentScript.previousElementSibling;
+    if (!nav) return;
+
+    var menuButton = nav.querySelector('.e5-hamburger');
+    var menu = nav.querySelector('#e5mob');
+    var dropdownButtons = nav.querySelectorAll('.e5-dropdown-toggle');
+    var ctas = nav.querySelectorAll('.e5-primary-cta');
+
+    ctas.forEach(function (cta) {
+      if (cta.dataset.launchPhase === 'enrolling' && cta.dataset.enrollingLabel && cta.dataset.enrollingUrl) {
+        cta.textContent = cta.dataset.enrollingLabel;
+        cta.setAttribute('href', cta.dataset.enrollingUrl);
+      }
+    });
+
+    dropdownButtons.forEach(function (button) {
+      var item = button.parentElement;
+      item.addEventListener('mouseenter', function () {
+        button.setAttribute('aria-expanded', 'true');
+      });
+      item.addEventListener('mouseleave', function () {
+        button.setAttribute('aria-expanded', 'false');
+      });
+      item.addEventListener('focusin', function () {
+        button.setAttribute('aria-expanded', 'true');
+      });
+      item.addEventListener('focusout', function () {
+        window.setTimeout(function () {
+          if (!item.contains(document.activeElement)) {
+            button.setAttribute('aria-expanded', 'false');
+          }
+        }, 0);
+      });
+    });
+
+    if (menuButton && menu) {
+      menuButton.addEventListener('click', function () {
+        var isOpen = menu.classList.toggle('e5-open');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+        menuButton.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+
+      menu.addEventListener('click', function (event) {
+        if (event.target.closest('a')) {
+          menu.classList.remove('e5-open');
+          menuButton.setAttribute('aria-expanded', 'false');
+          menuButton.setAttribute('aria-label', 'Open menu');
+        }
+      });
+    }
+  }());
+</script>
