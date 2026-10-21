@@ -4,49 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Elemental Martial Arts | Elemental 5 Movement Arts Center</title>
-<meta name="description" content="Elemental Martial Arts at Elemental 5 is an integrated program for youth, teens, and adults, combining practical self-defense, disciplined training, and character development.">
+<meta name="description" content="Explore Elemental Martial Arts at Elemental 5, an integrated program for youth, teens, and adults rooted in tradition and focused on practical training.">
 <link rel="canonical" href="https://www.elementalfive.com/elemental-martial-arts.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.elementalfive.com/elemental-martial-arts.html">
 <meta property="og:title" content="Elemental Martial Arts | Elemental 5 Movement Arts Center">
-<meta property="og:description" content="Learn to act. Practical self-defense, disciplined training, and character through action at Elemental 5.">
+<meta property="og:description" content="Traditional roots. Modern martial arts. Discover Elemental Martial Arts at Elemental 5.">
 <meta property="og:site_name" content="Elemental 5">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elemental Martial Arts | Elemental 5 Movement Arts Center">
-<meta name="twitter:description" content="Learn to act. Practical self-defense, disciplined training, and character through action at Elemental 5.">
+<meta name="twitter:description" content="Traditional roots. Modern martial arts. Discover Elemental Martial Arts at Elemental 5.">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; }
 :root {
   --paper: #F1EEE5;
-  --paper-2: #E8E2D6;
+  --paper-light: #F8F5ED;
   --ink: #171B1A;
   --ink-soft: rgba(23, 27, 26, 0.72);
-  --ink-muted: rgba(23, 27, 26, 0.54);
-  --sage: #8A9987;
-  --earth: #B78B60;
+  --ink-muted: rgba(23, 27, 26, 0.56);
   --fire: #B8422E;
   --fire-light: #D7785D;
-  --line: rgba(23, 27, 26, 0.12);
+  --earth: #B78B60;
+  --line: rgba(23, 27, 26, 0.16);
 }
 html { background: var(--paper); scroll-behavior: smooth; }
 body {
   background: var(--paper);
   color: var(--ink);
   font-family: 'Nunito Sans', sans-serif;
-  line-height: 1.6;
+  line-height: 1.65;
   margin: 0;
-  min-width: 320px;
-  overflow-x: hidden;
 }
 a { -webkit-tap-highlight-color: transparent; }
 a:focus-visible {
   outline: 3px solid var(--earth);
   outline-offset: 4px;
 }
-img { display: block; max-width: 100%; }
 .skip-link {
-  background: var(--paper);
+  background: var(--paper-light);
   border: 2px solid var(--ink);
   color: var(--ink);
   left: 16px;
@@ -57,119 +53,102 @@ img { display: block; max-width: 100%; }
   z-index: 2000;
 }
 .skip-link:focus { transform: translateY(0); }
-.hero {
-  background:
-    radial-gradient(ellipse at 79% 18%, rgba(184, 66, 46, 0.17), transparent 34%),
-    linear-gradient(120deg, #171B1A 0%, #242B28 68%, #303A34 100%);
-  color: var(--paper);
-  overflow: hidden;
-  padding: clamp(56px, 8vw, 104px) clamp(20px, 5vw, 72px);
-  position: relative;
-}
-.hero::after {
-  border: 1px solid rgba(241, 238, 229, 0.12);
-  border-radius: 50%;
-  content: "";
-  height: clamp(280px, 44vw, 600px);
-  pointer-events: none;
-  position: absolute;
-  right: -12%;
-  top: -42%;
-  width: clamp(280px, 44vw, 600px);
-}
-.hero-inner {
-  align-items: center;
-  display: grid;
-  gap: clamp(36px, 6vw, 84px);
-  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
-  margin: 0 auto;
-  max-width: 1180px;
-  position: relative;
-  z-index: 1;
-}
-.eyebrow {
-  color: var(--fire-light);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  margin: 0 0 18px;
-  text-transform: uppercase;
-}
 h1, h2, h3 {
   font-family: 'Montserrat', sans-serif;
   margin-top: 0;
 }
-h1 {
+.hero {
+  background:
+    radial-gradient(ellipse at 76% 20%, rgba(184, 66, 46, 0.18), transparent 32%),
+    linear-gradient(120deg, #171B1A 0%, #242B28 67%, #303A34 100%);
   color: var(--paper);
-  font-size: clamp(42px, 6.5vw, 76px);
-  font-weight: 900;
-  letter-spacing: -0.045em;
-  line-height: 0.98;
-  margin-bottom: 0;
+  padding: clamp(54px, 7vw, 92px) clamp(20px, 5vw, 72px);
+}
+.hero-inner {
+  align-items: center;
+  display: grid;
+  gap: clamp(36px, 6vw, 88px);
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+  margin: 0 auto;
+  max-width: 1220px;
+}
+.eyebrow, .section-kicker, .pathway-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-.hero-title-line {
+.eyebrow {
   color: var(--fire-light);
-  display: block;
-  font-size: clamp(48px, 8vw, 98px);
+  margin: 0 0 22px;
+}
+.hero h1 {
+  color: var(--paper);
+  font-size: clamp(42px, 6.4vw, 82px);
+  font-weight: 900;
   letter-spacing: -0.055em;
-  margin-top: 8px;
+  line-height: 0.98;
+  margin: 0;
+  text-transform: uppercase;
+}
+.hero-tagline {
+  color: var(--fire-light);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(19px, 2.4vw, 29px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+  margin: 22px 0 0;
 }
 .hero-copy {
-  color: rgba(241, 238, 229, 0.8);
-  font-size: clamp(17px, 1.7vw, 20px);
-  line-height: 1.65;
-  margin: 24px 0 0;
-  max-width: 670px;
+  color: rgba(241, 238, 229, 0.78);
+  font-size: clamp(16px, 1.45vw, 18px);
+  line-height: 1.75;
+  margin: 22px 0 0;
+  max-width: 620px;
 }
-.hero-copy strong { color: var(--paper); font-weight: 700; }
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 30px;
-}
+.hero-copy p { margin: 0; }
+.hero-copy p + p { margin-top: 12px; }
+.hero-actions { margin-top: 28px; }
 .button {
   align-items: center;
   border: 2px solid transparent;
-  border-radius: 4px;
   display: inline-flex;
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   font-weight: 900;
   justify-content: center;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.1em;
   min-height: 48px;
-  padding: 12px 18px;
+  padding: 12px 20px;
   text-decoration: none;
   text-transform: uppercase;
-  transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
 }
-.button:hover { transform: translateY(-1px); }
 .button-light { background: var(--paper); border-color: var(--paper); color: var(--ink); }
 .button-light:hover { background: #fff; border-color: #fff; }
-.button-outline-light { background: transparent; border-color: rgba(241, 238, 229, 0.42); color: var(--paper); }
-.button-outline-light:hover { border-color: var(--paper); }
-.photo-placeholder {
+.button-fire { background: var(--fire); border-color: var(--fire); color: #fff; }
+.button-fire:hover { background: #9F3426; border-color: #9F3426; }
+.button-outline { background: transparent; border-color: rgba(241, 238, 229, 0.44); color: var(--paper); }
+.button-outline:hover { border-color: var(--paper); }
+.hero-visual {
   align-items: center;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 4.3;
   background:
-    radial-gradient(circle at 78% 22%, rgba(184, 66, 46, 0.25), transparent 34%),
-    linear-gradient(145deg, #36423A, #202723 70%);
-  border: 1px solid rgba(241, 238, 229, 0.24);
+    radial-gradient(circle at 76% 24%, rgba(184, 66, 46, 0.28), transparent 31%),
+    linear-gradient(145deg, #36423A, #202723 72%);
   color: var(--paper);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 250px;
+  min-height: 340px;
   overflow: hidden;
-  padding: 28px;
+  padding: 30px;
   position: relative;
   text-align: center;
 }
-.photo-placeholder::before,
-.photo-placeholder::after {
+.hero-visual::before, .hero-visual::after {
   border: 1px solid rgba(241, 238, 229, 0.16);
   border-radius: 50%;
   content: "";
@@ -181,9 +160,9 @@ h1 {
   transform: translate(-50%, -50%);
   width: 72%;
 }
-.photo-placeholder::after { height: 92%; width: 92%; }
-.photo-placeholder > * { position: relative; z-index: 1; }
-.photo-placeholder-label {
+.hero-visual::after { height: 91%; width: 91%; }
+.visual-inner { max-width: 300px; position: relative; z-index: 1; }
+.visual-label {
   color: #E6A08B;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
@@ -191,348 +170,173 @@ h1 {
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-.photo-placeholder-title {
+.visual-mark {
+  color: var(--paper);
+  display: block;
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(23px, 3vw, 36px);
+  font-size: clamp(64px, 10vw, 116px);
   font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.08em;
+  line-height: 1;
   margin: 12px 0;
-  text-transform: uppercase;
 }
-.photo-placeholder-note {
+.visual-note {
   color: rgba(241, 238, 229, 0.68);
   font-size: 13px;
+  line-height: 1.5;
   margin: 0;
 }
 .section {
-  padding: clamp(58px, 7vw, 96px) clamp(20px, 5vw, 72px);
+  padding: clamp(68px, 8vw, 110px) clamp(20px, 5vw, 72px);
 }
-.section-inner { margin: 0 auto; max-width: 1180px; }
-.section-heading {
-  color: var(--ink);
-  font-size: clamp(29px, 4vw, 48px);
-  font-weight: 900;
-  letter-spacing: -0.035em;
-  line-height: 1.05;
-  margin-bottom: 18px;
-  text-transform: uppercase;
-}
-.section-intro {
-  color: var(--ink-soft);
-  font-size: clamp(16px, 1.5vw, 19px);
-  line-height: 1.75;
-  margin: 0;
-  max-width: 780px;
-}
+.section-inner { margin: 0 auto; max-width: 1220px; }
 .section-kicker {
   color: #9C4939;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  margin: 0 0 12px;
+  margin: 0 0 14px;
+}
+.section-heading {
+  font-size: clamp(32px, 4.7vw, 58px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1.04;
+  margin: 0;
   text-transform: uppercase;
 }
-.philosophy {
-  background: #F8F5ED;
-}
-.philosophy-layout {
-  align-items: center;
+.training { background: var(--paper-light); }
+.training-intro {
+  align-items: start;
   display: grid;
-  gap: clamp(36px, 6vw, 82px);
-  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+  gap: clamp(35px, 8vw, 120px);
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
 }
-.philosophy-copy p:not(.section-kicker) {
+.training-copy {
   color: var(--ink-soft);
-  font-size: 17px;
+  font-size: clamp(16px, 1.45vw, 18px);
   line-height: 1.8;
-}
-.principle-mark {
-  align-items: center;
-  aspect-ratio: 1;
-  background:
-    radial-gradient(circle at center, rgba(184, 66, 46, 0.22) 0 23%, transparent 24%),
-    linear-gradient(145deg, #303A34, #171B1A);
-  border: 1px solid rgba(23, 27, 26, 0.14);
-  border-radius: 50%;
-  color: var(--paper);
-  display: flex;
-  flex-direction: column;
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(17px, 2.4vw, 26px);
-  font-weight: 900;
-  justify-content: center;
-  letter-spacing: 0.12em;
-  margin: 0 auto;
-  max-width: 330px;
-  text-align: center;
-  text-transform: uppercase;
-  width: 100%;
-}
-.principle-mark span {
-  color: var(--fire-light);
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  margin-top: 10px;
-}
-.domains { background: var(--paper); }
-.domain-grid {
-  display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 32px;
-}
-.domain {
-  background: #F8F5ED;
-  border-top: 3px solid var(--fire);
-  min-height: 148px;
-  padding: 22px;
-}
-.domain:nth-child(3n + 2) { border-color: var(--earth); }
-.domain:nth-child(3n) { border-color: var(--sage); }
-.domain h3 {
-  font-size: 15px;
-  font-weight: 900;
-  letter-spacing: 0.02em;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-.domain p {
-  color: var(--ink-muted);
-  font-size: 14px;
-  line-height: 1.65;
   margin: 0;
 }
-.domain-note {
+.training-copy p { margin: 0; }
+.training-copy p + p { margin-top: 14px; }
+.influences {
+  align-items: baseline;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 26px;
+  margin-top: clamp(46px, 7vw, 80px);
+  padding-top: 24px;
+}
+.influences-label {
   color: var(--ink-muted);
-  font-size: 14px;
-  margin: 22px 0 0;
-  max-width: 860px;
-}
-.pathways {
-  background: var(--ink);
-  color: var(--paper);
-}
-.pathways .section-heading { color: var(--paper); }
-.pathways .section-intro { color: rgba(241, 238, 229, 0.74); }
-.pathway-grid {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 34px;
-}
-.pathway-card {
-  background: rgba(241, 238, 229, 0.045);
-  border: 1px solid rgba(241, 238, 229, 0.16);
-  border-top: 3px solid var(--fire-light);
-  padding: clamp(24px, 3.5vw, 38px);
-}
-.pathway-card:nth-child(2) { border-top-color: var(--earth); }
-.pathway-label {
-  color: #E6A08B;
+  flex: 0 0 132px;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   font-weight: 800;
-  letter-spacing: 0.2em;
-  margin: 0 0 10px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
-.pathway-card:nth-child(2) .pathway-label { color: #D4B58F; }
-.pathway-card h3 {
-  color: var(--paper);
-  font-size: clamp(21px, 2.5vw, 29px);
-  font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 14px;
-  text-transform: uppercase;
-}
-.pathway-card p {
-  color: rgba(241, 238, 229, 0.74);
-  font-size: 15px;
-  line-height: 1.75;
+.influence-list {
+  color: var(--ink);
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(14px, 1.5vw, 18px);
+  font-weight: 800;
+  gap: 9px 22px;
+  letter-spacing: -0.02em;
+  line-height: 1.7;
   margin: 0;
-}
-.pathway-card ul {
-  color: rgba(241, 238, 229, 0.86);
-  display: grid;
-  gap: 9px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  list-style: none;
-  margin: 22px 0 0;
   padding: 0;
 }
-.pathway-card li {
-  border-left: 2px solid rgba(230, 160, 139, 0.76);
-  font-size: 14px;
-  padding-left: 11px;
+.influence-list span:not(:last-child)::after {
+  color: var(--fire);
+  content: "/";
+  margin-left: 22px;
 }
-.progression { background: #F8F5ED; }
-.progression-grid {
-  display: grid;
-  gap: 0;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-top: 38px;
-}
-.progression-step {
-  border-top: 2px solid rgba(184, 66, 46, 0.48);
-  padding: 19px 20px 0 0;
-  position: relative;
-}
-.progression-step::before {
-  background: var(--fire);
-  border: 4px solid #F8F5ED;
-  border-radius: 50%;
-  content: "";
-  height: 14px;
-  left: 0;
-  position: absolute;
-  top: -8px;
-  width: 14px;
-}
-.step-number {
-  color: #9C4939;
-  display: block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.16em;
-  margin: 8px 0 9px;
-  text-transform: uppercase;
-}
-.progression-step h3 {
-  font-size: 15px;
-  font-weight: 900;
-  margin-bottom: 7px;
-  text-transform: uppercase;
-}
-.progression-step p {
-  color: var(--ink-muted);
-  font-size: 14px;
-  line-height: 1.65;
-  margin: 0;
-}
-.fire-section {
+.pathways {
   background:
-    radial-gradient(ellipse at 90% 10%, rgba(184, 66, 46, 0.16), transparent 32%),
+    radial-gradient(ellipse at 94% 0%, rgba(184, 66, 46, 0.13), transparent 34%),
     var(--ink);
   color: var(--paper);
 }
-.fire-layout {
-  align-items: center;
-  display: grid;
-  gap: clamp(36px, 6vw, 82px);
-  grid-template-columns: minmax(230px, 0.72fr) minmax(0, 1.28fr);
-}
-.fire-section .section-heading { color: var(--paper); }
-.fire-section .section-intro { color: rgba(241, 238, 229, 0.76); }
-.element-mark {
-  align-items: center;
-  aspect-ratio: 1;
-  background: linear-gradient(145deg, rgba(184, 66, 46, 0.24), rgba(23, 27, 26, 0.9));
-  border: 1px solid rgba(230, 160, 139, 0.42);
-  border-radius: 50%;
-  color: #E6A08B;
-  display: flex;
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(32px, 6vw, 68px);
-  font-weight: 900;
-  justify-content: center;
-  letter-spacing: 0.06em;
-  margin: 0 auto;
-  max-width: 290px;
-  text-transform: uppercase;
-  width: 100%;
-}
-.framework-list {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  list-style: none;
-  margin: 24px 0 0;
-  padding: 0;
-}
-.framework-list li {
-  border-left: 2px solid var(--fire-light);
-  color: rgba(241, 238, 229, 0.86);
-  font-size: 14px;
-  padding: 7px 0 7px 12px;
-}
-.roots {
-  background: var(--paper-2);
-}
-.roots-grid {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 30px;
-}
-.roots-card {
-  background: #F8F5ED;
-  border-left: 4px solid var(--earth);
-  padding: clamp(22px, 3vw, 32px);
-}
-.roots-card h3 {
-  font-size: 17px;
-  font-weight: 900;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-.roots-card p {
-  color: var(--ink-soft);
+.pathways .section-kicker { color: var(--fire-light); }
+.pathways .section-heading { color: var(--paper); }
+.pathway-intro {
+  color: rgba(241, 238, 229, 0.68);
   font-size: 15px;
-  line-height: 1.75;
-  margin: 0;
+  margin: 18px 0 0;
+  max-width: 570px;
 }
-.roots-card p + p { margin-top: 10px; }
-.schedule-note {
-  color: var(--ink-muted);
-  font-size: 13px;
-  margin: 12px 0 0;
+.pathway-grid {
+  display: grid;
+  gap: clamp(32px, 7vw, 94px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: clamp(42px, 6vw, 72px);
 }
-.contact {
-  background: var(--ink);
+.pathway + .pathway {
+  border-left: 1px solid rgba(241, 238, 229, 0.22);
+  padding-left: clamp(28px, 5vw, 68px);
+}
+.pathway-label {
+  color: #E6A08B;
+  margin: 0 0 16px;
+}
+.pathway:nth-child(2) .pathway-label { color: #D4B58F; }
+.pathway h3 {
   color: var(--paper);
-  padding: clamp(52px, 6vw, 78px) clamp(20px, 5vw, 72px);
+  font-size: clamp(23px, 3vw, 34px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin: 0;
+  text-transform: uppercase;
 }
-.contact-inner {
+.pathway p {
+  color: rgba(241, 238, 229, 0.74);
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 17px 0 0;
+  max-width: 500px;
+}
+.get-started { background: var(--paper); }
+.get-started-inner {
   align-items: center;
-  display: flex;
-  gap: 24px;
-  justify-content: space-between;
-  margin: 0 auto;
-  max-width: 1180px;
+  display: grid;
+  gap: 32px clamp(40px, 8vw, 120px);
+  grid-template-columns: minmax(0, 1fr) auto;
 }
-.contact .section-heading { color: var(--paper); font-size: clamp(28px, 3.5vw, 42px); margin-bottom: 10px; }
-.contact-copy { color: rgba(241, 238, 229, 0.72); margin: 0; max-width: 660px; }
-.contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
-.button-fire { background: var(--fire); border-color: var(--fire); color: #fff; }
-.button-fire:hover { background: #9F3426; border-color: #9F3426; }
-.button-outline { background: transparent; border-color: rgba(241, 238, 229, 0.4); color: var(--paper); }
-.button-outline:hover { border-color: var(--paper); }
-@media (max-width: 850px) {
+.get-started .section-heading { font-size: clamp(34px, 4.5vw, 54px); }
+.get-started-copy {
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.75;
+  margin: 17px 0 0;
+  max-width: 680px;
+}
+.contact-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.contact-actions .button-outline { border-color: rgba(23, 27, 26, 0.34); color: var(--ink); }
+.contact-actions .button-outline:hover { border-color: var(--ink); }
+@media (max-width: 780px) {
   .hero-inner { grid-template-columns: minmax(0, 1fr) minmax(240px, 0.82fr); }
-  .contact-inner { align-items: flex-start; flex-direction: column; }
+  .hero-visual { min-height: 290px; }
+  .get-started-inner { align-items: start; grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 620px) {
-  .hero-inner, .philosophy-layout, .fire-layout { grid-template-columns: minmax(0, 1fr); }
-  .hero { padding-bottom: 56px; padding-top: 64px; }
+  .hero-inner, .training-intro, .pathway-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero { padding-bottom: 56px; padding-top: 60px; }
   .hero-inner { gap: 34px; }
-  .hero h1 { font-size: clamp(39px, 12vw, 58px); }
-  .hero-title-line { font-size: clamp(48px, 14vw, 70px); }
-  .photo-placeholder { min-height: 220px; }
-  .domain-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .progression-grid { gap: 24px 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pathway-card ul { grid-template-columns: minmax(0, 1fr); }
-  .fire-layout { gap: 28px; }
-  .element-mark { max-width: 190px; }
+  .hero h1 { font-size: clamp(42px, 12vw, 62px); }
+  .hero-visual { aspect-ratio: 5 / 4; min-height: 210px; }
+  .section { padding-bottom: 70px; padding-top: 70px; }
+  .training-intro { gap: 26px; }
+  .influences { align-items: start; flex-direction: column; gap: 12px; }
+  .influences-label { flex-basis: auto; }
+  .pathway-grid { gap: 34px; }
+  .pathway + .pathway { border-left: 0; border-top: 1px solid rgba(241, 238, 229, 0.22); padding: 30px 0 0; }
   .contact-actions, .contact-actions .button { width: 100%; }
 }
-@media (max-width: 420px) {
-  .domain-grid, .pathway-grid, .roots-grid, .framework-list { grid-template-columns: minmax(0, 1fr); }
-  .progression-grid { grid-template-columns: minmax(0, 1fr); }
-  .progression-step { padding-bottom: 4px; }
-  .hero-actions, .hero-actions .button { width: 100%; }
+@media (max-width: 360px) {
+  .influence-list { column-gap: 14px; }
+  .influence-list span:not(:last-child)::after { margin-left: 14px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -551,213 +355,77 @@ fetch('/Partials/nav.html').then(response => response.text()).then(html => { doc
   <section class="hero" aria-labelledby="page-title">
     <div class="hero-inner">
       <div class="hero-content">
-        <p class="eyebrow">Elemental Martial Arts · Fire Element</p>
-        <h1 id="page-title">Elemental<br>Martial Arts<span class="hero-title-line">Learn to Act.</span></h1>
-        <p class="hero-copy"><strong>Practical self-defense. Disciplined training. Character through action.</strong></p>
+        <p class="eyebrow">Fire · Learn to Act</p>
+        <h1 id="page-title">Elemental Martial Arts</h1>
+        <p class="hero-tagline">Traditional roots. Modern martial arts.</p>
+        <div class="hero-copy">
+          <p>Elemental Martial Arts brings together practical self-defense, striking, grappling, and movement in a progressive training program for youth, teens, and adults.</p>
+          <p>Rooted in Japanese martial traditions and informed by modern combatives, EMA develops physical skill, confidence, discipline, and good judgment.</p>
+        </div>
         <div class="hero-actions">
-          <a class="button button-light" href="/schedule.html">View the schedule</a>
-          <a class="button button-outline-light" href="/contact.html">Contact E5</a>
+          <a class="button button-light" href="/schedule.html">View Schedule</a>
         </div>
       </div>
-      <div class="photo-placeholder" role="img" aria-label="Placeholder for an authentic Elemental 5 martial arts training photograph">
-        <span class="photo-placeholder-label">Future E5 photography</span>
-        <span class="photo-placeholder-title">Elemental<br>Martial Arts</span>
-        <p class="photo-placeholder-note">Reserved for an authentic EMA training image</p>
+      <div class="hero-visual" role="img" aria-label="Placeholder for an authentic Elemental 5 martial arts training photograph">
+        <div class="visual-inner">
+          <span class="visual-label">Authentic E5 photography</span>
+          <span class="visual-mark" aria-hidden="true">EMA</span>
+          <p class="visual-note">Reserved for an authentic Elemental Martial Arts training image</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section philosophy" aria-labelledby="philosophy-title">
-    <div class="section-inner philosophy-layout">
-      <div class="philosophy-copy">
-        <p class="section-kicker">Skill with purpose</p>
-        <h2 class="section-heading" id="philosophy-title">More than techniques.</h2>
-        <p>Elemental Martial Arts (EMA) is a modern practical program bringing together striking, grappling, takedowns, ground skills, and practical self-defense within a progressive martial arts system.</p>
-        <p>Rooted in Japanese martial traditions and informed by modern combatives, EMA develops capable, confident students who understand that physical skill carries responsibility.</p>
-        <p>Our goal isn't simply to teach people how to fight. It's to develop the ability, awareness, and judgment to act appropriately when it matters.</p>
-      </div>
-      <div class="principle-mark" role="img" aria-label="Elemental Martial Arts principle: skill with responsibility">
-        Skill
-        <span>With responsibility</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section domains" aria-labelledby="domains-title">
+  <section class="section training" aria-labelledby="training-title">
     <div class="section-inner">
-      <p class="section-kicker">One integrated program</p>
-      <h2 class="section-heading" id="domains-title">Rooted in tradition. Built for practical training.</h2>
-      <p class="section-intro">Elemental Martial Arts draws from several martial arts disciplines, combining traditional knowledge with modern approaches to self-defense. These are curriculum influences and training areas—not separate style-specific classes.</p>
-      <div class="domain-grid">
-        <article class="domain">
-          <h3>Budo Taijutsu (Ninjutsu)</h3>
-          <p>An important foundation in Japanese martial movement, evasion, striking, grappling, and the relationship between balance and technique.</p>
-        </article>
-        <article class="domain">
-          <h3>Jujutsu, Judo &amp; Aikijutsu</h3>
-          <p>Principles of leverage, throws, takedowns, joint control, and standing grappling.</p>
-        </article>
-        <article class="domain">
-          <h3>Karate &amp; Kickboxing</h3>
-          <p>Striking fundamentals, footwork, combinations, timing, and defensive responses.</p>
-        </article>
-        <article class="domain">
-          <h3>Ground Fighting &amp; Wrestling</h3>
-          <p>Positional control, escapes, transitions, and grappling under pressure.</p>
-        </article>
-        <article class="domain">
-          <h3>Krav Maga &amp; Modern Combatives</h3>
-          <p>Practical self-defense, awareness, decisive responses, and opportunities to escape dangerous situations.</p>
-        </article>
+      <div class="training-intro">
+        <div>
+          <p class="section-kicker">What We Train</p>
+          <h2 class="section-heading" id="training-title">Traditional roots. Practical training.</h2>
+        </div>
+        <div class="training-copy">
+          <p>Elemental Martial Arts draws from Japanese Budo Taijutsu (Ninjutsu), Jujutsu, Judo, and Aikijutsu, alongside Karate, Kickboxing, Wrestling, and modern self-defense systems including Krav Maga.</p>
+          <p>These disciplines contribute striking, throws, takedowns, standing and ground grappling, escapes, and practical defensive skills. Rather than training each style separately, EMA brings their techniques and principles together into one integrated program.</p>
+        </div>
       </div>
-      <p class="domain-note">Rather than separating these disciplines into unrelated classes, EMA integrates their techniques and principles into one progressive training system. Students develop striking, standing grappling, ground skills, and practical self-defense over time; these are progressive areas of study, not guarantees of proficiency.</p>
+      <div class="influences" aria-label="Martial arts influences">
+        <span class="influences-label">Martial arts influences</span>
+        <p class="influence-list">
+          <span>Budo Taijutsu</span><span>Jujutsu</span><span>Judo</span><span>Aikijutsu</span><span>Karate</span><span>Kickboxing</span><span>Wrestling</span><span>Krav Maga</span>
+        </p>
+      </div>
     </div>
   </section>
 
   <section class="section pathways" aria-labelledby="pathways-title">
     <div class="section-inner">
-      <p class="section-kicker">One program · Two pathways</p>
-      <h2 class="section-heading" id="pathways-title">Training for each stage</h2>
-      <p class="section-intro">EMA is one integrated program with youth and teen/adult pathways. Shared principles guide training while instruction and challenges suit the people in the room.</p>
+      <p class="section-kicker">One integrated program · Age-appropriate pathways</p>
+      <h2 class="section-heading" id="pathways-title">Martial arts for every stage.</h2>
+      <p class="pathway-intro">One program, with training shaped for the people in the room.</p>
       <div class="pathway-grid">
-        <article class="pathway-card" aria-labelledby="youth-title">
-          <p class="pathway-label">Youth pathway</p>
-          <h3 id="youth-title">Confidence built through discipline.</h3>
-          <p>Structured, age-appropriate training challenges students physically and mentally. They develop coordination, balance, defensive movement, and foundational martial arts skills while practicing respect, patience, cooperation, and self-control.</p>
-          <p>As students mature, training becomes progressively more technical, encouraging independence, perseverance, and thoughtful decision-making.</p>
-          <ul>
-            <li>Coordination and balance</li>
-            <li>Defensive movement</li>
-            <li>Respect and cooperation</li>
-            <li>Perseverance and self-control</li>
-          </ul>
+        <article class="pathway">
+          <p class="pathway-label">Youth Martial Arts</p>
+          <h3>Build skill and self-control.</h3>
+          <p>Structured, age-appropriate martial arts training develops coordination, confidence, self-control, and practical physical skills. Students learn to challenge themselves, work with others, and build discipline through consistent practice.</p>
         </article>
-        <article class="pathway-card" aria-labelledby="teen-adult-title">
-          <p class="pathway-label">Teen &amp; adult pathway</p>
-          <h3 id="teen-adult-title">Practical skills. Meaningful challenges.</h3>
-          <p>Teen and adult training explores practical self-defense through striking, grappling, takedowns, escapes, and progressively more complex technical challenges.</p>
-          <p>Students learn to manage distance, maintain balance, recognize opportunities, and respond with greater composure under pressure. Consistent practice develops physical capability alongside awareness, restraint, and confidence.</p>
-          <ul>
-            <li>Striking and grappling</li>
-            <li>Takedowns and escapes</li>
-            <li>Composure and awareness</li>
-            <li>Restraint and judgment</li>
-          </ul>
+        <article class="pathway">
+          <p class="pathway-label">Teen &amp; Adult Martial Arts</p>
+          <h3>Train with purpose.</h3>
+          <p>A dynamic training environment focused on practical self-defense, striking, grappling, and technical development. Students build physical capability, composure, and confidence through progressively challenging training.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section domains" aria-labelledby="principles-title">
-    <div class="section-inner">
-      <p class="section-kicker">Understand movement</p>
-      <h2 class="section-heading" id="principles-title">Principles before complexity.</h2>
-      <p class="section-intro"><strong>Learn how movement works, not just what to do.</strong></p>
-      <p class="section-intro">Good martial arts training develops understanding as well as technique. Throughout EMA, students explore structure, balance, distance, timing, leverage, positioning, control, and adaptation.</p>
-      <div class="domain-grid">
-        <article class="domain">
-          <h3>Structure &amp; balance</h3>
-          <p>Build stable, adaptable movement and understand how balance shapes a response.</p>
-        </article>
-        <article class="domain">
-          <h3>Distance &amp; timing</h3>
-          <p>Notice space and opportunity as situations and movement change.</p>
-        </article>
-        <article class="domain">
-          <h3>Leverage &amp; positioning</h3>
-          <p>Explore how placement and efficient movement influence control.</p>
-        </article>
-        <article class="domain">
-          <h3>Control</h3>
-          <p>Practice deliberate movement with care for training partners and others.</p>
-        </article>
-        <article class="domain">
-          <h3>Adaptation</h3>
-          <p>Connect principles to changing circumstances instead of relying on a single response.</p>
-        </article>
-      </div>
-      <p class="domain-note">These principles connect individual techniques into a broader understanding of movement and self-defense. They also encourage patience, awareness, and deliberate action.</p>
-    </div>
-  </section>
-
-  <section class="section progression" aria-labelledby="progression-title">
-    <div class="section-inner">
-      <p class="section-kicker">A cumulative learning process</p>
-      <h2 class="section-heading" id="progression-title">Earned through practice. Demonstrated through skill.</h2>
-      <p class="section-intro">EMA uses a structured progression system that encourages students to build skills over time through progressive technical expectations, skill demonstrations, and cumulative evaluations.</p>
-      <div class="progression-grid">
-        <article class="progression-step">
-          <span class="step-number">01 · Practice</span>
-          <h3>Build understanding</h3>
-          <p>Students develop physical capability and technical knowledge over time.</p>
-        </article>
-        <article class="progression-step">
-          <span class="step-number">02 · Planned model</span>
-          <h3>Four stripes per belt</h3>
-          <p>The intended four-stripe belt model would recognize development along the way; the model is planned and subject to final confirmation.</p>
-        </article>
-        <article class="progression-step">
-          <span class="step-number">03 · Demonstrate</span>
-          <h3>Demonstrate skill</h3>
-          <p>Skill demonstrations offer opportunities to show developing understanding.</p>
-        </article>
-        <article class="progression-step">
-          <span class="step-number">04 · Evaluate</span>
-          <h3>Cumulative evaluations</h3>
-          <p>Evaluations consider skills and understanding built across a student's training.</p>
-        </article>
-      </div>
-      <p class="domain-note">Progress reflects more than memorizing techniques. It includes growing understanding, physical capability, consistency, and responsibility. No belt colors, timelines, or rank requirements are specified here.</p>
-    </div>
-  </section>
-
-  <section class="section fire-section" aria-labelledby="fire-title">
-    <div class="section-inner fire-layout">
-      <div class="element-mark" aria-hidden="true">Fire</div>
+  <section class="section get-started" aria-labelledby="get-started-title">
+    <div class="section-inner get-started-inner">
       <div>
-        <p class="section-kicker">One of E5's five elements</p>
-        <h2 class="section-heading" id="fire-title">Fire: learning to act.</h2>
-        <p class="section-intro">Within the Elemental 5 philosophy, Fire represents courage, effort, discipline, and the willingness to act. Martial arts gives those qualities a physical expression.</p>
-        <p class="section-intro">Students learn to meet challenges, manage discomfort, exercise restraint, and recognize that strength is most meaningful when guided by good judgment.</p>
-        <p class="section-intro">We train to become capable. We practice to become disciplined. We develop character through how we choose to act.</p>
-        <ul class="framework-list" aria-label="The five E5 elements">
-          <li>Earth · Build your body</li>
-          <li>Water · Learn to move</li>
-          <li>Fire · Learn to act</li>
-          <li>Air · Learn to express</li>
-          <li>Void · Understand who you are becoming</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="section roots" aria-labelledby="roots-title">
-    <div class="section-inner">
-      <p class="section-kicker">Tradition · Practice · Place</p>
-      <h2 class="section-heading" id="roots-title">Roots and dojo</h2>
-      <p class="section-intro">EMA brings traditional knowledge and modern approaches together in one practical training program.</p>
-      <div class="roots-grid">
-        <article class="roots-card">
-          <h3>Historical roots</h3>
-          <p>The program has historical roots in Bujinkan Budo Taijutsu and draws on Japanese martial traditions. This acknowledges historical influence; it does not claim formal affiliation or certification.</p>
-        </article>
-        <article class="roots-card">
-          <h3>A dojo in the planned facility</h3>
-          <p>A dedicated martial arts dojo is part of E5's planned new facility. The current published schedule and pricing pages do not list EMA class times, availability, or tuition; check for updates or contact E5 with questions.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" aria-labelledby="contact-title">
-    <div class="contact-inner">
-      <div>
-        <p class="section-kicker">Take the next step</p>
-        <h2 class="section-heading" id="contact-title">Discover Elemental Martial Arts.</h2>
-        <p class="contact-copy">Whether you're exploring martial arts for your child or beginning your own training, EMA offers a place to develop practical skills, confidence, and character.</p>
+        <p class="section-kicker">Fire · Learn to Act</p>
+        <h2 class="section-heading" id="get-started-title">Start your training.</h2>
+        <p class="get-started-copy">Whether you're exploring martial arts for your child or looking to begin your own training, Elemental Martial Arts offers a place to develop practical skills, confidence, and character.</p>
       </div>
       <div class="contact-actions">
-        <a class="button button-fire" href="/schedule.html">Explore the schedule</a>
+        <a class="button button-fire" href="/schedule.html">View Schedule</a>
         <a class="button button-outline" href="/contact.html">Contact E5</a>
       </div>
     </div>
