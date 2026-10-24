@@ -347,6 +347,13 @@ h1, h2, h3 {
 }
 .future-program-note strong { color: var(--ink); }
 .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.current-schedule-action { flex: 1 1 190px; }
+.current-schedule-note {
+  color: var(--ink-soft);
+  font-size: 12px;
+  margin: 0 0 8px;
+}
+.current-schedule-action .button { width: 100%; }
 @media (max-width: 820px) {
   .hero-inner { grid-template-columns: minmax(0, 1fr) minmax(250px, 0.8fr); }
   .hero-photo { min-height: 320px; }
@@ -462,7 +469,10 @@ fetch('/Partials/nav.html').then(response => response.text()).then(html => { doc
         <p class="future-program-note"><strong>Starting January 2027:</strong> Tx3 will serve ages 8–18. January enrollment is not open.</p>
       </div>
       <div class="contact-actions">
-        <a class="button button-water" href="/schedule.html">View Schedule</a>
+        <div class="current-schedule-action">
+          <p class="current-schedule-note">Current schedule · Ages 5–12</p>
+          <a class="button button-water" href="/schedule.html">View Schedule</a>
+        </div>
         <a class="button button-outline" href="/contact.html">Contact E5</a>
       </div>
     </div>
