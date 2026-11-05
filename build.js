@@ -141,7 +141,9 @@ for (const partial of ['nav.html', 'footer.html']) {
 // Publish image assets referenced by the site pages.
 copyDir(path.join(ROOT, 'assets'), path.join(OUT, 'assets'));
 console.log('copied  assets/');
-
+// Publish the content editor.
+copyDir(path.join(ROOT, 'admin'), path.join(OUT, 'admin'));
+console.log('copied  admin/');
 // Publish hidden/internal static experiences that live outside the root page list.
 copyDir(path.join(ROOT, 'kiosk'), path.join(OUT, 'kiosk'));
 console.log('copied  kiosk/');
