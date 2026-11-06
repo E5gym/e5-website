@@ -827,12 +827,18 @@ img { max-width: 100%; height: auto; display: block; }
 .thanksgiving-closed .date-badge { background: var(--red); }
 .gift-card-image img { object-fit: contain; background: #fff; padding: 10px; }
 .gift-card-image { background: #fff; }
-.thanksgiving-poster { max-width: 620px; margin: 28px auto; }
+.thanksgiving-heading { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 28px; align-items: center; margin-bottom: 28px; }
+.thanksgiving-poster { width: 100%; max-width: 220px; margin: 0; order: 1; }
 .thanksgiving-poster img { width: 100%; height: auto; }
+.date-card.pno-event { grid-column: 1 / -1; grid-template-columns: 86px minmax(0, 1fr) 180px; align-items: center; }
+.pno-event-poster img { width: 100%; height: auto; }
 @media (max-width: 900px) {
   .transition-sequence { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
+  .date-card.pno-event { grid-template-columns: 1fr; }
+  .pno-event-poster { max-width: 220px; }
+  .thanksgiving-heading { grid-template-columns: 1fr; gap: 20px; }
   .nl-hero-copy { min-width: 0; }
   .nl-hero h1 { font-size: clamp(30px, 10vw, 38px); }
   .nl-hero h1 span {
@@ -911,16 +917,23 @@ img { max-width: 100%; height: auto; display: block; }
     </section>
 
     <section class="nl-section" id="thanksgiving-week">
-      <p class="nl-kicker">November 21–27</p>
-      <h2>Thanksgiving Week at E5</h2>
-      <p class="nl-intro">Regular evening programming continues during Thanksgiving week, with a few extra opportunities to get into the gym while school is out.</p>
+      <div class="thanksgiving-heading">
       <figure class="thanksgiving-poster">
         <img src="/assets/images/thanksgiving-week-2026.png" alt="Thanksgiving week schedule: regular evening programs as scheduled; closed Thanksgiving Day. Added open gyms November 23, 24, and 25, 1–3 PM. $50 for all three days; punch passes and open gym membership accepted. Minimum age 3; parents must stay on the floor with children ages 3–5." width="1545" height="2000" loading="lazy">
       </figure>
+      <div>
+        <p class="nl-kicker">November 21–27</p>
+        <h2>Thanksgiving Week at E5</h2>
+        <p class="nl-intro">Regular evening programming continues during Thanksgiving week, with a few extra opportunities to get into the gym while school is out.</p>
+      </div>
+      </div>
       <div class="dates-grid">
-        <article class="date-card featured-date">
+        <article class="date-card featured-date pno-event">
           <div class="date-badge"><span>Sat · Nov</span><b>21</b></div>
           <div class="date-copy"><h3>Thanksgiving Parents Night Out</h3><p>5:00–8:00 PM</p><a href="https://portal.iclasspro.com/elemental5/dashboard" target="_blank" rel="noopener" class="nl-btn">Check Registration</a></div>
+          <a class="pno-event-poster" href="/assets/images/thanksgiving-pno-2026.png" target="_blank" rel="noopener" aria-label="View full Thanksgiving Parents Night Out poster">
+            <img src="/assets/images/thanksgiving-pno-2026.png" alt="Thanksgiving Parents Night Out at Elemental 5, Saturday November 21, 5–8 PM. $35 per child ages 5 and up; sibling discount. Kids enjoy Moonlight Pizza and parents receive a coupon to Soulcraft Brewing." width="1545" height="1999" loading="lazy">
+          </a>
         </article>
         <article class="date-card">
           <div class="date-badge"><span>Mon · Nov</span><b>23</b></div>
